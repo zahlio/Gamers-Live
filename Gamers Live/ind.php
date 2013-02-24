@@ -81,7 +81,7 @@ if($banned == "1"){
 // account is then banned and we redict to the banned page.
 header( 'Location: http://www.gamers-live.net/banned/' ) ;	
 }
-
+//test
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
