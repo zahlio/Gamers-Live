@@ -1,0 +1,10 @@
+/*****************************/
+/* Hide the 'Facebook social plugin' text and icon
+/*****************************/
+
+a.uiLinkSubtle {
+	display: none;
+}
+a.UIImageBlock_ICON_Image {
+	display: none;
+}

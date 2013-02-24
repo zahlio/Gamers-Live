@@ -1,0 +1,33 @@
+/*
+    This file is suposed to be embed only if the Admin wants to hide the default wordpress comment system
+
+    In some cases when people create new templates for wordpress they might change some parts of it from
+    the default theme that could case this CSS to not work.
+
+    If thats the case you're going to need to find out the element ID or CLASS that is wrapping your comments.
+    It will be something like this <div id="someid" > before the comments and a </div> at the end
+
+    You can find that ID/CLASS using firebug with FIREFOX or CHROME DEVELOPER TOOLS or looking at the source code
+    of the page (harder to find)
+
+    More info on How to Do That
+    :: http://www.tizag.com/htmlT/htmlattributes.php
+    :: http://www.tizag.com/cssT/cssid.php
+*/
+
+#comments{
+    display:none
+}
+
+#respond{
+    display:none
+}
+
+.commentlist{
+    display:none
+}
+
+
+div#fbSEOComments{
+    margin-bottom:10px  /* just to make sure the layout dont get all weird and stuff */
+}

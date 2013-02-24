@@ -1,0 +1,71 @@
+#plulzwrapper{
+    position: relative;
+}
+
+#plulzwrapper h2{
+    margin-left: 45px;
+}
+
+#plulzwrapper div.inside ul{
+    margin-left: 20px;
+}
+
+#plulzwrapper div.inside ul li{
+    font-size: 12px;
+    list-style:  disc;
+    list-style-type: disc;
+    line-height:16px;
+}
+
+#plulzwrapper div#donate{
+    border-width: 2px;
+    border-color: #7B0099;
+}
+    div#donate h3{
+        color: #7B0099;
+    }
+
+#plulzwrapper form#paypalform{
+    text-align: center;
+    padding: 15px;
+}
+#plulzwrapper .form-table th{
+    width: 140px;
+}
+#plulzwrapper .form-table label{
+    font-size: 12px
+}
+
+#plulzwrapper .postbox{
+    margin-right: 1%;
+}
+
+#plulzwrapper #plulzico{
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 7px;
+    background: transparent url(logo-plulz.png) no-repeat top left;
+    text-indent: -9999px;
+}
+
+#plulzwrapper p.help{
+    margin: 0
+}
+
+#plulzwrapper input.text, #plulzwrapper textarea{
+    display:block;
+}
+
+#plulzwrapper input.checkbox{
+    display:inline;
+    cursor: pointer;
+    margin-right: 6px;
+    line-height: 12px;
+    width: 15px !important
+}
+
+#plulzwrapper small{
+    line-height: 12px;
+}

@@ -1,0 +1,11 @@
+List of plugins which is necessary for Sportedge and ca be found in the folder:
+
+ThemeFuse Subscribers
+ThemeFuse Extend User Profile
+
+Also, we've added in the archive our plugin "Maintenance Mode" that will 
+help you a lot because it enables you to inform your users when your new 
+website is going to be live while you are working on building it.  
+
+More info, screens and live preview can be found on our WordPress.org
+plugin page here http://wordpress.org/extend/plugins/themefuse-maintenance-mode/

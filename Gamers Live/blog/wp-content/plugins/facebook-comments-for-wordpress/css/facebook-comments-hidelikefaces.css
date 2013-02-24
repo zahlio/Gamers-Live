@@ -1,0 +1,7 @@
+/*****************************/
+/* Hide the faces associated with the Like button
+/*****************************/
+
+div.connect_widget_sample_connections {
+	display: none;
+}

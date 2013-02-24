@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*****************************/
+/* Main Styles
+/*****************************/
+
+br.gutter {
+	height: 10px;
+}
+p.indent {
+	padding-left: 15px;
+}
+input.donateButton {
+	float: left;
+	padding: 7px 10px 10px 0;
+}
+span.donateText {
+	float: left;
+	padding-top: 13px;
+	font-weight: bold;
+}
+div#poststuff h3 {
+	cursor: default;
+}
+div.gutter {
+	margin-top: 20px;
+}
+div.contain-floats {
+	overflow: auto;
+}
+div#icon-help {
+	display: block;
+	float: left;
+	background: url(../images/help_icon.png) no-repeat;
+	height: 36px;
+	width: 36px;
+	margin: 14px 6px 0 0;
+}
