@@ -53,6 +53,7 @@ $feature_level = $row_channel['feature_level'];
 $ad_level = $row_channel['ad_level'];
 $payment_email = $row_channel['payment_email'];
 $payment_gateway = $row_channel['payment_gateway'];
+$feature_img = $row_channel['feature_img'];
 
 // get payments for this account
 $result_pay = mysql_query("SELECT * FROM partner_payments WHERE partner_channel_id='$channel_id' ORDER BY id DESC") or die(mysql_error());
@@ -229,6 +230,11 @@ if($partner == "0"){
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
+                    <b>Featured Image URL (is only showed in a 16:9 aspect ratio):</b>
+                    <form action="update.php?msg=feature_img" method="post">
+                        <input name="value" id="value" class="input" value="<?=$feature_img?>" size="40" type="text" maxlength="30">
+                        <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                    </form>
                             
                      <b>Payment Email:</b> 
                              <form action="update.php?msg=pay_email" method="post">

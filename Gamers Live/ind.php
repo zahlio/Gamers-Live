@@ -23,21 +23,22 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 			
 // select the database we need
 $select_db = mysql_select_db("live", $connect) or die(mysql_error());
-				
-$result = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Online' ORDER BY feature_level DESC LIMIT 1");
+
+$selected = $_GET['id'];
+
+if($selected != null){
+    $result = mysql_query("SELECT * FROM channels WHERE channel_id='$selected' AND featured='1' AND online='Online'");
+}else{
+    $result = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Online' ORDER BY feature_level DESC LIMIT 1");
+}
+
+$featured_res = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Online' ORDER BY feature_level DESC LIMIT 5");
 $row = mysql_fetch_array($result);
 $count = mysql_num_rows($result);
 
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
-$status = $_GET["status"];
-
-if($count == 0 && $status != "offline"){
-    // then we have no streams to show and we will redict to the offline page
-    header( 'Location: ?status=offline' ) ;
-}
-
-if($count == 1){
+$status = $_GET['status'];
 
     $channel_id = $row['channel_id'];
     $server_rtmp = $row['server_rtmp'];
@@ -49,7 +50,8 @@ if($count == 1){
     $videoad = $row['ad_level'];
     $ads_channel = $row['adsense_video_channel'];
 
-    $featured_bar = "<a href='http://www.gamers-live.net/featured/'><img src='/images/frontpage/featured_bar.png''></a>";
+if($count > 1){
+    $featured_bar = "<a href='http://www.gamers-live.net/featured/'><img src='/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
 }else{
     $featured_bar = "";
 }
@@ -77,11 +79,6 @@ if($status == "offline"){
     $add_view = mysql_query("UPDATE channels SET views='$new_views' WHERE channel_id='$channel_id'");
 }
 
-if($banned == "1"){
-// account is then banned and we redict to the banned page.
-header( 'Location: http://www.gamers-live.net/banned/' ) ;	
-}
-//test
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -208,6 +205,16 @@ include('slider.php');
          			<a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
                     </a>
                     </center>
+                    <br>
+                    <?php
+
+                    if($count > 1){
+                        while($featured_row = mysql_fetch_array($featured_res)){
+                            echo '<a href="?id='.$featured_row['channel_id'].'"><img src='.$featured_row['feature_img'].' class="tabs_framed" height="108" width="184" alt="Watch '.$featured_row['channel_id'].'"></a>';
+                        }
+                    }
+                    ?>
+
                     <script type="text/javascript">
                         flowplayer("stream", "http://www.gamers-live.net/files/flowplayer.commercial-3.2.11.swf",
                             {
@@ -245,7 +252,9 @@ include('slider.php');
 							}
 						);
 					</script>
-            <center><?=$featured_bar?></center>
+            <center>
+                <?=$featured_bar?>
+            </center>
         <br />
                 </div>
                 <div class="col col_1_3">

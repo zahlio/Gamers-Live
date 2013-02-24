@@ -57,6 +57,12 @@ $pgate_ads_update = mysql_query("UPDATE channels SET payment_gateway='$value' WH
 	
 }
 
+if($msg == "feature_img"){
+
+    $feature_img_update = mysql_query("UPDATE channels SET feature_img='$value' WHERE channel_id='$channel_id'") or die(mysql_error());
+
+}
+
 
 
 header( 'Location: http://www.gamers-live.net/account/partner/?msg='.$msg.'') ;	
