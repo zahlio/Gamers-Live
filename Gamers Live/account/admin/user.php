@@ -262,6 +262,8 @@ $total_tips = mysql_fetch_array($result_tips_total);
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
+
+                        <?php // TODO add ability to change the featured partner image, maybe also a preview of some sort to ban the image?? ?>
                             
                      <b>Payment Email:</b> 
                              <form action="p_update.php?msg=pay_email&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
