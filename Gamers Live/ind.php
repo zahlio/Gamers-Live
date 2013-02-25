@@ -34,7 +34,7 @@ if($selected != null){
 
 $featured_res = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Online' ORDER BY feature_level DESC LIMIT 5");
 $row = mysql_fetch_array($result);
-$count = mysql_num_rows($result);
+$count = mysql_num_rows($featured_res);
 
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
@@ -210,7 +210,7 @@ include('slider.php');
 
                     if($count > 1){
                         while($featured_row = mysql_fetch_array($featured_res)){
-                            echo '<a href="?id='.$featured_row['channel_id'].'"><img src='.$featured_row['feature_img'].' class="tabs_framed" height="108" width="184" alt="Watch '.$featured_row['channel_id'].'"></a>';
+                            echo '<a href="?id='.$featured_row['channel_id'].'"><img src="'.$featured_row['feature_img'].'" class="tabs_framed" height="108" width="184" alt="Watch '.$featured_row['channel_id'].'"></a>';
                         }
                     }
                     ?>

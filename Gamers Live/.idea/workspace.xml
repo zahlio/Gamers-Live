@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73cea95c-5c9c-4156-8bed-c1fbfa580c90" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\repos\gamers-live\Mysql\live.sql" afterPath="" />
-      <change type="DELETED" beforePath="F:\repos\gamers-live\Mysql\wordpress.sql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/partner/index.php" afterPath="$PROJECT_DIR$/account/partner/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ind.php" afterPath="$PROJECT_DIR$/ind.php" />
     </list>
     <ignored path="Gamers Live.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,29 +23,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="deprecated.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
+      <file leaf-file-name="ind.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ind.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0">
+            <state line="212" column="123" selection-start="7868" selection-end="7868" vertical-scroll-proportion="-13.076923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comment.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/account/partner/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wp-config.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.09030101">
-              <folding />
+            <state line="234" column="116" selection-start="13035" selection-end="13035" vertical-scroll-proportion="0.36863825">
+              <folding>
+                <marker date="1361820733549" expanded="true" signature="14689:15237" placeholder="..." />
+                <marker date="1361820733549" expanded="true" signature="14733:15237" placeholder="..." />
+                <marker date="1361820733549" expanded="true" signature="14777:15237" placeholder="..." />
+                <marker date="1361820733549" expanded="true" signature="14818:15192" placeholder="..." />
+                <marker date="1361820733549" expanded="true" signature="16630:16679" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,11 +65,11 @@
       <list>
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/account/partner/update.php" />
-        <option value="$PROJECT_DIR$/account/partner/index.php" />
-        <option value="$PROJECT_DIR$/ind.php" />
         <option value="$PROJECT_DIR$/blog/wp-includes/comment.php" />
         <option value="$PROJECT_DIR$/blog/wp-includes/comment-template.php" />
         <option value="$PROJECT_DIR$/blog/wp-includes/deprecated.php" />
+        <option value="$PROJECT_DIR$/ind.php" />
+        <option value="$PROJECT_DIR$/account/partner/index.php" />
       </list>
     </option>
   </component>
@@ -109,7 +106,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -128,8 +124,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -145,15 +174,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="304" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="978" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="979" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="978" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="304" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="303" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="Gamers Live" serverId="ffe4883f-eb6a-4a87-84fd-046d4bdc16db" autoUpload="true">
     <servers>
@@ -241,21 +270,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16561182" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16244726" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18385416" sideWeight="0.6708861" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18385416" sideWeight="0.8343882" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.4984375" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16561182" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -343,36 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="471" selection-end="471" vertical-scroll-proportion="-10.961538" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="40" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.82191783" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="12" selection-start="1513" selection-end="1524" vertical-scroll-proportion="0.79407805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/partner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="4675" selection-end="4675" vertical-scroll-proportion="1.3461539" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ind.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="-2.6153846" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="879" column="0" selection-start="29468" selection-end="29468" vertical-scroll-proportion="-9.346154" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0">
@@ -389,8 +388,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.09030101">
+        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="5" selection-start="471" selection-end="471" vertical-scroll-proportion="-10.961538" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/partner/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="12" selection-start="1513" selection-end="1524" vertical-scroll-proportion="0.79407805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/partner/partner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="0" selection-start="4675" selection-end="4675" vertical-scroll-proportion="1.3461539" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="879" column="0" selection-start="29468" selection-end="29468" vertical-scroll-proportion="-9.346154" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="3" selection-start="1108" selection-end="1483" vertical-scroll-proportion="0.22296543">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.01923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.01923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ind.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="123" selection-start="7868" selection-end="7868" vertical-scroll-proportion="-13.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/partner/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="116" selection-start="13035" selection-end="13035" vertical-scroll-proportion="0.36863825">
+          <folding>
+            <marker date="1361820733549" expanded="true" signature="14689:15237" placeholder="..." />
+            <marker date="1361820733549" expanded="true" signature="14733:15237" placeholder="..." />
+            <marker date="1361820733549" expanded="true" signature="14777:15237" placeholder="..." />
+            <marker date="1361820733549" expanded="true" signature="14818:15192" placeholder="..." />
+            <marker date="1361820733549" expanded="true" signature="16630:16679" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

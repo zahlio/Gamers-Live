@@ -232,7 +232,7 @@ if($partner == "0"){
                             </form>
                     <b>Featured Image URL (is only showed in a 16:9 aspect ratio):</b>
                     <form action="update.php?msg=feature_img" method="post">
-                        <input name="value" id="value" class="input" value="<?=$feature_img?>" size="40" type="text" maxlength="30">
+                        <input name="value" id="value" class="input" value="<?=$feature_img?>" size="40" type="text">
                         <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                     </form>
                             
