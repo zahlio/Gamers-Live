@@ -65,6 +65,7 @@ $ad_level = $row_channel['ad_level'];
 $feature_level = $row_channel['feature_level'];
 $payment_email = $row_channel['payment_email'];
 $payment_gateway = $row_channel['payment_gateway'];
+$featured_img = $row_channel['feature_img'];
 
 // get payments for this account
 $result_pay = mysql_query("SELECT * FROM partner_payments WHERE partner_channel_id='$channel_id' ORDER BY id DESC") or die(mysql_error());
@@ -263,8 +264,11 @@ $total_tips = mysql_fetch_array($result_tips_total);
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
 
-                        <?php // TODO add ability to change the featured partner image, maybe also a preview of some sort to ban the image?? ?>
-                            
+                    <b>Featured IMG <a href="javascript:window.open('<?=$featured_img?>','mywindowtitle','width=1280,height=720')">LINK</a></b>
+                            <form action="p_update.php?msg=featured_img&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
+                                <input name="value" id="value" class="input" value="<?=$featured_img?>" size="40" type="text" maxlength="30">
+                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                            </form>
                      <b>Payment Email:</b> 
                              <form action="p_update.php?msg=pay_email&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
                                 <input name="value" id="value" class="input" value="<?=$payment_email?>" size="40" type="text" maxlength="30">

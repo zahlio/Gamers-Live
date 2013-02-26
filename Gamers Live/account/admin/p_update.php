@@ -68,6 +68,12 @@ if($msg == "featured"){
     $featured = mysql_query("UPDATE channels SET featured='$featured_value' WHERE channel_id='$channel_id'") or die(mysql_error());
 }
 
+if($msg == "featured_img"){
+
+    $feature_img_update = mysql_query("UPDATE channels SET feature_img='$value' WHERE channel_id='$channel_id'") or die(mysql_error());
+
+}
+
 
 
 header( 'Location: http://www.gamers-live.net/account/admin/user.php?channel='.$channel_id.'') ;	

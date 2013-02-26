@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73cea95c-5c9c-4156-8bed-c1fbfa580c90" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/admin/p_update.php" afterPath="$PROJECT_DIR$/account/admin/p_update.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/admin/user.php" afterPath="$PROJECT_DIR$/account/admin/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/partner/index.php" afterPath="$PROJECT_DIR$/account/partner/index.php" />
     </list>
     <ignored path="Gamers Live.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +28,7 @@
       <file leaf-file-name="ind.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ind.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="123" selection-start="7868" selection-end="7868" vertical-scroll-proportion="-13.076923">
+            <state line="36" column="5" selection-start="1502" selection-end="1502" vertical-scroll-proportion="100.69231">
               <folding />
             </state>
           </provider>
@@ -34,13 +37,13 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/partner/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="17" selection-start="11855" selection-end="11855" vertical-scroll-proportion="-5.076923">
+            <state line="232" column="132" selection-start="12887" selection-end="12887" vertical-scroll-proportion="-8.5">
               <folding>
-                <marker date="1361820733549" expanded="true" signature="14689:15237" placeholder="..." />
-                <marker date="1361820733549" expanded="true" signature="14733:15237" placeholder="..." />
-                <marker date="1361820733549" expanded="true" signature="14777:15237" placeholder="..." />
-                <marker date="1361820733549" expanded="true" signature="14818:15192" placeholder="..." />
-                <marker date="1361820733549" expanded="true" signature="16630:16679" placeholder="..." />
+                <marker date="1361885470444" expanded="true" signature="14799:15347" placeholder="..." />
+                <marker date="1361885470444" expanded="true" signature="14843:15347" placeholder="..." />
+                <marker date="1361885470444" expanded="true" signature="14887:15347" placeholder="..." />
+                <marker date="1361885470444" expanded="true" signature="14928:15302" placeholder="..." />
+                <marker date="1361885470444" expanded="true" signature="16740:16789" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -49,15 +52,34 @@
       <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/account/admin/user.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="140" selection-start="14780" selection-end="14882" vertical-scroll-proportion="0.58219177">
+            <state line="264" column="35" selection-start="14785" selection-end="14785" vertical-scroll-proportion="0.33333334">
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1361821179369" expanded="true" signature="16478:17026" placeholder="..." />
-                <marker date="1361821179369" expanded="true" signature="16522:17026" placeholder="..." />
-                <marker date="1361821179369" expanded="true" signature="16566:17026" placeholder="..." />
-                <marker date="1361821179369" expanded="true" signature="16607:16981" placeholder="..." />
-                <marker date="1361821179369" expanded="true" signature="18818:18867" placeholder="..." />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1361885504700" expanded="true" signature="16942:17490" placeholder="..." />
+                <marker date="1361885504700" expanded="true" signature="16986:17490" placeholder="..." />
+                <marker date="1361885504700" expanded="true" signature="17030:17490" placeholder="..." />
+                <marker date="1361885504700" expanded="true" signature="17071:17445" placeholder="..." />
+                <marker date="1361885504700" expanded="true" signature="19282:19331" placeholder="..." />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="p_update.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/admin/p_update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="66" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-19.961538">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,6 +106,7 @@
         <option value="$PROJECT_DIR$/blog/wp-includes/comment-template.php" />
         <option value="$PROJECT_DIR$/blog/wp-includes/deprecated.php" />
         <option value="$PROJECT_DIR$/ind.php" />
+        <option value="$PROJECT_DIR$/account/admin/p_update.php" />
         <option value="$PROJECT_DIR$/account/partner/index.php" />
         <option value="$PROJECT_DIR$/account/admin/user.php" />
       </list>
@@ -208,15 +231,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="304" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="979" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="978" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="979" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="304" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="303" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="Gamers Live" serverId="ffe4883f-eb6a-4a87-84fd-046d4bdc16db" autoUpload="true">
     <servers>
@@ -385,46 +408,29 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
@@ -449,55 +455,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="3" selection-start="1108" selection-end="1483" vertical-scroll-proportion="0.22296543">
-          <folding />
-        </state>
+        <state line="43" column="3" selection-start="1108" selection-end="1483" vertical-scroll-proportion="0.22296543" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.01923077">
-          <folding />
-        </state>
+        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.01923077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.01923077">
-          <folding />
-        </state>
+        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.01923077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ind.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="123" selection-start="7868" selection-end="7868" vertical-scroll-proportion="-13.076923">
+        <state line="36" column="5" selection-start="1502" selection-end="1502" vertical-scroll-proportion="100.69231">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/account/partner/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="17" selection-start="11855" selection-end="11855" vertical-scroll-proportion="-5.076923">
+        <state line="232" column="132" selection-start="12887" selection-end="12887" vertical-scroll-proportion="-8.5">
           <folding>
-            <marker date="1361820733549" expanded="true" signature="14689:15237" placeholder="..." />
-            <marker date="1361820733549" expanded="true" signature="14733:15237" placeholder="..." />
-            <marker date="1361820733549" expanded="true" signature="14777:15237" placeholder="..." />
-            <marker date="1361820733549" expanded="true" signature="14818:15192" placeholder="..." />
-            <marker date="1361820733549" expanded="true" signature="16630:16679" placeholder="..." />
+            <marker date="1361885470444" expanded="true" signature="14799:15347" placeholder="..." />
+            <marker date="1361885470444" expanded="true" signature="14843:15347" placeholder="..." />
+            <marker date="1361885470444" expanded="true" signature="14887:15347" placeholder="..." />
+            <marker date="1361885470444" expanded="true" signature="14928:15302" placeholder="..." />
+            <marker date="1361885470444" expanded="true" signature="16740:16789" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/admin/p_update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="66" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-19.961538">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/account/admin/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="140" selection-start="14780" selection-end="14882" vertical-scroll-proportion="0.58219177">
+        <state line="264" column="35" selection-start="14785" selection-end="14785" vertical-scroll-proportion="0.33333334">
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1361821179369" expanded="true" signature="16478:17026" placeholder="..." />
-            <marker date="1361821179369" expanded="true" signature="16522:17026" placeholder="..." />
-            <marker date="1361821179369" expanded="true" signature="16566:17026" placeholder="..." />
-            <marker date="1361821179369" expanded="true" signature="16607:16981" placeholder="..." />
-            <marker date="1361821179369" expanded="true" signature="18818:18867" placeholder="..." />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1361885504700" expanded="true" signature="16942:17490" placeholder="..." />
+            <marker date="1361885504700" expanded="true" signature="16986:17490" placeholder="..." />
+            <marker date="1361885504700" expanded="true" signature="17030:17490" placeholder="..." />
+            <marker date="1361885504700" expanded="true" signature="17071:17445" placeholder="..." />
+            <marker date="1361885504700" expanded="true" signature="19282:19331" placeholder="..." />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

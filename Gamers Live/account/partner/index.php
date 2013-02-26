@@ -230,7 +230,7 @@ if($partner == "0"){
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
-                    <b>Featured Image URL (is only showed in a 16:9 aspect ratio):</b>
+                    <b>Featured Image URL (is only showed in a 16:9 aspect ratio) <a href="javascript:window.open('<?=$feature_img?>','mywindowtitle','width=1280,height=720')"><i>LINK</i></a>:</b>
                     <form action="update.php?msg=feature_img" method="post">
                         <input name="value" id="value" class="input" value="<?=$feature_img?>" size="40" type="text">
                         <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
