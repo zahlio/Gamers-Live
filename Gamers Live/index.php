@@ -40,7 +40,7 @@ include_once("http://www.gamers-live.net/analyticstracking.php");
     
 <p class="beta_footer">
 <font face="Lucida Sans Unicode, Lucida Grande, sans-serif">
-All trademarks referenced herein are the properties of their respective owners. <br />
+All trademarks referenced herein are the properties their respective owners. <br />
 ©2013 Gamers Live. All rights reserved.
 </p>
 </body>
