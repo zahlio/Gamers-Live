@@ -48,9 +48,21 @@ while($streams_row = mysql_fetch_array($streams))
         // the stream is online
         $set_online = mysql_query("UPDATE channels SET online='Online', viewers='$viewers' WHERE channel_id='$channel_id'") or die (mysql_error());
 
+        // we will now count the actual number of subscribers and update the database
+        $sub_count = mysql_query("SELECT * FROM subscribtions WHERE owner_channel_id='$channel_id'");
+        $sub_real_count = mysql_num_rows($sub_count);
+        // now update the value in the users tab
+        $update_sub = mysql_query("UPDATE channels SET subscribers='$sub_real_count' WHERE channel_id='$channel_id'");
+
     }else{
         // the stream is offline
         $set_offline = mysql_query("UPDATE channels SET online='Offline', viewers='$viewers' WHERE channel_id='$channel_id'") or die (mysql_error());
+
+        // we will now count the actual number of subscribers and update the database
+        $sub_count = mysql_query("SELECT * FROM subscribtions WHERE owner_channel_id='$channel_id'");
+        $sub_real_count = mysql_num_rows($sub_count);
+        // now update the value in the users tab
+        $update_sub = mysql_query("UPDATE channels SET subscribers='$sub_real_count' WHERE channel_id='$channel_id'");
     }
 }
 

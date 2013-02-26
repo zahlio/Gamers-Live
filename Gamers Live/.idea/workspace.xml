@@ -2,10 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73cea95c-5c9c-4156-8bed-c1fbfa580c90" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user/inc/menu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/user/index.php" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\css\chat.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\button_blue.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\button_logout.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\chat_line_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\input_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\img\solid_gray.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\js\jScrollPane\jScrollPane.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\js\jScrollPane\jScrollPane.min.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\js\jScrollPane\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\js\script.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\classes\Chat.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\classes\ChatBase.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\classes\ChatLine.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\classes\ChatUser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\EvilAnders\php\classes\DB.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\css\chat.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\button_blue.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\button_logout.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\chat_line_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\input_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\img\solid_gray.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\js\jScrollPane\jScrollPane.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\js\jScrollPane\jScrollPane.min.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\js\jScrollPane\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\js\script.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\classes\Chat.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\classes\ChatBase.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\classes\ChatLine.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\classes\ChatUser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\admin\php\classes\DB.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\css\chat.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\button_blue.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\button_logout.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\chat_line_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\input_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\img\solid_gray.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\js\jScrollPane\jScrollPane.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\js\jScrollPane\jScrollPane.min.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\js\jScrollPane\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\js\script.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\classes\Chat.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\classes\ChatBase.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\classes\ChatLine.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\classes\ChatUser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\demo\php\classes\DB.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\css\chat.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\button_blue.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\button_logout.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\chat_line_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\input_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\img\solid_gray.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\js\jScrollPane\jScrollPane.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\js\jScrollPane\jScrollPane.min.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\js\jScrollPane\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\js\script.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\classes\Chat.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\classes\ChatBase.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\classes\ChatLine.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\classes\ChatUser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test 2\php\classes\DB.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\css\_notes\dwsync.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\css\chat.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\_notes\dwsync.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\button_blue.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\button_logout.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\chat_line_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\input_bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\slider.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\img\solid_gray.jpg" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\_notes\dwsync.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\jScrollPane\_notes\dwsync.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\jScrollPane\jScrollPane.css" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\jScrollPane\jScrollPane.min.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\jScrollPane\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\js\script.js" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\ajax.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\Chat.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\ChatBase.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\ChatLine.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\ChatUser.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\DB.class.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\repos\gamers-live\Gamers Live\user\test\php\classes\test.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/admin/p_update.php" afterPath="$PROJECT_DIR$/account/admin/p_update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/admin/user.php" afterPath="$PROJECT_DIR$/account/admin/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/partner/index.php" afterPath="$PROJECT_DIR$/account/partner/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/account/register/signup.php" afterPath="$PROJECT_DIR$/account/register/signup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions/updater.php" afterPath="$PROJECT_DIR$/functions/updater.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ind.php" afterPath="$PROJECT_DIR$/ind.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/EvilAnders/index.php" afterPath="$PROJECT_DIR$/user/EvilAnders/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/admin/index.php" afterPath="$PROJECT_DIR$/user/admin/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/demo/index.php" afterPath="$PROJECT_DIR$/user/demo/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/test 2/index.php" afterPath="$PROJECT_DIR$/user/test 2/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/test/index.php" afterPath="$PROJECT_DIR$/user/test/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/zahlio/index.php" afterPath="$PROJECT_DIR$/user/zahlio/index.php" />
     </list>
     <ignored path="Gamers Live.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,60 +123,104 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ind.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ind.php">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/demo/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="5" selection-start="1502" selection-end="1502" vertical-scroll-proportion="100.69231">
+            <state line="13" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/partner/index.php">
+        <entry file="file://$PROJECT_DIR$/user/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="132" selection-start="12887" selection-end="12887" vertical-scroll-proportion="-8.5">
+            <state line="2" column="46" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/test/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="257" column="74" selection-start="10103" selection-end="10103" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1361885470444" expanded="true" signature="14799:15347" placeholder="..." />
-                <marker date="1361885470444" expanded="true" signature="14843:15347" placeholder="..." />
-                <marker date="1361885470444" expanded="true" signature="14887:15347" placeholder="..." />
-                <marker date="1361885470444" expanded="true" signature="14928:15302" placeholder="..." />
-                <marker date="1361885470444" expanded="true" signature="16740:16789" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="5528:5899" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="5559:5899" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="5593:5736" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="5793:5899" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="6396:6591" placeholder="..." />
+                <marker date="1361888012360" expanded="true" signature="6524:6591" placeholder="{...}" />
+                <marker date="1361888012360" expanded="true" signature="6557:6591" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/account/admin/user.php">
+      <file leaf-file-name="signup.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/account/register/signup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="264" column="35" selection-start="14785" selection-end="14785" vertical-scroll-proportion="0.33333334">
+            <state line="92" column="4" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.79014087">
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1361885504700" expanded="true" signature="16942:17490" placeholder="..." />
-                <marker date="1361885504700" expanded="true" signature="16986:17490" placeholder="..." />
-                <marker date="1361885504700" expanded="true" signature="17030:17490" placeholder="..." />
-                <marker date="1361885504700" expanded="true" signature="17071:17445" placeholder="..." />
-                <marker date="1361885504700" expanded="true" signature="19282:19331" placeholder="..." />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1361888309659" expanded="true" signature="3313:11057" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="3328:11049" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="3336:3687" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="3705:3788" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="3796:4220" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="4234:4954" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="4924:4941" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="4969:5423" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="5390:5407" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="5432:6745" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="6618:6671" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="6719:6736" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="6760:7083" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7049:7066" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7314:7362" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7373:7759" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7422:7747" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7767:8736" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="7907:8004" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="8710:8727" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="8752:9074" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="8761:8877" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="8772:8867" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9040:9057" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9090:9287" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9253:9270" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9303:9498" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9464:9481" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9523:9747" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9704:9721" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9764:9963" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9928:9945" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="9976:10060" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10073:10864" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10085:10207" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10219:10359" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10371:10515" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10527:10670" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="10682:10851" placeholder="..." />
+                <marker date="1361888309659" expanded="true" signature="11017:11033" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="p_update.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/admin/p_update.php">
+      <file leaf-file-name="menu.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/inc/menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="66" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-19.961538">
+            <state line="21" column="17" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updater.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions/updater.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="0" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,15 +242,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/account/partner/update.php" />
-        <option value="$PROJECT_DIR$/blog/wp-includes/comment.php" />
-        <option value="$PROJECT_DIR$/blog/wp-includes/comment-template.php" />
         <option value="$PROJECT_DIR$/blog/wp-includes/deprecated.php" />
-        <option value="$PROJECT_DIR$/ind.php" />
         <option value="$PROJECT_DIR$/account/admin/p_update.php" />
         <option value="$PROJECT_DIR$/account/partner/index.php" />
         <option value="$PROJECT_DIR$/account/admin/user.php" />
+        <option value="$PROJECT_DIR$/includes/config.php" />
+        <option value="$PROJECT_DIR$/ind.php" />
+        <option value="$PROJECT_DIR$/user/admin/index.php" />
+        <option value="$PROJECT_DIR$/user/demo/index.php" />
+        <option value="$PROJECT_DIR$/user/EvilAnders/index.php" />
+        <option value="$PROJECT_DIR$/user/test 2/index.php" />
+        <option value="$PROJECT_DIR$/user/zahlio/index.php" />
+        <option value="$PROJECT_DIR$/user/index.php" />
+        <option value="$PROJECT_DIR$/functions/updater.php" />
+        <option value="$PROJECT_DIR$/user/inc/menu.php" />
+        <option value="$PROJECT_DIR$/user/test/index.php" />
+        <option value="$PROJECT_DIR$/account/register/signup.php" />
       </list>
     </option>
   </component>
@@ -173,6 +322,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="functions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamers Live" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="account" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -191,25 +418,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="partner" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gamers Live" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gamers Live" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="register" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -251,6 +460,16 @@
         </serverdata>
       </server>
     </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\repos\gamers-live\Gamers Live\user" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\repos\gamers-live\Gamers Live\user" />
+      <recent name="F:\repos\gamers-live\Gamers Live\user\admin" />
+      <recent name="F:\repos\gamers-live\Gamers Live\includes" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -329,13 +548,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16561182" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16468039" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16244726" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16143012" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18385416" sideWeight="0.8375527" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18569905" sideWeight="0.8385699" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.4984375" order="7" side_tool="true" content_ui="tabs" />
@@ -408,113 +627,151 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="471" selection-end="471" vertical-scroll-proportion="-10.961538" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="12" selection-start="1513" selection-end="1524" vertical-scroll-proportion="0.79407805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/partner.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="4675" selection-end="4675" vertical-scroll-proportion="1.3461539" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment-template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="879" column="0" selection-start="29468" selection-end="29468" vertical-scroll-proportion="-9.346154" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="3" selection-start="1108" selection-end="1483" vertical-scroll-proportion="0.22296543" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="23" selection-start="8173" selection-end="8173" vertical-scroll-proportion="0.01923077" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/wp-includes/deprecated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1728" column="0" selection-start="51115" selection-end="51115" vertical-scroll-proportion="0.01923077" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ind.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="5" selection-start="1502" selection-end="1502" vertical-scroll-proportion="100.69231">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/account/partner/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="132" selection-start="12887" selection-end="12887" vertical-scroll-proportion="-8.5">
-          <folding>
-            <marker date="1361885470444" expanded="true" signature="14799:15347" placeholder="..." />
-            <marker date="1361885470444" expanded="true" signature="14843:15347" placeholder="..." />
-            <marker date="1361885470444" expanded="true" signature="14887:15347" placeholder="..." />
-            <marker date="1361885470444" expanded="true" signature="14928:15302" placeholder="..." />
-            <marker date="1361885470444" expanded="true" signature="16740:16789" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account/admin/p_update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="66" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-19.961538">
-          <folding />
-        </state>
+        <state line="72" column="66" selection-start="1989" selection-end="1989" vertical-scroll-proportion="-19.961538" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/account/admin/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="35" selection-start="14785" selection-end="14785" vertical-scroll-proportion="0.33333334">
+        <state line="260" column="55" selection-start="14362" selection-end="14778" vertical-scroll-proportion="0.23687944" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/partner/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="232" column="132" selection-start="12887" selection-end="12887" vertical-scroll-proportion="0.30273974" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/channel/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="26" selection-start="10299" selection-end="10299" vertical-scroll-proportion="-19.615385" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="5" selection-start="471" selection-end="471" vertical-scroll-proportion="-11.115385" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ind.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="685" selection-end="802" vertical-scroll-proportion="-7.8461537" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="306" selection-end="378" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/EvilAnders/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="306" selection-end="378" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/test 2/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="306" selection-end="378" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/zahlio/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="165" selection-end="17033" vertical-scroll-proportion="0.20847268">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/demo/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="46" selection-start="118" selection-end="118" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/updater.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1781" selection-end="1781" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/inc/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="17" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/test/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="257" column="74" selection-start="10103" selection-end="10103" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1361885504700" expanded="true" signature="16942:17490" placeholder="..." />
-            <marker date="1361885504700" expanded="true" signature="16986:17490" placeholder="..." />
-            <marker date="1361885504700" expanded="true" signature="17030:17490" placeholder="..." />
-            <marker date="1361885504700" expanded="true" signature="17071:17445" placeholder="..." />
-            <marker date="1361885504700" expanded="true" signature="19282:19331" placeholder="..." />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#6;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1361888012360" expanded="true" signature="5528:5899" placeholder="..." />
+            <marker date="1361888012360" expanded="true" signature="5559:5899" placeholder="..." />
+            <marker date="1361888012360" expanded="true" signature="5593:5736" placeholder="..." />
+            <marker date="1361888012360" expanded="true" signature="5793:5899" placeholder="..." />
+            <marker date="1361888012360" expanded="true" signature="6396:6591" placeholder="..." />
+            <marker date="1361888012360" expanded="true" signature="6524:6591" placeholder="{...}" />
+            <marker date="1361888012360" expanded="true" signature="6557:6591" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/register/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="4" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.79014087">
+          <folding>
+            <marker date="1361888309659" expanded="true" signature="3313:11057" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="3328:11049" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="3336:3687" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="3705:3788" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="3796:4220" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="4234:4954" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="4924:4941" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="4969:5423" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="5390:5407" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="5432:6745" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="6618:6671" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="6719:6736" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="6760:7083" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7049:7066" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7314:7362" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7373:7759" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7422:7747" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7767:8736" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="7907:8004" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="8710:8727" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="8752:9074" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="8761:8877" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="8772:8867" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9040:9057" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9090:9287" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9253:9270" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9303:9498" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9464:9481" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9523:9747" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9704:9721" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9764:9963" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9928:9945" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="9976:10060" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10073:10864" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10085:10207" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10219:10359" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10371:10515" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10527:10670" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="10682:10851" placeholder="..." />
+            <marker date="1361888309659" expanded="true" signature="11017:11033" placeholder="..." />
           </folding>
         </state>
       </provider>

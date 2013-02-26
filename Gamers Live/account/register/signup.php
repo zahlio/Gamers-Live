@@ -71,59 +71,13 @@ if($checked2 == "1"){
 	
 	// create channel dir
 	mkdir("/xampp/htdocs/user/".$channel_id."/");
-    // this is for the current chat
-	mkdir("/xampp/htdocs/user/".$channel_id."/css/");
-	mkdir("/xampp/htdocs/user/".$channel_id."/img/");
-	mkdir("/xampp/htdocs/user/".$channel_id."/js/");
-	mkdir("/xampp/htdocs/user/".$channel_id."/js/jScrollPane/");
-	mkdir("/xampp/htdocs/user/".$channel_id."/php/");
-	mkdir("/xampp/htdocs/user/".$channel_id."/php/classes/");
-	
-	
+
 	// copy channel files from test
 	copy("/xampp/htdocs/user/test/index.php","/xampp/htdocs/user/".$channel_id."/index.php");
 	copy("/xampp/htdocs/user/test/offline_img.png","/xampp/htdocs/user/".$channel_id."/offline_img.png");
 	copy("/xampp/htdocs/user/test/header.png","/xampp/htdocs/user/".$channel_id."/header.png");
 	copy("/xampp/htdocs/user/test/avatar.png","/xampp/htdocs/user/".$channel_id."/avatar.png");
-	
-	// and copy chat module
-		// css
-	copy("/xampp/htdocs/user/test/css/chat.css","/xampp/htdocs/user/".$channel_id."/css/chat.css");
-		// img
-	copy("/xampp/htdocs/user/test/img/button_blue.png","/xampp/htdocs/user/".$channel_id."/img/button_blue.png");
-	copy("/xampp/htdocs/user/test/img/button_logout.png","/xampp/htdocs/user/".$channel_id."/img/button_logout.png");
-	copy("/xampp/htdocs/user/test/img/chat_line_bg.jpg","/xampp/htdocs/user/".$channel_id."/img/chat_line_bg.jpg");
-	copy("/xampp/htdocs/user/test/img/input_bg.jpg","/xampp/htdocs/user/".$channel_id."/img/input_bg.jpg");
-	copy("/xampp/htdocs/user/test/img/slider.png","/xampp/htdocs/user/".$channel_id."/img/slider.png");
-	copy("/xampp/htdocs/user/test/img/solid_gray.jpg","/xampp/htdocs/user/".$channel_id."/img/solid_gray.jpg");
-		// js
-	copy("/xampp/htdocs/user/test/js/script.js","/xampp/htdocs/user/".$channel_id."/js/script.js");
-	copy("/xampp/htdocs/user/test/js/jScrollPane/jquery.mousewheel.js","/xampp/htdocs/user/".$channel_id."/js/jScrollPane/jquery.mousewheel.js");
-	copy("/xampp/htdocs/user/test/js/jScrollPane/jScrollPane.css","/xampp/htdocs/user/".$channel_id."/js/jScrollPane/jScrollPane.css");
-	copy("/xampp/htdocs/user/test/js/jScrollPane/jScrollPane.min.js","/xampp/htdocs/user/".$channel_id."/js/jScrollPane/jScrollPane.min.js");
-		// php
-	copy("/xampp/htdocs/user/test/php/ajax.php","/xampp/htdocs/user/".$channel_id."/php/ajax.php");
-	copy("/xampp/htdocs/user/test/php/classes/Chat.class.php","/xampp/htdocs/user/".$channel_id."/php/classes/Chat.class.php");
-	copy("/xampp/htdocs/user/test/php/classes/ChatBase.class.php","/xampp/htdocs/user/".$channel_id."/php/classes/ChatBase.class.php");
-	copy("/xampp/htdocs/user/test/php/classes/ChatLine.class.php","/xampp/htdocs/user/".$channel_id."/php/classes/ChatLine.class.php");
-	copy("/xampp/htdocs/user/test/php/classes/ChatUser.class.php","/xampp/htdocs/user/".$channel_id."/php/classes/ChatUser.class.php");
-	copy("/xampp/htdocs/user/test/php/classes/DB.class.php","/xampp/htdocs/user/".$channel_id."/php/classes/DB.class.php");
-	
 
-    // for the chat
-	// connect to database
-	$con = mysql_connect("127.0.0.1", "root", "", true) or die(mysql_error());
-	
-	$chat_db = mysql_select_db("chat", $con);
-	
-	$table_lines = "".$channel_id."_lines";
-	$table_users = "".$channel_id."_users";
-	
-	$create_chat_table_lines = mysql_query('CREATE TABLE '.$table_lines.' (`id` int(10) unsigned NOT NULL auto_increment, `author` varchar(16) NOT NULL, `gravatar` varchar(32) NOT NULL, `text` varchar(255) NOT NULL, `ts` timestamp NOT NULL default CURRENT_TIMESTAMP, PRIMARY KEY  (`id`), KEY `ts` (`ts`))', $con) or die(mysql_error());
-	
-	$create_chat_table_users = mysql_query('CREATE TABLE '.$table_users.' (`id` int(10) unsigned NOT NULL auto_increment, `name` varchar(16) NOT NULL, `gravatar` varchar(32) NOT NULL, `last_activity` timestamp NOT NULL default CURRENT_TIMESTAMP, PRIMARY KEY  (`id`), UNIQUE KEY `name` (`name`), KEY `last_activity` (`last_activity`))', $con) or die(mysql_error());
-	
-	
 	// create application dir
 	mkdir("/live/applications/".$channel_id."/");
 	
