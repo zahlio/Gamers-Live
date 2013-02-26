@@ -28,20 +28,26 @@
 <?php 
 error_reporting(0);
 session_start();
+$donater_name = $_SESSION['channel_id'];
 
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
+    $note = "as Anonymous (login to change this)";
 }else{
 $login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
+    $note = "as ".$donater_name."";
 }
+
 
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
 			
 $channel_id_get = $_GET['channel'];
 $tip = $_GET['tip'];
+
+
 			
-// first we get all info abou the streamer
+// first we get all info about the streamer
 // we first get data from our mysql database
 $database_url = "127.0.0.1";
 $database_user = "root";
@@ -64,8 +70,24 @@ $donate = $row['donate'];
 $tip_per = $row['tip_perc'];
 $channel_comment = $row['tip_comment'];
 
-$to_us = 100 - $tip_per;			
+if($channel_id == null){
+    // then redict to main page
+    header( 'Location: http://www.gamers-live.net/' ) ;
 
+}
+$to_us = 100 - $tip_per;
+
+if($donater_name == null){
+    $donater_name = "Anonymous";
+}
+
+// generate the number for this purchase
+$r_nr = rand(999, 9999);
+$item_nr = "".time()."".$r_nr."-".$channel_id."";
+// add purchase to the db
+if($channel_id != null){
+    $add_pur = mysql_query("INSERT into tips_payza (streamer, date, value, testing, user, user_email, paid, email, currency, item_code, paid_email) VALUES ('$channel_id', '0', '0', '0', '$donater_name', '0', '0', '0', 'USD', '$item_nr', '0')") or die(mysql_error());
+}
 ?>
 
 <body>
@@ -130,7 +152,7 @@ $to_us = 100 - $tip_per;
     <!-- content -->
     <div class="content">
     <br />
-    <h1>You are about to tip '<?=$channel_id?>'</h1>
+    <h1>You are about to tip '<?=$channel_id?>' <?=$note?></h1>
     Thank you for choosing to support <?=$channel_id?>, it is people like you who make a difference in the gaming community!<br />
     <br />
     
@@ -167,7 +189,7 @@ $to_us = 100 - $tip_per;
 							<center>
                             <h3>Payza offers Credit Card and Bank payments!</h3>
                             	<form name="paymentpayza" method="post" action="https://secure.payza.com/checkout" onsubmit="return validate_payza()">
-                                    <input type="hidden" name="ap_merchant" value="billing@gamers-live.net"/>
+                                    <input type="hidden" name="ap_merchant" value="admin@gamers-live.net"/>
                                     <input type="hidden" name="ap_purchasetype" value="service"/>
                                     <label for="ap_amount">Amount</label>
                                     <input type="hidden" name="ap_itemname" value="Tips to: <?=$channel_id?>"/>
@@ -175,7 +197,8 @@ $to_us = 100 - $tip_per;
                                     <input type="hidden" name="ap_currency" value="USD"/>
                                 
                                     <input type="hidden" name="ap_quantity" value="1"/>
-                                    <input type="hidden" name="ap_itemcode" value="<?=$channel_id?>"/>
+                                    <input type="hidden" name="ap_description" value="Tips for the streamer: <?=$channel_id?> from <?=$donater_name?>"/>
+                                    <input type="hidden" name="ap_itemcode" value="<?=$item_nr?>"/>
                                 
                                     <input type="image" src="https://www.payza.com/images/payza-buy-now.png"/><br /><br />
                             	</form>
