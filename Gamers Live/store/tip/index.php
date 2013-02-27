@@ -16,29 +16,6 @@
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/jquery.tools.min.js"></script>
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/jquery.easing.1.3.js"></script>
 
-    <style>
-        input.twitterStyleTextbox {
-            border: 1px solid #c4c4c4;
-            width: 180px;
-            height: 18px;
-            font-size: 13px;
-            padding: 4px 4px 4px 4px;
-            border-radius: 4px;
-            -moz-border-radius: 4px;
-            -webkit-border-radius: 4px;
-            box-shadow: 0px 0px 8px #d9d9d9;
-            -moz-box-shadow: 0px 0px 8px #d9d9d9;
-            -webkit-box-shadow: 0px 0px 8px #d9d9d9;
-        }
-
-        input.twitterStyleTextbox:focus {
-            outline: none;
-            border: 1px solid #7bc1f7;
-            box-shadow: 0px 0px 8px #7bc1f7;
-            -moz-box-shadow: 0px 0px 8px #7bc1f7;
-            -webkit-box-shadow: 0px 0px 8px #7bc1f7;
-        }​
-    </style>
     <script type="text/javascript">
         function validate_payza(){
             x=document.paymentpayza
@@ -78,12 +55,15 @@ error_reporting(0);
 session_start();
 $donater_name = $_SESSION['channel_id'];
 
+if($donater_name == null){
+
+    $donater_name = "Anonymous";
+}
+
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
-    $note = "as Anonymous (login to change this)";
 }else{
 $login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
-    $note = "as ".$donater_name."";
 }
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
@@ -94,8 +74,7 @@ $tip = $_GET['tip'];
 // gateways
 
 $payza = true;
-$mb = false;
-
+$mb = true;
 
 // first we get all info about the streamer
 // we first get data from our mysql database
@@ -103,7 +82,6 @@ $database_url = "127.0.0.1";
 $database_user = "root";
 $database_pw = "";
 
-$dir_name = basename(__DIR__);
 
 // connect to database
 $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
@@ -123,16 +101,6 @@ if($donate != 1){
 $tip_per = $row['tip_perc'];
 $comment1 = chunk_split(strip_tags($row['info2']), 40, '<br>');
 
-if($channel_id == null){
-    // then redict to main page
-    header( 'Location: http://www.gamers-live.net/' ) ;
-
-}
-$to_us = 100 - $tip_per;
-
-if($donater_name == null){
-    $donater_name = "Anonymous";
-}
 
 // generate the number for this purchase
 $r_nr = rand(999, 9999);
@@ -273,7 +241,7 @@ if($channel_id != null){
                             <input type="hidden" name="detail1_text" value="Tips for the streamer: '.$channel_id.' from '.$donater_name.'"/>
 
                             <label for="amount"><b>Amount</b></label><br>
-                            <input name="amount" value="15" maxlength="10" class="twitterStyleTextbox"> USD<br><br>
+                            <input name="amount" value="15" maxlength="10" class="gamersTextbox"> USD<br><br>
                         </form>';
                 echo'<a href="#" class="button_link" onclick="return validate_mb()"><span>PURCHASE NOW</span></a>';
             }
@@ -303,7 +271,7 @@ if($channel_id != null){
                             <input type="hidden" name="ap_purchasetype" value="service"/>
                             <label for="ap_amount"><b>Amount</b></label><br>
                             <input type="hidden" name="ap_itemname" value="Tips to: '.$channel_id.'"/>
-                            <input name="ap_amount" value="15" maxlength="10" class="twitterStyleTextbox"> USD<br><br>
+                            <input name="ap_amount" value="15" maxlength="10" class="gamersTextbox"> USD<br><br>
                             <input type="hidden" name="ap_currency" value="USD"/>
 
                             <input type="hidden" name="ap_quantity" value="1"/>

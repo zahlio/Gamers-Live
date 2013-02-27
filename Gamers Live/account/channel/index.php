@@ -141,22 +141,22 @@ $viewers = $row_channel['viewers'];
     <div class="col col_1_2 ">
         <div class="inner">
         <h3>Stream Information</h3>
-        <div class="sb sb_brown">
+        <div class="sb">
             <div class="box_title">Title</div>
             <div class="box_content">
-        <form action="update.php?msg=title" method="post">
-            <input name="value" id="value" class="input" value="<?=$title?>" size="40" type="text" maxlength="50">
-            <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+        <form name="title" action="update.php?msg=title" method="post">
+            <input name="value" id="value" class="gamersTextbox" value="<?=$title?>" type="text" maxlength="50" style="width: 310px;height: 30px">
+            <a href="#" onclick="document.title.submit()" class="button_link"><span>Update</span></a>
         </form>
                         <div class="clear"></div>
             </div>
         </div>
         
-        <div class="sb sb_brown">
+        <div class="sb">
             <div class="box_title">Game <i>(Current is <?=$game?>)</i></div>
             <div class="box_content"> 
-        <form action="update.php?msg=game" method="post">
-            <select name="value">
+        <form name="game" action="update.php?msg=game" method="post">
+            <select name="value" style="width: 310px">
             <option value="Other" id="value">Other</option>
             <option value="League Of Legends" id="value">League Of Legends</option>
             <option value="Dota 2" id="value">Dota 2</option>
@@ -166,19 +166,19 @@ $viewers = $row_channel['viewers'];
             <option value="Call Of Duty" id="value">Call Of Duty</option>
             <option value="Minecraft" id="value">Minecraft</option>
             </select>
-            <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+            <a href="#" onclick="document.game.submit()" class="button_link"><span>Update</span></a>
         </form>
                                 <div class="clear"></div>
             </div>
         </div>
-        <div class="sb sb_brown">
+        <div class="sb">
             <div class="box_title">Total Views</div>
             <div class="box_content">
                 <?=$views?>
                 <div class="clear"></div>
             </div>
         </div>
-        <div class="sb sb_brown">
+        <div class="sb">
             <div class="box_title">Total Viewers</div>
             <div class="box_content">
                 <?=$viewers?>

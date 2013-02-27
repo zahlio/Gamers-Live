@@ -98,27 +98,19 @@ $msg = "Never give your password or stream key to another person!";
     <div class="content">
     <br /><br />
     <div class="col_1_3">
-        <div class="widget-container widget_login">
                             
-                          <form action="login.php" method="post" id="loginform" class="loginform">
+                          <form name="login" action="login.php" method="post" id="loginform" class="loginform">
                             
-                            <p><label>Email</label><br><input name="email" id="email" class="input" value="" size="20" tabindex="10" type="text"></p>
+                            <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
                             
-                            <p><label>Password</label><br><input name="password" id="password" class="input" value="" size="20" tabindex="20" type="password"></p>
+                            <p><label>Password</label><br><input name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px"></p>
                             
                             <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p>
-                            
-                            <p class="forget_password"><a href="forgot.php	">Forgot Password?</a></p>   
-                            
-                            <p class="submit">
-                                <input type="submit" name="wp-submit" id="wp-submit" class="btn-submit" value="Login" tabindex="100">
-                                <input type="hidden" name="redirect_to" value="">
-                                <input type="hidden" name="testcookie" value="1">
-                            </p>                        
-                            
+
+                            <a href="#" onclick="document.login.submit()" class="button_link"><span>Login</span></a>    <a href="forgot.php">Forgot Password?</a>
+
                           </form>
                         </div>
-        </div>
     </div>
     <div class="col_2_3">
     <div class="author-box">

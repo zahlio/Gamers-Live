@@ -124,6 +124,9 @@ $admin = $_SESSION['admin'];
 	<?php if($admin == true){ 
 	echo "<a href='http://www.gamers-live.net/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
 	} ?>
+
+        <br><h1>Welcome <?=$channel_id?></h1>
+        <i><a href="http://www.gamers-live.net/user/<?=$channel_id?>/">http://www.gamers-live.net/user/<?=$channel_id?>/</a></i>
     </center>    
     <!-- account menu end -->
        <h2>Your subscriptions</h2>

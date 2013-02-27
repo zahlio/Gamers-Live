@@ -334,7 +334,7 @@ $total_tips = mysql_fetch_array($result_tips_total);
                     <div class="box_title">Display name</div>
                         <div class="box_content">
                             <form action="update.php?msg=display_name&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
-								<input name="value" id="value" class="input" value="<?=$display_name?>" size="40" type="text" maxlength="30">
+								<input name="value" id="value" class="gamersTextbox" value="<?=$display_name?>" size="40" type="text" maxlength="30">
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                          	</form>
                         <div class="clear"></div>
@@ -350,7 +350,7 @@ $total_tips = mysql_fetch_array($result_tips_total);
                 <h3 class="toggle box">Password<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                             <form action="update.php?msg=password&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
-								<input name="value" id="value" class="input" value="<?=$password?>" size="40" type="text" maxlength="30">
+								<input name="value" id="value" class="gamersTextbox" value="<?=$password?>" size="40" type="text" maxlength="30">
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                          	</form>
                     </div>
@@ -358,7 +358,7 @@ $total_tips = mysql_fetch_array($result_tips_total);
                 <h3 class="toggle box">Short bio<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                          <form action="update.php?msg=short_bio&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="200"><?=$short_bio?></textarea>
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="200"><?=$short_bio?></textarea>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                          	</form>
                             <i>Max length is 200 characters</i>
@@ -366,7 +366,7 @@ $total_tips = mysql_fetch_array($result_tips_total);
                 <h3 class="toggle box">Long Bio<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                             <form action="update.php?msg=long_bio&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="2500"><?=$long_bio?></textarea>
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="2500"><?=$long_bio?></textarea>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                          	</form>
                             <i>Max length is 2500 characters</i>

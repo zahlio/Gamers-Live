@@ -151,9 +151,9 @@ $subscribers = $row_channel['subscribers'];
                 <div class="sb">
                     <div class="box_title">Display name</div>
                         <div class="box_content">
-                            <form action="update.php?msg=display_name" method="post">
-								<input name="value" id="value" class="input" value="<?=$display_name?>" size="40" type="text" maxlength="30">
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                            <form name="name" action="update.php?msg=display_name" method="post">
+								<input name="value" id="value" class="gamersTextbox" value="<?=$display_name?>" size="40" type="text" maxlength="30" style="width: 310px">
+                                <a href="#" onclick="document.name.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                         <div class="clear"></div>
                     </div>
@@ -167,25 +167,25 @@ $subscribers = $row_channel['subscribers'];
                 </div>
                 <h3 class="toggle box">Password<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                            <form action="update.php?msg=password" method="post">
-								<input name="value" id="value" class="input" value="<?=$password?>" size="40" type="text" maxlength="30">
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                            <form name="password" action="update.php?msg=password" method="post">
+								<input name="value" id="value" class="gamersTextbox" value="<?=$password?>" size="40" type="text" maxlength="30" style="width: 310px">
+                                <a href="#" onclick="document.password.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                     </div>
                 </div>
                 <h3 class="toggle box">Short bio<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                         <form action="update.php?msg=short_bio" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="200"><?=$short_bio?></textarea>
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                         <form name="short_bio" action="update.php?msg=short_bio" method="post">
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="200"><?=$short_bio?></textarea>
+                             <a href="#" onclick="document.short_bio.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                             <i>Max length is 200 characters</i>
                     </div>
                 <h3 class="toggle box">Long Bio<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                            <form action="update.php?msg=long_bio" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="2500"><?=$long_bio?></textarea>
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                            <form name="long_bio" action="update.php?msg=long_bio" method="post">
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="2500"><?=$long_bio?></textarea>
+                                <a href="#" onclick="document.long_bio.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                             <i>Max length is 2500 characters</i>
                     </div>
@@ -203,9 +203,9 @@ $subscribers = $row_channel['subscribers'];
                  <div class="sb">
                     <div class="box_title">Game</div>
                         <div class="box_content">
-                       		<?=$game?>
-                            <form action="update.php?msg=game" method="post">
-                            <select name="value">
+                       		Current Game Selected: <?=$game?>
+                            <form name="game" action="update.php?msg=game" method="post">
+                            <select name="value" style="width: 310px">
 							<option value="Other" id="value">Other</option>
 							<option value="League Of Legends" id="value">League Of Legends</option>
                             <option value="Dota 2" id="value">Dota 2</option>
@@ -215,7 +215,7 @@ $subscribers = $row_channel['subscribers'];
                             <option value="Call Of Duty" id="value">Call Of Duty</option>
                             <option value="Minecraft" id="value">Minecraft</option>
 							</select>
-                            <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                                <a href="#" onclick="document.game.submit()" class="button_link"><span>Update</span></a>
                             </form>
                         <div class="clear"></div>
                     </div>
@@ -232,34 +232,34 @@ $subscribers = $row_channel['subscribers'];
                 <div class="sb">
                     <div class="box_title">Stream Title</div>
                         <div class="box_content">
-                       		<form action="update.php?msg=title" method="post">
-								<input name="value" id="value" class="input" value="<?=$title?>" size="40" type="text" maxlength="50">
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                       		<form name="title" action="update.php?msg=title" method="post">
+								<input name="value" id="value" class="gamersTextbox" value="<?=$title?>" size="40" type="text" maxlength="50" style="width: 310px">
+                                   <a href="#" onclick="document.title.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                         <div class="clear"></div>
                     </div>
                 </div>
                 <h3 class="toggle box">Stream Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                            <form action="update.php?msg=info1" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="2500"><?=$info1?></textarea>
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                            <form name="info1" action="update.php?msg=info1" method="post">
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="2500"><?=$info1?></textarea>
+                                <a href="#" onclick="document.info1.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                             <i>Max length is 2500 characters</i>
                     </div>
                                     <h3 class="toggle box">Streamer Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                                                     <form action="update.php?msg=info2" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="2500"><?=$info2?></textarea>
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                                <form name="info2" action="update.php?msg=info2" method="post">
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="2500"><?=$info2?></textarea>
+                                <a href="#" onclick="document.info2.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                             <i>Max length is 2500 characters</i>
                     </div>
                                     <h3 class="toggle box">Additional Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-                                                     <form action="update.php?msg=info3" method="post">
-								<textarea name="value" id="value" class="input" cols="25" rows="5" maxlength="2500"><?=$info3?></textarea>
-                                <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                                <form name="info3" action="update.php?msg=info3" method="post">
+								<textarea name="value" id="value" class="gamersTextbox" cols="25" rows="5" maxlength="2500"><?=$info3?></textarea>
+                                <a href="#" onclick="document.info3.submit()" class="button_link"><span>Update</span></a>
                          	</form>
                             <i>Max length is 2500 characters</i>
                     </div>                    
@@ -279,25 +279,25 @@ $subscribers = $row_channel['subscribers'];
                 </div>    
                                 <h3 class="toggle box">Upload Images<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
-					<form action="upload_file.php?id=avatar" method="post"
+					<form name="avatar" action="upload_file.php?id=avatar" method="post"
                     enctype="multipart/form-data">
-                    <label for="file">Avatar (50x50):</label>
+                    <label for="file"><b>Avatar (50x50)</b></label><br>
                     <input type="file" name="file" id="file"><br>
-                    <input type="submit" name="submit" value="Submit">
+                        <a href="#" onclick="document.avatar.submit()" class="button_link"><span>Upload</span></a>
                     </form>
                     <br />
-                    <form action="upload_file.php?id=offline_img" method="post"
+                    <form name="offline" action="upload_file.php?id=offline_img" method="post"
                     enctype="multipart/form-data">
-                    <label for="file">Offline img (1280x720):</label>
+                    <label for="file"><b>Offline img (1280x720)</b></label><br>
                     <input type="file" name="file" id="file"><br>
-                    <input type="submit" name="submit" value="Submit">
+                        <a href="#" onclick="document.offline.submit()" class="button_link"><span>Upload</span></a>
                     </form>
                     <br />
-                    <form action="upload_file.php?id=header" method="post"
+                    <form name="header" action="upload_file.php?id=header" method="post"
                     enctype="multipart/form-data">
-                    <label for="file">Header img (1920x200):</label>
+                    <label for="file"><b>Header img (1920x200)</b></label><br>
                     <input type="file" name="file" id="file"><br>
-                    <input type="submit" name="submit" value="Submit">
+                        <a href="#" onclick="document.header.submit()" class="button_link"><span>Upload</span></a>
                     </form>
                     <br />
                     <i>All files must be .PNG and less then 1mb</i>

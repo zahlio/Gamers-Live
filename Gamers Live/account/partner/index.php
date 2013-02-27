@@ -232,20 +232,19 @@ if($partner == "0"){
                             </form>
                     <b>Featured Image URL (is only showed in a 16:9 aspect ratio) <a href="javascript:window.open('<?=$feature_img?>','mywindowtitle','width=1280,height=720')"><i>LINK</i></a>:</b>
                     <form action="update.php?msg=feature_img" method="post">
-                        <input name="value" id="value" class="input" value="<?=$feature_img?>" size="40" type="text">
+                        <input name="value" id="value" class="gamersTextbox" value="<?=$feature_img?>" size="40" type="text" style="width: 500px">
                         <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                     </form>
                             
                      <b>Payment Email:</b> 
                              <form action="update.php?msg=pay_email" method="post">
-                                <input name="value" id="value" class="input" value="<?=$payment_email?>" size="40" type="text" maxlength="30">
+                                <input name="value" id="value" class="gamersTextbox" value="<?=$payment_email?>" size="40" type="text" maxlength="30" style="width: 500px">
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
                      <b>Payment Gateway:</b> 
                              <form action="update.php?msg=pay_gateway" method="post">
                                 <select name="value">
-                                <option value="payza" id="value">Payza</option>
-                                <option value="moneybookers" id="value">Moneybookers</option>
+                                <option value="Moneybookers" id="value">Moneybookers</option>
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
