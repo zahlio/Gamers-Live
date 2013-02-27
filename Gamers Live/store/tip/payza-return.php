@@ -90,7 +90,7 @@ else {
                 // this tap should now be updated
 
                 if($result_test_count != 0){
-                    $update_test_purchase = mysql_query("UPDATE tips_payza SET date='$date', value='$totalAmountReceived', testing='1', paid_email='$customerEmailAddress' WHERE item_code='$myItemCode'") or die(mysql_error());
+                    $update_test_purchase = mysql_query("UPDATE tips_payza SET date='$date', value='$totalAmountReceived', testing='1', paid_email='$customerEmailAddress', gateway='payza' WHERE item_code='$myItemCode'") or die(mysql_error());
                 }else{
                     die("There was an error, please contact support wiht the following error code: ".$myItemCode."");
                 }
@@ -110,7 +110,7 @@ else {
                 // this tap should now be updated
 
                 if($result_paid_count != 0){
-                    $update_paid_purchase = mysql_query("UPDATE tips_payza SET date='$date', value='$totalAmountReceived', testing='0', paid_email='$customerEmailAddress', paid='1' WHERE item_code='$myItemCode'") or die(mysql_error());
+                    $update_paid_purchase = mysql_query("UPDATE tips_payza SET date='$date', value='$totalAmountReceived', testing='0', paid_email='$customerEmailAddress', paid='1', gateway='payza' WHERE item_code='$myItemCode'") or die(mysql_error());
                 }else{
                     die("There was an error, please contact support wiht the following error code: ".$myItemCode."");
                 }

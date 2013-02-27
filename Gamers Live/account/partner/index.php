@@ -245,6 +245,7 @@ if($partner == "0"){
                              <form action="update.php?msg=pay_gateway" method="post">
                                 <select name="value">
                                 <option value="payza" id="value">Payza</option>
+                                <option value="moneybookers" id="value">Moneybookers</option>
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
