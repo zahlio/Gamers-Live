@@ -39,6 +39,17 @@
                 return false
             }
         }
+        function validate_paypal(){
+            x=document.paymentpaypal
+            txt=x.amount.value
+            if (txt>=2.00) {
+                document.paymentpaypal.submit()
+                return true
+            }else{
+                alert("Due to payments fees we do not accept payments below $2.0 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
+                return false
+            }
+        }
     </script>
 
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/slides.jquery.js"></script>
@@ -54,11 +65,13 @@
 error_reporting(0);
 session_start();
 $donater_name = $_SESSION['channel_id'];
+$user_email = $_SESSION['email'];
 
 if($donater_name == null){
 
     $donater_name = "Anonymous";
-}
+    $user_email = "none";
+}else{}
 
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
@@ -73,8 +86,9 @@ $tip = $_GET['tip'];
 
 // gateways
 
-$payza = true;
-$mb = true;
+$payza = false;
+$mb = false;
+$paypal = true;
 
 // first we get all info about the streamer
 // we first get data from our mysql database
@@ -106,9 +120,8 @@ $comment1 = chunk_split(strip_tags($row['info2']), 40, '<br>');
 $r_nr = rand(999, 9999);
 $item_nr = "".time()."".$r_nr."-".$channel_id."";
 // add purchase to the db
-if($channel_id != null){
-    $add_pur = mysql_query("INSERT into tips_payza (streamer, date, value, testing, user, user_email, paid, email, currency, item_code, paid_email) VALUES ('$channel_id', '0', '0', '0', '$donater_name', '0', '0', '0', 'USD', '$item_nr', '0')") or die(mysql_error());
-}
+
+$add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item_code) VALUES ('$channel_id', '$donater_name', '$user_email', '$item_nr') ") or die(mysql_error());
 ?>
 
 <body>
@@ -204,6 +217,11 @@ if($channel_id != null){
                     echo'<a href="?channel='.$channel_id.'&tip=true&gateway=mb" class="button_link"><span>Moneybookers</span></a>';
 
                 }
+
+                if($paypal == true){
+                    echo'<a href="?channel='.$channel_id.'&tip=true&gateway=paypal" class="button_link"><span>Paypal</span></a>';
+
+                }
             }else{
             echo'
             <a href="?channel='.$channel_id.'&tip=true" class="button_link"><span>Change Payment Gateway</span></a>';
@@ -280,6 +298,42 @@ if($channel_id != null){
                         </form>
                         ';
                 echo'<a href="#" class="button_link" onclick="return validate_payza()"><span>PURCHASE NOW</span></a>';
+
+            }
+
+            // paypal
+            if($gateway == "paypal" && $paypal == true){
+
+                echo '<br>';
+                echo '<br>';
+                echo '<b>Gateway</b>';
+                echo '<br>';
+                echo 'Paypal';
+                echo '<br>';
+                echo '<br>';
+                echo '<b>User</b>';
+                echo '<br>';
+                echo $donater_name;
+                if($donater_name == "Anonymous"){
+                    // login link
+                    echo ' - <a href="http://www.gamers-live.net/account/login/"><span>Login to change</span></a>';
+                }
+                echo '<br>';
+                echo '<br>';
+
+                echo '<form name="paymentpaypal" method="post" action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return validate_paypal()">
+                <input type="hidden" name="cmd" value="_xclick">
+                            <input type="hidden" name="business" value="admin@gamers-live.net">
+                            <input type="hidden" name="currency_code" value="USD">
+                            <input type="hidden" name="item_name" value="Tips to: '.$channel_id.'">
+                            <input type="hidden" name="item_number" value="'.$item_nr.'">
+
+                            <label for="amount"><b>Amount</b></label><br>
+                            <input name="amount" value="15" maxlength="10" class="gamersTextbox"> USD<br><br>
+
+                        </form>
+                        ';
+                echo'<a href="#" class="button_link" onclick="return validate_paypal()"><span>PURCHASE NOW</span></a>';
 
             }
             ?>
