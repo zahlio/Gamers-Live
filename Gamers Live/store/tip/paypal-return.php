@@ -45,9 +45,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close'));
 // In wamp like environments that do not come bundled with root authority certificates,
 // please download 'cacert.pem' from "http://curl.haxx.se/docs/caextract.html" and set the directory path 
 // of the certificate as shown below.
-// curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
+curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
 if( !($res = curl_exec($ch)) ) {
-    // error_log("Got " . curl_error($ch) . " when processing IPN data");
+    error_log("Got " . curl_error($ch) . " when processing IPN data");
     curl_close($ch);
     exit;
 }
@@ -72,15 +72,33 @@ if (strcmp ($res, "VERIFIED") == 0) {
     $txn_id = $_POST['txn_id'];
     $receiver_email = $_POST['receiver_email'];
     $payer_email = $_POST['payer_email'];
+    $paypal_fee = ($payment_amount - ($payment_amount * 0.034) - 0.5);
+
 
     // get the current date and time
     $date = date("d/m-Y G:i:s");
 
-    // we now update the database
-    $update_paid_purchase = mysql_query("UPDATE tips_payza SET date='$date', value='$payment_amount', testing='0', payer_email='$payer_email', currency='$payment_currency', paid='1', gateway='paypal', trans_id='$txn_id' WHERE item_code='$item_number'") or die(mysql_error());
+    if($payment_status == "Completed" && $receiver_email == "admin@gamers-live.net"){
 
+        // we first get data from our mysql database
+        $database_url = "127.0.0.1";
+        $database_user = "root";
+        $database_pw = "";
+
+        // connect to database
+        $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
+        // select the database we need
+        $select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
+        // we now update the database
+        $update_paid_purchase = mysql_query("UPDATE tips_payza SET value='$payment_amount', testing='0', currency='$payment_currency', paid='1', gateway='paypal', trans_id='$txn_id', payer_email='$payer_email', paypal_fee='$paypal_fee' WHERE item_code='$item_number'") or die(mysql_error());
+    }
+    die();
 } else if (strcmp ($res, "INVALID") == 0) {
     // log for manual investigation
-    die("Please contact support of more information regarding this error: Paypal-ER:213");
+    die("Please contact support of more information regarding this error: Paypal-ERROR:001");
+}else{
+    die("Please contact support of more information regarding this error: Paypal-ERROR:002");
 }
 ?>

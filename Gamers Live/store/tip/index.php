@@ -15,43 +15,6 @@
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/general.js"></script>
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/jquery.tools.min.js"></script>
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/jquery.easing.1.3.js"></script>
-
-    <script type="text/javascript">
-        function validate_payza(){
-            x=document.paymentpayza
-            txt=x.ap_amount.value
-            if (txt>=2.00) {
-                document.paymentpayza.submit()
-                return true
-            }else{
-                alert("Due to payments fees we do not accept payments below $2.0 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
-                return false
-            }
-        }
-        function validate_mb(){
-            x=document.paymentmb
-            txt=x.amount.value
-            if (txt>=2.00) {
-                document.paymentmb.submit()
-                return true
-            }else{
-                alert("Due to payments fees we do not accept payments below $2.0 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
-                return false
-            }
-        }
-        function validate_paypal(){
-            x=document.paymentpaypal
-            txt=x.amount.value
-            if (txt>=2.00) {
-                document.paymentpaypal.submit()
-                return true
-            }else{
-                alert("Due to payments fees we do not accept payments below $2.0 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
-                return false
-            }
-        }
-    </script>
-
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/slides.jquery.js"></script>
 
 <link rel="stylesheet" href="http://www.gamers-live.net/css/prettyPhoto.css" type="text/css" media="screen" />
@@ -61,14 +24,13 @@
 <link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
 </head>
-<?php 
-error_reporting(0);
+<?php
+//error_reporting(0);
 session_start();
 $donater_name = $_SESSION['channel_id'];
 $user_email = $_SESSION['email'];
 
 if($donater_name == null){
-
     $donater_name = "Anonymous";
     $user_email = "none";
 }else{}
@@ -83,6 +45,7 @@ include_once("http://www.gamers-live.net/analyticstracking.php");
 			
 $channel_id_get = $_GET['channel'];
 $tip = $_GET['tip'];
+$gateway = $_GET['gateway'];
 
 // gateways
 
@@ -95,6 +58,7 @@ $paypal = true;
 $database_url = "127.0.0.1";
 $database_user = "root";
 $database_pw = "";
+$date = date("d/m-Y G:i:s");
 
 
 // connect to database
@@ -115,16 +79,74 @@ if($donate != 1){
 $tip_per = $row['tip_perc'];
 $comment1 = chunk_split(strip_tags($row['info2']), 40, '<br>');
 
-
 // generate the number for this purchase
 $r_nr = rand(999, 9999);
 $item_nr = "".time()."".$r_nr."-".$channel_id."";
 // add purchase to the db
 
-$add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item_code) VALUES ('$channel_id', '$donater_name', '$user_email', '$item_nr') ") or die(mysql_error());
+if($gateway == "paypal" && $paypal == true){
+    $add_pur = mysql_query("INSERT into tips_payza (streamer, date, value, user, user_email, currency, paid, item_code, gateway) VALUES ('$channel_id', '$date', '0', '$donater_name', '$user_email', 'USD', '0', '$item_nr', 'paypal') ") or die(mysql_error());
+}
 ?>
 
-<body>
+<script type="text/javascript">
+
+    function validate_payza(){
+        x=document.paymentpayza
+        txt=x.ap_amount.value
+        if (txt>=1.00) {
+            document.paymentpayza.submit()
+            return true
+        }else{
+            alert("Due to payments fees we do not accept payments below $1.00 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
+            return false
+        }
+    }
+    function validate_mb(){
+        x=document.paymentmb
+        txt=x.amount.value
+        if (txt>=1.00) {
+            document.paymentmb.submit()
+            return true
+        }else{
+            alert("Due to payments fees we do not accept payments below $1.00 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
+            return false
+        }
+    }
+    function validate_paypal(){
+        x=document.paymentpaypal
+        txt=x.amount.value
+        if (txt>=1.00) {
+            document.paymentpaypal.submit()
+            return true
+        }else{
+            alert("Due to payments fees we do not accept payments below $1.00 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
+            return false
+        }
+    }
+    // calculation of the amount the steamer will get
+    function calc_paypal(){
+            x=document.paymentpaypal
+            number=x.amount.value
+            document.getElementById('current').innerHTML = number;
+            if(number >= 1.00){
+                streamer_cut = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>)
+                document.getElementById('streamers_cut').innerHTML = streamer_cut.toFixed(2);
+            }else{
+                document.getElementById('streamers_cut').innerHTML = '0.00';
+            }
+    }
+
+    function start_calc_paypal(){
+        x=document.paymentpaypal
+        number=x.amount.value
+            document.getElementById('current').innerHTML = number;
+            streamer_cut = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>)
+            document.getElementById('streamers_cut').innerHTML = streamer_cut.toFixed(2);
+    }
+</script>
+<body onload="start_calc_paypal()">
+
 <div class="body_wrap thinpage">
 
 <div class="header_image" style="background-image:url(http://www.gamers-live.net/images/header.png)">&nbsp;</div>
@@ -171,7 +193,7 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
 <!--/ header -->
 
 
-
+<br><br>
 <!-- middle -->
 <div class="middle full_width">
 <div class="container_12">
@@ -179,9 +201,8 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
     
     <!-- content -->
     <div class="content">
-<br /><br /><br /><br />
+    <br>
 
-<?php // 2 colons ?>
 <div class="col col_1_2 ">
     <div class="sb">
         <div class="box_title">Streamer Information</div>
@@ -204,7 +225,6 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
         <div class="box_title">Payment Information</div>
         <div class="box_content">
             <?php
-            $gateway = $_GET['gateway'];
 
             if($gateway == null){
                 // then we echo all gateways enabled
@@ -249,7 +269,7 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
                 echo '<br>';
                 echo '<br>';
 
-                echo '<form name="paymentmb" action="https://www.moneybookers.com/app/payment.pl" method="post" onsubmit="return validate_mb()"xmlns="http://www.w3.org/1999/html">
+                echo '<form name="paymentmb" action="https://www.moneybookers.com/app/payment.pl" method="post" onsubmit="return validate_mb()" xmlns="http://www.w3.org/1999/html">
                             <input type="hidden" name="pay_to_email" value="admin@gamers-live.net">
                             <input type="hidden" name="currency" value="USD">
                             <input type="hidden" name="transaction_id" value="'.$item_nr.'"/>
@@ -304,6 +324,8 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
             // paypal
             if($gateway == "paypal" && $paypal == true){
 
+                // run javascript
+
                 echo '<br>';
                 echo '<br>';
                 echo '<b>Gateway</b>';
@@ -321,18 +343,21 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
                 echo '<br>';
                 echo '<br>';
 
-                echo '<form name="paymentpaypal" method="post" action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return validate_paypal()">
+                echo '<form name="paymentpaypal" method="post" action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return validate_paypal()" autocomplete="off">
                 <input type="hidden" name="cmd" value="_xclick">
-                            <input type="hidden" name="business" value="admin@gamers-live.net">
+                            <input type="hidden" name="business" value="admin_1362135799_biz@gamers-live.net">
+                            <input type="hidden" name="notify_url" value="http://www.gamers-live.net/store/tip/paypal-return.php">
                             <input type="hidden" name="currency_code" value="USD">
                             <input type="hidden" name="item_name" value="Tips to: '.$channel_id.'">
                             <input type="hidden" name="item_number" value="'.$item_nr.'">
 
                             <label for="amount"><b>Amount</b></label><br>
-                            <input name="amount" value="15" maxlength="10" class="gamersTextbox"> USD<br><br>
+                            <input name="amount" value="15" maxlength="10" class="gamersTextbox" onKeyUp="calc_paypal()"> USD<br>
 
                         </form>
+                        <br><br>
                         ';
+
                 echo'<a href="#" class="button_link" onclick="return validate_paypal()"><span>PURCHASE NOW</span></a>';
 
             }
@@ -363,17 +388,15 @@ $add_pur = mysql_query("INSERT into tips_payza (streamer, user, user_email, item
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Payza</td>
-                            <td>2.50 % + $0.25 USD</td>
-                        </tr>
-                        <tr>
-                            <td>Moneybookers</td>
-                            <td>2.90% + €0.25</td>
+                            <td>Paypal</td>
+                            <td>3.40 % + $0.50 USD</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-           	<b>Because of these fixed fee(s) we are not accepting payments under $2.00!</b>.</p>
+                With the current value of <i id="current">0.00</i> $, the streamer will receive <i id="streamers_cut">0.00</i> $.<br>
+                <br>
+           	<b>Because of these fixed fee(s) we are not accepting payments under $1.00!</b>.</p>
         </div>
         
         <div class="faq_question toggle"><span class="faq_q">Q:</span> <span class="faq_title">How do i get in touch with you?</span> <span class="ico"></span></div>

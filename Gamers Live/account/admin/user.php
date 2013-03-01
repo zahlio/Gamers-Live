@@ -277,8 +277,7 @@ $total_tips = mysql_fetch_array($result_tips_total);
                      <b>Payment Gateway:</b> 
                              <form action="p_update.php?msg=pay_gateway&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
                                 <select name="value">
-                                <option value="payza" id="value">Payza</option>
-                                <option value="moneybookers" id="value">Moneybookers</option>
+                                    <option value="paypal" id="value">Paypal</option>
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>

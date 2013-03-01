@@ -65,26 +65,50 @@ if ($_SESSION['access'] != true) {
 	$login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
 }else{
 	$login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
-	$chat_email = $_SESSION['email'];
-	$chat_name = $_SESSION['channel_id'];
+	$name = $_SESSION['channel_id'];
+    $avatar_url = "http://www.gamers-live.net/user/".$name."/avatar.png";
+    $profile_url = "http://www.gamers-live.net/user/".$name."/";
 	$subscribe = '<a href="http://www.gamers-live.net/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
 
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
-$status = $_GET["status"];
+$status = $_GET['status'];
 
 if($status == "offline"){
     // then our stream is offline
     $offline_url = ""; // stop redicting
 }else{
     // we will also then add one to the views
+    $status = 'online';
     $add_view = mysql_query("UPDATE channels SET views='$views' WHERE channel_id='$channel_id'");
 }
 
 if($banned == "1"){
     // account is then banned
     header( 'Location: http://www.gamers-live.net/banned/' ) ;
+}
+
+$chat = $_GET['chat'];
+
+$nmekey = md5("1b4c3j6m2gia480e".$name);
+$chat_name = urlencode($name);
+
+if($chat == 'true' && $status == 'online'){
+    $width = "650";
+    $height = "383";
+    $chat_display = '
+
+    <div id="cboxdiv" style="text-align: center; line-height: 0">
+    <div><iframe frameborder="0" width="280" height="308" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="yes" name="cboxmain7-749497" style="border:#ababab 0px solid;" id="cboxmain7-749497"></iframe></div>
+    <div><iframe frameborder="0" width="280" height="75" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;nme='.$chat_name.'&amp;nmekey='.$nmekey.'" marginheight="0" marginwidth="2" scrolling="no" allowtransparency="yes" name="cboxform7-749497" style="border:#ababab 0px solid;border-top:0px" id="cboxform7-749497"></iframe></div>
+    </div>
+
+    ';
+}else{
+    $width = "960";
+    $height = "540";
+    $chat_display = "";
 }
 
 ?>
@@ -113,6 +137,22 @@ if($banned == "1"){
 <link rel="stylesheet" type="text/css" href="http://www.gamers-live.net/css/ie.css" />
 <![endif]-->
 </head>
+
+<script type="text/javascript">
+    function popcbox() {
+        cboxwin = window.open("","Cbox","width=900,height=500,toolbar=no,scrollbars=no,status=no,resizable=yes");
+        cboxwin.document.write('<html><head><title>Chat</title></head><frameset rows="*,79" frameborder="0" framespacing="0">');
+        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5" noresize="true" scrolling="auto" name="cboxmain7-749497.1" style="border:#ababab 1px solid;"/>');
+        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5&amp;nme=<?php echo urlencode($name)?>&amp;nmekey=<?php echo md5('1b4c3j6m2gia480e'.$name)?>" noresize="true" scrolling="no" name="cboxform7-749497.1" style="border:#ababab 1px solid;border-top:0px"/>');
+        cboxwin.document.write('</frameset>');
+        cboxwin.document.write('<noframes></noframes></html>');
+        try {
+            x = screen.width;
+            y = screen.height;
+            cboxwin.moveTo(Math.max((x/2)-450, 0), Math.max((y/3)-250));
+        } catch (e) {};
+    }
+</script>
 
 <body>
 <div class="body_wrap thinpage">
@@ -161,14 +201,23 @@ if($banned == "1"){
             echo '<a href="http://www.gamers-live.net/account/admin/user.php?channel='.$channel_id.'" class="button_link btn_red"><span>ADMIN EDIT</span></a>';
             }
             ?>
-            <center>
-            <h1>
-                <div id="errorbox">
-                </div>
             </h1>
-            </center>
-            <a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
-            </a>
+            <div class="col col_2_3">
+                <a style="display:block;width:<?=$width?>px;height:<?=$height?>px;margin:10px auto" id="stream">
+                </a>
+            </div>
+            <div class="col col_1_3"></div>
+                <p id="chat_display" style="margin-left: 5px">
+                    <center>
+                    <?=$chat_display?>
+                    </center>
+                </p>
+            </div>
+        <div class="clear"></div>
+                <p align="right" id="chat_show_hide">
+                    <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popcbox();" class="button_link"><span>Windowed Chat</span></a>
+                    <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
+                </p>
             <script type="text/javascript">
                 flowplayer("stream", "http://www.gamers-live.net/files/flowplayer.commercial-3.2.11.swf",
                     {
@@ -251,18 +300,18 @@ if($banned == "1"){
             </div>
 
             <div id="tabs_1_4" class="tabcontent" style="display: block;">
-                <div class="inner">
                     <center><?=$chatad?></center>
 
-                        <?php // todo add chat here
-                            echo 'The chat has not been implemented yet...';
-                        ?>
-
+                <!-- BEGIN CBOX - www.cbox.ws - v001 -->
+                <div id="cboxdiv" style="text-align: center; line-height: 0">
+                    <div><iframe frameborder="0" width="900" height="421" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5" marginheight="2" marginwidth="2" scrolling="auto" allowtransparency="yes" name="cboxmain7-749497.1" style="border:#ababab 0px solid;" id="cboxmain7-749497.1"></iframe></div>
+                    <div><iframe frameborder="0" width="900" height="79" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5&amp;nme=<?php echo urlencode($name)?>&amp;nmekey=<?php echo md5('1b4c3j6m2gia480e'.$name)?>" marginheight="2" marginwidth="2" scrolling="no" allowtransparency="yes" name="cboxform7-749497.1" style="border:#ababab 0px solid;border-top:0px" id="cboxform7-749497.1"></iframe></div>
+                </div>
+                <!-- END CBOX -->
                     <center>
                         <?=$chatad2?>
                         <h3><?=$chat_msg?></h3>
                     </center>
-                </div>
             </div>
         </div>
         <!--/ content -->
