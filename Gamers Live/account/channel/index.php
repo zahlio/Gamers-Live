@@ -41,7 +41,7 @@ $viewers = $row_channel['viewers'];
 					
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="author" content="ThemeFuse" />
@@ -218,7 +218,8 @@ $viewers = $row_channel['viewers'];
 						);
 					</script>
                     <i>NOTE: Remember to mute, or there will be an echo in the stream.</i>
-                    <?php // TODO add chat here when we get final version ?>
+            <br><br>
+            <a href="http://www.gamers-live.net/account/channel/chat/ban.php?channel=<?=$channel_id?>" class="button_link"><span>Manage your chat</span></a>
         </div>
     </div>
 	

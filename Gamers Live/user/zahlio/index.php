@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
+
+// todo add function of a popup that displays large stream and chat.
 error_reporting(0);
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
@@ -39,6 +41,7 @@ $ads = $row['ads'];
 $donate = $row['donate'];
 $videoad = $row['ad_level'];
 $ads_channel = $row['adsense_video_channel'];
+$raw_chat_key = $row['chat_key'];
 
 // get options form mysql
 
@@ -66,14 +69,29 @@ if ($_SESSION['access'] != true) {
 }else{
 	$login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
 	$name = $_SESSION['channel_id'];
+
+    // we now check if the user is banned
+    $check_if_chat_banned = mysql_query("SELECT * FROM chat_bans WHERE channel_id='$channel_id' AND user_id='$name' AND banned='1'") or die(mysql_error());
+    $count = mysql_num_rows($check_if_chat_banned);
+    if($count >= 1){
+        $chat_ban = 'true';
+        $name = null;
+        $ban_msg = "You are banned from the chat...";
+    }else{
+        $chat_ban = 'false';
+    }
     $avatar_url = "http://www.gamers-live.net/user/".$name."/avatar.png";
-    $profile_url = "http://www.gamers-live.net/user/".$name."/";
+    $profile_url = "http://www.gamers-live.net/account/channel/chat/ban.php?username=".$name."&channel=".$channel_id."";
 	$subscribe = '<a href="http://www.gamers-live.net/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
 
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
 $status = $_GET['status'];
+
+if($status != "offline"){
+    $status = 'online';
+}
 
 if($status == "offline"){
     // then our stream is offline
@@ -93,15 +111,20 @@ $chat = $_GET['chat'];
 
 $nmekey = md5("1b4c3j6m2gia480e".$name);
 $chat_name = urlencode($name);
+$chat_key = "7c195e9adef03024f907af1a84b2a8a5"; // todo when chat api is done this should be = raw_chat_key
+$chat_id = "cboxmain7-749497.1";
 
 if($chat == 'true' && $status == 'online'){
     $width = "650";
     $height = "383";
+    $c_avatar_url = urlencode($avatar_url);
+    $c_profile_url= urlencode($profile_url);
+    $c_ekey = md5("1b4c3j6m2gia480e"."\t".$avatar_url."\t".$profile_url);
     $chat_display = '
 
     <div id="cboxdiv" style="text-align: center; line-height: 0">
-    <div><iframe frameborder="0" width="280" height="308" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="yes" name="cboxmain7-749497" style="border:#ababab 0px solid;" id="cboxmain7-749497"></iframe></div>
-    <div><iframe frameborder="0" width="280" height="75" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;nme='.$chat_name.'&amp;nmekey='.$nmekey.'" marginheight="0" marginwidth="2" scrolling="no" allowtransparency="yes" name="cboxform7-749497" style="border:#ababab 0px solid;border-top:0px" id="cboxform7-749497"></iframe></div>
+    <div><iframe frameborder="0" width="280" height="308" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="yes" name="'.$chat_id.'" style="border:#ababab 0px solid;" id="'.$chat_id.'"></iframe></div>
+    <div><iframe frameborder="0" width="280" height="75" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;pic='.$c_avatar_url.'&amp;lnk='.$c_profile_url.'&amp;ekey='.$c_ekey.'&amp;nme='.$chat_name.'&amp;nmekey='.$nmekey.'" marginheight="0" marginwidth="2" scrolling="no" allowtransparency="yes" name="'.$chat_id.'" style="border:#ababab 0px solid;border-top:0px" id="'.$chat_id.'"></iframe></div>
     </div>
 
     ';
@@ -141,9 +164,9 @@ if($chat == 'true' && $status == 'online'){
 <script type="text/javascript">
     function popcbox() {
         cboxwin = window.open("","Cbox","width=900,height=500,toolbar=no,scrollbars=no,status=no,resizable=yes");
-        cboxwin.document.write('<html><head><title>Chat</title></head><frameset rows="*,79" frameborder="0" framespacing="0">');
-        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5" noresize="true" scrolling="auto" name="cboxmain7-749497.1" style="border:#ababab 1px solid;"/>');
-        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5&amp;nme=<?php echo urlencode($name)?>&amp;nmekey=<?php echo md5('1b4c3j6m2gia480e'.$name)?>" noresize="true" scrolling="no" name="cboxform7-749497.1" style="border:#ababab 1px solid;border-top:0px"/>');
+        cboxwin.document.write('<html><head><title>Chat - <?=$channel_id?></title></head><frameset rows="*,79" frameborder="0" framespacing="0">');
+        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" noresize="true" scrolling="auto" name="<?=$chat_id?>" style="border:#ababab 1px solid;"/>');
+        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tkey=<?=$chat_key?>&amp;tkey=<?=$chat_key?>&amp;nme=<?=$name?>&amp;nmekey=<?=$nmekey?>&amp;pic=<?php echo urlencode($avatar_url)?>&amp;lnk=<?php echo urlencode($profile_url)?>&amp;ekey=<?php echo md5("1b4c3j6m2gia480e"."\t".$avatar_url."\t".$profile_url)?>" noresize="true" scrolling="no" name="<?=$chat_id?>" style="border:#ababab 1px solid;border-top:0px"/>');
         cboxwin.document.write('</frameset>');
         cboxwin.document.write('<noframes></noframes></html>');
         try {
@@ -215,6 +238,7 @@ if($chat == 'true' && $status == 'online'){
             </div>
         <div class="clear"></div>
                 <p align="right" id="chat_show_hide">
+                    <b><?=$ban_msg?></b>
                     <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popcbox();" class="button_link"><span>Windowed Chat</span></a>
                     <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
                 </p>
@@ -284,7 +308,6 @@ if($chat == 'true' && $status == 'online'){
                 <li class="current"><a href="#tabs_1_1">Stream Information</a></li>
                 <li class=""><a href="#tabs_1_2">Streamer Information</a></li>
                 <li class=""><a href="#tabs_1_3">Additional Information</a></li>
-                <li class=""><a href="#tabs_1_4">Chat</a></li>
             </ul>
 
             <div id="tabs_1_1" class="tabcontent" style="display: none;">
@@ -297,21 +320,6 @@ if($chat == 'true' && $status == 'online'){
 
             <div id="tabs_1_3" class="tabcontent" style="display: block;">
                 <?=$info3?>
-            </div>
-
-            <div id="tabs_1_4" class="tabcontent" style="display: block;">
-                    <center><?=$chatad?></center>
-
-                <!-- BEGIN CBOX - www.cbox.ws - v001 -->
-                <div id="cboxdiv" style="text-align: center; line-height: 0">
-                    <div><iframe frameborder="0" width="900" height="421" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5" marginheight="2" marginwidth="2" scrolling="auto" allowtransparency="yes" name="cboxmain7-749497.1" style="border:#ababab 0px solid;" id="cboxmain7-749497.1"></iframe></div>
-                    <div><iframe frameborder="0" width="900" height="79" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tid=1&amp;tkey=7c195e9adef03024f907af1a84b2a8a5&amp;nme=<?php echo urlencode($name)?>&amp;nmekey=<?php echo md5('1b4c3j6m2gia480e'.$name)?>" marginheight="2" marginwidth="2" scrolling="no" allowtransparency="yes" name="cboxform7-749497.1" style="border:#ababab 0px solid;border-top:0px" id="cboxform7-749497.1"></iframe></div>
-                </div>
-                <!-- END CBOX -->
-                    <center>
-                        <?=$chatad2?>
-                        <h3><?=$chat_msg?></h3>
-                    </center>
             </div>
         </div>
         <!--/ content -->

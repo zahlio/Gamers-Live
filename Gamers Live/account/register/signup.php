@@ -27,6 +27,10 @@ if($display_name == ""){
 	}
 }
 
+// CBOX API todo add Chat api here
+
+$chat_key = "0";
+
 // we first get data from our mysql database
 $database_url = "127.0.0.1";
 $database_user = "root";
@@ -67,7 +71,7 @@ if($checked2 == "1"){
 		// but first we will generate the stream key
 		
 	$create_user = mysql_query("INSERT INTO users (display_name, email, password, channel_id, reg_date, active) VALUES ('$display_name', '$email', '$password', '$channel_id', '$date', '0')") or die(mysq_error());
-	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3) VALUES ('$channel_id', 'rtmp://gamers-live.net/', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info')") or die(mysql_error());
+	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3, chat_key) VALUES ('$channel_id', 'rtmp://gamers-live.net/', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info', '$chat_key')") or die(mysql_error());
 	
 	// create channel dir
 	mkdir("/xampp/htdocs/user/".$channel_id."/");

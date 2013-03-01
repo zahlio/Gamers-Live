@@ -200,26 +200,6 @@ $subscribers = $row_channel['subscribers'];
                         <div class="clear"></div>
                     </div>
                 </div>
-                 <div class="sb">
-                    <div class="box_title">Game</div>
-                        <div class="box_content">
-                       		Current Game Selected: <?=$game?>
-                            <form name="game" action="update.php?msg=game" method="post">
-                            <select name="value" style="width: 310px">
-							<option value="Other" id="value">Other</option>
-							<option value="League Of Legends" id="value">League Of Legends</option>
-                            <option value="Dota 2" id="value">Dota 2</option>
-                            <option value="Heroes Of Newerth" id="value">Heroes Of Newerth</option>
-                            <option value="Starcraft 2" id="value">Starcraft 2</option>
-                            <option value="World Of Warcraft" id="value">World Of Warcraft</option>
-                            <option value="Call Of Duty" id="value">Call Of Duty</option>
-                            <option value="Minecraft" id="value">Minecraft</option>
-							</select>
-                                <a href="#" onclick="document.game.submit()" class="button_link"><span>Update</span></a>
-                            </form>
-                        <div class="clear"></div>
-                    </div>
-                </div>
                     <h3 class="toggle box">Stream key<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                          <h2>xSplit:</h2>
@@ -229,16 +209,6 @@ $subscribers = $row_channel['subscribers'];
 						 <strong>RTMP URL:</strong> <?=$server_rtmp?><?=$channel_id?>/?streamKey=<?=$stream_key?>/<?=$channel_id?>
                     </div>
 
-                <div class="sb">
-                    <div class="box_title">Stream Title</div>
-                        <div class="box_content">
-                       		<form name="title" action="update.php?msg=title" method="post">
-								<input name="value" id="value" class="gamersTextbox" value="<?=$title?>" size="40" type="text" maxlength="50" style="width: 310px">
-                                   <a href="#" onclick="document.title.submit()" class="button_link"><span>Update</span></a>
-                         	</form>
-                        <div class="clear"></div>
-                    </div>
-                </div>
                 <h3 class="toggle box">Stream Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                             <form name="info1" action="update.php?msg=info1" method="post">
