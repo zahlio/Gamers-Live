@@ -48,8 +48,8 @@ if($count == 1){
 $get_auth = mysql_query("SELECT * FROM chat_mods WHERE user_id='$user_to_ban' AND channel_id='$channel_id'") or die(mysql_error());
 $get_auth_rows = mysql_fetch_array($get_auth);
 
-if(($get_auth_rows['mod'] == "1") || ($get_auth_rows['admin'] == "1")){
-    header( 'Location: http://www.gamers-live.net/account/channel/chat/ban.php?username='.$mod_name.'&channel='.$channel_id.'&msg=The user is MOD or ADMIN' ) ;
+if(($get_auth_rows['moderator'] == "1") || ($get_auth_rows['admin'] == "1")){
+    header( 'Location: http://www.gamers-live.net/account/channel/chat/ban.php?username='.$mod_name.'&channel='.$channel_id.'&msg=The user is MOD or ADMIN, if you wish to ban then remove the user as MOD first' ) ;
     exit;
 }else{
     $can_ban1 = true;
@@ -66,7 +66,7 @@ if($user_to_ban == $channel_id){
 $get_auth_user = mysql_query("SELECT * FROM chat_mods WHERE user_id='$mod_name' AND channel_id='$channel_id'") or die(mysql_error());
 $get_auth_rows_user = mysql_fetch_array($get_auth_user);
 
-if(($get_auth_rows_user['mod'] == "1") || ($get_auth_rows_user['admin'] == "1")){
+if(($get_auth_rows_user['moderator'] == "1") || ($get_auth_rows_user['admin'] == "1")){
     $can_ban4 = true;
 }
 

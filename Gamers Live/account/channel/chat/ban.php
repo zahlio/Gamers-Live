@@ -28,7 +28,7 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 // select the database we need
 $select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
-$result = mysql_query("SELECT * FROM chat_mods WHERE user_id='$mod_name' AND channel_id='$channel_id' AND mod='1'");
+$result = mysql_query("SELECT * FROM chat_mods WHERE user_id='$mod_name' AND channel_id='$channel_id' AND moderator='1'");
 $count = mysql_num_rows($result);
 $rows_mods = mysql_fetch_array($result);
 

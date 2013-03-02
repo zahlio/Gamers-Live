@@ -25,7 +25,7 @@
 <![endif]-->
 </head>
 <?php
-//error_reporting(0);
+error_reporting(0);
 session_start();
 $donater_name = $_SESSION['channel_id'];
 $user_email = $_SESSION['email'];
@@ -345,7 +345,7 @@ if($gateway == "paypal" && $paypal == true){
 
                 echo '<form name="paymentpaypal" method="post" action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return validate_paypal()" autocomplete="off">
                 <input type="hidden" name="cmd" value="_xclick">
-                            <input type="hidden" name="business" value="admin_1362135799_biz@gamers-live.net">
+                            <input type="hidden" name="business" value="admin@gamers-live.net">
                             <input type="hidden" name="notify_url" value="http://www.gamers-live.net/store/tip/paypal-return.php">
                             <input type="hidden" name="currency_code" value="USD">
                             <input type="hidden" name="item_name" value="Tips to: '.$channel_id.'">

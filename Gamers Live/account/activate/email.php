@@ -37,7 +37,7 @@ $besked = "Hello ".$display_name.",<br>
 You have recently signed up for a GAMERS LIVE account. And to use this account you need to confirm your email.<br><br>
 This is done by clicking the link: <a href='http://www.gamers-live.net/account/activate/active.php?email=".$email."&key=".$email_key."'>Confirm Email</a><br>
 <br>
-Should you not have peformed this action you can completely ignore this email.<br>
+Should you not have performed this action you can completely ignore this email.<br>
 <br>
 Best Regards,<br>
 Gamers Live";
