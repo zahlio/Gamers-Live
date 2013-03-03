@@ -104,11 +104,11 @@ $channel_id = $_SESSION['channel_id'];
     <br /></center><br />
     		<h1>Support & Contact</h1><br />
             <center>
-        <a href="http://gamerslive.zendesk.com/anonymous_requests/new">
+        <a href="http://support.gamers-live.net/anonymous_requests/new">
         <img src="http://www.gamers-live.net/images/support.png" class="tabs_framed" />
         </a>
         <br />
-        <a href="http://gamerslive.zendesk.com/anonymous_requests/new">
+        <a href="http://support.gamers-live.net/anonymous_requests/new">
         <img src="http://www.gamers-live.net/images/contact_us.png" class="tabs_framed" />
         </a>
     </center> 

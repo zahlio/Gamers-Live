@@ -4,6 +4,7 @@ session_start();
 
 $password = $_POST['password'];
 $email = $_POST['email'];
+$link = $_POST['link'];
 
 
 $database_url = "127.0.0.1";
@@ -34,7 +35,7 @@ if($active == 1){
 		// login log
 		$login_log_insert = mysql_query("INSERT INTO login_log (email, password, time, ip) VALUES ('$email', '$password', '$time', '$ip')") or die(mysql_error());
 		
-		// we are loged in and we will create a session etc
+		// we are logged in and we will create a session etc
 			// set to admin if admin is true
 			if($admin == 1){
 				$_SESSION['admin'] = true;	
@@ -42,7 +43,11 @@ if($active == 1){
 		$_SESSION['access'] = true;
 		$_SESSION['email'] = $email;
 		$_SESSION['channel_id'] = $row['channel_id'];
-		header("Location: http://www.gamers-live.net/account/?".SID);
+        if($link != null){
+            header("Location: http://www.gamers-live.net/user/".$link."/");
+        }else{
+		    header("Location: http://www.gamers-live.net/account/?".SID);
+        }
 		
 	}else{
 		header( 'Location: http://www.gamers-live.net/account/login/?msg=The information entered was not correct, please try again' ) ;	

@@ -99,11 +99,11 @@ $login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/acc
     <div class="grid_8 content">
 
 		<h1>Support & Contact</h1><br />
-        <a href="http://gamerslive.zendesk.com/anonymous_requests/new">
+        <a href="http://support.gamers-live.net/anonymous_requests/new">
         <img src="http://www.gamers-live.net/images/support.png" class="tabs_framed" />
         </a>
         <br />
-        <a href="http://gamerslive.zendesk.com/anonymous_requests/new">
+        <a href="http://support.gamers-live.net/anonymous_requests/new">
         <img src="http://www.gamers-live.net/images/contact_us.png" class="tabs_framed" />
         </a>
 

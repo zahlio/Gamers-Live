@@ -63,6 +63,12 @@ if($msg == "feature_img"){
 
 }
 
+if($msg == "to_remove_ads"){
+
+    $to_remove_ads_update = mysql_query("UPDATE channels SET ads_disable='$value' WHERE channel_id='$channel_id'") or die(mysql_error());
+
+}
+
 
 
 header( 'Location: http://www.gamers-live.net/account/partner/?msg='.$msg.'') ;	

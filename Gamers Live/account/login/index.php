@@ -28,8 +28,14 @@
 <?php
 error_reporting(0);
 
+$link = $_GET['link'];
 $msg = $_GET["msg"];
-if($msg == ""){
+if($link != null){
+    $msg = "You will be redicted to www.gamers-live.net/user/".$link."/ after you have logged in";
+}
+
+
+if($msg == "" && $link == null){
 $msg = "Never give your password or stream key to another person!";
 }
 
@@ -104,6 +110,7 @@ $msg = "Never give your password or stream key to another person!";
                             <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
                             
                             <p><label>Password</label><br><input name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px"></p>
+                            <input type="hidden" value="<?=$link?>" id="link" name="link">
                             
                             <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p>
 

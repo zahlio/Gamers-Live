@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 
-// todo add function of a popup that displays large stream and chat.
 error_reporting(0);
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
@@ -42,6 +41,7 @@ $donate = $row['donate'];
 $videoad = $row['ad_level'];
 $ads_channel = $row['adsense_video_channel'];
 $raw_chat_key = $row['chat_key'];
+$to_disable_ads = $row['ads_disable'];
 
 // get options form mysql
 
@@ -49,13 +49,6 @@ $options_get = mysql_query("SELECT * from channel_options WHERE active='1'") or 
 $options = mysql_fetch_array($options_get);
 
 // show ads if they are enabled = 1
-
-if($ads == "1"){
-    // then we show them
-    $ad1 = $options['ad1'];
-    $chatad = $options['chatad1'];
-    $chatad2 = $options['chatad2'];
-}
 
 if($donate == "1"){
     $donate_butten = '<a href="http://www.gamers-live.net/store/tip/?channel='.$channel_id.'&tip=true" class="button_link btn_green"><span>Tip the streamer</span></a>';
@@ -65,7 +58,7 @@ session_start();
 
 if ($_SESSION['access'] != true) {
 	$chat_msg = "You need to be logged in to chat.";
-	$login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
+	$login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/?link='.$channel_id.'">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
 }else{
 	$login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
 	$name = $_SESSION['channel_id'];
@@ -80,11 +73,30 @@ if ($_SESSION['access'] != true) {
     }else{
         $chat_ban = 'false';
     }
+
+    // we now check if the user has donated enough to disable ads
+    $check_donation_user = mysql_query("SELECT SUM(value) as total_donation FROM tips_payza WHERE user='$name' AND paid='1' AND streamer='$channel_id'") or die(mysql_error());
+    $check_donation_user_row = mysql_fetch_array($check_donation_user);
+    $total_donated = $check_donation_user_row['total_donation'];
+
+    if($total_donated >= $to_disable_ads && $to_disable_ads != "0"){
+        $ads = "0";
+    }
+
     $avatar_url = "http://www.gamers-live.net/user/".$name."/avatar.png";
     $profile_url = "http://www.gamers-live.net/account/channel/chat/ban.php?username=".$name."&channel=".$channel_id."";
 	$subscribe = '<a href="http://www.gamers-live.net/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
 
+if($ads == "1"){
+    // then we show them
+    $ad1 = $options['ad1'];
+    $chatad = $options['chatad1'];
+    $chatad2 = $options['chatad2'];
+}else{
+    // we dont show ads
+    $videoad = "none";
+}
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
 $status = $_GET['status'];

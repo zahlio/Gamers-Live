@@ -54,6 +54,7 @@ $ad_level = $row_channel['ad_level'];
 $payment_email = $row_channel['payment_email'];
 $payment_gateway = $row_channel['payment_gateway'];
 $feature_img = $row_channel['feature_img'];
+$to_disable_ads = $row_channel['ads_disable'];
 
 // get payments for this account
 $result_pay = mysql_query("SELECT * FROM partner_payments WHERE partner_channel_id='$channel_id' ORDER BY id DESC") or die(mysql_error());
@@ -230,6 +231,12 @@ if($partner == "0"){
                                 </select>
                                 <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>
+                    <b>Amount needed to Tip before ADS are removed: (0 will disable the feature)</b>
+                        Currently set to: <?=$to_disable_ads?> $
+                    <form action="update.php?msg=to_remove_ads" method="post">
+                            <input name="value" id="value" class="gamersTextbox" value="<?=$to_disable_ads?>" size="40" type="text" style="width: 50px"> USD
+                        <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
+                    </form>
                     <b>Featured Image URL (is only showed in a 16:9 aspect ratio) <a href="javascript:window.open('<?=$feature_img?>','mywindowtitle','width=1280,height=720')"><i>LINK</i></a>:</b>
                     <form action="update.php?msg=feature_img" method="post">
                         <input name="value" id="value" class="gamersTextbox" value="<?=$feature_img?>" size="40" type="text" style="width: 500px">
@@ -281,8 +288,8 @@ if($partner == "0"){
                                     }
 										echo "<tr>";
                                         echo "<td><b>Total</b></td>";
-                                        echo "<td><b>" . $total_ads[0] . " $</b></td>";
-                                        echo "<td><b>" . $total_tips[0] . " $</b></td>";
+                                        echo "<td><b>" . round($total_ads[0], 2) . " $</b></td>";
+                                        echo "<td><b>" . round($total_tips[0], 2) . " $</b></td>";
                                         echo "<td></td>";
                                         echo "<td></td>";
                                         echo "<td></td>";
@@ -297,7 +304,7 @@ if($partner == "0"){
                     <div class="box_title">Partner Support</div>
                         <div class="box_content">
 							<p>Should you need support or any settings changed, then please contact support by creating a ticket in "Partner Support" with the subject of: <br /><center><h2><?=$partner_id?>: [YOUR SUBJECT]</h2></center></p><p><i>Delete the []'s. An example would be: "1-zahlio: I wish to change my payment email"</i></p>
-                            Link to support: <a href="https://gamerslive.zendesk.com/anonymous_requests/new">Click here to create a ticket</a>
+                            Link to support: <a href="http://support.gamers-live.net/anonymous_requests/new">Click here to create a ticket</a>
                         <div class="clear"></div>
                     </div>
                 </div>

@@ -27,6 +27,15 @@ $admin = $_SESSION['admin'];
 			$row_channel = mysql_fetch_array($result_channel);
 			$server_rtmp = $row_channel['server_rtmp'];
 			$stream_key = $row_channel['stream_key'];
+
+
+$result_user = mysql_query("SELECT * FROM users WHERE email='$email'");
+$row_user = mysql_fetch_array($result_user);
+
+$welcome = $row_user['first_time_login'];
+if($welcome == "1"){
+    header( 'Location: http://www.gamers-live.net/account/welcome.php' ) ;
+}
 					
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -123,6 +132,7 @@ $admin = $_SESSION['admin'];
     <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
 	<?php if($admin == true){ 
 	echo "<a href='http://www.gamers-live.net/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
+    echo "<a href='http://www.gamers-live.net/account/admin/payments/?' class='button_link btn_red'><span>Partner Payments</span></a>";
 	} ?>
 
         <br><h1>Welcome <?=$channel_id?></h1>

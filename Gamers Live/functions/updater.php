@@ -66,6 +66,8 @@ while($streams_row = mysql_fetch_array($streams))
     }
 }
 
+
+
 // now we will set the viewers of the games from the front page
 
 // get viewers for all games
