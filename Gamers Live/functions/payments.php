@@ -36,4 +36,6 @@ while($row = mysql_fetch_array($get_payments)){
 
 }
 
+exit;
+
 ?>
