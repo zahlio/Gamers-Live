@@ -67,6 +67,12 @@ $viewers = $row_channel['viewers'];
 <!--[if IE 7]>
 <link rel="stylesheet" type="text/css" href="css/ie.css" />
 <![endif]-->
+    <script type="text/javascript">
+        function popchat(url) {
+            popupWindow = window.open(
+                    url,'popUpWindow','height=700,width=400left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+        }
+    </script>
 </head>
 
 <body>
@@ -220,6 +226,8 @@ $viewers = $row_channel['viewers'];
                     <i>NOTE: Remember to mute, or there will be an echo in the stream.</i>
             <br><br>
             <a href="http://www.gamers-live.net/account/channel/chat/ban.php?channel=<?=$channel_id?>" class="button_link"><span>Manage your chat</span></a>
+            <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('http://www.gamers-live.net/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
+            <a href="http://www.gamers-live.net/user/<?=$channel_id?>" class="button_link"><span>View channel</span></a>
         </div>
     </div>
 	

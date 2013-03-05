@@ -1,5 +1,4 @@
 <?php
-// todo calculate what each featured partner has will get at the end of a month
 
 // should run every month on the 16th
 

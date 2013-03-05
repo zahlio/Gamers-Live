@@ -1,0 +1,994 @@
+/*------------------------------------------------
+
+CSS STRUCTURE:
+
+1. GENERAL TYPOGRAPHY
+	1.1 Global Reset
+	1.2 Extra fonts
+	1.3 General Styles
+	1.4 Columns Styles
+		- 960px grid system
+		- Box styles
+	1.5 List Styles
+	1.6 Borders & Dividers
+	1.7 Headers
+	1.8 Tables
+	1.9 Images
+	1.10 Forms
+	1.11 Buttons
+		- Color Styled Buttons
+
+2. SITE STRUCTURE
+	2.0 Header Slider
+	2.1 Header
+		- topmenu
+		- top search
+	2.3 Middle content
+	2.4 Sidebar
+		- Custom menu
+		- Flickr box
+	2.5 Footer
+
+3. EXTENDED TYPOGRAPHY and SHORTCODES
+	3.1 Typographic Elements
+		- Blockquote
+		- Columns in Content
+		- Framed boxes
+		- Quotes
+		- Toggle Contents
+		- Dropcaps
+	3.2 Framed Tabs
+	3.3 Custom Lists Styles
+	3.4 Custom Box Styles
+	3.5 Slideshow Gallery and Text
+	3.6 Mini Gallery
+	3.7 Styled Tables
+	3.8 Text Highlights
+	3.9 Table Pricing
+
+4. EXTENDED ELEMENTS
+	4.1 Newsletter box
+	4.2 Advertise Baners
+	4.3 Featured Block
+	4.4 FaceBook Activity
+	4.5 FAQ List
+	4.6 Contact Form
+	4.7 Galleries Layout
+
+5. WIDGETS
+	- Widget Calendar
+	- widget nav menu
+	- Widget Contact Info
+	- Widget Social Contacts
+	- social in content
+	- Sidebar Widget Container
+	- widget text
+	- widget tag cloud
+	- Twitter  widget
+	- Flickr  widget
+	- Popular/Recent Posts widget
+	- Search widget in text
+	- Login Form widget
+
+6. POSTS
+	6.1 Blog post list
+	6.2 Pagination and Navigation
+	6.3 Author description
+	6.4 Comment list
+	6.5 Comment form
+
+
+------------------------------------------------*/
+
+/*============================================================================================*/
+/* 1. GENERAL TYPOGRAPHY */
+/*============================================================================================*/
+/*----------------------------------------------*/
+/* 1.1 Global Reset */
+/*----------------------------------------------*/
+
+body, html  { height: 100%; }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    word-wrap:break-word;
+
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }/* remember to define focus styles! */
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }/* tables still need 'cellspacing="0"' in the markup */
+
+/*----------------------------------------------*/
+/* 1.2 Extra fonts */
+/*----------------------------------------------*/
+@font-face {
+    font-family: 'LatoBlackItalic';
+    src: url('http://www.gamers-live.net/css/lato-blackitalic-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-blackitalic-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-blackitalic-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-blackitalic-webfont.svg#LatoBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoBoldItalic';
+    src: url('http://www.gamers-live.net/css/lato-bolditalic-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-bolditalic-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-bolditalic-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-bolditalic-webfont.svg#LatoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LatoItalic';
+    src: url('http://www.gamers-live.net/css/lato-italic-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-italic-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-italic-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-italic-webfont.svg#LatoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LatoBold';
+    src: url('http://www.gamers-live.net/css/lato-bold-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-bold-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-bold-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-bold-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LatoBlack';
+    src: url('http://www.gamers-live.net/css/lato-black-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-black-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-black-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-black-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LatoRegular';
+    src: url('http://www.gamers-live.net/css/lato-regular-webfont.eot');
+    src: url('http://www.gamers-live.net/css/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('http://www.gamers-live.net/css/lato-regular-webfont.woff') format('woff'),
+    url('http://www.gamers-live.net/css/lato-regular-webfont.ttf') format('truetype'),
+    url('http://www.gamers-live.net/css/lato-regular-webfont.svg#LatoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*----------------------------------------------*/
+/* 1.3 General Styles */
+/*----------------------------------------------*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color:#262626;
+    font-size:13px;
+    line-height:1.5em;
+    background:url(http://www.gamers-live.net/images/body_bg.gif) #f3f3f3;
+    min-width:10px}
+
+.container {
+    width:960px;
+    margin:0 auto;
+    position:relative}
+
+/* Floating & Alignment */
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto}
+
+.alignleft {
+    float: left}
+
+.alignright {
+    float: right}
+
+.text-right {
+    text-align:right}
+.text-left {
+    text-align:left}
+.text-center {
+    text-align:center}
+
+.text-green {
+    color:#b62121}
+
+.text-gray {
+    color:#808080}
+
+.text-blue {
+    color:#b62121}
+
+/* Clear Floats */
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1; /*The following zoom:1 rule is specifically for IE6 + IE7.*/
+}
+
+* html .clearfix {
+    height: 1%;}
+
+.clearfix {
+    display: block;}
+
+.fix{
+    clear: both;
+    height: 1px;
+    margin: -1px 0 0;
+    overflow: hidden;}
+
+html body * span.clear,
+html body * div.clear,
+html body * li.clear,
+html body * dd.clear {
+    background: none;
+    border: 0;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;}
+
+a {
+    outline:none;
+    color:#b62121;
+    text-decoration:none}
+
+/*----------------------------------------------*/
+/* 1.4 Columns Styles */
+/*----------------------------------------------*/
+/*
+960px grid system ~ Core CSS.
+12 Columns ~ Margin left: 10px ~ Margin right: 10px
+*/
+
+/* =Containers
+--------------------------------------------------------------------------------*/
+.container_12
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+/* =Grid >> Global
+--------------------------------------------------------------------------------*/
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11 {
+    position: relative;
+}
+
+/* =Grid >> Children (Alpha ~ First, Omega ~ Last)
+--------------------------------------------------------------------------------*/
+.alpha {margin-left: 0;}
+.omega {margin-right: 0;}
+
+/* =Grid >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .grid_1 {width: 60px;}
+.container_12 .grid_2 {width: 140px;}
+.container_12 .grid_3 {width: 220px;}
+.container_12 .grid_4 {width: 300px;}
+.container_12 .grid_5 {width: 380px;}
+.container_12 .grid_6 {width: 460px;}
+.container_12 .grid_7 {width: 540px;}
+.container_12 .grid_8 {width: 620px;}
+.container_12 .grid_9 {width: 700px;}
+.container_12 .grid_10 {width: 780px;}
+.container_12 .grid_11 {width: 860px;}
+.container_12 .grid_12 {width: 940px;}
+
+/* =Prefix Extra Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .prefix_1 {padding-left: 80px;}
+.container_12 .prefix_2 {padding-left: 160px;}
+.container_12 .prefix_3 {padding-left: 240px;}
+.container_12 .prefix_4 {padding-left: 320px;}
+.container_12 .prefix_5 {padding-left: 400px;}
+.container_12 .prefix_6 {padding-left: 480px;}
+.container_12 .prefix_7 {padding-left: 560px;}
+.container_12 .prefix_8 {padding-left: 640px;}
+.container_12 .prefix_9 {padding-left: 720px;}
+.container_12 .prefix_10 {padding-left: 800px;}
+.container_12 .prefix_11 {padding-left: 880px;}
+
+/* =Suffix Extra Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .suffix_1 {padding-right: 80px;}
+.container_12 .suffix_2 {padding-right: 160px;}
+.container_12 .suffix_3 {padding-right: 240px;}
+.container_12 .suffix_4 {padding-right: 320px;}
+.container_12 .suffix_5 {padding-right: 400px;}
+.container_12 .suffix_6 {padding-right: 480px;}
+.container_12 .suffix_7 {padding-right: 560px;}
+.container_12 .suffix_8 {padding-right: 640px;}
+.container_12 .suffix_9 {padding-right: 720px;}
+.container_12 .suffix_10 {padding-right: 800px;}
+.container_12 .suffix_11 {padding-right: 880px;}
+
+/* `Push Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .push_1 {left: 80px;}
+.container_12 .push_2 {left: 160px;}
+.container_12 .push_3 {left: 240px;}
+.container_12 .push_4 {left: 320px;}
+.container_12 .push_5 {left: 400px;}
+.container_12 .push_6 {left: 480px;}
+.container_12 .push_7 {left: 560px;}
+.container_12 .push_8 {left: 640px;}
+.container_12 .push_9 {left: 720px;}
+.container_12 .push_10 {left: 800px;}
+.container_12 .push_11 {left: 880px;}
+
+/* `Pull Space >> 12 Columns
+--------------------------------------------------------------------------------*/
+.container_12 .pull_1 {left: -80px;}
+.container_12 .pull_2 {left: -160px;}
+.container_12 .pull_3 {left: -240px;}
+.container_12 .pull_4 {left: -320px;}
+.container_12 .pull_5 {left: -400px;}
+.container_12 .pull_6 {left: -480px;}
+.container_12 .pull_7 {left: -560px;}
+.container_12 .pull_8 {left: -640px;}
+.container_12 .pull_9 {left: -720px;}
+.container_12 .pull_10 {left: -800px;}
+.container_12 .pull_11 {left: -880px;}
+
+/* Shortcode Columns (10px margin) */
+.col_1,
+.col_1_2,
+.col_1_3,
+.col_2_3,
+.col_1_4,
+.col_3_4,
+.col_1_5,
+.col_2_5,
+.col_3_5,
+.col_4_5,
+.col_1_6,
+.col_5_6,
+.col_3_8,
+.col_5_8,
+.col_1_12 {
+    display:inline;
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;}
+
+
+.col_1 {width:940px;}
+.col_1_2 {width:460px;}
+.col_1_3 {width:300px}
+.col_2_3 {width:620px}
+.col_1_4 {width:220px}
+.col_3_4 {width:700px}
+.col_1_5 {width:172px;}
+.col_2_5 {width:364px;}
+.col_3_5 {width:556px;}
+.col_4_5 {width:748px;}
+
+.row .col_1_2 {width:470px;}
+.row .col_1_3 {width:306px}
+.row .col_2_3 {width:632px}
+.row .col_1_4 {width:225px}
+.row .col_3_4 {width:715px}
+.row .col_1_5 {width:176px;}
+.row .col_2_5 {width:372px;}
+.row .col_3_5 {width:568px;}
+.row .col_4_5 {width:764px;}
+
+.grid_8 .col_1_2 {width:290px;}
+.grid_8 .col_1_3 {width:186px}
+.grid_8 .col_2_3 {width:394px}
+.grid_8 .col_1_4 {width:135px}
+.grid_8 .col_3_4 {width:425px}
+.grid_8 .col_1_5 {width:100px;}
+.grid_8 .col_2_5 {width:220px;}
+.grid_8 .col_3_5 {width:360px;}
+
+.grid_8 .col_1_2.box_border {width:288px;}
+.grid_8 .col_1_3.box_border {width:184px}
+.grid_8 .col_2_3.box_border {width:392px}
+.grid_8 .col_1_4.box_border {width:133px}
+.grid_8 .col_3_4.box_border {width:423px}
+.grid_8 .col_1_5.box_border {width:98px;}
+.grid_8 .col_2_5.box_border {width:218px;}
+.grid_8 .col_3_5.box_border {width:358px;}
+
+.grid_8 .row .col_1_2 {width:300px;}
+.grid_8 .row .col_1_3 {width:193px}
+.grid_8 .row .col_2_3 {width:406px}
+.grid_8 .row .col_1_4 {width:140px}
+.grid_8 .row .col_3_4 {width:460px}
+.grid_8 .row .col_1_5 {width:108px;}
+.grid_8 .row .col_2_5 {width:236px;}
+.grid_8 .row .col_3_5 {width:364px;}
+
+.grid_8 .row .col_1_2.box_border {width:298px;}
+.grid_8 .row .col_1_3.box_border {width:191px}
+.grid_8 .row .col_2_3.box_border {width:404px}
+.grid_8 .row .col_1_4.box_border {width:138px}
+.grid_8 .row .col_3_4.box_border {width:458px}
+.grid_8 .row .col_1_5.box_border {width:106px;}
+.grid_8 .row .col_2_5.box_border {width:234px;}
+.grid_8 .row .col_3_5.box_border {width:362px;}
+
+.grid_2.box_border {width:118px}
+.grid_3.box_border, .col_1_4.box_border {width:218px}
+.grid_4.box_border, .col_1_3.box_border {width:298px}
+.grid_6.box_border, .col_1_2.box_border {width:458px}
+.grid_8.box_border, .col_2_3.box_border  {width:618px}
+
+.col_1_5.box_border  {width:170px}
+.col_2_5.box_border {width:362px;}
+.col_3_5.box_border {width:554px;}
+
+.row .alpha, .col.alpha {
+    margin-left:0}
+.row .omega, .col.omega {
+    margin-right:0}
+
+.row .grid_3 {
+    width:176px;
+    margin-left: 18px;
+    margin-right: 18px;}
+
+/* Box styles */
+.box {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;}
+
+.box_border {
+    border:1px solid #dadada;}
+
+.box_border2 {
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    padding:30px 0 25px 0}
+
+.noborder,
+.entry img.noborder {
+    border:none !important;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;}
+
+.box_shadow {
+    box-shadow: 0 0 3px black;
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.15);}
+
+.box_inner_shadow,
+.box.box_inner_shadow {
+    background:url(http://www.gamers-live.net/images/box_inner_shadow.jpg) center top no-repeat;
+    padding:45px 0 0 0;
+    border:none}
+
+.box_white {
+    background:#fff;}
+
+.box_light_gray {
+    background:#f5f5f5}
+
+.box_gray {
+    background:#e9e9e9}
+
+.box_green {
+    background:#ddf5bf}
+
+.box_yellow {
+    background:#fcf896}
+
+.box_blue {
+    background:#e2f4f5}
+
+.box_blue.box_border {
+    border:1px solid #dde8e9}
+
+.box_pink {
+    background:#f1dde8}
+
+.box .inner {
+    padding:15px}
+
+.box2 {
+    position:relative;
+    background:#e4e4e4;
+    border:1px solid #cdcdcd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin:20px 0;
+    padding-top:1px}
+
+.box2 h3 {
+    height:59px;
+    line-height:59px;
+    background:url(http://www.gamers-live.net/images/comment_form_head.gif) 0 0 repeat-x;
+    font-family:'LatoRegular';
+    font-size:24px;
+    text-transform:uppercase;
+    padding:0 20px;
+    color:#7c7c7c;
+    text-shadow:0 1px 1px #fff;
+    margin:0;}
+
+.box2_content {
+    padding:15px 20px 20px;}
+
+.sidebar .box h3 {
+    font-size:18px}
+
+.sidebar .box2 {
+    margin-left:20px}
+
+.box h1, .box h2, .box h3, .box h4, .box h5,
+.entry .box h1, .entry .box h2, .entry .box h3, .entry .box h4, .entry .box h5  {
+    margin-top:20px}
+
+/*----------------------------------------------*/
+/* 1.5 List Styles */
+/*----------------------------------------------*/
+ul{ list-style:disc outside; }
+ol{ list-style:decimal outside; }
+li{ margin:2px 0;}
+ol li{ margin-top:5px; margin-bottom:7px }
+ul, ol, dd{ margin-left:25px; }
+ul ul, ol ul, ul ol, ol ol{ margin-bottom:0; }
+
+/*----------------------------------------------*/
+/* 1.6 Borders & Dividers */
+/*----------------------------------------------*/
+hr{
+    border:0px solid transparent !important;
+    background-color:transparent !important;
+    height:1px;}
+
+.border {
+    border:1px solid #d1d1d1}
+
+.divider_space, .divider_space_thin, .divider, .divider_thin {
+    clear:both;
+    display:block;
+    margin-bottom:25px;
+    padding-top:26px;
+    width:100%;}
+
+.divider_space_thin {
+    margin-top:5px;
+    margin-bottom:5px;}
+
+.divider_thin {
+    margin-bottom:15px;
+    padding-top:15px;
+    background:url(http://www.gamers-live.net/images/divider_line.gif) bottom repeat-x;}
+
+.divider{
+    background:url(http://www.gamers-live.net/images/divider_line.gif) bottom repeat-x;}
+
+.footer .divider{
+    background:url(http://www.gamers-live.net/images/divider_line_footer.gif) bottom repeat-x;}
+
+/*----------------------------------------------*/
+/* 1.7 Headers */
+/*----------------------------------------------*/
+h1,h2,h3,h4,h5,h6{
+    font-weight:normal;
+    font-family:'LatoBlackItalic', Arial, Helvetica, sans-serif;
+    color:#000;
+    line-height:1.2em}
+
+h1{
+    font-size:34px;}
+
+h2{
+    font-size:27px;
+    margin-bottom:15px}
+
+h3{
+    font-size:21px;
+    margin-bottom:10px;}
+
+h3.widgettitle{
+    margin-bottom:10px; }
+
+h3, h4, h5, h6 {
+    font-family:'LatoBold';
+    color:#262626}
+
+h4{
+    font-size:18px;
+    margin-bottom:10px;}
+
+h5{
+    font-size:16px;
+    font-weight:bold;
+    margin:7px 0 5px;}
+
+h6{
+    font-size:14px;}
+
+h1 span, h2 span, h3 span ,h4 span, h5 span {
+    color:#b62121}
+
+.entry h1,
+.post-item .entry h1 {
+    margin:0 0 20px 0;
+    padding:0}
+
+.entry h1 {
+    margin-top:40px}
+
+.entry h2,
+.post-item .entry h2 {
+    font-size:27px;
+    margin:40px 0 10px}
+
+.entry h3,
+.post-item .entry h3 {
+    font-size:21px;
+    margin:40px 0 10px;}
+
+.entry h4,
+.post-item .entry h4 {
+    font-size:18px;
+    margin:30px 0 10px;}
+
+.entry h5,
+.post-item .entry h5 {
+    font-size:16px;
+    margin:25px 0 10px;}
+
+.entry h6,
+.post-item .entry h6 {
+    margin:25px 0 10px;}
+
+.title_brown, .box .title_brown {
+    color:#653c17}
+
+.title_green, .box .title_green {
+    color:#a5cd39}
+
+.title_pink {
+    color:#ca2b63}
+
+.title_pink2,
+.post-item .entry .title_pink2 {
+    color:#ca2b63;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+    font-size:18px}
+
+.title_blue {
+    color:#b62121;}
+
+.title_blue2,
+.post-item .entry .title_blue2 {
+    color:#b62121;
+    font-size:20px;
+    margin-top:35px}
+
+.text_italic {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style:italic;}
+
+.title_address,
+.post-item .entry .title_address {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style:italic;
+    color:#b62121;
+    font-size:16px;
+    margin:20px 0 20px 0}
+
+/*----------------------------------------------*/
+/* 1.8 Tables */
+/*----------------------------------------------*/
+table,td,th { vertical-align:middle; text-align:center; }
+th{ padding:5px; font-size:14px; letter-spacing:1px;}
+td{ font-size:13px; padding:5px; }
+
+/*----------------------------------------------*/
+/* 1.9 Images */
+/*----------------------------------------------*/
+img.alignleft {
+    margin:5px 20px 5px 0 !important;}
+img.alignright {
+    margin:5px 0 5px 20px !important;}
+
+.entry .col_1_2 img.alignleft {
+    margin:3px 15px 3px 0 !important;}
+
+.entry .col_1_2 img.alignright {
+    margin:3px 0 3px 15px !important;}
+
+span.preload.alignleft {
+    float:left;
+    display: inline-block;
+    margin:5px 20px 5px 0 !important;}
+
+span.preload.alignright  {
+    float:right;
+    display: inline-block;
+    margin:5px 0 5px 20px !important;}
+
+span.preload.aligncentert  {
+    float:right;
+    display: inline-block;
+    margin:5px auto;}
+
+.video_frame,.wp-caption,#flickr a img, dl.gallery-item img{ padding:6px;margin:2px; }
+p.wp-caption-text{
+    margin-bottom:0px;
+    text-align:center;}
+
+.wp-caption{
+    margin-bottom:10px !important;
+    padding-top:10px;
+    text-align:center;}
+
+.image_frame img, img.image_frame {
+    background:#fff;
+    border:4px solid #ebebeb}
+
+/*----------------------------------------------*/
+/* 1.10 Forms */
+/*----------------------------------------------*/
+fieldset{
+    padding:20px;
+    border:1px solid #e0e0e0;}
+form .row {
+    padding:5px 0}
+input[type=text],input[type=password],textarea{
+    color:#666;
+    padding:5px;
+    border:1px solid #dcdcdc;
+    background:#f5f5f5;
+    resize:none}
+
+textarea{
+    width:90%;
+    font-size:12px;
+    background:#fff;
+    overflow:auto;}
+
+input, textarea,input[type="submit"]:focus{
+    outline:0 none;}
+
+input[type="radio"],input[type="checkbox"]{
+    margin-right:10px; margin-left:10px;}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;}
+
+input[type="reset"],input[type="submit"],input[type="button"], button{
+    background:url(http://www.gamers-live.net/images/buttons_submit.gif) 0 0 repeat-x;
+    border:none;
+    color:#424242;
+    margin:10px 0;
+    outline-width:0;
+    padding:0;
+    height:32px;
+    line-height:30px;
+    text-align:left;
+    font-family:'LatoBold';
+    font-size:12px;
+    text-shadow:0 1px 1px #fff;}
+
+input[type="button"]:hover, input[type="button"]:focus,input[type="reset"]:hover,
+input[type="reset"]:focus,input[type="submit"]:hover,input[type="submit"]:focus,
+button:hover,button:focus{
+    color:#262626;
+    cursor:pointer;}
+
+/*----------------------------------------------*/
+/* 1.11 Buttons */
+/*----------------------------------------------*/
+
+.button_link {
+    background:url(http://www.gamers-live.net/images/buttons_bg_gray.png) no-repeat scroll right -32px transparent;
+    color:#424242;
+    display:inline-block;
+    margin:5px 0;
+    border:0 none;
+    padding:0 16px 0 0;
+    font-family:'LatoBold', Arial, Helvetica, sans-serif;
+    font-size:12px;
+    text-align:left;
+    text-decoration:none}
+
+
+.button_link span {
+    background:url(http://www.gamers-live.net/images/buttons_bg_gray.png) no-repeat scroll left 0 transparent;
+    display:block;
+    line-height:28px;
+    padding:2px 1px 2px 16px;
+    color:#424242;
+    cursor:pointer;
+    text-shadow:0 1px 1px #fff;
+    text-transform:uppercase}
+
+.button_link:hover {
+    background-position:right -96px}
+
+.button_link:hover span {
+    background-position:left -64px}
+
+.button_link:active {
+    background-position:right -95px;}
+
+.button_link:active span {
+    background-position:left -63px;}
+
+.bxSlider .button_link span {
+    min-width:inherit;
+    font-family:'LatoBoldItalic', Arial, Helvetica, sans-serif;
+    text-transform:none;
+    font-size:13px;}
+
+/* Color Styled Buttons */
+.btn_blue, .btn_blue span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_blue.png);
+    color:#4d9bb5;}
+
+.btn_black, .btn_black span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_black.png);
+    color:#fff;
+    text-shadow:0 1px 1px #666}
+
+.btn_green, .btn_green span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_green.png);
+    color:#5b8710;}
+
+.btn_pink, .btn_pink span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_pink.png);
+    color:#a651a4;}
+
+.btn_yellow, .btn_yellow span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_yellow.png);
+    color:#9d9d1f;}
+
+.btn_purple, .btn_purple span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_purple.png);
+    color:#795fb7;}
+
+.btn_red, .btn_red span {
+    background-image:url(http://www.gamers-live.net/images/buttons_bg_red.png);
+    color:#ad4e4e;}
+
+.button_styled {
+    display: inline-block;
+    margin:5px 1px;
+    border:none;
+    padding:0 12px;
+    font-family:'LatoBold', Arial, Helvetica, sans-serif;
+    font-size:12px;
+    line-height:30px;
+    text-align:left;
+    text-decoration:none;
+    color:#fff;
+    background:#3c444f;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-transform:uppercase;
+    text-shadow:0 1px 1px #333;
+    min-width:106px;}
+
+.button_styled span {
+    padding:0;}
+
+.button_styled:hover, .button_styled:hover span {
+    color:#fff}
+
+/* Gamers Live Text Box */
+
+input.gamersTextbox {
+    border: 1px solid #9f9f9f;
+    background-color : #f4f4f4;
+    width: 180px;
+    height: 20px;
+    font-size: 13px;
+    padding: 4px 4px 4px 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0px 0px 8px #d9d9d9;
+    -moz-box-shadow: 0px 0px 8px #d9d9d9;
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+}
+
+input.gamersTextbox:focus {
+    outline: none;
+    background-color : #ffffff;
+    border: 1px solid #cf5f21;
+    box-shadow: 0px 0px 8px #cf5f21;
+    -moz-box-shadow: 0px 0px 8px #cf5f21;
+    -webkit-box-shadow: 0px 0px 8px #cf5f21;
+}​
+
+p{
+     word-wrap:break-word;
+ }

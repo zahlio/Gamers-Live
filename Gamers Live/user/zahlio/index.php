@@ -121,23 +121,14 @@ if($banned == "1"){
 
 $chat = $_GET['chat'];
 
-$nmekey = md5("1b4c3j6m2gia480e".$name);
-$chat_name = urlencode($name);
-$chat_key = "7c195e9adef03024f907af1a84b2a8a5"; // todo when chat api is done this should be = raw_chat_key
-$chat_id = "cboxmain7-749497.1";
-
 if($chat == 'true' && $status == 'online'){
     $width = "650";
     $height = "383";
-    $c_avatar_url = urlencode($avatar_url);
-    $c_profile_url= urlencode($profile_url);
-    $c_ekey = md5("1b4c3j6m2gia480e"."\t".$avatar_url."\t".$profile_url);
     $chat_display = '
 
-    <div id="cboxdiv" style="text-align: center; line-height: 0">
-    <div><iframe frameborder="0" width="280" height="308" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="yes" name="'.$chat_id.'" style="border:#ababab 0px solid;" id="'.$chat_id.'"></iframe></div>
-    <div><iframe frameborder="0" width="280" height="75" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;pic='.$c_avatar_url.'&amp;lnk='.$c_profile_url.'&amp;ekey='.$c_ekey.'&amp;nme='.$chat_name.'&amp;nmekey='.$nmekey.'" marginheight="0" marginwidth="2" scrolling="no" allowtransparency="yes" name="'.$chat_id.'" style="border:#ababab 0px solid;border-top:0px" id="'.$chat_id.'"></iframe></div>
-    </div>
+<iframe src="http://www.gamers-live.net/chat/?channel='.$channel_id.'" height="380px" align="right">
+  <p>Your browser does not support iframes.</p>
+</iframe>
 
     ';
 }else{
@@ -174,18 +165,9 @@ if($chat == 'true' && $status == 'online'){
 </head>
 
 <script type="text/javascript">
-    function popcbox() {
-        cboxwin = window.open("","Cbox","width=900,height=500,toolbar=no,scrollbars=no,status=no,resizable=yes");
-        cboxwin.document.write('<html><head><title>Chat - <?=$channel_id?></title></head><frameset rows="*,79" frameborder="0" framespacing="0">');
-        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=main" noresize="true" scrolling="auto" name="<?=$chat_id?>" style="border:#ababab 1px solid;"/>');
-        cboxwin.document.write('<frame marginwidth="2" marginheight="2" src="http://www7.cbox.ws/box/?boxid=749497&amp;boxtag=lkx6hf&amp;sec=form&amp;tkey=<?=$chat_key?>&amp;tkey=<?=$chat_key?>&amp;nme=<?=$name?>&amp;nmekey=<?=$nmekey?>&amp;pic=<?php echo urlencode($avatar_url)?>&amp;lnk=<?php echo urlencode($profile_url)?>&amp;ekey=<?php echo md5("1b4c3j6m2gia480e"."\t".$avatar_url."\t".$profile_url)?>" noresize="true" scrolling="no" name="<?=$chat_id?>" style="border:#ababab 1px solid;border-top:0px"/>');
-        cboxwin.document.write('</frameset>');
-        cboxwin.document.write('<noframes></noframes></html>');
-        try {
-            x = screen.width;
-            y = screen.height;
-            cboxwin.moveTo(Math.max((x/2)-450, 0), Math.max((y/3)-250));
-        } catch (e) {};
+    function popchat(url) {
+        popupWindow = window.open(
+                url,'popUpWindow','height=700,width=400left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
     }
 </script>
 
@@ -251,7 +233,7 @@ if($chat == 'true' && $status == 'online'){
         <div class="clear"></div>
                 <p align="right" id="chat_show_hide">
                     <b><?=$ban_msg?></b>
-                    <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popcbox();" class="button_link"><span>Windowed Chat</span></a>
+                    <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('http://www.gamers-live.net/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
                     <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
                 </p>
             <script type="text/javascript">
