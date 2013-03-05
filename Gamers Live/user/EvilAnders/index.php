@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
+
 error_reporting(0);
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
@@ -39,6 +40,8 @@ $ads = $row['ads'];
 $donate = $row['donate'];
 $videoad = $row['ad_level'];
 $ads_channel = $row['adsense_video_channel'];
+$raw_chat_key = $row['chat_key'];
+$to_disable_ads = $row['ads_disable'];
 
 // get options form mysql
 
@@ -46,13 +49,6 @@ $options_get = mysql_query("SELECT * from channel_options WHERE active='1'") or 
 $options = mysql_fetch_array($options_get);
 
 // show ads if they are enabled = 1
-
-if($ads == "1"){
-    // then we show them
-    $ad1 = $options['ad1'];
-    $chatad = $options['chatad1'];
-    $chatad2 = $options['chatad2'];
-}
 
 if($donate == "1"){
     $donate_butten = '<a href="http://www.gamers-live.net/store/tip/?channel='.$channel_id.'&tip=true" class="button_link btn_green"><span>Tip the streamer</span></a>';
@@ -62,29 +58,83 @@ session_start();
 
 if ($_SESSION['access'] != true) {
 	$chat_msg = "You need to be logged in to chat.";
-	$login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
+	$login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/?link='.$channel_id.'">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
 }else{
 	$login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
-	$chat_email = $_SESSION['email'];
-	$chat_name = $_SESSION['channel_id'];
+	$name = $_SESSION['channel_id'];
+
+    // we now check if the user is banned
+    $check_if_chat_banned = mysql_query("SELECT * FROM chat_bans WHERE channel_id='$channel_id' AND user_id='$name' AND banned='1'") or die(mysql_error());
+    $count = mysql_num_rows($check_if_chat_banned);
+    if($count >= 1){
+        $chat_ban = 'true';
+        $name = null;
+        $ban_msg = "You are banned from the chat...";
+    }else{
+        $chat_ban = 'false';
+    }
+
+    // we now check if the user has donated enough to disable ads
+    $check_donation_user = mysql_query("SELECT SUM(value) as total_donation FROM tips_payza WHERE user='$name' AND paid='1' AND streamer='$channel_id'") or die(mysql_error());
+    $check_donation_user_row = mysql_fetch_array($check_donation_user);
+    $total_donated = $check_donation_user_row['total_donation'];
+
+    if($total_donated >= $to_disable_ads && $to_disable_ads != "0"){
+        $ads = "0";
+    }
+
+    $avatar_url = "http://www.gamers-live.net/user/".$name."/avatar.png";
+    $profile_url = "http://www.gamers-live.net/account/channel/chat/ban.php?username=".$name."&channel=".$channel_id."";
 	$subscribe = '<a href="http://www.gamers-live.net/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
 
+if($ads == "1"){
+    // then we show them
+    $ad1 = $options['ad1'];
+    $chatad = $options['chatad1'];
+    $chatad2 = $options['chatad2'];
+}else{
+    // we dont show ads
+    $videoad = "none";
+}
 // offline rediction and updating
 $offline_url = "window.location = '?status=offline'";
-$status = $_GET["status"];
+$status = $_GET['status'];
+
+if($status != "offline"){
+    $status = 'online';
+}
 
 if($status == "offline"){
     // then our stream is offline
     $offline_url = ""; // stop redicting
 }else{
     // we will also then add one to the views
+    $status = 'online';
     $add_view = mysql_query("UPDATE channels SET views='$views' WHERE channel_id='$channel_id'");
 }
 
 if($banned == "1"){
     // account is then banned
     header( 'Location: http://www.gamers-live.net/banned/' ) ;
+}
+
+$chat = $_GET['chat'];
+
+if($chat == 'true' && $status == 'online'){
+    $width = "650";
+    $height = "383";
+    $chat_display = '
+
+<iframe src="http://www.gamers-live.net/chat/?channel='.$channel_id.'" height="380px" align="right">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+    ';
+}else{
+    $width = "960";
+    $height = "540";
+    $chat_display = "";
 }
 
 ?>
@@ -113,6 +163,13 @@ if($banned == "1"){
 <link rel="stylesheet" type="text/css" href="http://www.gamers-live.net/css/ie.css" />
 <![endif]-->
 </head>
+
+<script type="text/javascript">
+    function popchat(url) {
+        popupWindow = window.open(
+                url,'popUpWindow','height=700,width=400left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+    }
+</script>
 
 <body>
 <div class="body_wrap thinpage">
@@ -161,14 +218,24 @@ if($banned == "1"){
             echo '<a href="http://www.gamers-live.net/account/admin/user.php?channel='.$channel_id.'" class="button_link btn_red"><span>ADMIN EDIT</span></a>';
             }
             ?>
-            <center>
-            <h1>
-                <div id="errorbox">
-                </div>
             </h1>
-            </center>
-            <a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
-            </a>
+            <div class="col col_2_3">
+                <a style="display:block;width:<?=$width?>px;height:<?=$height?>px;margin:10px auto" id="stream">
+                </a>
+            </div>
+            <div class="col col_1_3"></div>
+                <p id="chat_display" style="margin-left: 5px">
+                    <center>
+                    <?=$chat_display?>
+                    </center>
+                </p>
+            </div>
+        <div class="clear"></div>
+                <p align="right" id="chat_show_hide">
+                    <b><?=$ban_msg?></b>
+                    <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('http://www.gamers-live.net/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
+                    <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
+                </p>
             <script type="text/javascript">
                 flowplayer("stream", "http://www.gamers-live.net/files/flowplayer.commercial-3.2.11.swf",
                     {
@@ -235,7 +302,6 @@ if($banned == "1"){
                 <li class="current"><a href="#tabs_1_1">Stream Information</a></li>
                 <li class=""><a href="#tabs_1_2">Streamer Information</a></li>
                 <li class=""><a href="#tabs_1_3">Additional Information</a></li>
-                <li class=""><a href="#tabs_1_4">Chat</a></li>
             </ul>
 
             <div id="tabs_1_1" class="tabcontent" style="display: none;">
@@ -248,21 +314,6 @@ if($banned == "1"){
 
             <div id="tabs_1_3" class="tabcontent" style="display: block;">
                 <?=$info3?>
-            </div>
-
-            <div id="tabs_1_4" class="tabcontent" style="display: block;">
-                <div class="inner">
-                    <center><?=$chatad?></center>
-
-                        <?php // todo add chat here
-                            echo 'The chat has not been implemented yet...';
-                        ?>
-
-                    <center>
-                        <?=$chatad2?>
-                        <h3><?=$chat_msg?></h3>
-                    </center>
-                </div>
             </div>
         </div>
         <!--/ content -->
