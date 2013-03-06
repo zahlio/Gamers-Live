@@ -73,7 +73,7 @@ if($welcome == "1"){
 
 <div class="header_menu">
 	<div class="container">
-		<div class="logo"><a href="http://www.gamers-live.net/account/"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
+		<div class="logo"><a href="http://www.gamers-live.net/"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
         <div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/?<?=SID; ?>">Logout</a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>">Settings</a></div>
                 <div class="top_search">
         	<form id="searchForm" action="http://www.gamers-live.net/browse/" method="get">
