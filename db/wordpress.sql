@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2013 at 09:12 PM
+-- Generation Time: Mar 06, 2013 at 01:30 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1024 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1091 ;
 
 --
 -- Dumping data for table `wp_options`
@@ -272,9 +272,9 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (96, 'widget_archives', 'a:1:{s:12:"_multiwidget";s:1:"1";}', 'yes'),
 (97, 'widget_meta', 'a:1:{s:12:"_multiwidget";s:1:"1";}', 'yes'),
 (98, 'sidebars_widgets', 'a:23:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:1:{i:0;s:15:"tfuse_twitter-2";}s:12:"sidebar-page";a:3:{i:0;s:22:"tfuse_selected_pages-3";i:1;s:22:"tfuse_selected_posts-3";i:2;s:18:"tfuse_ads300x250-4";}s:19:"sidebar-single-post";a:2:{i:0;s:13:"tf_text_box-6";i:1;s:18:"tfuse_ads300x250-6";}s:16:"sidebar-category";a:1:{i:0;s:13:"tf_text_box-3";}s:9:"sidebar-5";a:3:{i:0;s:6:"text-3";i:1;s:8:"social-3";i:2;s:13:"tf_text_box-7";}s:9:"sidebar-6";a:2:{i:0;s:13:"tf_text_box-4";i:1;s:18:"tfuse_ads300x250-3";}s:9:"sidebar-7";a:4:{i:0;s:22:"tfuse_selected_pages-4";i:1;s:22:"tfuse_selected_posts-4";i:2;s:14:"tf_text_box-22";i:3;s:12:"tfuse_tabs-2";}s:9:"sidebar-8";a:0:{}s:12:"testimonials";a:1:{i:0;s:29:"testimonials_manager_widget-3";}s:12:"page-top-204";a:2:{i:0;s:14:"tf_text_box-17";i:1;s:19:"tfuse_ads300x250-16";}s:10:"page-top-4";a:2:{i:0;s:13:"tf_text_box-9";i:1;s:18:"tfuse_ads300x250-8";}s:10:"page-top-5";a:2:{i:0;s:14:"tf_text_box-10";i:1;s:19:"tfuse_ads300x250-17";}s:10:"page-top-7";a:2:{i:0;s:14:"tf_text_box-16";i:1;s:18:"tfuse_ads300x250-9";}s:10:"page-top-8";a:2:{i:0;s:14:"tf_text_box-19";i:1;s:19:"tfuse_ads300x250-18";}s:10:"page-top-9";a:2:{i:0;s:14:"tf_text_box-11";i:1;s:19:"tfuse_ads300x250-10";}s:11:"page-top-10";a:2:{i:0;s:14:"tf_text_box-20";i:1;s:19:"tfuse_ads300x250-19";}s:11:"page-top-11";a:2:{i:0;s:14:"tf_text_box-12";i:1;s:19:"tfuse_ads300x250-11";}s:11:"page-top-12";a:2:{i:0;s:14:"tf_text_box-21";i:1;s:19:"tfuse_ads300x250-20";}s:11:"page-top-14";a:2:{i:0;s:14:"tf_text_box-13";i:1;s:19:"tfuse_ads300x250-12";}s:11:"page-top-15";a:2:{i:0;s:14:"tf_text_box-23";i:1;s:19:"tfuse_ads300x250-21";}s:8:"footer-2";a:0:{}s:13:"array_version";s:1:"3";}', 'yes'),
-(99, 'cron', 'a:5:{i:1361736109;a:1:{s:14:"dsq_sync_forum";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:2:{s:8:"schedule";b:0;s:4:"args";a:0:{}}}}i:1361760843;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1361804053;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1361804355;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
-(101, '_site_transient_update_core', 'O:8:"stdClass":3:{s:7:"updates";a:1:{i:0;O:8:"stdClass":9:{s:8:"response";s:6:"latest";s:8:"download";s:40:"http://wordpress.org/wordpress-3.5.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":4:{s:4:"full";s:40:"http://wordpress.org/wordpress-3.5.1.zip";s:10:"no_content";s:51:"http://wordpress.org/wordpress-3.5.1-no-content.zip";s:11:"new_bundled";s:52:"http://wordpress.org/wordpress-3.5.1-new-bundled.zip";s:7:"partial";b:0;}s:7:"current";s:5:"3.5.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.5";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1361735803;s:15:"version_checked";s:5:"3.5.1";}', 'yes'),
-(105, '_site_transient_update_themes', 'O:8:"stdClass":3:{s:12:"last_checked";i:1361699612;s:7:"checked";a:4:{s:15:"sportedge-child";s:0:"";s:9:"sportedge";s:5:"1.0.1";s:12:"twentyeleven";s:3:"1.5";s:12:"twentytwelve";s:3:"1.1";}s:8:"response";a:0:{}}', 'yes'),
+(99, 'cron', 'a:4:{i:1362581643;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1362581653;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1362581955;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+(101, '_site_transient_update_core', 'O:8:"stdClass":3:{s:7:"updates";a:1:{i:0;O:8:"stdClass":9:{s:8:"response";s:6:"latest";s:8:"download";s:40:"http://wordpress.org/wordpress-3.5.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":4:{s:4:"full";s:40:"http://wordpress.org/wordpress-3.5.1.zip";s:10:"no_content";s:51:"http://wordpress.org/wordpress-3.5.1-no-content.zip";s:11:"new_bundled";s:52:"http://wordpress.org/wordpress-3.5.1-new-bundled.zip";s:7:"partial";b:0;}s:7:"current";s:5:"3.5.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.5";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1362567225;s:15:"version_checked";s:5:"3.5.1";}', 'yes'),
+(105, '_site_transient_update_themes', 'O:8:"stdClass":3:{s:12:"last_checked";i:1362567225;s:7:"checked";a:4:{s:15:"sportedge-child";s:0:"";s:9:"sportedge";s:5:"1.0.1";s:12:"twentyeleven";s:3:"1.5";s:12:"twentytwelve";s:3:"1.1";}s:8:"response";a:0:{}}', 'yes'),
 (106, '_site_transient_timeout_browser_046d01c35a2451a1b38000220a7dfd78', '1361285654', 'yes'),
 (107, '_site_transient_browser_046d01c35a2451a1b38000220a7dfd78', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:6:"Chrome";s:7:"version";s:12:"24.0.1312.57";s:10:"update_url";s:28:"http://www.google.com/chrome";s:7:"img_src";s:49:"http://s.wordpress.org/images/browsers/chrome.png";s:11:"img_src_ssl";s:48:"https://wordpress.org/images/browsers/chrome.png";s:15:"current_version";s:2:"18";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
 (108, 'dashboard_widget_options', 'a:4:{s:25:"dashboard_recent_comments";a:1:{s:5:"items";i:5;}s:24:"dashboard_incoming_links";a:5:{s:4:"home";s:27:"http://gamers-live.net/blog";s:4:"link";s:103:"http://blogsearch.google.com/blogsearch?scoring=d&partner=wordpress&q=link:http://gamers-live.net/blog/";s:3:"url";s:136:"http://blogsearch.google.com/blogsearch_feeds?scoring=d&ie=utf-8&num=10&output=rss&partner=wordpress&q=link:http://gamers-live.net/blog/";s:5:"items";i:10;s:9:"show_date";b:0;}s:17:"dashboard_primary";a:7:{s:4:"link";s:26:"http://wordpress.org/news/";s:3:"url";s:31:"http://wordpress.org/news/feed/";s:5:"title";s:14:"WordPress Blog";s:5:"items";i:2;s:12:"show_summary";i:1;s:11:"show_author";i:0;s:9:"show_date";i:1;}s:19:"dashboard_secondary";a:7:{s:4:"link";s:28:"http://planet.wordpress.org/";s:3:"url";s:33:"http://planet.wordpress.org/feed/";s:5:"title";s:20:"Other WordPress News";s:5:"items";i:5;s:12:"show_summary";i:0;s:11:"show_author";i:0;s:9:"show_date";i:0;}}', 'yes'),
@@ -421,7 +421,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (908, '_transient_timeout_feed_mod_1e47202a54cee1ff4a35b134a6932567', '1360906484', 'no'),
 (909, '_transient_feed_mod_1e47202a54cee1ff4a35b134a6932567', '1360863284', 'no'),
-(914, '_site_transient_update_plugins', 'O:8:"stdClass":3:{s:12:"last_checked";i:1361735803;s:7:"checked";a:9:{s:19:"akismet/akismet.php";s:5:"2.5.7";s:32:"disqus-comment-system/disqus.php";s:4:"2.74";s:46:"facebook-comments-plugin/facebook-comments.php";s:5:"2.0.5";s:53:"facebook-comments-for-wordpress/facebook-comments.php";s:5:"3.1.3";s:9:"hello.php";s:3:"1.6";s:37:"seo-facebook-comments/seofacebook.php";s:7:"1.4.5.1";s:63:"ThemeFuse Extend User Profile/themefuse-extend-user-profile.php";s:5:"1.0.0";s:81:"ThemeFuse - Maintenance Mode Plugin (1.1.0)/tf_maintenance-maintenance-plugin.php";s:5:"1.1.0";s:47:"ThemeFuse Subscribers/themefuse_subscribers.php";s:5:"1.0.0";}s:8:"response";a:2:{s:63:"ThemeFuse Extend User Profile/themefuse-extend-user-profile.php";O:8:"stdClass":5:{s:2:"id";s:5:"25550";s:4:"slug";s:29:"themefuse-extend-user-profile";s:11:"new_version";s:5:"1.0.2";s:3:"url";s:66:"http://wordpress.org/extend/plugins/themefuse-extend-user-profile/";s:7:"package";s:77:"http://downloads.wordpress.org/plugin/themefuse-extend-user-profile.1.0.3.zip";}s:81:"ThemeFuse - Maintenance Mode Plugin (1.1.0)/tf_maintenance-maintenance-plugin.php";O:8:"stdClass":5:{s:2:"id";s:5:"21292";s:4:"slug";s:26:"themefuse-maintenance-mode";s:11:"new_version";s:5:"1.1.3";s:3:"url";s:63:"http://wordpress.org/extend/plugins/themefuse-maintenance-mode/";s:7:"package";s:74:"http://downloads.wordpress.org/plugin/themefuse-maintenance-mode.1.1.3.zip";}}}', 'yes'),
+(914, '_site_transient_update_plugins', 'O:8:"stdClass":2:{s:12:"last_checked";i:1362567225;s:8:"response";a:2:{s:63:"ThemeFuse Extend User Profile/themefuse-extend-user-profile.php";O:8:"stdClass":5:{s:2:"id";s:5:"25550";s:4:"slug";s:29:"themefuse-extend-user-profile";s:11:"new_version";s:5:"1.0.2";s:3:"url";s:66:"http://wordpress.org/extend/plugins/themefuse-extend-user-profile/";s:7:"package";s:77:"http://downloads.wordpress.org/plugin/themefuse-extend-user-profile.1.0.3.zip";}s:81:"ThemeFuse - Maintenance Mode Plugin (1.1.0)/tf_maintenance-maintenance-plugin.php";O:8:"stdClass":5:{s:2:"id";s:5:"21292";s:4:"slug";s:26:"themefuse-maintenance-mode";s:11:"new_version";s:5:"1.1.3";s:3:"url";s:63:"http://wordpress.org/extend/plugins/themefuse-maintenance-mode/";s:7:"package";s:74:"http://downloads.wordpress.org/plugin/themefuse-maintenance-mode.1.1.3.zip";}}}', 'yes'),
 (915, 'disqus_forum_url', 'gamers-live-net', 'yes'),
 (916, 'disqus_api_key', 'nAQkW8z0k2zVr2gkLJm09qcdrKaB78A9ttDwQLB3HqYbNYm9cBbmDuWYJFwN7LyX', 'yes'),
 (917, 'disqus_user_api_key', 'LBgjJCjoUQEifgwFGPsR9zADytpDL2R7UflwxLIoPoE9WV9v67LiHuSFNfadmPtC', 'yes'),
@@ -451,8 +451,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (945, '_transient_dash_aa95765b5cc111c56d5993d476b1c2f0', '<div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://wordpress.tv/2013/02/14/robert-wagner-frankenblog-group-blogging-with-wordpress-for-fun-frustration-financial-gain/'' title='' [&hellip;]''>WordPress.tv: Robert Wagner: Frankenblog – Group blogging with WordPress for fun, frustration, &amp; financial gain</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2013/02/14/andrew-nacin-y-u-no-code-well/'' title='' [&hellip;]''>WordPress.tv: Andrew Nacin: Y U NO CODE WELL</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2013/02/14/joseph-scott-site-performance-from-pinto-to-ferrari-2/'' title='' [&hellip;]''>WordPress.tv: Joseph Scott: Site Performance: From Pinto to Ferrari</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2013/02/14/taylor-dewey-why-we-click-publish-advocating-for-user-centricity-through-interaction-design/'' title='' [&hellip;]''>WordPress.tv: Taylor Dewey: Why we click publish – Advocating for user-centricity through interaction design</a></li><li><a class=''rsswidget'' href=''http://feedproxy.google.com/~r/weblogtoolscollection/UXMP/~3/A0IB4mmhIQk/'' title=''BT Extended is a newspaper style with a responsive four column fluid layout. Cocoa is a basic, simple, minimalist theme of browns and black with just a touch of cinnamon red thrown in for flavor. Columbus is a real estate theme with a two-column layout and top-level page navigation. Photogram is designed to integrate your WordPress site with Instagram and Pi [&hellip;]''>Weblog Tools Collection: WordPress Theme Releases for 2/13</a></li></ul></div>', 'no'),
 (993, '_site_transient_timeout_themefuse_innerdocs_sportedge', '1361629079', 'yes'),
 (994, '_site_transient_themefuse_innerdocs_sportedge', 'true', 'yes'),
-(1022, '_site_transient_timeout_theme_roots', '1361737604', 'yes'),
-(1023, '_site_transient_theme_roots', 'a:4:{s:15:"sportedge-child";s:7:"/themes";s:9:"sportedge";s:7:"/themes";s:12:"twentyeleven";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes');
+(1089, '_site_transient_timeout_theme_roots', '1362569025', 'yes'),
+(1090, '_site_transient_theme_roots', 'a:4:{s:15:"sportedge-child";s:7:"/themes";s:9:"sportedge";s:7:"/themes";s:12:"twentyeleven";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -468,7 +468,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12057 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12040 ;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -11265,7 +11265,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (11732, 987, 'sportedge_post_seo_title', ''),
 (11733, 987, 'sportedge_post_seo_keywords', ''),
 (11734, 987, 'sportedge_post_seo_description', ''),
-(11737, 987, 'sportedge_post_viewed', '22'),
+(11737, 987, 'sportedge_post_viewed', '47'),
 (11738, 989, '_menu_item_type', 'custom'),
 (11739, 989, '_menu_item_menu_item_parent', '0'),
 (11740, 989, '_menu_item_object_id', '989'),
@@ -11411,7 +11411,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (11897, 1011, 'sportedge_page_seo_keywords', ''),
 (11898, 1011, 'sportedge_page_seo_description', ''),
 (11899, 1011, '_wp_page_template', 'template-blog.php'),
-(11900, 1008, 'sportedge_post_viewed', '7'),
+(11900, 1008, 'sportedge_post_viewed', '10'),
 (11907, 1017, '_wp_attached_file', '2013/02/channel_test_1.png'),
 (11908, 1017, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1907;s:6:"height";i:946;s:4:"file";s:26:"2013/02/channel_test_1.png";s:5:"sizes";a:3:{s:9:"thumbnail";a:4:{s:4:"file";s:26:"channel_test_1-150x150.png";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:9:"image/png";}s:6:"medium";a:4:{s:4:"file";s:26:"channel_test_1-300x148.png";s:5:"width";i:300;s:6:"height";i:148;s:9:"mime-type";s:9:"image/png";}s:5:"large";a:4:{s:4:"file";s:27:"channel_test_1-1024x507.png";s:5:"width";i:1024;s:6:"height";i:507;s:9:"mime-type";s:9:"image/png";}}s:10:"image_meta";a:10:{s:8:"aperture";i:0;s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";i:0;s:9:"copyright";s:0:"";s:12:"focal_length";i:0;s:3:"iso";i:0;s:13:"shutter_speed";i:0;s:5:"title";s:0:"";}}'),
 (11909, 1018, '_wp_attached_file', '2013/02/screen_defualt.png'),
@@ -11423,9 +11423,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (12015, 1008, 'sportedge_post_image', ''),
 (12020, 987, 'sportedge_post_image_medium', ''),
 (12026, 987, 'dsq_thread_id', '1083545954'),
-(12039, 1008, 'dsq_thread_id', '1085172288'),
-(12055, 987, 'dsq_needs_sync', '1'),
-(12056, 1008, 'dsq_needs_sync', '1');
+(12039, 1008, 'dsq_thread_id', '1085172288');
 
 -- --------------------------------------------------------
 
