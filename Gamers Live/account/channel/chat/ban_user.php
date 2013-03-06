@@ -70,6 +70,12 @@ if(($get_auth_rows_user['moderator'] == "1") || ($get_auth_rows_user['admin'] ==
     $can_ban4 = true;
 }
 
+$staff_check = mysql_query("SELECT * FROM channels WHERE channel_id='$mod_name' AND admin='1'");
+$staff_check_count = mysql_num_rows($staff_check);
+if($staff_check_count == 1){
+    $can_ban4 = true;
+}
+
 // also if we are owner
 if($mod_name == $channel_id){
     $can_ban4 = true;

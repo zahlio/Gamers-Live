@@ -1,9 +1,9 @@
 <?php
 
 //error_reporting(0);
-$display_name = $_POST['display_name'];
+$display_name = strip_tags($_POST['display_name']);
 $email = $_POST['email'];
-$channel_id = $_POST['channel_id'];
+$channel_id = strip_tags($_POST['channel_id']);
 $password = $_POST['password'];
 $checked = "0";
 $checked1 = "0";
@@ -26,8 +26,6 @@ if($display_name == ""){
 		}
 	}
 }
-
-// CBOX API todo add Chat api here
 
 $chat_key = "0";
 

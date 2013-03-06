@@ -28,11 +28,17 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 // select the database we need
 $select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
+$staff_check = mysql_query("SELECT * FROM channels WHERE channel_id='$mod_name' AND admin='1'");
+$staff_check_count = mysql_num_rows($staff_check);
+if($staff_check_count == 1){
+    $is_admin = true;
+}
+
 $result = mysql_query("SELECT * FROM chat_mods WHERE user_id='$mod_name' AND channel_id='$channel_id' AND moderator='1'");
 $count = mysql_num_rows($result);
 $rows_mods = mysql_fetch_array($result);
 
-if($count == 0 && $mod_name != $channel_id){
+if($count == 0 && $mod_name != $channel_id && $is_admin != true){
     // then we redict to the usernames channel
     header( 'Location: http://www.gamers-live.net/user/'.$username.'/' ) ;
     exit;
@@ -47,6 +53,7 @@ if($rows_mods['admin'] == "1"){
 if($mod_name == $channel_id){
     $is_admin = true;
 }
+
 
 ?>
 
@@ -89,7 +96,7 @@ if($mod_name == $channel_id){
 
     <div class="header_menu">
         <div class="container">
-            <div class="logo"><a href="http://www.gamers-live.net/account/?<?=SID; ?>"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
+            <div class="logo"><a href="http://www.gamers-live.net/"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
             <div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/?<?=SID; ?>">Logout</a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>">Settings</a></div>
             <div class="top_search">
                 <form id="searchForm" action="http://www.gamers-live.net/browse/" method="get">
@@ -145,7 +152,7 @@ if($mod_name == $channel_id){
             <div class="content"><br />
                 <!-- account menu -->
                 <center>
-                    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
+                    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link btn_black"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
                 </center>
                 <!-- account menu end -->
                 <br>

@@ -7,8 +7,10 @@ session_start();
 
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
+    $not_logged_in = "<a href='http://www.gamers-live.net/account/register/'><img src='http://www.gamers-live.net/images/frontpage/register-now-img.png' class='tabs_framed'></a><br>";
 }else{
 $login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
+    $not_logged_in = "";
 }
 
 include_once("http://www.gamers-live.net/analyticstracking.php");
@@ -129,8 +131,12 @@ $(window).load(function () {
 }); 
 </script>
 
+    <style type="text/css">
+
+    </style>
+
 <!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="css/ie.css" />
+<link rel="stylesheet" type="text/css" href="http://www.gamers-live.net/css/ie.css" />
 <![endif]-->
 </head>
 
@@ -202,6 +208,7 @@ include('slider.php');
         <div class="page-title">
         <a href="http://www.gamers-live.net/user/<?=$channel_id?>"><h2><?=$title?></h2></a>
                     <center>
+                        <?=$not_logged_in?>
          			<a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
                     </a>
                     </center>

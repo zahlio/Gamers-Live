@@ -61,6 +61,31 @@ $viewers = $row_channel['viewers'];
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/slides.jquery.js"></script>
 <script type="text/javascript" src="http://www.gamers-live.net/files/flowplayer-3.2.11.min.js"></script>
 
+    <script type="text/javascript">
+        function getViewers(){
+            msgUpdate = setInterval(getViewers, 90000);
+
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp_send=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp_send=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp_send.onreadystatechange=function()
+            {
+                if (xmlhttp_send.readyState==4 && xmlhttp_send.status==200)
+                {
+                    document.getElementById('viewers').innerHTML=xmlhttp_send.responseText;
+                }
+            }
+            xmlhttp_send.open("GET","http://www.gamers-live.net/account/channel/get_viewers.php?channel=<?=$channel_id?>", true);
+            xmlhttp_send.send();
+
+        }
+    </script>
+
 <link rel="stylesheet" href="http://www.gamers-live.net/css/prettyPhoto.css" type="text/css" media="screen" />
 <script src="http://www.gamers-live.net/js/jquery.prettyPhoto.js" type="text/javascript"></script>
 
@@ -75,14 +100,14 @@ $viewers = $row_channel['viewers'];
     </script>
 </head>
 
-<body>
+<body onload="getViewers()">
 <div class="body_wrap thinpage">
 
 <div class="header_image" style="background-image:url(http://www.gamers-live.net/images/header.png)">&nbsp;</div>
 
 <div class="header_menu">
 	<div class="container">
-		<div class="logo"><a href="http://www.gamers-live.net/account/?<?=SID; ?>"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
+		<div class="logo"><a href="http://www.gamers-live.net/"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
         <div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/?<?=SID; ?>">Logout</a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>">Settings</a></div>
                 <div class="top_search">
         	<form id="searchForm" action="http://www.gamers-live.net/browse/" method="get">
@@ -138,7 +163,7 @@ $viewers = $row_channel['viewers'];
     <div class="content"><br />
         <!-- account menu -->
     <center>
-    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
+    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link btn_black"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
     </center>    
     <!-- account menu end -->
     <div class="quoteBox2">
@@ -187,7 +212,9 @@ $viewers = $row_channel['viewers'];
         <div class="sb">
             <div class="box_title">Total Viewers</div>
             <div class="box_content">
-                <?=$viewers?>
+                    <div id="viewers">
+
+                    </div>
                 <div class="clear"></div>
             </div>
         </div>

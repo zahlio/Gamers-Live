@@ -108,7 +108,7 @@ if($partner == "0"){
 
 <div class="header_menu">
 	<div class="container">
-		<div class="logo"><a href="http://www.gamers-live.net/account/?<?=SID; ?>"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
+		<div class="logo"><a href="http://www.gamers-live.net/"><img src="http://www.gamers-live.net/images/logo.png" alt="" /></a></div>
         <div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/?<?=SID; ?>">Logout</a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>">Settings</a></div>
                 <div class="top_search">
         	<form id="searchForm" action="http://www.gamers-live.net/browse/" method="get">
@@ -164,7 +164,7 @@ if($partner == "0"){
     <div class="content"><br />
         <!-- account menu -->
     <center>
-    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
+    <a href="http://www.gamers-live.net/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="http://www.gamers-live.net/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="http://www.gamers-live.net/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="http://www.gamers-live.net/account/partner/?<?=SID; ?>" class="button_link btn_black"><span>Partner</span></a><a href="http://www.gamers-live.net/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
     </center>    
     <!-- account menu end -->
     <h1>Welcome to the partner panel</h1>
@@ -176,7 +176,7 @@ if($partner == "0"){
                         <div class="clear"></div>
                     </div>
                 </div>
-                <h3 class="toggle box">Partner Information<span class="ico"></span></h3>
+                <h3 class="toggle box">Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                          <strong>Advertisement</strong>
                          <?php if($ads == "1"){echo "Currently enabled";}else{echo "Currently disabled";} ?> on your channel.<br />
@@ -201,7 +201,7 @@ if($partner == "0"){
                          
                     </div>
                     
-                <h3 class="toggle box">Update Settings<span class="ico"></span></h3>
+                <h3 class="toggle box">Settings<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                     <b>Advertisement:</b> 
                              <form action="update.php?msg=ads" method="post">
@@ -258,7 +258,7 @@ if($partner == "0"){
                             <i>Note that if the payment email is not valid for the payment gateway specified, the transaction will be lost and you will NOT recieve the payment!</i>
                     </div>
                     
-                <h3 class="toggle box">Payments<span class="ico"></span></h3>
+                <h3 class="toggle box">Payment History<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
 							    <div class="styled_table table_white"/>
 									<?php

@@ -8,7 +8,7 @@ if ($_SESSION['access'] != true) {
 $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
 
-$value = $_POST['value'];
+$value = strip_tags($_POST['value'], '<br><b><i>');
 
 $msg = $_GET["msg"];
 if($msg == ""){

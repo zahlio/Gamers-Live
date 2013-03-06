@@ -60,7 +60,7 @@ if($type == "0"){
 // we now check delay
 $delay = mysql_query("SELECT date FROM chat_msg WHERE sender='$username' AND channel_id='$channel_id' ORDER BY id DESC LIMIT 1") or die(mysql_error());
 $delay_row = mysql_fetch_array($delay);
-$last_send = strtotime($delay_row['date']) - 2;
+$last_send = strtotime($delay_row['date']) + 2;
 
 if($last_send >= strtotime($date)){
     die('You need to wait for 3 seconds before you can chat again');

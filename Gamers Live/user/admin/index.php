@@ -156,7 +156,33 @@ if($chat == 'true' && $status == 'online'){
 <script type="text/javascript" language="JavaScript" src="http://www.gamers-live.net/js/slides.jquery.js"></script>
 <script type="text/javascript" src="http://www.gamers-live.net/files/flowplayer-3.2.11.min.js"></script>
 
-<link rel="stylesheet" href="http://www.gamers-live.net/css/prettyPhoto.css" type="text/css" media="screen" />
+    <script type="text/javascript">
+        function getViewers(){
+            msgUpdate = setInterval(getViewers, 90000);
+
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp_send=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp_send=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp_send.onreadystatechange=function()
+            {
+                if (xmlhttp_send.readyState==4 && xmlhttp_send.status==200)
+                {
+                    document.getElementById('viewers').innerHTML=xmlhttp_send.responseText;
+                    document.getElementById('viewers2').innerHTML=xmlhttp_send.responseText;}
+            }
+            xmlhttp_send.open("GET","http://www.gamers-live.net/account/channel/get_viewers.php?channel=<?=$channel_id?>", true);
+            xmlhttp_send.send();
+
+        }
+    </script>
+
+
+    <link rel="stylesheet" href="http://www.gamers-live.net/css/prettyPhoto.css" type="text/css" media="screen" />
 <script src="http://www.gamers-live.net/js/jquery.prettyPhoto.js" type="text/javascript"></script>
 
 <!--[if IE 7]>
@@ -171,7 +197,7 @@ if($chat == 'true' && $status == 'online'){
     }
 </script>
 
-<body>
+<body onload="getViewers()">
 <div class="body_wrap thinpage">
 
 <div class="header_image" style="background-image:url(header.png)">&nbsp;</div>
@@ -232,6 +258,7 @@ if($chat == 'true' && $status == 'online'){
             </div>
         <div class="clear"></div>
                 <p align="right" id="chat_show_hide">
+                    <b id="viewers2"></b><b> viewers</b>
                     <b><?=$ban_msg?></b>
                     <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('http://www.gamers-live.net/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
                     <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
@@ -287,7 +314,7 @@ if($chat == 'true' && $status == 'online'){
                         <tbody>
                             <tr>
                                 <td><?=$game?></td>
-                                <td><?=$viewers?></td>
+                                <td id="viewers"></td>
                                 <td><?=$views?></td>
                                 <td><?=$subscribers?></td>
                             </tr>

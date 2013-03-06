@@ -146,7 +146,7 @@ $update_key = mysql_query("UPDATE beta SET active='0' WHERE b_key='$beta_account
     <div class="author-box">
                     <div class="author-description">
                       	<div class="author-text">
-                          <h4>Register Message</h4>
+                          <h4>Registration Message</h4>
                           <p><?=$msg?></p>
                         </div>
                         <div class="clear"></div>
