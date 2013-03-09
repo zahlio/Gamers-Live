@@ -107,14 +107,14 @@ $msg = "Never give your password or stream key to another person!";
                             
                           <form name="login" action="login.php" method="post" id="loginform" class="loginform">
                             
-                            <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
+                            <p><label>Email</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
                             
-                            <p><label>Password</label><br><input name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px"></p>
+                            <p><label>Password</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px"></p>
                             <input type="hidden" value="<?=$link?>" id="link" name="link">
                             
-                            <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p>
+                            <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p> <?php // make it remember us ?>
 
-                            <a href="#" onclick="document.login.submit()" class="button_link"><span>Login</span></a>    <a href="forgot.php">Forgot Password?</a>
+                            <a href="#" onclick="document.login.submit()" id="login_but" class="button_link"><span>Login</span></a>    <a href="forgot.php">Forgot Password?</a>
 
                           </form>
                         </div>
@@ -145,10 +145,10 @@ $msg = "Never give your password or stream key to another person!";
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Hostse.net</h3>   
+    	<h3>Gamers Live</h3>   
 		
         <div class="copyright">
-		&copy; 2013 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
+		&copy; 2013 GAMERS LIVE. An Gamers Live production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
 		<a href="http://www.gamers-live.net/company/legal/">Privacy guidelines</a> - <a href="http://www.gamers-live.net/company/support/">Advertise with Us</a> - <a href="http://www.gamers-live.net/company/about/">About Us</a></p>
 		</div>          
     </div>

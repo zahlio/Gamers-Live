@@ -30,30 +30,31 @@ $admin = $row['admin'];
 $active = $row['active'];
 // if we get 1 row we know its valid
 
-if($active == 1){
-	if($count == 1){
-		// login log
-		$login_log_insert = mysql_query("INSERT INTO login_log (email, password, time, ip) VALUES ('$email', '$password', '$time', '$ip')") or die(mysql_error());
-		
-		// we are logged in and we will create a session etc
-			// set to admin if admin is true
-			if($admin == 1){
-				$_SESSION['admin'] = true;	
-			}
-		$_SESSION['access'] = true;
-		$_SESSION['email'] = $email;
-		$_SESSION['channel_id'] = $row['channel_id'];
-        if($link != null){
-            header("Location: http://www.gamers-live.net/user/".$link."/");
-        }else{
-		    header("Location: http://www.gamers-live.net/account/?".SID);
-        }
-		
-	}else{
-		header( 'Location: http://www.gamers-live.net/account/login/?msg=The information entered was not correct, please try again' ) ;	
-	}
+if($active == "0"){
+    header( 'Location: http://www.gamers-live.net/account/activate/?email='.$email.'' ) ;
 }else{
-	header( 'Location: http://www.gamers-live.net/account/activate/?email='.$email.'' ) ;	
+    if($count == 1){
+            // login log
+            $login_log_insert = mysql_query("INSERT INTO login_log (email, password, time, ip) VALUES ('$email', '$password', '$time', '$ip')") or die(mysql_error());
+
+            // we are logged in and we will create a session etc
+                // set to admin if admin is true
+                if($admin == 1){
+                    $_SESSION['admin'] = true;
+                }
+            $_SESSION['access'] = true;
+            $_SESSION['email'] = $email;
+            $_SESSION['channel_id'] = $row['channel_id'];
+            if($link != null){
+                header("Location: http://www.gamers-live.net/user/".$link."/");
+            }else{
+                header("Location: http://www.gamers-live.net/account/?".SID);
+            }
+
+    }else{
+        header( 'Location: http://www.gamers-live.net/account/login/?msg=The information entered was not correct, please try again' ) ;
+    }
 }
-			
+
+
 ?>

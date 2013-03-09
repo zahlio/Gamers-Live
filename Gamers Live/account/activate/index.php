@@ -109,7 +109,7 @@ if ($_SESSION['access'] != true) {
     <center>
     You can also resend your activation email by clicking here: <a href="http://www.gamers-live.net/account/activate/email.php?email=<?=$email?>">Resend Activation Email To: <?=$email?></a><br />
     <br />
-    <h3>Should you have issues activating your account, then please contact support <a href="https://gamerslive.zendesk.com/tickets/new">here</a></h3>
+    <h3>Should you have issues activating your account, then please contact support <a href="http://support.gamers-live.net/anonymous_requests/new">here</a></h3>
     </center>
     </div>
     <!--/ content --> 
@@ -127,10 +127,10 @@ if ($_SESSION['access'] != true) {
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Hostse.net</h3>   
+    	<h3>Gamers Live</h3>   
 		
         <div class="copyright">
-		&copy; 2013 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
+		&copy; 2013 GAMERS LIVE. An Gamers Live production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
 		<a href="http://www.gamers-live.net/company/legal/">Privacy guidelines</a> - <a href="http://www.gamers-live.net/company/support/">Advertise with Us</a> - <a href="http://www.gamers-live.net/company/about/">About Us</a></p>
 		</div>          
     </div>

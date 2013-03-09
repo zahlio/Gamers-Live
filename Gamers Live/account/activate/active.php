@@ -17,6 +17,6 @@ $select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 $update = mysql_query("UPDATE users SET active='1' WHERE email='$email' AND activate_id='$email_key'");
 
-	header( 'Location: http://www.gamers-live.net/account/login/?msg=Your account is now active and you may now login! <b>Welcome!</b>' ) ;	
+	header( 'Location: http://www.gamers-live.net/account/login/?msg=Your account is now active and you may now login!' ) ;
 
 ?>

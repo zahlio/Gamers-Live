@@ -475,10 +475,10 @@ $total_tips = mysql_fetch_array($result_tips_total);
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Hostse.net</h3>   
+    	<h3>Gamers Live</h3>   
 		
         <div class="copyright">
-		&copy; 2013 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
+		&copy; 2013 GAMERS LIVE. An Gamers Live production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
 		<a href="http://www.gamers-live.net/company/legal/">Privacy guidelines</a> - <a href="http://www.gamers-live.net/company/support/">Advertise with Us</a> - <a href="http://www.gamers-live.net/company/about/">About Us</a></p>
 		</div>          
     </div>

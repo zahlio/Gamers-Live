@@ -46,6 +46,10 @@ $status = $_GET['status'];
     $server_rtmp = $row['server_rtmp'];
     $online = $row['online'];
     $title = $row['title'];
+
+    if($title != ""){
+        $button = '<a href="http://www.gamers-live.net/user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
+    }
     $featured = $row['featured'];
     $banned = $row['banned'];
     $views = $row['views'];
@@ -205,13 +209,14 @@ include('slider.php');
 <!-- middle -->
 <div class="middle">
 	<div class="container_12">		
-        <div class="page-title">
-        <a href="http://www.gamers-live.net/user/<?=$channel_id?>"><h2><?=$title?></h2></a>
+        <div class="page-title"><center><?=$not_logged_in?></center>
+        <a href="http://www.gamers-live.net/user/<?=$channel_id?>"><h2><?=$title?> </h2></a>
                     <center>
-                        <?=$not_logged_in?>
+
          			<a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
                     </a>
                     </center>
+                    <?=$button?>
                     <br>
                     <?php
 
@@ -353,7 +358,7 @@ include('slider.php');
     	<h3>Gamers Live</h3>
 		
         <div class="copyright">
-		&copy; 2011 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="/company/legal/">Terms of Service</a> - <a href="/company/support/">Contact</a> -
+		&copy; 2011 GAMERS LIVE. An Gamers Live production. All Rights Reserved. <br /><a href="/company/legal/">Terms of Service</a> - <a href="/company/support/">Contact</a> -
 		<a href="/company/legal/">Privacy guidelines</a> - <a href="/company/support/">Advertise with Us</a> - <a href="/company/about/">About Us</a></p>
 		</div>          
     </div>

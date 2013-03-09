@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 include_once("http://www.gamers-live.net/analyticstracking.php");
 if ($_SESSION['access'] != true) {
 	header( 'Location: http://www.gamers-live.net/account/login/?msg=Please login to view this page' ) ;	
@@ -202,10 +203,10 @@ if($welcome == "1"){
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Hostse.net</h3>   
+    	<h3>Gamers Live</h3>   
 		
         <div class="copyright">
-		&copy; 2013 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
+		&copy; 2013 GAMERS LIVE. An Gamers Live production. All Rights Reserved. <br /><a href="http://www.gamers-live.net/company/legal/">Terms of Service</a> - <a href="http://www.gamers-live.net/company/support/">Contact</a> -
 		<a href="http://www.gamers-live.net/company/legal/">Privacy guidelines</a> - <a href="http://www.gamers-live.net/company/support/">Advertise with Us</a> - <a href="http://www.gamers-live.net/company/about/">About Us</a></p>
 		</div>          
     </div>
