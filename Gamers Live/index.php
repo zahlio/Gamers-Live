@@ -6,7 +6,11 @@
 </head>
 
 <?php
-include_once("http://www.gamers-live.net/analyticstracking.php");
+error_reporting(0);
+include_once("".$conf_site_url."/analyticstracking.php");
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 ?>
 <style>
 	.beta_img {
@@ -30,12 +34,12 @@ include_once("http://www.gamers-live.net/analyticstracking.php");
 	  margin-left: -221px;	
 	}
 </style>
-<body background="http://www.gamers-live.net/beta_bg.png">
+<body background="<?=$conf_site_url?>/beta_bg.png">
     <a href="http://gamers-live.net/blog/987">
-    	<img src="http://www.gamers-live.net/beta_img.png" class="beta_img"/>
+    	<img src="<?=$conf_site_url?>/beta_img.png" class="beta_img"/>
     </a>
-    <a href="http://www.gamers-live.net/ind.php">
-    <img src="http://www.gamers-live.net/beta_but.png" class="beta_but"/>
+    <a href="<?=$conf_site_url?>/ind.php">
+    <img src="<?=$conf_site_url?>/beta_but.png" class="beta_but"/>
     </a>
     
 <p class="beta_footer">

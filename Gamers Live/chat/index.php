@@ -2,6 +2,10 @@
 error_reporting(0);
 session_start();
 
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+
 $chat_logged_in = $_SESSION['access'];
 
 if($chat_logged_in == 1){
@@ -14,7 +18,7 @@ $chat_username = $_SESSION['channel_id'];
 $chat_channel = $_GET['channel'];
 
 ?>
-<link href="http://www.gamers-live.net/chat/style.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="<?=$conf_site_url?>/chat/style.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 
@@ -28,6 +32,7 @@ $chat_channel = $_GET['channel'];
         var updateSpeed = 5000;
 
         function load(){
+
             if(user_status == 0){
             document.getElementById('msgbox').value = "Sign up or log in to chat";
             }else{
@@ -67,7 +72,9 @@ $chat_channel = $_GET['channel'];
             if(user_status == true){
                 document.getElementById('msgbox').value = "";
             }else{
-                window.open("http://www.gamers-live.net/account/login/?link=<?=$chat_channel?>", "_parent");
+
+                parent.window.open("<?=$conf_site_url?>/account/login/?link=<?=$chat_channel?>", "_blank");
+                window.close();
             }
 
         }
@@ -79,7 +86,6 @@ $chat_channel = $_GET['channel'];
                     if(msg == "Type to chat"){
 
                     }else{
-
                         if (window.XMLHttpRequest)
                         {// code for IE7+, Firefox, Chrome, Opera, Safari
                             xmlhttp=new XMLHttpRequest();
@@ -88,19 +94,43 @@ $chat_channel = $_GET['channel'];
                         {// code for IE6, IE5
                             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
                         }
-                        xmlhttp.open("GET","http://www.gamers-live.net/chat/php/send.php?channel=<?=$chat_channel?>&chat="+msg, true);
+                        xmlhttp.onreadystatechange=function()
+                        {
+                            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                            {
+                                error = xmlhttp.responseText;
+                                if(error == "TIME"){
+                                    document.getElementById('msgbox').value = "You need to wait 5 seconds between sending messages";
+                                }
+                                if(error == "BANNED"){
+                                    document.getElementById('msgbox').value = "You are banned from this chat";
+                                }
+                                if(error == "SEND"){
+                                    document.getElementById('msgbox').value = "";
+                                }
+                                if(error == "LOGIN"){
+                                    document.getElementById('msgbox').value = "You need to be logged in before you can chat";
+                                }
+                                if(error == "EMPTY"){
+                                    document.getElementById('msgbox').value = "The chat message can't be shorter then 3 characters";
+                                }
+                                if(error == "CHANNEL"){
+                                    document.getElementById('msgbox').value = "You need to chat form a channel page";
+                                }
+                            }
+                        }
+                        xmlhttp.open("GET","<?=$conf_site_url?>/chat/php/send.php?channel=<?=$chat_channel?>&chat="+msg, true);
                         xmlhttp.send();
                         getMsg();
-                        document.getElementById('msgbox').value = "";
                     }
 
                 }else{
-                    window.open("http://www.gamers-live.net/account/login/?link=<?=$chat_channel?>", "_parent");
+                    parent.window.open("<?=$conf_site_url?>/account/login/?link=<?=$chat_channel?>", "_blank");
+                    window.close();
                 }
             }else{
             }
         }
-
         function menu(){
             show_menu = !show_menu;
             if(show_menu == true){
@@ -132,7 +162,7 @@ $chat_channel = $_GET['channel'];
                     }
                 }
             }
-            xmlhttp_send.open("GET","http://www.gamers-live.net/chat/php/get.php?channel=<?=$chat_channel?>", true);
+            xmlhttp_send.open("GET","<?=$conf_site_url?>/chat/php/get.php?channel=<?=$chat_channel?>", true);
             xmlhttp_send.send();
 
         }
@@ -157,7 +187,6 @@ $chat_channel = $_GET['channel'];
         </div>
         <input onclick="chatmsg()" onkeydown="if (event.keyCode == 13) document.getElementById('chatButton').click()" id="msgbox" class="gamersTextbox" value ="" style="height: 30px; margin-left: 5px" maxlength="200">
         <a title="Send your chat message" id="chatButton" class="button_link" onclick="send()"><span>Chat</span></a>
-        <img class="btn_menu" id='menuButton' onclick="menu()" title="Display or hide the chat menu" src="http://www.gamers-live.net/images/chat/button_menu1.png" style="position:relative; bottom: -12px;"
-
+        <img class="btn_menu" id='menuButton' onclick="menu()" title="Display or hide the chat menu" src="<?=$conf_site_url?>/images/chat/button_menu1.png" style="position:relative; bottom: -12px;"
     </div>
 </body>

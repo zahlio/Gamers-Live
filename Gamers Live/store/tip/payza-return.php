@@ -70,10 +70,10 @@ else {
             $database_pw = "";
 
             // connect to database
-            $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+            
 
             // select the database we need
-            $select_db = mysql_select_db("live", $connect) or die(mysql_error());
+            
 
             $date = date("d/m-Y G:i:s");
             if ($testModeStatus == "1") {

@@ -30,25 +30,25 @@ if($display_name == ""){
 $chat_key = "0";
 
 // we first get data from our mysql database
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 // connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
 			
 // select thje database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
 			
 if($checked == "1"){		
-	$result = mysql_query("SELECT * FROM users WHERE channel_id='$channel_id'") or die(mysq_error());
+	$result = mysql_query("SELECT * FROM users WHERE channel_id='$channel_id'") or die(mysql_error());
 	$count = mysql_num_rows($result);
 	
 	if($count != 0){
 		header('Location: http://gamers-live.net/account/register/?msg=Please choose another channel name, as the one you entered is already in use');
 	}else{
 		// we will now check the email		
-		$result_email = mysql_query("SELECT * FROM users WHERE email='$email'") or die(mysq_error());
+		$result_email = mysql_query("SELECT * FROM users WHERE email='$email'") or die(mysql_error());
 		$count_email = mysql_num_rows($result_email);
 		if($count_email != 0){
 			header('Location: http://gamers-live.net/account/register/?msg=The email is already in use');
@@ -68,7 +68,7 @@ if($checked2 == "1"){
 	
 		// but first we will generate the stream key
 		
-	$create_user = mysql_query("INSERT INTO users (display_name, email, password, channel_id, reg_date, active) VALUES ('$display_name', '$email', '$password', '$channel_id', '$date', '0')") or die(mysq_error());
+	$create_user = mysql_query("INSERT INTO users (display_name, email, password, channel_id, reg_date, active) VALUES ('$display_name', '$email', '$password', '$channel_id', '$date', '0')") or die(mysql_error());
 	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3, chat_key) VALUES ('$channel_id', 'rtmp://gamers-live.net/', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info', '$chat_key')") or die(mysql_error());
 	
 	// create channel dir
@@ -294,7 +294,7 @@ if($checked2 == "1"){
 	
 	// redict user to the login screen
 	
-	header('Location: http://gamers-live.net/account/activate/email.php?email='.$email.'');
+	header('Location: '.$conf_site_url.'/account/activate/email.php?email='.$email.'');
 }
 
 ?>

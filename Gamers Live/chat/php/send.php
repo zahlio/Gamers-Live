@@ -3,9 +3,9 @@
 session_start();
 error_reporting(0);
 
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 $username = $_SESSION['channel_id'];
 $channel_id = $_GET['channel'];
@@ -17,20 +17,17 @@ $delay = "true";
 
 
 if($username == ""){
-    die("Login to chat.");
+    die("LOGIN");
 }
 
 if(strlen($rawMsg) < 3){
-    die("Please don't write an empty msg.");
+    die("EMPTY");
 }
 
 
 if($channel_id == ""){
-    die("Please select a channel.");
+    die("CHANNEL");
 }
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
-
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 // we check if user is banned
 
@@ -60,20 +57,25 @@ if($type == "0"){
 // we now check delay
 $delay = mysql_query("SELECT date FROM chat_msg WHERE sender='$username' AND channel_id='$channel_id' ORDER BY id DESC LIMIT 1") or die(mysql_error());
 $delay_row = mysql_fetch_array($delay);
-$last_send = strtotime($delay_row['date']) + 2;
+$last_send = strtotime($delay_row['date']) + 5;
+
 
 if($last_send >= strtotime($date)){
-    die('You need to wait for 3 seconds before you can chat again');
     $delay = "true";
+    die("TIME");
 }else{
     $delay = "false";
 }
 
+if($count == 1){
+    die("BANNED");
+}
+
 if($count == 0 && $delay == "false"){
     $send_msg = mysql_query("INSERT INTO chat_msg (channel_id, sender, msg, date, type) VALUES ('$channel_id', '$username', '$msg', '$date', '$type')") or die(mysql_error());
-    die("<p id='error'>Msg was send</p>");
+    die("SEND");
 }else{
-    die("You are banned from this channel.");
+    die("BANNED");
 }
 
 exit;

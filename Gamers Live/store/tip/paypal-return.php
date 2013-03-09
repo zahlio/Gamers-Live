@@ -81,18 +81,18 @@ if (strcmp ($res, "VERIFIED") == 0) {
     if($payment_status == "Completed" && $receiver_email == "admin@gamers-live.net"){
 
         // we first get data from our mysql database
-        $database_url = "127.0.0.1";
-        $database_user = "root";
-        $database_pw = "";
+        $inc_path = $_SERVER['DOCUMENT_ROOT'];
+        $inc_path .= "/config.php";
+        include_once($inc_path);
         $p_day = date("j");
         $p_month = date("m");
         $p_year = date("Y");
 
         // connect to database
-        $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+        
 
         // select the database we need
-        $select_db = mysql_select_db("live", $connect) or die(mysql_error());
+        
 
         // we now update the database
         $update_paid_purchase = mysql_query("UPDATE tips_payza SET value='$payment_amount', testing='0', currency='$payment_currency', paid='1', gateway='paypal', trans_id='$txn_id', payer_email='$payer_email', paypal_fee='$paypal_fee', p_day='$p_day', p_month='$p_month', p_year='$p_year' WHERE item_code='$item_number'") or die(mysql_error());

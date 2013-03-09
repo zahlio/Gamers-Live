@@ -11,7 +11,7 @@
 </div>
 <?php wp_footer();
  if ( get_option(PREFIX."_google_analytics") <> "" ) { echo html_entity_decode(get_option(PREFIX."_google_analytics"),ENT_QUOTES, 'UTF-8'); } 
- include_once("http://www.gamers-live.net/analyticstracking.php");
+ include_once("".$conf_site_url."/analyticstracking.php");
  ?>
 </div>
 </body>

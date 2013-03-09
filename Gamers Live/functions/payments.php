@@ -2,19 +2,15 @@
 
 // should run every month on the 16th
 
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 $p_day = date("j");
 $p_month = date("m");
 $p_year = date("Y");
 
 $now = date("d/m-Y G:i:s");
-
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
-
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 $get_payments = mysql_query("SELECT * FROM tips_payza WHERE paid='1' AND pending='1'") or die(mysql_error());
 

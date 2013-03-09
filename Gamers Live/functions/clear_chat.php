@@ -1,19 +1,31 @@
 <?php
-// clear the chat history
-// should be run 1 time a day
+// delete all msg for a channel so we only have the 250 latest ones
+// should be runned every hour
 
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+// first we need select all data from our channels db
 
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+$channels = mysql_query("SELECT * FROM channels") or die(mysql_error());
 
-$clear_table = mysql_query('TRUNCATE TABLE chat_msg;') or die(mysql_error());
+while($row = mysql_fetch_array($channels)){
+    // we now count the msg of each channel
+    $channel_id = $row['channel_id'];
+    $chat_msg = mysql_query("SELECT * FROM chat_msg WHERE channel_id='$channel_id'") or die(mysql_error());
+    // and we count
+    $chat_msg_count = mysql_num_rows($chat_msg);
+    // if we have more the 100 then we will delete
 
-if($clear_table){
-    die("Chat history was deleted");
+    if($chat_msg_count > 250){
+        // we now delete all chat msg from that channel and leave the 25(1) newest.
+        $amount = $chat_msg_count - 250;
+        $chat_msg_delete = mysql_query("DELETE FROM chat_msg WHERE channel_id='$channel_id' LIMIT $amount") or die(mysql_error());
+    }else{
+        // we do nothing
+    }
 }
+
 exit;
 ?>

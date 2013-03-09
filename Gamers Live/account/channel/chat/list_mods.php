@@ -1,4 +1,4 @@
-<link href="http://www.gamers-live.net/style.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 <title>Moderators</title>
 
 <?php
@@ -7,24 +7,24 @@ session_start();
 
 error_reporting(0);
 
-include_once("http://www.gamers-live.net/analyticstracking.php");
+include_once("".$conf_site_url."/analyticstracking.php");
 if ($_SESSION['access'] != true) {
-    header( 'Location: http://www.gamers-live.net/account/login/?msg=Please login to view this page' ) ;
+    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
 
 $channel_id = $_GET['channel'];
 
 // we first get data from our mysql database
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 // connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
 
 // select the database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
 
 // first we check if user is already banned
 $accounts = mysql_query("SELECT * FROM chat_mods WHERE channel_id='$channel_id' AND moderator='1'") or die(mysql_error());

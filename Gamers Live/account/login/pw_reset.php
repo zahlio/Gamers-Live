@@ -5,25 +5,20 @@
 $email = $_POST['email'];
 
 if($email == null){
-    header( 'Location: http://www.gamers-live.net/account/login/?msg=Please try to reset the password again' );
+    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please try to reset the password again' );
 }
 
 if($email == ""){
-    header( 'Location: http://www.gamers-live.net/account/login/?msg=Please try to reset the password again' );
+    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please try to reset the password again' );
 }
 
 if(strpos($email,'@') == false){
-    header( 'Location: http://www.gamers-live.net/account/login/?msg=Please enter a valid email' );
+    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please enter a valid email' );
 }
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
-// connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
-
-// select the database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 $new_pw = rand(10000000, 90000000);
 
@@ -54,5 +49,5 @@ $header .= "from:admin@gamers-live.net";
 
 mail($email, $emne, $besked, $header); //Send!!
 
-header( 'Location: http://www.gamers-live.net/account/login/?msg=Your password was successfully reset, and we have emailed the new one to '.$email.'' );
+header( 'Location: '.$conf_site_url.'/account/login/?msg=Your password was successfully reset, and we have emailed the new one to '.$email.'' );
 ?>

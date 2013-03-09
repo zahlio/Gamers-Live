@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['access'] != true) {
-	header( 'Location: http://www.gamers-live.net/account/login/?msg=Please login to view this page' ) ;	
+	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
 	exit;
 }
 $email = $_SESSION['email'];
@@ -12,18 +12,18 @@ $value = strip_tags($_POST['value']);
 
 $msg = $_GET["msg"];
 if($msg == ""){
-$msg = header( 'Location: http://www.gamers-live.net/account/channel/?<? SID; ?>' );
+$msg = header( 'Location: '.$conf_site_url.'/account/channel/?<? SID; ?>' );
 }
 
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 			
 // connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
 			
 // select thje database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
 
 // update data with msg
 
@@ -76,5 +76,5 @@ if($msg == "info3"){
 
 
 
-header( 'Location: http://www.gamers-live.net/account/channel/?msg=The information was updated') ;	
+header( 'Location: '.$conf_site_url.'/account/channel/?msg=The information was updated') ;	
 ?>

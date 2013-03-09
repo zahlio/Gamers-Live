@@ -1,4 +1,4 @@
 <?php
-include_once("http://www.gamers-live.net/analyticstracking.php");
-header( 'Location: http://www.gamers-live.net/' ) ;
+include_once("".$conf_site_url."/analyticstracking.php");
+header( 'Location: '.$conf_site_url.'/' ) ;
 ?>

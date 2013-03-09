@@ -19,7 +19,7 @@
         <div class="header_menu">
             <div class="container">
                         <div class="logo">
-                            <a href="http://www.gamers-live.net/" title="<?php bloginfo('description'); ?>">
+                            <a href="<?=$conf_site_url?>/" title="<?php bloginfo('description'); ?>">
                                 <img src="<?php tfuse_logo();  ?>" alt="<?php bloginfo('name'); ?>"  alt="Sportedge" border="0" />
                             </a>
                         </div><!--/ .logo -->

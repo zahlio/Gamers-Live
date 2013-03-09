@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['access'] != true) {
-	header( 'Location: http://www.gamers-live.net/account/login/?msg=Please login to view this page' ) ;	
+	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
 	exit;
 }
 $email = $_SESSION['email'];
@@ -30,7 +30,7 @@ if ((($_FILES["file"]["type"] == "image/png"))
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "c:/xampp/htdocs/user/".$channel_id."/avatar.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else
@@ -57,7 +57,7 @@ if ((($_FILES["file"]["type"] == "image/png"))
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "c:/xampp/htdocs/user/".$channel_id."/header.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else
@@ -85,7 +85,7 @@ if ((($_FILES["file"]["type"] == "image/png"))
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "c:/xampp/htdocs/user/".$channel_id."/offline_img.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else
