@@ -83,6 +83,8 @@ if($status == "offline"){
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
 <title>GAMERS LIVE</title>
+<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
 <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
