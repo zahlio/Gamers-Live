@@ -1,4 +1,7 @@
 <?php
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 include_once("".$conf_site_url."/analyticstracking.php");
-header( 'Location: http://www.facebook.com/pages/Gamers-Live/301016116668756' ) ;	
+header( 'Location: '.$conf_facebook.'' ) ;
 ?>

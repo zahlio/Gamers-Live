@@ -138,7 +138,7 @@ if($chat == 'true' && $status == 'online'){
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="<?=$title?>" />
-<title>Gamers Live - <?=$channel_id?></title>
+<title><?=$conf_site_name?> - <?=$channel_id?></title>
 <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
@@ -255,7 +255,7 @@ if($chat == 'true' && $status == 'online'){
 
                             adsense: {
                                 url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
-                                publisherId: "ca-video-pub-2504383399867703",
+                                publisherId: "<?=$conf_video_ads?>",
                                 channel: "<?=$ads_channel?>"
                             }
                         },
@@ -323,7 +323,7 @@ if($chat == 'true' && $status == 'online'){
         <div class="container_12">
 
             <div class="grid_8">
-                <h3>Gamers Live</h3>
+                <h3><?=$conf_site_name?></h3>
 
                 <div class="copyright">
                 <?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

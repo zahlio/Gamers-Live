@@ -20,7 +20,7 @@ while($streams_row = mysql_fetch_array($streams))
     $channel_id = $streams_row['channel_id'];
     $SessionsFlash = null;
 
-    $ch = curl_init('http://live_stats:livelive123@gamers-live.net:8086/connectioncounts');
+    $ch = curl_init('http://'.$conf_connec_user.':'.$conf_connec_pw.'@'.$conf_connec_host.':8086/connectioncounts');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
     $xml = curl_exec($ch);

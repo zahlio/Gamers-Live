@@ -80,7 +80,7 @@ if($partner == "0"){
 <meta name="author" content="ThemeFuse" />
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
-<title>GAMERS LIVE</title>
+<title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
 <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -133,7 +133,7 @@ if($partner == "0"){
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -305,7 +305,7 @@ if($partner == "0"){
                     <div class="box_title">Partner Support</div>
                         <div class="box_content">
 							<p>Should you need support or any settings changed, then please contact support by creating a ticket in "Partner Support" with the subject of: <br /><center><h2><?=$partner_id?>: [YOUR SUBJECT]</h2></center></p><p><i>Delete the []'s. An example would be: "1-zahlio: I wish to change my payment email"</i></p>
-                            Link to support: <a href="http://support.gamers-live.net/anonymous_requests/new">Click here to create a ticket</a>
+                            Link to support: <a href="<?=$conf_support?>">Click here to create a ticket</a>
                         <div class="clear"></div>
                     </div>
                 </div>
@@ -325,7 +325,7 @@ if($partner == "0"){
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>   
+    	<h3><?=$conf_site_name?></h3>   
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

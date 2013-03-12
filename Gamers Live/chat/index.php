@@ -183,7 +183,7 @@ $chat_channel = $_GET['channel'];
         <div align="right" id="menu" class="menu" style="display: none;">
             <a title="Toggle auto scroll of the chat on and off" id="autoscroll" class="button_link btn_green" onclick="auto_scroll = !auto_scroll; if(auto_scroll == true){document.getElementById('autoscroll').className = 'button_link btn_green'}else{document.getElementById('autoscroll').className = 'button_link btn_red'}");"><span>Auto scroll</span></a>
             <a title="Toggle slow mode of the chat on and off" id="slowtoggle" class="button_link btn_red" onclick="if(updateSpeed == 5000){updateSpeed = 15000; document.getElementById('slowtoggle').className = 'button_link btn_green'; slowMode();}else{updateSpeed = 5000; document.getElementById('slowtoggle').className = 'button_link btn_red'; slowMode();}");"><span>Slow</span></a>
-            <a href="http://support.gamers-live.net/entries/23294356-Chat-Guide" title="Get help with the chat" target="_blank">Chat Help</a>
+            <a href="<?=$conf_support?>" title="Get help with the chat" target="_blank">Chat Help</a>
         </div>
         <input onclick="chatmsg()" onkeydown="if (event.keyCode == 13) document.getElementById('chatButton').click()" id="msgbox" class="gamersTextbox" value ="" style="height: 30px; margin-left: 5px" maxlength="200">
         <a title="Send your chat message" id="chatButton" class="button_link" onclick="send()"><span>Chat</span></a>

@@ -1,20 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
-error_reporting(0);
 include_once("config.php");
+if($conf_installed == "0"){
+    header( 'Location: /install/?new=true' ) ;
+    exit;
+}
+
+error_reporting(0);
+
 session_start();
 
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
-    $not_logged_in = '<a href="'.$conf_site_url.'/account/register/"><img src='.$conf_site_url.'/images/frontpage/register-now-img.png" class="tabs_framed"></a><br>';
+    $not_logged_in = '<a href="/account/register/"><img src="/images/frontpage/register-now-img.png" class="tabs_framed"></a><br>';
 }else{
 $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
     $not_logged_in = "";
 }
 
 include_once("".$conf_site_url."/analyticstracking.php");
-
 
 
 $selected = $_GET['id'];
@@ -39,7 +44,7 @@ $status = $_GET['status'];
     $title = $row['title'];
 
     if($title != ""){
-        $button = '<a href="<?=$conf_site_url?>/user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
+        $button = '<a href="/user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
     }
     $featured = $row['featured'];
     $banned = $row['banned'];
@@ -48,7 +53,7 @@ $status = $_GET['status'];
     $ads_channel = $row['adsense_video_channel'];
 
 if($count > 1){
-    $featured_bar = "<a href='<?=$conf_site_url?>/featured/'><img src='/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
+    $featured_bar = "<a href='/featured/'><img src='/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
 }else{
     $featured_bar = "";
 }
@@ -82,7 +87,7 @@ if($status == "offline"){
 <meta name="author" content="ThemeFuse" />
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
-<title>GAMERS LIVE</title>
+<title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
 <link rel="shortcut icon" href="/favicon.ico" />
 <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
@@ -243,7 +248,7 @@ include('slider.php');
 
                                     adsense: {
                                         url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
-                                        publisherId: "ca-video-pub-2504383399867703",
+                                        publisherId: "<?=$conf_video_ads?>",
                                         channel: "<?=$ads_channel?>"
                                     }
                                 },
@@ -348,7 +353,7 @@ include('slider.php');
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>
+    	<h3><?=$conf_site_name?></h3>
 		
         <div class="copyright">
             <?=$conf_site_copy?> <br /><a href="/company/legal/">Terms of Service</a> - <a href="/company/support/">Contact</a> -

@@ -31,7 +31,7 @@ $display_name = $row['display_name'];
 
 // we now send the new pw as a email
 
-$emne = "Gamers Live Password Reset"; //Emnefeltet
+$emne = "".$conf_site_name." Password Reset"; //Emnefeltet
 
 $besked = "Hello ".$display_name.",<br>
 <br>
@@ -41,11 +41,11 @@ Your new password for this account is: ".$new_pw."<br>
 Should you not have performed this action please contact support and we can disable this feature for your account.<br>
 <br>
 Best Regards,<br>
-Gamers Live";
+".$conf_site_name."";
 
 $header  = "MIME-Version: 1.0" . "\r\n";
 $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-$header .= "from:admin@gamers-live.net";
+$header .= "from:".$conf_email.";
 
 mail($email, $emne, $besked, $header); //Send!!
 

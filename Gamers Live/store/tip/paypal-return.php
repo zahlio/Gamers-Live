@@ -3,7 +3,10 @@
 // source: https://www.x.com/developers/PayPal/documentation-tools/code-sample/216623
 
 // STEP 1: Read POST data
-
+// we first get data from our mysql database
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 // reading posted data from directly from $_POST causes serialization 
 // issues with array data in POST
 // reading raw POST data from input stream instead. 
@@ -78,12 +81,8 @@ if (strcmp ($res, "VERIFIED") == 0) {
     // get the current date and time
     $date = date("d/m-Y G:i:s");
 
-    if($payment_status == "Completed" && $receiver_email == "admin@gamers-live.net"){
+    if($payment_status == "Completed" && $receiver_email == $conf_store_paypal_email){
 
-        // we first get data from our mysql database
-        $inc_path = $_SERVER['DOCUMENT_ROOT'];
-        $inc_path .= "/config.php";
-        include_once($inc_path);
         $p_day = date("j");
         $p_month = date("m");
         $p_year = date("Y");

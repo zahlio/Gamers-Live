@@ -1,3 +1,8 @@
+<?php
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+?>
 <!-- topmenu -->
 <div class="topmenu">
     <ul class="dropdown">
@@ -9,7 +14,7 @@
         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
         <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
         <li><a href="#"><span>More</span></a>
             <ul>
                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>

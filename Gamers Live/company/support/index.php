@@ -1,7 +1,9 @@
 <?php
 error_reporting(0);
 session_start();
-
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
             if ($_SESSION['access'] != true) {
                 $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
             }else{
@@ -11,10 +13,10 @@ session_start();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="ThemeFuse" />
+
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
-    <title>GAMERS LIVE</title>
+    <title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -66,7 +68,7 @@ session_start();
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -99,11 +101,11 @@ session_start();
     <div class="grid_8 content">
 
 		<h1>Support & Contact</h1><br />
-        <a href="http://support.gamers-live.net/anonymous_requests/new">
+        <a href="<?=$conf_support?>">
         <img src="<?=$conf_site_url?>/images/support.png" class="tabs_framed" />
         </a>
         <br />
-        <a href="http://support.gamers-live.net/anonymous_requests/new">
+        <a href="<?=$conf_support?>">
         <img src="<?=$conf_site_url?>/images/contact_us.png" class="tabs_framed" />
         </a>
 
@@ -116,10 +118,10 @@ session_start();
     	<div class="widget-container widget_text">
             <div class="textwidget">
                 <span class="meta-date">Headquarters</span>
-                <h5>GAMERS LIVE</h5>
-                <p>Hagenstrupparken 49, <br />8860 Ulstrup Denmark</p>
-                <p><strong>Phone</strong>: +45 2112 6570<br />
-    <strong>Email:</strong> admin@gamers-live.net<br />
+                <h5><?=$conf_site_name?></h5>
+                <p><?=$conf_address?></p>
+                <p><strong>Phone</strong>: <?=$conf_phone?><br />
+    <strong>Email:</strong> <?=$conf_support_email?><br />
 
         	</div>
 		</div>
@@ -143,7 +145,7 @@ session_start();
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>   
+    	<h3><?=$conf_site_name?></h3>   
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

@@ -21,7 +21,7 @@ $channel_id = $_SESSION['channel_id'];
 <meta name="author" content="ThemeFuse" />
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
-<title>GAMERS LIVE</title>
+<title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
 <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -74,7 +74,7 @@ $channel_id = $_SESSION['channel_id'];
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -110,11 +110,11 @@ $channel_id = $_SESSION['channel_id'];
     <br /></center><br />
     		<h1>Support & Contact</h1><br />
             <center>
-        <a href="http://support.gamers-live.net/anonymous_requests/new">
+        <a href="<?=$conf_support?>">
         <img src="<?=$conf_site_url?>/images/support.png" class="tabs_framed" />
         </a>
         <br />
-        <a href="http://support.gamers-live.net/anonymous_requests/new">
+        <a href="<?=$conf_support?>">
         <img src="<?=$conf_site_url?>/images/contact_us.png" class="tabs_framed" />
         </a>
     </center> 
@@ -136,7 +136,7 @@ $channel_id = $_SESSION['channel_id'];
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>   
+    	<h3><?=$conf_site_name?></h3>   
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

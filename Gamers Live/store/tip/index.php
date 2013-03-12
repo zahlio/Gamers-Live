@@ -25,9 +25,6 @@ $tip = $_GET['tip'];
 $gateway = $_GET['gateway'];
 
 // gateways
-
-$payza = false;
-$mb = false;
 $paypal = true;
 
 // first we get all info about the streamer
@@ -62,10 +59,10 @@ if($gateway == "paypal" && $paypal == true){
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="ThemeFuse" />
+
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
-    <title>GAMERS LIVE - Store</title>
+    <title><?=$conf_site_name?> - Store</title>
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
@@ -93,7 +90,7 @@ if($gateway == "paypal" && $paypal == true){
             document.paymentpaypal.submit()
             return true
         }else{
-            alert("Due to payments fees we do not accept payments below $1.00 \n\nShould you have more questions please contact support at: www.gamers-live.net/company/support/")
+            alert("Due to payments fees we do not accept payments below $1.00")
             return false
         }
     }
@@ -150,7 +147,7 @@ if($gateway == "paypal" && $paypal == true){
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -202,14 +199,6 @@ if($gateway == "paypal" && $paypal == true){
             if($gateway == null){
                 // then we echo all gateways enabled
                 echo 'Choose Your Payment Gateway<br>';
-                if($payza == true){
-                 echo'<a href="?channel='.$channel_id.'&tip=true&gateway=payza" class="button_link"><span>Payza</span></a>';
-                }
-
-                if($mb == true){
-                    echo'<a href="?channel='.$channel_id.'&tip=true&gateway=mb" class="button_link"><span>Moneybookers</span></a>';
-
-                }
 
                 if($paypal == true){
                     echo'<a href="?channel='.$channel_id.'&tip=true&gateway=paypal" class="button_link"><span>Paypal</span></a>';
@@ -239,14 +228,14 @@ if($gateway == "paypal" && $paypal == true){
                 echo $donater_name;
                 if($donater_name == "Anonymous"){
                     // login link
-                    echo ' - <a href="<?=$conf_site_url?>/account/login/"><span>Login to change</span></a>';
+                    echo ' - <a href="'.$conf_site_url.'/account/login/"><span>Login to change</span></a>';
                 }
                 echo '<br>';
                 echo '<br>';
 
                 echo '<form name="paymentpaypal" method="post" action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return validate_paypal()" autocomplete="off">
                 <input type="hidden" name="cmd" value="_xclick">
-                            <input type="hidden" name="business" value="admin@gamers-live.net">
+                            <input type="hidden" name="business" value="'.$conf_store_paypal_email.'">
                             <input type="hidden" name="notify_url" value="'.$conf_site_url.'/store/tip/paypal-return.php">
                             <input type="hidden" name="currency_code" value="USD">
                             <input type="hidden" name="item_name" value="Tips to: '.$channel_id.'">
@@ -263,7 +252,7 @@ if($gateway == "paypal" && $paypal == true){
 
             }
             ?>
-            <br><br>Gamers Live reserves the right to terminate without refund any Account found in violation of our <a href=<?=$conf_site_url?>/company/legal/">Terms of Service</a>.
+            <br><br><?=$conf_site_name?> reserves the right to terminate without refund any Account found in violation of our <a href=<?=$conf_site_url?>/company/legal/">Terms of Service</a>.
             <div class="clear"></div>
         </div>
     </div>
@@ -276,8 +265,8 @@ if($gateway == "paypal" && $paypal == true){
                         	
         <div class="faq_question toggle"><span class="faq_q">Q:</span> <span class="faq_title">How much do the streamer receive from my purchase?</span> <span class="ico"></span></div>
             <div class="faq_answer toggle_content" style="display: none;">
-            <p>The percentage amount of the purchase the streamer receives varies from streamer to streamer. In the following case the streamer receives <?=$tip_per?>% of the total payment after the payment fee is subtracted (see list of payment fee(s) below). The rest of the purchase is going directly to Gamers Live (in this case it is <?=$to_us?>% of the payments). <br /><br />
-            Also note that: The payment fee is subtracted from the streamers percentage and NOT Gamers Live! <br />You can see below the payment fee(s) for our partnered gateways:<br />
+            <p>The percentage amount of the purchase the streamer receives varies from streamer to streamer. In the following case the streamer receives <?=$tip_per?>% of the total payment after the payment fee is subtracted (see list of payment fee(s) below). The rest of the purchase is going directly to <?=$conf_site_name?> (in this case it is <?=$to_us?>% of the payments). <br /><br />
+            Also note that: The payment fee is subtracted from the streamers percentage and NOT <?=$conf_site_name?>! <br />You can see below the payment fee(s) for our partnered gateways:<br />
 
                 <div class="styled_table table_white">
                     <table width="100%" cellpadding="0" cellspacing="0">
@@ -302,7 +291,7 @@ if($gateway == "paypal" && $paypal == true){
         
         <div class="faq_question toggle"><span class="faq_q">Q:</span> <span class="faq_title">How do i get in touch with you?</span> <span class="ico"></span></div>
             <div class="faq_answer toggle_content" style="display: none;">
-            <p>Should you ever need any support or help with a Gamers Live Service, then please check out our <a href="<?=$conf_site_url?>/company/support/">support page</a>. Here you will find all the information needed to submit a ticket and recieve support.</p>
+            <p>Should you ever need any support or help with a <?=$conf_site_name?> Service, then please check out our <a href="<?=$conf_site_url?>/company/support/">support page</a>. Here you will find all the information needed to submit a ticket and recieve support.</p>
         </div>
         
         <div class="faq_question toggle"><span class="faq_q">Q:</span> <span class="faq_title">What payment options do you support?</span> <span class="ico"></span></div>
@@ -336,7 +325,7 @@ if($gateway == "paypal" && $paypal == true){
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>   
+    	<h3><?=$conf_site_name?></h3>   
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

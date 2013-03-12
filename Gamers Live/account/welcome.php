@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
 session_start();
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 include_once("".$conf_site_url."/analyticstracking.php");
 if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
@@ -10,14 +13,6 @@ $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
 $admin = $_SESSION['admin'];
 
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-
-// connect to database
-
-
-// select thje database we need
 
 
 // select features streamer who is online / active
@@ -64,10 +59,7 @@ if($read == "true"){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="ThemeFuse" />
-    <meta name="Description" content="A short description of your company" />
-    <meta name="Keywords" content="Some keywords that best describe your business" />
-    <title>GAMERS LIVE - Welcome</title>
+    <title><?=$conf_site_name?> - Welcome</title>
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
@@ -119,7 +111,7 @@ if($read == "true"){
                     <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Others</span></a></li>
-                    <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                    <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
                             <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -159,13 +151,13 @@ if($read == "true"){
                 </center>
                 <br>
                     <br>
-                <h1>Welcome to Gamers Live!</h1>
+                <h1>Welcome to <?=$conf_site_name?>!</h1>
                 <p><img src="<?=$conf_site_url?>/images/welcome/champ_1.jpg" alt="" width="300" height="200" class="frame_right">
                     <br>
                     Thank you for joining the revolution of gaming!<br>
-                    Our goal here at Gamers Live is to improve the competitive scene in gaming. We feel this is best done by supporting the PRO gamers and the events that they participate in. But we do not oversee the “up and coming” gamers that are hard at work trying to become PRO.<br><br>
+                    Our goal here at <?=$conf_site_name?> is to improve the competitive scene in gaming. We feel this is best done by supporting the PRO gamers and the events that they participate in. But we do not oversee the “up and coming” gamers that are hard at work trying to become PRO.<br><br>
                     Also charity is something we look at with great interest, which is why we are supporting as many charity events as we possibly can.<br><br>
-                    Now that we got you signed up and told you our goals with this service, we would like to introduce you to some of the tips and trick of Gamers Live.<br>
+                    Now that we got you signed up and told you our goals with this service, we would like to introduce you to some of the tips and trick of <?=$conf_site_name?>.<br>
                 </p>
                 <br>
                 <center>
@@ -178,7 +170,7 @@ if($read == "true"){
                     There are some items you will need before you can start streaming your games. But if you are not interested in streaming any games and just want to watch others, then you can completely skip this step.<br><br>
                     <b>1.</b> The first item you will need a computer…<br>
                     <b>2.</b> You will also need a video game to stream…<br>
-                    <b>3.</b> You will need a streaming software, you can choose one and set it up using our <a href="http://support.gamers-live.net/entries/23262362-Streaming-Software" target="_blank">handy guide here</a>.<br><br>
+                    <b>3.</b> You will need a streaming software, you can choose one and set it up using our <a href="<?=$conf_support?>" target="_blank">handy guide here</a>.<br><br>
                     That’s basically it! You should now be up and running, and on the way to become the new internet sensation!<br>
 
                 </p>
@@ -187,12 +179,12 @@ if($read == "true"){
                     <img src="<?=$conf_site_url?>/images/hr.png">
                 </center>
                 <br>
-                <p><img src="http://gamers-live.net/blog/wp-content/uploads/2013/02/channel_test_1-1024x507.png" alt="" width="300" height="200" class="frame_right">
+                <p>
                     <h2 align="left">Tip #2: Setting up your channel!</h2>
                     You could start streaming now, but how awesome wouldn’t it be to customize your channel?<br>
                     Like creating a custom title, information and images! This is all done easy by using our online interface.<br>
                     If you wish to change your information click <a href="<?=$conf_site_url?>/account/settings/?" target="_blank">here</a>, if you wish to edit your channel click <a href="<?=$conf_site_url?>/account/channel/?" target="_blank">here</a>.<br><br>
-                    Should you need more information regarding this, we have a full length help article <a href="http://support.gamers-live.net/entries/23262372-Setting-up-your-channel" target="_blank">right here</a> for you!<br>
+                    Should you need more information regarding this, we have a full length help article <a href="<?=$conf_support?>" target="_blank">right here</a> for you!<br>
 
                 </p>
                 <br><br>
@@ -202,10 +194,10 @@ if($read == "true"){
                 <br>
                 <h2 align="right">Tip #3: Manage your chat from trolls!</h2>
                 <p><img src="<?=$conf_site_url?>/images/welcome/troll.png" alt="" width="300" height="200" class="frame_left">
-                    Once you started streaming and you gain a viewer base, trolls and fan boys will start coming into your chat. Some can be fun and interesting to talk to, while others should be removed from the chat. Of cause Gamers Live has a system for this which we call: “Manage Your Chat (system-ish)” clever right?<br><br>
+                    Once you started streaming and you gain a viewer base, trolls and fan boys will start coming into your chat. Some can be fun and interesting to talk to, while others should be removed from the chat. Of cause <?=$conf_site_name?> has a system for this which we call: “Manage Your Chat (system-ish)” clever right?<br><br>
                     So should you ever feel the need to ban a member from the chat, just click on the name in the chat window and you will be prompted to ban this user, should you have the authority to do so. You can also access this tool at your <a href="<?=$conf_site_url?>/account/channel/?" target="_blank">channel page</a>.<br>
                     Additionally you can add other moderators which can moderate your chat and ban users.<br><br>
-                    Should you need more information, <a href="http://support.gamers-live.net/entries/23279567-Manage-your-chat-and-channel" target="_blank">then get over here.</a><br>
+                    Should you need more information, <a href="<?=$conf_support?>" target="_blank">then get over here.</a><br>
                 </p>
                 <br><br>
                 <center>
@@ -217,7 +209,7 @@ if($read == "true"){
                 <p>
                 <h2 align="left">Tip #4: PLZ READ HELP ARTICLES</h2>
                     Help articles is where you will find everything you need, and should these articles not be enough then our support team is more than happy to assist you!<br><br>
-                    You can find our help articles <a href="http://support.gamers-live.net/forums/21781176-Tips-Tricks" target="_blank">here</a> and should you need to submit a ticket, then it can be done <a href="http://support.gamers-live.net/anonymous_requests/new" target="_blank">here</a>.<br>
+                    You can find our help articles <a href="<?=$conf_support?>" target="_blank">here</a> and should you need to submit a ticket, then it can be done <a href="<?=$conf_support?>" target="_blank">here</a>.<br>
                 </p>
                 <br><br>
                 <center>
@@ -243,7 +235,7 @@ if($read == "true"){
         <div class="container_12">
 
             <div class="grid_8">
-                <h3>Gamers Live</h3>
+                <h3><?=$conf_site_name?></h3>
 
                 <div class="copyright">
                     <?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

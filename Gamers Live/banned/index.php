@@ -17,7 +17,7 @@ include_once("".$conf_site_url."/analyticstracking.php");
 <meta name="author" content="ThemeFuse" />
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
-<title>GAMERS LIVE</title>
+<title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
 <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -70,7 +70,7 @@ include_once("".$conf_site_url."/analyticstracking.php");
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -106,7 +106,7 @@ include_once("".$conf_site_url."/analyticstracking.php");
         <p>We are sorry, but the channel you where visiting has been banned.</p>
         <br />
         <p>Are you the owner of the channel or do you want additional information, then please visit our support panel and submit a ticket for additional assistance.</p>
-        <p><a href="https://gamerslive.zendesk.com/anonymous_requests/new" class="button_link"><span>Support Panel</span></a></p>
+        <p><a href="<?=$conf_support?>" class="button_link"><span>Support Panel</span></a></p>
     </center>
 </div>
     </div>
@@ -125,7 +125,7 @@ include_once("".$conf_site_url."/analyticstracking.php");
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>   
+    	<h3><?=$conf_site_name?></h3>   
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -

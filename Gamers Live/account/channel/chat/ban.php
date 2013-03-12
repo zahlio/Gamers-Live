@@ -62,10 +62,10 @@ if($mod_name == $channel_id){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" content="ThemeFuse" />
+
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
-    <title>GAMERS LIVE</title>
+    <title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
     <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
@@ -121,7 +121,7 @@ if($mod_name == $channel_id){
                     <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Others</span></a></li>
-                    <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                    <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
                             <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
@@ -249,7 +249,7 @@ if($mod_name == $channel_id){
         <div class="container_12">
 
             <div class="grid_8">
-                <h3>Gamers Live</h3>
+                <h3><?=$conf_site_name?></h3>
 
                 <div class="copyright">
                     <?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -
