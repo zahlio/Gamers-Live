@@ -4618,3 +4618,29 @@ a.link-news-rss:hover {
 	
 .valid{border:1px solid #70A41B!important; overflow:hide;} /*#70A41B*/
 .error {overflow:hide; border:1px solid red!important; }
+
+/* Gamers Live Text Box */
+
+input.gamersTextbox {
+    border: 1px solid #9f9f9f;
+    background-color : #f4f4f4;
+    width: 180px;
+    height: 20px;
+    font-size: 13px;
+    padding: 4px 4px 4px 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0px 0px 8px #d9d9d9;
+    -moz-box-shadow: 0px 0px 8px #d9d9d9;
+    -webkit-box-shadow: 0px 0px 8px #d9d9d9;
+}
+
+input.gamersTextbox:focus {
+    outline: none;
+    background-color : #ffffff;
+    border: 1px solid #cf5f21;
+    box-shadow: 0px 0px 8px #cf5f21;
+    -moz-box-shadow: 0px 0px 8px #cf5f21;
+    -webkit-box-shadow: 0px 0px 8px #cf5f21;
+}​

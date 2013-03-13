@@ -3,17 +3,11 @@
 // this script checks if a stream is online and updates the value in the database.
 
 // we first get data from our mysql database
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 $dir_name = basename(__DIR__);
-
-// connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
-
-// select then database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 // we then select the streams (that are offline) we want to update to online first
 
@@ -26,7 +20,7 @@ while($streams_row = mysql_fetch_array($streams))
     $channel_id = $streams_row['channel_id'];
     $SessionsFlash = null;
 
-    $ch = curl_init('http://live_stats:livelive123@gamers-live.net:8086/connectioncounts');
+    $ch = curl_init('http://'.$conf_connec_user.':'.$conf_connec_pw.'@'.$conf_connec_host.':8086/connectioncounts');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
     $xml = curl_exec($ch);

@@ -54,7 +54,7 @@
 		// otherwise set simultaneousCacheLoading to a higher number for simultaneous downloads
 		if(imgUrls && imgUrls.length && imgUrls[loaded]){
 			var img = new Image(); //new img obj
-			img.src = imgUrls[loaded];	//set src either absolute or rel to css dir
+			//img.src = imgUrls[loaded];	//set src either absolute or rel to css dir
 			if(!img.complete){
 				jQuery(img).bind('error load onreadystatechange', onImgComplete);
 			} else {

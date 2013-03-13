@@ -6,15 +6,15 @@ $password = $_POST['password'];
 $email = $_POST['email'];
 
 
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 			
 // connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
 			
 // select thje database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
 			
 // select features streamer who is online / active
 $result = mysql_query("SELECT * FROM users WHERE email='$email' AND password='$password'");

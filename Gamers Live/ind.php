@@ -1,28 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
+include_once("config.php");
+if($conf_installed == "0"){
+    header( 'Location: /install/?new=true' ) ;
+    exit;
+}
+
 error_reporting(0);
 
 session_start();
 
 if ($_SESSION['access'] != true) {
- $login_box = ' <div class="top_login_box"><a href="http://www.gamers-live.net/account/login/">Sign in</a><a href="http://www.gamers-live.net/account/register/">Register</a></div>';
+ $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
+    $not_logged_in = '<a href="/account/register/"><img src="/images/frontpage/register-now-img.png" class="tabs_framed"></a><br>';
 }else{
-$login_box = '<div class="top_login_box"><a href="http://www.gamers-live.net/account/logout/">Logout</a><a href="http://www.gamers-live.net/account/settings/">Settings</a></div>';
+$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $not_logged_in = "";
 }
 
-include_once("http://www.gamers-live.net/analyticstracking.php");
+include_once("".$conf_site_url."/analyticstracking.php");
 
-// we first get data from our mysql database
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
-
-// connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
-
-// select the database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
 
 $selected = $_GET['id'];
 
@@ -44,6 +42,10 @@ $status = $_GET['status'];
     $server_rtmp = $row['server_rtmp'];
     $online = $row['online'];
     $title = $row['title'];
+
+    if($title != ""){
+        $button = '<a href="/user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
+    }
     $featured = $row['featured'];
     $banned = $row['banned'];
     $views = $row['views'];
@@ -51,7 +53,7 @@ $status = $_GET['status'];
     $ads_channel = $row['adsense_video_channel'];
 
 if($count > 1){
-    $featured_bar = "<a href='http://www.gamers-live.net/featured/'><img src='/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
+    $featured_bar = "<a href='/featured/'><img src='/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
 }else{
     $featured_bar = "";
 }
@@ -85,7 +87,9 @@ if($status == "offline"){
 <meta name="author" content="ThemeFuse" />
 <meta name="Description" content="A short description of your company" />
 <meta name="Keywords" content="Some keywords that best describe your business" />
-<title>GAMERS LIVE</title>
+<title><?=$conf_site_name?></title>
+<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
 <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -100,7 +104,7 @@ if($status == "offline"){
 
 <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" />
 <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://www.gamers-live.net/files/flowplayer-3.2.11.min.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/files/flowplayer-3.2.11.min.js"></script>
 
 <!-- slider -->
 <script src="js/jquery.bxSlider.min.js" type="text/javascript"></script>
@@ -129,8 +133,12 @@ $(window).load(function () {
 }); 
 </script>
 
+    <style type="text/css">
+
+    </style>
+
 <!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="css/ie.css" />
+<link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>/css/ie.css" />
 <![endif]-->
 </head>
 
@@ -199,12 +207,14 @@ include('slider.php');
 <!-- middle -->
 <div class="middle">
 	<div class="container_12">		
-        <div class="page-title">
-        <a href="http://www.gamers-live.net/user/<?=$channel_id?>"><h2><?=$title?></h2></a>
+        <div class="page-title"><center><?=$not_logged_in?></center>
+        <a href="<?=$conf_site_url?>/user/<?=$channel_id?>"><h2><?=$title?> </h2></a>
                     <center>
+
          			<a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
                     </a>
                     </center>
+                    <?=$button?>
                     <br>
                     <?php
 
@@ -216,7 +226,7 @@ include('slider.php');
                     ?>
 
                     <script type="text/javascript">
-                        flowplayer("stream", "http://www.gamers-live.net/files/flowplayer.commercial-3.2.11.swf",
+                        flowplayer("stream", "<?=$conf_site_url?>/files/flowplayer.commercial-3.2.11.swf",
                             {
                                 clip: {
                                     url: '<?=$channel_id?>',
@@ -232,13 +242,13 @@ include('slider.php');
                                     },
 
                                     rtmp: {
-                                        url: 'http://www.gamers-live.net/files/flowplayer.rtmp-3.2.11.swf',
+                                        url: '<?=$conf_site_url?>/files/flowplayer.rtmp-3.2.11.swf',
                                         netConnectionUrl: '<?=$server_rtmp?><?=$channel_id?>'
                                     },
 
                                     adsense: {
-                                        url: "http://www.gamers-live.net/files/bigsool.adsense-2.0.swf",
-                                        publisherId: "ca-video-pub-2504383399867703",
+                                        url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
+                                        publisherId: "<?=$conf_video_ads?>",
                                         channel: "<?=$ads_channel?>"
                                     }
                                 },
@@ -343,10 +353,10 @@ include('slider.php');
 <div class="container_12">
 	
     <div class="grid_8">
-    	<h3>Gamers Live</h3>
+    	<h3><?=$conf_site_name?></h3>
 		
         <div class="copyright">
-		&copy; 2011 GAMERS LIVE. An Hostse.net production. All Rights Reserved. <br /><a href="/company/legal/">Terms of Service</a> - <a href="/company/support/">Contact</a> -
+            <?=$conf_site_copy?> <br /><a href="/company/legal/">Terms of Service</a> - <a href="/company/support/">Contact</a> -
 		<a href="/company/legal/">Privacy guidelines</a> - <a href="/company/support/">Advertise with Us</a> - <a href="/company/about/">About Us</a></p>
 		</div>          
     </div>
@@ -354,9 +364,9 @@ include('slider.php');
     <div class="grid_4">
     	<h3>Follow us</h3>
         <div class="footer_social">
-        	<a href="http://www.gamers-live.net/facebook/" class="icon-facebook">Facebook</a> 
-            <a href="http://www.gamers-live.net/twitter/" class="icon-twitter">Twitter</a>
-            <a href="http://www.gamers-live.net/rss/" class="icon-rss">RSS</a>
+        	<a href="<?=$conf_site_url?>/facebook/" class="icon-facebook">Facebook</a> 
+            <a href="<?=$conf_site_url?>/twitter/" class="icon-twitter">Twitter</a>
+            <a href="<?=$conf_site_url?>/rss/" class="icon-rss">RSS</a>
             <div class="clear"></div>
         </div>
     </div>

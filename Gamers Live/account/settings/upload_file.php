@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['access'] != true) {
-	header( 'Location: http://www.gamers-live.net/account/login/?msg=Please login to view this page' ) ;	
+	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
 	exit;
 }
 $email = $_SESSION['email'];
@@ -26,11 +26,11 @@ if ((($_FILES["file"]["type"] == "image/png"))
   else
     {	
 	// we will first delete the old file
-	unlink("c:/xampp/htdocs/user/".$channel_id."/avatar.png");	
+	unlink("".$conf_ht_docs."/htdocs/user/".$channel_id."/avatar.png");
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "c:/xampp/htdocs/user/".$channel_id."/avatar.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      "".$conf_ht_docs."/user/".$channel_id."/avatar.png");
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else
@@ -53,11 +53,11 @@ if ((($_FILES["file"]["type"] == "image/png"))
   else
     {	
 	// we will first delete the old file
-	unlink("c:/xampp/htdocs/user/".$channel_id."/header.png");	
+	unlink("".$conf_ht_docs."/htdocs/user/".$channel_id."/header.png");
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "c:/xampp/htdocs/user/".$channel_id."/header.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      "".$conf_ht_docs."/htdocs/user/".$channel_id."/header.png");
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else
@@ -81,11 +81,11 @@ if ((($_FILES["file"]["type"] == "image/png"))
   else
     {	
 	// we will first delete the old file
-	unlink("c:/xampp/htdocs/user/".$channel_id."/offline_img.png");	
+	unlink("".$conf_ht_docs."/user/".$channel_id."/offline_img.png");
 	// then we can move the file
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "c:/xampp/htdocs/user/".$channel_id."/offline_img.png");
-      header( 'Location: http://www.gamers-live.net/account/settings/?') ;	
+      "".$conf_ht_docs."/user/".$channel_id."/offline_img.png");
+      header( 'Location: '.$conf_site_url.'/account/settings/?') ;	
     }
   }
 else

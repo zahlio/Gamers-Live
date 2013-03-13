@@ -1,25 +1,29 @@
 <?php
+// we first get data from our mysql database
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
 
 //error_reporting(0);
-$display_name = $_POST['display_name'];
+$display_name = strip_tags($_POST['display_name']);
 $email = $_POST['email'];
-$channel_id = $_POST['channel_id'];
+$channel_id = strip_tags($_POST['channel_id']);
 $password = $_POST['password'];
 $checked = "0";
 $checked1 = "0";
 
 // check if indput is valid
 if($display_name == ""){
-	header('Location: http://gamers-live.net/account/register/?msg=Please enter a valid display name');
+	header('Location: '.$conf_site_url.'/account/register/?msg=Please enter a valid display name');
 }else{
 	if($email == ""){
-		header('Location: http://gamers-live.net/account/register/?msg=Please enter a valid email');
+		header('Location: '.$conf_site_url.'/account/register/?msg=Please enter a valid email');
 	}else{
 		if($channel_id == ""){
-			header('Location: http://gamers-live.net/account/register/?msg=Please enter a valid channel name');
+			header('Location: '.$conf_site_url.'/account/register/?msg=Please enter a valid channel name');
 		}else{
 			if($password == ""){
-				header('Location: http://gamers-live.net/account/register/?msg=Please enter a valid password');
+				header('Location: '.$conf_site_url.'/account/register/?msg=Please enter a valid password');
 			}else{
 				$checked = "1";
 			}				
@@ -27,29 +31,28 @@ if($display_name == ""){
 	}
 }
 
-// we first get data from our mysql database
-$database_url = "127.0.0.1";
-$database_user = "root";
-$database_pw = "";
+$chat_key = "0";
+
+
 
 // connect to database
-$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
 			
 // select thje database we need
-$select_db = mysql_select_db("live", $connect) or die(mysql_error());
+
 			
 if($checked == "1"){		
-	$result = mysql_query("SELECT * FROM users WHERE channel_id='$channel_id'") or die(mysq_error());
+	$result = mysql_query("SELECT * FROM users WHERE channel_id='$channel_id'") or die(mysql_error());
 	$count = mysql_num_rows($result);
 	
 	if($count != 0){
-		header('Location: http://gamers-live.net/account/register/?msg=Please choose another channel name, as the one you entered is already in use');
+		header('Location: '.$conf_site_url.'/account/register/?msg=Please choose another channel name, as the one you entered is already in use');
 	}else{
 		// we will now check the email		
-		$result_email = mysql_query("SELECT * FROM users WHERE email='$email'") or die(mysq_error());
+		$result_email = mysql_query("SELECT * FROM users WHERE email='$email'") or die(mysql_error());
 		$count_email = mysql_num_rows($result_email);
 		if($count_email != 0){
-			header('Location: http://gamers-live.net/account/register/?msg=The email is already in use');
+			header('Location: '.$conf_site_url.'/account/register/?msg=The email is already in use');
 		}else{
 			$checked2 = "1";	
 		}
@@ -66,29 +69,29 @@ if($checked2 == "1"){
 	
 		// but first we will generate the stream key
 		
-	$create_user = mysql_query("INSERT INTO users (display_name, email, password, channel_id, reg_date, active) VALUES ('$display_name', '$email', '$password', '$channel_id', '$date', '0')") or die(mysq_error());
-	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3) VALUES ('$channel_id', 'rtmp://gamers-live.net/', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info')") or die(mysql_error());
+	$create_user = mysql_query("INSERT INTO users (display_name, email, password, channel_id, reg_date, active) VALUES ('$display_name', '$email', '$password', '$channel_id', '$date', '0')") or die(mysql_error());
+	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3, chat_key) VALUES ('$channel_id', '$conf_site_rtmp', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info', '$chat_key')") or die(mysql_error());
 	
 	// create channel dir
-	mkdir("/xampp/htdocs/user/".$channel_id."/");
+	mkdir("".$conf_ht_docs."/htdocs/user/".$channel_id."/");
 
 	// copy channel files from test
-	copy("/xampp/htdocs/user/test/index.php","/xampp/htdocs/user/".$channel_id."/index.php");
-	copy("/xampp/htdocs/user/test/offline_img.png","/xampp/htdocs/user/".$channel_id."/offline_img.png");
-	copy("/xampp/htdocs/user/test/header.png","/xampp/htdocs/user/".$channel_id."/header.png");
-	copy("/xampp/htdocs/user/test/avatar.png","/xampp/htdocs/user/".$channel_id."/avatar.png");
+	copy("".$conf_ht_docs."/user/test/index.php","/xampp/htdocs/user/".$channel_id."/index.php");
+	copy("".$conf_ht_docs."/user/test/offline_img.png","/xampp/htdocs/user/".$channel_id."/offline_img.png");
+	copy("".$conf_ht_docs."/user/test/header.png","/xampp/htdocs/user/".$channel_id."/header.png");
+	copy("".$conf_ht_docs."/user/test/avatar.png","/xampp/htdocs/user/".$channel_id."/avatar.png");
 
 	// create application dir
-	mkdir("/live/applications/".$channel_id."/");
+	mkdir("".$conf_wowza."/applications/".$channel_id."/");
 	
 	// create app conf dir
-	mkdir("/live/conf/".$channel_id."/");
+	mkdir("".$conf_wowza."/conf/".$channel_id."/");
 	
 	// copy application files from test
 		// we have none
 	
 	// copy app conf from test
-	copy("/live/conf/test/Application.xml","/live/conf/".$channel_id."/Application.xml");
+	copy("".$conf_wowza."/conf/test/Application.xml","/live/conf/".$channel_id."/Application.xml");
 	
 	
 	$sxe = new SimpleXMLElement('<Root>
@@ -288,11 +291,11 @@ if($checked2 == "1"){
 		$properties->addChild("Value", "".$stream_key.".streamKey");
 	
 	//This next line will overwrite the original XML file with new data added 
-	$sxe->asXML("/live/conf/".$channel_id."/Application.xml");
+	$sxe->asXML("".$conf_wowza."/conf/".$channel_id."/Application.xml");
 	
 	// redict user to the login screen
 	
-	header('Location: http://gamers-live.net/account/activate/email.php?email='.$email.'');
+	header('Location: '.$conf_site_url.'/account/activate/email.php?email='.$email.'');
 }
 
 ?>

@@ -1,1 +1,6 @@
-This file was created by JetBrains PhpStorm 5.0.4 for binding GitHub repository
+Readme for Gamers Live
+
+Currently we have 2 main folders
+
+Gamers Live - all our web content goes in here (http apache web server).
+db - all database structure goes in here.
