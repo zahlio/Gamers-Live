@@ -1,0 +1,7 @@
+/*****************************/
+/* Hide the profile picture beside each comment
+/*****************************/
+
+div.wallkit_profilepic {
+	display: none;
+}

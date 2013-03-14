@@ -1,0 +1,16 @@
+/*****************************/
+/* Hide the Like button and text
+/*****************************/
+
+/* Hide the 'Facebook social plugin' text and icon */
+a.uiLinkSubtle {
+	display: none;
+}
+a.UIImageBlock_ICON_Image {
+	display: none;
+}
+
+/* Hide the Like button */
+div.like {
+	display: none;
+}

@@ -1,0 +1,28 @@
+/*
+Kameleon Template
+Author: Chris Mooney (http://themeforest.net/user/ChrisMooney)
+*/
+
+a, a:active, a:visited {
+    color:#1a1a1a;
+}
+a:hover {
+    color:#1a1a1a;
+}
+
+
+.ribbon {
+    background:url(../../img/grad-black.gif) repeat-x center top #3b3b3b;
+    border:1px solid #3b3b3b;
+    color:#FFFFFF;
+    text-shadow:0 -1px 0 #3b3b3b;
+}
+.triangle-ribbon {
+    border-color:transparent #080808 transparent transparent;
+}
+
+
+.sidebar-nav li.current {
+    background:url(../../img/grad-black.gif) repeat-x center top #3b3b3b;
+    border:1px solid #3b3b3b;
+}

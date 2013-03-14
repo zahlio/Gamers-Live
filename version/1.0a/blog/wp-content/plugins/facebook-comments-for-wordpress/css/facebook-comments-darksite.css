@@ -1,0 +1,29 @@
+/*****************************/
+/* Styles for a site with a dark background
+/*****************************/
+
+/* Hide the 'Facebook social plugin' text and icon */
+a.uiLinkSubtle {
+	display: none;
+}
+a.UIImageBlock_ICON_Image {
+	display: none;
+}
+
+/* Affects the entire Facebook Comments area */
+div.wallkit_frame {
+	background: #000;
+}
+/* Affects the gray box surrounding the post box */
+div.gray_box {
+	background: #000;
+	border: none;
+}
+/* Affects the post box */
+div.wallkit_post {
+	color: #fff;
+}
+/* Affects the comments displayed */
+div.wallkit_form {
+	color: #fff;
+}

@@ -4,3 +4,4 @@ Currently we have 2 main folders
 
 Gamers Live - all our web content goes in here (http apache web server).
 db - all database structure goes in here.
+pdf - all our psfs goes in here
