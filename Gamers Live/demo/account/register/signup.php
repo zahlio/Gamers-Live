@@ -73,7 +73,7 @@ if($checked2 == "1"){
 	$create_channel = mysql_query("INSERT INTO channels (channel_id, server_rtmp, game, stream_key, title, info1, info2, info3, chat_key) VALUES ('$channel_id', '$conf_site_rtmp', 'Other', '$stream_key', '$channel_id', 'No Info', 'No Info', 'No Info', '$chat_key')") or die(mysql_error());
 	
 	// create channel dir
-	mkdir("".$conf_ht_docs."/htdocs/user/".$channel_id."/");
+	mkdir("".$conf_ht_docs."/user/".$channel_id."/");
 
 	// copy channel files from test
 	copy("".$conf_ht_docs."/user/test/index.php","/xampp/htdocs/user/".$channel_id."/index.php");
@@ -91,7 +91,7 @@ if($checked2 == "1"){
 		// we have none
 	
 	// copy app conf from test
-	copy("".$conf_wowza."/conf/test/Application.xml","/live/conf/".$channel_id."/Application.xml");
+	copy("".$conf_wowza."/conf/test/Application.xml","".$conf_wowza."/conf/".$channel_id."/Application.xml");
 	
 	
 	$sxe = new SimpleXMLElement('<Root>

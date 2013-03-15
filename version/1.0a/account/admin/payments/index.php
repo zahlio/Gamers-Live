@@ -14,7 +14,7 @@ $for_month = date("m/Y", strtotime("-1 month"));
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);
+include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
 
 // connect to database
 

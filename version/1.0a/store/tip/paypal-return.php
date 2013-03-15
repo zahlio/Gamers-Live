@@ -6,7 +6,7 @@
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);
+include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
 // reading posted data from directly from $_POST causes serialization 
 // issues with array data in POST
 // reading raw POST data from input stream instead. 

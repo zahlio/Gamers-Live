@@ -9,7 +9,7 @@ $link = $_POST['link'];
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);
+include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
 
 // select features streamer who is online / active
 $result = mysql_query("SELECT * FROM users WHERE email='$email' AND password='$password'");

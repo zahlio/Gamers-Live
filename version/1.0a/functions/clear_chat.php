@@ -4,7 +4,7 @@
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);
+include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
 
 // first we need select all data from our channels db
 
