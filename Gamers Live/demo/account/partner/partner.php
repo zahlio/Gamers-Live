@@ -1,12 +1,16 @@
 <?php
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+include_once("".$conf_site_url."/files/check.php");
 error_reporting(0);
 
 			session_start();
 
 			if ($_SESSION['access'] != true) {
-			 $login_box = ' <div class="top_login_box"><a href="<?=$conf_site_url?>/account/login/">Sign in</a><a href="<?=$conf_site_url?>/account/register/">Register</a></div>';
+			 $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 			}else{
-			$login_box = '<div class="top_login_box"><a href="<?=$conf_site_url?>/account/logout/">Logout</a><a href="<?=$conf_site_url?>/account/settings/">Settings</a></div>';
+			$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 			}				
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

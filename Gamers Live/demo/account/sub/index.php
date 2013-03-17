@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+// we first get data from our mysql database
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+include_once("".$conf_site_url."/files/check.php");
 
 if ($_SESSION['access'] != true) {
 	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
@@ -11,17 +15,6 @@ $channel_id = $_SESSION['channel_id'];
 
 $sub_channel_id = $_GET['channel'];
 
-// we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
-
-$date = date("m/d-Y"); 
-
-// connect to database
-
-			
-// select thje database we need
 
 
 // we first check if we not already are subscribed

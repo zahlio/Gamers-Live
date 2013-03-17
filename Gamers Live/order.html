@@ -46,17 +46,17 @@
             <ul id="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="http://gamers-live.net/store/index.php?/topic/2-gamers-live-feature-overview/">Features</a>
-
-                </li>
-                <li><a href="./demo/">Live Demo</a>
-
-                </li>
                 <li class="current"><a href="order.html">Order</a>
+                    <ul>
+                        <li><a href="./demo/">Live Demo</a></li>
+                    </ul>
                 </li>
-                <li><a href="http://gamers-live.net/store/">Forums</a>
-
+                <li><a href="http://gamers-live.net/contact.php">Contact Us</a>
+                    <ul>
+                        <li><a href="http://gamers-live.net/store/">Forums</a></li>
+                        <li><a href="http://gamers-live.net/store/index.php?app=nexus&module=support&section=new">Support Tickets</a></li>
+                    </ul>
                 </li>
-                <li><a href="http://gamers-live.net/store/index.php?app=nexus&module=support&section=new">Contact Us</a></li>
             </ul>
             <br class="cl" />
         </nav>
@@ -155,12 +155,10 @@
     <!-- footer Start -->
     <footer>
         <ul class="footer-nav">
-            <li><a href="index.html">Home</a> |</li>
-            <li><a href="http://gamers-live.net/store/index.php?/topic/2-gamers-live-feature-overview/">Features</a> |</li>
-            <li><a href="./demo/">Live Demo</a> |</li>
-            <li><a href="order.html">Order</a> |</li>
-            <li><a href="http://gamers-live.net/store/">Forums</a> |</li>
-            <li><a href="http://gamers-live.net/store/index.php?app=nexus&module=support&section=new">Contact</a></li>
+            <ul class="footer-nav">
+                <li><a href="http://gamers-live.net/store/index.php?app=forums&module=extras&section=boardrules">Terms Of Service</a> |</li>
+                <li><a href="http://gamers-live.net/store/index.php?/privacypolicy/">Privacy Policy</a></li>
+            </ul>
         </ul>
         <p>Copyright ©2013 <a href="http://www.gamers-live.net">Gamers Live</a></p>
         <br class="cl" />
@@ -180,6 +178,20 @@
     <script src="js/dd_belatedpng.js"></script>
     <![endif]-->
 </div>
+<script type="text/javascript">
 
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38386578-1']);
+    _gaq.push(['_setDomainName', 'gamers-live.net']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
 </body>
 </html>

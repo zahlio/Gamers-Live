@@ -44,14 +44,14 @@
         <!-- nav -->
         <nav>
             <ul id="nav">
-                <li class="current"><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="http://gamers-live.net/store/index.php?/topic/2-gamers-live-feature-overview/">Features</a>
                 <li><a href="order.html">Order</a>
                     <ul>
                         <li><a href="./demo/">Live Demo</a></li>
                     </ul>
                 </li>
-                <li><a href="http://gamers-live.net/contact.php">Contact Us</a>
+                <li class="current"><a href="http://gamers-live.net/contact.php">Contact Us</a>
                     <ul>
                         <li><a href="http://gamers-live.net/store/">Forums</a></li>
                         <li><a href="http://gamers-live.net/store/index.php?app=nexus&module=support&section=new">Support Tickets</a></li>
@@ -63,71 +63,47 @@
         <br class="cl" />
     </header>
     <!-- end header -->
-
     <!-- page container -->
     <div id="page">
-
-        <div id="feature">
-            <img class="feature-img" src="img/screenshot.png" alt="">
-            <div class="feature-text">
-                <h2 id="tagline">Start your own Twitch.tv!</h2>
-                <h3 id="tagline-mini">Ever wanted to start your own streaming website? Then Gamers Live is right for you!</h3>
-                <p><b>Stunning Design: </b>We have designed Gamers Live from the ground up with the vision of simple and easy design. Your users will easily navigate on the site, and if you wish to change to a custom design then we allow for that!</p>
-                <p><b>Earn Money: </b>Earn money by allowing users to stream on your website. Viewers will then see your ADS and will regenerate revenue. Gamers Live do NOT take a cut of this and you can choose to use the integrated Adsense tool or custom modify the code to use your ad service of choice.</p>
-                <br class="cl" />
-                <button ONCLICK="window.location.href='./order.html'" class="blue">Order Now</button> <button class="black" ONCLICK="window.location.href='./demo/'">Live Demo</button>
-            </div>
-            <br class="cl" />
+        <!-- page title -->
+        <h2 class="ribbon full">Contact Us <span>Get in touch with us</span> </h2>
+        <div class="triangle-ribbon"></div>
+        <br class="cl">
+        <!-- page content -->
+        <div id="page-content" class="two-col container_12">
+            <p>Should you ever need help with our services, or do you have a question before ordering then please submit a ticket and we will get back to you!</p>
+            <div id="message"></div>
+                <button class="fr" type="submit" id="submit" onclick="window.open('http://gamers-live.net/store/index.php?app=nexus&module=support&section=new')">Contact Us</button>
         </div>
 
-
-
-
-        <div id="page-content" class="container_12">
-            <h2 class="ribbon">Features</h2>
-            <div class="triangle-ribbon"></div>
-            <br class="cl" />
-
-            <div class="grid_4 feature">
-                <h3>Download</h3>
-                <img src="img/features/box_address.png" height="48" width="48" alt="design" />
-                <p>Downloads to all versions will be available instantly after we have received your payment! No waiting time here!</p>
-            </div>
-            <div class="grid_4 feature">
-                <h3>Wizard</h3>
-                <img src="img/features/magic_wand.png" height="48" width="48" alt="design" />
-                <p>Gamers Live is easy to install with the WEB interfaced installer that follows, you will be up and running in less then 5 minutes!</p>
-            </div>
-            <div class="grid_4 feature">
-                <h3>Analyse</h3>
-                <img src="img/features/monitor.png" height="48" width="48" alt="design" />
-                <p>The integrated admin panel allows admins to monitor their sites. See when there are most viewers & streamers, we also have easy integration with Google Analytics!</p>
-            </div>
-            <div class="grid_4 feature">
-                <h3>Options</h3>
-                <img src="img/features/preferences.png" height="48" width="48" alt="coding" />
-                <p>You can completely manage your site, and suspending or changing users are a flick of a switch!</p>
-            </div>
-            <div class="grid_4 feature">
-                <h3>Security</h3>
-                <img src="img//features/lock_closed.png" height="48" width="48" alt="seo" />
-                <p>Security is the key, and all your streams will be highly secured with client specific stream keys, so only the rightfully owner can stream on his channel!.</p>
-            </div>
-            <div class="grid_4 feature">
-                <h3>Support</h3>
-                <img src="img/features/security.png" height="48" width="48" alt="icon design" />
-                <p>We offer 24/7 support for all our clients, and should you encounter any issues installing or using Gamers Live, then we will be at your service!</p>
-            </div>
-            <br class="cl" />
-            <br />
-        </div>
-        <br class="cl" />
+        <!-- page sidebar -->
+        <aside>
+            <h3><cufon class="cufon cufon-canvas" alt="Our " style="width: 36px; height: 18px;"><canvas width="52" height="20" style="width: 52px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Our </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Address" style="width: 69px; height: 18px;"><canvas width="81" height="20" style="width: 81px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Address</cufontext></cufon></h3>
+            <p><strong>Corporate Info</strong><br>
+                Hagenstrupparken 49,<br>
+                8860 Ulstrup, Denmark<br>
+                Phone: +45 2112 6570</p>
+            <p class="border-top"><strong>Sales Inquiries</strong><br>
+                Email: admin@gamers-live.net<br>
+                Phone: +45 2112 6570<br>
+            </p>
+            <h3><cufon class="cufon cufon-canvas" alt="Socialise " style="width: 80px; height: 18px;"><canvas width="96" height="20" style="width: 96px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Socialise </cufontext></cufon><cufon class="cufon cufon-canvas" alt="With " style="width: 45px; height: 18px;"><canvas width="61" height="20" style="width: 61px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>With </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Us" style="width: 21px; height: 18px;"><canvas width="33" height="20" style="width: 33px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Us</cufontext></cufon></h3>
+            <ul class="social-list">
+                <li><a href="https://twitter.com/GamersLiveNet"><img class="tooltip" src="img/social/32/twitter.png" alt="twitter" original-title="Follow us on Twitter"></a></li>
+                <li><a href="https://www.facebook.com/pages/Gamers-Live/301016116668756"><img class="tooltip" src="img/social/32/facebook.png" alt="facebook" title="Our Facebook page"></a></li>
+                <li><a href="http://gamers-live.net/store/index.php?/rss/forums/1-gamers-live-news/"><img class="tooltip" src="img/social/32/rss.png" title="Grab our RSS feed" alt="rss"></a></li>
+            </ul>
+        </aside>
+        <br class="cl">
+        <br class="cl">
     </div>
     <!-- footer Start -->
     <footer>
         <ul class="footer-nav">
-            <li><a href="http://gamers-live.net/store/index.php?app=forums&module=extras&section=boardrules">Terms Of Service</a> |</li>
-            <li><a href="http://gamers-live.net/store/index.php?/privacypolicy/">Privacy Policy</a></li>
+            <ul class="footer-nav">
+                <li><a href="http://gamers-live.net/store/index.php?app=forums&module=extras&section=boardrules">Terms Of Service</a> |</li>
+                <li><a href="http://gamers-live.net/store/index.php?/privacypolicy/">Privacy Policy</a></li>
+            </ul>
         </ul>
         <p>Copyright ©2013 <a href="http://www.gamers-live.net">Gamers Live</a></p>
         <br class="cl" />

@@ -79,7 +79,6 @@ $result = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Onl
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
     <title><?=$conf_site_name?></title>

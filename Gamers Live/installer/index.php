@@ -66,7 +66,7 @@ $error = $_GET['error'];
                 <center><p><b><?=$error?></b></p></center>
                 <p>Please enter your <?=$app?> serial key code below to start the activation and installation of <?=$app?>. <br>Should you need help finding your serial key code then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/" >here</a>.</p>
                 <h3>Serial Key</h3>
-                <form method="post" action="./step/1.php">
+                <form method="post" action="./step/check.php">
                     <p>
                         <input name="serial_key" id="serial_key" value="" type="text" style="width: 860px"/>
                     </p>

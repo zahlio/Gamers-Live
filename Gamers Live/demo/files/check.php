@@ -1,7 +1,9 @@
 <?php
+error_reporting(0);
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
 include_once($inc_path);
+
 $url = 'http://www.gamers-live.net/check.php?key='.$conf_key.'';
 $handle = curl_init($url);
 curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
@@ -11,4 +13,5 @@ if($response != "GOOD"){
   exit();
 }
 curl_close($handle);
+exit;
 ?>

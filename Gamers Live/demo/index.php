@@ -1,19 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
-
-
-if($conf_installed == "0"){
-    header( 'Location: '.$conf_site_url.'/install/?new=true' ) ;
-    exit;
-}
-
 error_reporting(0);
 
 session_start();
+
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+
+if(!include_once($inc_path)){
+    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=http://gamers-live.net/installer/?app=gl">';
+}else{
+    include_once("".$conf_site_url."/files/check.php");
+    include_once("".$conf_site_url."/analyticstracking.php");
+}
+
 
 if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'./account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
@@ -22,9 +24,6 @@ if ($_SESSION['access'] != true) {
 $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
     $not_logged_in = "";
 }
-
-include_once("".$conf_site_url."/analyticstracking.php");
-//
 
 $selected = $_GET['id'];
 
@@ -48,7 +47,7 @@ $status = $_GET['status'];
     $title = $row['title'];
 
     if($title != ""){
-        $button = '<a href="./user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
+        $button = '<a href="".$conf_site_url."/user/'.$channel_id.'/" class="button_link"><span>Visit Stream</span></a>';
     }
     $featured = $row['featured'];
     $banned = $row['banned'];
@@ -57,7 +56,7 @@ $status = $_GET['status'];
     $ads_channel = $row['adsense_video_channel'];
 
 if($count > 1){
-    $featured_bar = "<a href='".$conf_site_url."/featured/'><img src='".$conf_site_url."/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
+    $featured_bar = "<a href='".$conf_site_url."".$conf_site_url."/featured/'><img src='".$conf_site_url."/images/frontpage/featured_bar.png' class='tabs_framed''></a>";
 }else{
     $featured_bar = "";
 }
@@ -88,31 +87,29 @@ if($status == "offline"){
 ?>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="ThemeFuse" />
-<meta name="Description" content="A short description of your company" />
-<meta name="Keywords" content="Some keywords that best describe your business" />
+
 <title><?=$conf_site_name?></title>
 <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
-<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
 <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="./js/jquery.min.js"></script>
-<script type="text/javascript" src="./js/preloadCssImages.js"></script>
-<script type="text/javascript" src="./js/jquery.color.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
 
-<script type="text/javascript" language="JavaScript" src="./js/general.js"></script>
-<script type="text/javascript" language="JavaScript" src="./js/jquery.tools.min.js"></script>
-<script type="text/javascript" language="JavaScript" src=./"js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
 
-<script type="text/javascript" language="JavaScript" src="./js/slides.jquery.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
 
-<link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" />
-<script src="./js/jquery.prettyPhoto.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
+<script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?=$conf_site_url?>/files/flowplayer-3.2.11.min.js"></script>
 
 <!-- slider -->
-<script src="./js/jquery.bxSlider.min.js" type="text/javascript"></script>
-<link href="./css/bxSlider.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="<?=$conf_site_url?>/js/jquery.bxSlider.min.js" type="text/javascript"></script>
+<link href="<?=$conf_site_url?>/css/bxSlider.css" media="screen" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $(window).load(function () {
   var slider = $('#slider1').bxSlider({
@@ -166,10 +163,10 @@ include('slider.php');
     
 <div class="header_menu">
 	<div class="container">
-		<div class="logo"><a href=""><img src="./images/logo.png" alt="" /></a></div>
+		<div class="logo"><a href=""><img src="<?=$conf_site_url?>/images/logo.png" alt="" /></a></div>
         <?=$login_box?>
         <div class="top_search">
-        	<form id="searchForm" action="./browse/" method="get">
+        	<form id="searchForm" action="<?=$conf_site_url?>/browse/" method="get">
                 <fieldset>
                 	<input type="submit" id="searchSubmit" value="" />
                     <div class="input">
@@ -182,20 +179,20 @@ include('slider.php');
         <!-- topmenu -->
         <div class="topmenu">
                     <ul class="dropdown">
-                        <li><a href="./browse/lol/"><span>LoL</span></a></li>
-                        <li><a href="./browse/dota2/"><span>Dota 2</span></a></li>
-                        <li><a href="./browse/hon/"><span>HoN</span></a></li>
-                        <li><a href="./browse/sc2/"><span>SC 2</span></a></li>
-                        <li><a href="./browse/wow/"><span>WoW</span></a></li>
-                        <li><a href="./browse/callofduty/"><span>Call Of Duty</span></a></li>
-                        <li><a href="./browse/minecraft/"><span>Minecraft</span></a></li>
-                        <li><a href="./browse/other/"><span>Others</span></a></li>
-                        <li><a href="./blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/lol/"><span>LoL</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/dota2/"><span>Dota 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/hon/"><span>HoN</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/sc2/"><span>SC 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
-                                <li><a href="./company/about/"><span>About</span></a></li>
-                                <li><a href="./company/support/"><span>Contact</span></a></li>
-                                <li><a href="./account/partner/"><span>Partner</span></a></li>
+                                <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
+                                <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
+                                <li><a href="<?=$conf_site_url?>/account/partner/"><span>Partner</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -274,8 +271,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/lol/" /><h3><?=$lol_viewers?> viewers</h3>
-                    <img src="./images/frontpage/lol_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/lol/" /><h3><?=$lol_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/lol_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -283,8 +280,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/dota2/" /><h3><?=$dota2_viewers?> viewers</h3>
-                    <img src="./images/frontpage/dota2_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/dota2/" /><h3><?=$dota2_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/dota2_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -293,8 +290,8 @@ include('slider.php');
                     <div class="inner">
                     <center>
 
-                    <a href="./browse/hon/" /><h3><?=$hon_viewers?> viewers</h3>
-                    <img src="./images/frontpage/hon_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/hon/" /><h3><?=$hon_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/hon_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -303,8 +300,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/sc2/" /><h3><?=$sc2_viewers?> viewers</h3>
-                    <img src="./images/frontpage/sc2_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/sc2/" /><h3><?=$sc2_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/sc2_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -312,8 +309,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/wow/" /><h3><?=$wow_viewers?> viewers</h3>
-                    <img src="./images/frontpage/wow_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/wow/" /><h3><?=$wow_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/wow_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -321,8 +318,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/callofduty/" /><h3><?=$cod_viewers?> viewers</h3>
-                    <img src="./images/frontpage/cod_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/callofduty/" /><h3><?=$cod_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/cod_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -330,8 +327,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center> 
-                    <a href="./browse/minecraft/" /><h3><?=$minecraft_viewers?> viewers</h3>
-                    <img src="./images/frontpage/minecraft_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/minecraft/" /><h3><?=$minecraft_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/minecraft_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -339,8 +336,8 @@ include('slider.php');
                 <div class="col col_1_3">
                     <div class="inner">
                     <center>
-                    <a href="./browse/other/" /><h3><?=$other_viewers?> viewers</h3>
-                    <img src="./images/frontpage/other_normal.png" class="tabs_framed"/>
+                    <a href="<?=$conf_site_url?>/browse/other/" /><h3><?=$other_viewers?> viewers</h3>
+                    <img src="<?=$conf_site_url?>/images/frontpage/other_normal.png" class="tabs_framed"/>
                     </a>
                     </center>
                     </div>
@@ -361,16 +358,16 @@ include('slider.php');
 		
         <div class="copyright">
             <?=$conf_site_copy?> <br /><a href="./company/legal/">Terms of Service</a> - <a href="./company/support/">Contact</a> -
-		<a href="./company/legal/">Privacy guidelines</a> - <a href="./company/support/">Advertise with Us</a> - <a href=".company/about/">About Us</a></p>
+		<a href="./company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a> - <a href="<?=$conf_site_url?>/company/about/">About Us</a></p>
 		</div>          
     </div>
     
     <div class="grid_4">
     	<h3>Follow us</h3>
         <div class="footer_social">
-        	<a href="<?=$conf_site_url?>./facebook/" class="icon-facebook">Facebook</a>
-            <a href="<?=$conf_site_url?>./twitter/" class="icon-twitter">Twitter</a>
-            <a href="<?=$conf_site_url?>./rss/" class="icon-rss">RSS</a>
+        	<a href="<?=$conf_site_url?>/facebook/" class="icon-facebook">Facebook</a>
+            <a href="<?=$conf_site_url?>/twitter/" class="icon-twitter">Twitter</a>
+            <a href="<?=$conf_site_url?>/rss/" class="icon-rss">RSS</a>
             <div class="clear"></div>
         </div>
     </div>

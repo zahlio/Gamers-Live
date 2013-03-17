@@ -1,39 +1,20 @@
 <?php
 error_reporting(0);
-
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+include_once("".$conf_site_url."/files/check.php");
 $msg = $_GET["msg"];
 if($msg == ""){
-$msg = "Never give your password or stream key to another person!";
+    $msg = "Never give your password or stream key to another person!";
 }
 
-$register_url = "?msg=Registrations are closed, as we are in closed beta."; // real signup is "signup.php"
-
-$beta_account = $_GET['beta'];
-
-
-// check if key is valid
-
+$register_url = "signup.php"; // real signup is "signup.php"
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
-			
-// connect to database
-
-			
-// select thje database we need
-
-
-// get key
-$check_keys = mysql_query("SELECT * FROM beta WHERE b_key='$beta_account' AND active='1'") or die(mysql_error());
-$count = mysql_num_rows($check_keys);
-
-if($count == 1){
-$register_url = "signup.php";
-$msg = "Your beta key is valid, please sign up now! As when you leave the page the key will be disabled!";
-// set key as 
-$update_key = mysql_query("UPDATE beta SET active='0' WHERE b_key='$beta_account'") or die(mysql_query());
-}
+include_once($inc_path);
+include_once("".$conf_site_url."/files/check.php");
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -130,7 +111,7 @@ $update_key = mysql_query("UPDATE beta SET active='0' WHERE b_key='$beta_account
                             
                           <form name="register" action="<?=$register_url?>" method="post">
                             
-                            <p><label>Display Name</label><br><input class="gamersTextbox" value="" size="20" tabindex="10" type="text" max="30" style="width: 250px"></p>
+                            <p><label>Display Name</label><br><input name="display_name" id="display_name" class="gamersTextbox" value="" size="20" tabindex="10" type="text" max="30" style="width: 250px"></p>
                             <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
                             <p><label>Channel Name</label><br><input name="channel_id" id="channel_id" class="gamersTextbox" value="" size="20" tabindex="10" type="text" max="30" min="5" style="width: 250px"></p>
                             

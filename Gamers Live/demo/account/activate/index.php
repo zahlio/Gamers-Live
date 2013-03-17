@@ -1,33 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="author" content="ThemeFuse" />
-<meta name="Description" content="A short description of your company" />
-<meta name="Keywords" content="Some keywords that best describe your business" />
-<title><?=$conf_site_name?></title>
-<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
-<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
-<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
-
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
-
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
-
-<link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
-<script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
-
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
-<![endif]-->
-</head>
-
-			<?php 
+			<?php
+            $inc_path = $_SERVER['DOCUMENT_ROOT'];
+            $inc_path .= "/config.php";
+            include_once($inc_path);
+            include_once("".$conf_site_url."/files/check.php");
 error_reporting(0);
 session_start();
 
@@ -41,6 +17,34 @@ if ($_SESSION['access'] != true) {
 }
 
 ?>
+            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="author" content="ThemeFuse" />
+                <meta name="Description" content="A short description of your company" />
+                <meta name="Keywords" content="Some keywords that best describe your business" />
+                <title><?=$conf_site_name?></title>
+                <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+                <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+
+                <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
+                <script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
+                <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
+
+                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
+                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
+                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
+
+                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
+
+                <link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
+                <script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+
+                <!--[if IE 7]>
+                <link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
+                <![endif]-->
+            </head>
 <body>
 <div class="body_wrap thinpage">
 
