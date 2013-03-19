@@ -1,10 +1,13 @@
 <?php
+
+include_once('demo.php');
+
 $conf_installed = "0";
 
 // admin
 $conf_admin_name = "";
 $conf_admin_pw = "";
-$conf_key = "";
+$conf_key = "HO2Z-3S3I-5WDQ-X4D6-WOR3";
 
 // Database info
 $database_url = "127.0.0.1";
@@ -58,8 +61,6 @@ $conf_connec_host = "gamers-live.net";
 // installation paths
 $conf_ht_docs = "c:/xampp/htdocs/demo";
 $conf_wowza = "c:/live";
-
-
 
 
 // DO NOT CHANGE BELOW HERE!!

@@ -3,7 +3,8 @@
 <?php
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);
+include_once("".$conf_site_url."/files/check.php");
 error_reporting(0);
 
 include_once("".$conf_site_url."/analyticstracking.php");
@@ -46,7 +47,7 @@ if ($_SESSION['access'] != true) {
 	$chat_msg = "You need to be logged in to chat.";
 	$login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/?link='.$channel_id.'">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-	$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="<?=$conf_site_url?>/account/settings/">Settings</a></div>';
+	$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 	$name = $_SESSION['channel_id'];
 
     // we now check if the user is banned
@@ -272,8 +273,8 @@ if($chat == 'true' && $status == 'online'){
 
                             adsense: {
                                 url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
-                                publisherId: <?=$conf_video_ads?>,
-                                channel: "<?=$ads_channel?>"
+                                publisherId: "<?=$conf_video_ads?>",
+                                channel: "<?=$conf_video_channel?>"
                             }
                         },
                         onError: function(err) {

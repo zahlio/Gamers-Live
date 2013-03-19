@@ -45,7 +45,7 @@
         <nav>
             <ul id="nav">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="http://gamers-live.net/store/index.php?/topic/2-gamers-live-feature-overview/">Features</a>
+                <li><a href="features.html">Features</a>
                 <li><a href="order.html">Order</a>
                     <ul>
                         <li><a href="./demo/">Live Demo</a></li>

@@ -113,9 +113,9 @@ $msg = "Never give your password or stream key to another person!";
                             
                           <form name="login" action="login.php" method="post" id="loginform" class="loginform">
                             
-                            <p><label>Email</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px"></p>
+                            <p><label>Email</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="email" id="email" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px; height: 30px"></p>
                             
-                            <p><label>Password</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px"></p>
+                            <p><label>Password</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px; height: 30px"></p>
                             <input type="hidden" value="<?=$link?>" id="link" name="link">
                             
                             <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p> <?php // make it remember us ?>

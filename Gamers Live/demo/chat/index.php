@@ -1,11 +1,13 @@
 <?php
-error_reporting(0);
-session_start();
 
+ob_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);
+ob_end_clean();
 
+error_reporting(0);
+session_start();
 $chat_logged_in = $_SESSION['access'];
 
 if($chat_logged_in == 1){
@@ -18,7 +20,7 @@ $chat_username = $_SESSION['channel_id'];
 $chat_channel = $_GET['channel'];
 
 ?>
-<link href="<?=$conf_site_url?>/chat/style.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
 
@@ -30,6 +32,8 @@ $chat_channel = $_GET['channel'];
         var msgUpdate;
         var scrollUpdate;
         var updateSpeed = 5000;
+        var msg;
+        var slowMode;
 
         function load(){
 
@@ -60,7 +64,7 @@ $chat_channel = $_GET['channel'];
         function slowMode(){
             if(updateSpeed == 15000){
                 clearInterval(msgUpdate);
-                var slowMode = setInterval(getMsg, updateSpeed);
+                slowMode = setInterval(getMsg, updateSpeed);
             }else{
                 location.reload();
             }
@@ -99,15 +103,14 @@ $chat_channel = $_GET['channel'];
                             if (xmlhttp.readyState==4 && xmlhttp.status==200)
                             {
                                 error = xmlhttp.responseText;
+
                                 if(error == "TIME"){
                                     document.getElementById('msgbox').value = "You need to wait 5 seconds between sending messages";
                                 }
                                 if(error == "BANNED"){
                                     document.getElementById('msgbox').value = "You are banned from this chat";
                                 }
-                                if(error == "SEND"){
-                                    document.getElementById('msgbox').value = "";
-                                }
+
                                 if(error == "LOGIN"){
                                     document.getElementById('msgbox').value = "You need to be logged in before you can chat";
                                 }
@@ -116,6 +119,9 @@ $chat_channel = $_GET['channel'];
                                 }
                                 if(error == "CHANNEL"){
                                     document.getElementById('msgbox').value = "You need to chat form a channel page";
+                                }
+                                if(error == "SEND"){
+                                    document.getElementById('msgbox').value = "";
                                 }
                             }
                         }
@@ -129,6 +135,8 @@ $chat_channel = $_GET['channel'];
                     window.close();
                 }
             }else{
+                parent.window.open("<?=$conf_site_url?>/account/login/?link=<?=$chat_channel?>", "_blank");
+                window.close();
             }
         }
         function menu(){

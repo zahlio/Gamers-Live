@@ -105,7 +105,7 @@ if($msg == ""){
                     <h3>Password Reset</h3>
                     <form name="reset" action="pw_reset.php" method="post" id="loginform" class="loginform">
 
-                        <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" size="20" tabindex="10" type="text" style="width: 250px"></p>
+                        <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" size="20" tabindex="10" type="text" style="width: 250px; height: 30px"></p>
 
                         <a href="#" onclick="document.reset.submit()" class="button_link"><span>Password Reset</span></a>
 

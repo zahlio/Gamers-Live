@@ -1,17 +1,20 @@
 <?php
 // this script send msg to database
-session_start();
-error_reporting(0);
 
+//error_reporting(0);
+
+ob_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
-
+include_once($inc_path);
+ob_end_clean();
+session_start();
 $username = $_SESSION['channel_id'];
 $channel_id = $_GET['channel'];
 $rawMsg = $_GET['chat'];
 $msg = strip_tags($rawMsg, '<b><i>')."</i></b>";
 $date = date("d/m/Y G:i:s");
+$time = time();
 $type = "0";
 $delay = "true";
 
@@ -55,24 +58,23 @@ if($type == "0"){
 }
 
 // we now check delay
-$delay = mysql_query("SELECT date FROM chat_msg WHERE sender='$username' AND channel_id='$channel_id' ORDER BY id DESC LIMIT 1") or die(mysql_error());
-$delay_row = mysql_fetch_array($delay);
-$last_send = strtotime($delay_row['date']) + 5;
+$delay = mysql_query("SELECT * FROM chat_msg WHERE sender='$username' AND channel_id='$channel_id' ORDER BY id DESC LIMIT 1") or die(mysql_error());
 
+if($delay == true){
+    $delay_row = mysql_fetch_array($delay);
+    $last_send = $delay_row['date'] + 5;
 
-if($last_send >= strtotime($date)){
-    $delay = "true";
-    die("TIME");
-}else{
-    $delay = "false";
+    if($last_send >= $time){
+        die("TIME");
+    }
 }
 
 if($count == 1){
     die("BANNED");
 }
 
-if($count == 0 && $delay == "false"){
-    $send_msg = mysql_query("INSERT INTO chat_msg (channel_id, sender, msg, date, type) VALUES ('$channel_id', '$username', '$msg', '$date', '$type')") or die(mysql_error());
+if($count == 0){
+    $send_msg = mysql_query("INSERT INTO chat_msg (channel_id, sender, msg, date, type) VALUES ('$channel_id', '$username', '$msg', '$time', '$type')") or die(mysql_error());
     die("SEND");
 }else{
     die("BANNED");
