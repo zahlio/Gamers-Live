@@ -9,6 +9,7 @@ if ($_SESSION['access'] != true) {
 }
 $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
+$admin = $_SESSION['admin'];
 
 // get all user details from this account
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
@@ -165,7 +166,10 @@ $viewers = $row_channel['viewers'];
         <!-- account menu -->
     <center>
     <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link btn_black"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
-    </center>    
+        <?php if($admin == true){
+            echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
+        } ?>
+    </center>
     <!-- account menu end -->
     <div class="quoteBox2">
 		<div class="quote-text"><?=$msg?></div>               	

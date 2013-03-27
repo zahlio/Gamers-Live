@@ -12,6 +12,7 @@ if ($_SESSION['access'] != true) {
 }
 $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
+$admin = $_SESSION['admin'];
 					
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -107,7 +108,10 @@ $channel_id = $_SESSION['channel_id'];
         <!-- account menu -->
     <center>
     <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
-    <br /></center><br />
+        <?php if($admin == true){
+            echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
+        } ?>
+        <br /></center><br />
     		<h1>Support & Contact</h1><br />
             <center>
         <a href="<?=$conf_support?>">

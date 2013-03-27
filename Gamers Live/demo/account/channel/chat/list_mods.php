@@ -1,6 +1,3 @@
-<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
-<title>Moderators</title>
-
 <?php
 
 session_start();
@@ -52,3 +49,5 @@ echo 'Total Moderators on this channel: ';
 echo $total_banned;
 
 ?>
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+<title>Moderators</title>

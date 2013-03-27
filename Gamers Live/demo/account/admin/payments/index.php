@@ -115,12 +115,7 @@ include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
         <div class="content"><br />
             <!-- account menu -->
             <center>
-                <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
-                <?php if($admin == true){
-                echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
-                echo "<a href='".$conf_site_url."/account/admin/payments/?' class='button_link btn_red'><span>Partner Payments</span></a>";
-            }
-                ?>
+                <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_red"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_black"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_red"><span>Site Configurations</span></a>
             </center>
             <!-- account menu end -->
             <h1>NEXT Payment Pending</h1>

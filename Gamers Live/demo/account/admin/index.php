@@ -132,11 +132,8 @@ $total_members_count = mysql_num_rows($total_members);
     <div class="content"><br />
         <!-- account menu -->
     <center>
-    <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
-        <?php if($admin == true){
-        echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
-        echo "<a href='".$conf_site_url."/account/admin/payments/?' class='button_link btn_red'><span>Partner Payments</span></a>";
-    }
+    <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_black"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_red"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_red"><span>Site Configurations</span></a>
+    <?php
 	$now_time = date('l jS \of F Y H:i:s');
 	?>
     </center>    
@@ -220,43 +217,6 @@ $total_members_count = mysql_num_rows($total_members);
 	
 	while($get_views_row = mysql_fetch_array($get_views)){
 		echo "".$get_views_row['amount'].",";
-	}
-	echo '0&amp;chf=bg,s, FF9900" alt="Live Viewers" class="frame img_nofade"></p>';
-	
-	
-	// past week live viewers
-	// we get 2016 stats a week
-	$today = date('D');
-	
-	$d_1 = date('D', strtotime('-7 day'));
-	$d_2 = date('D', strtotime('-6 day'));
-	$d_3 = date('D', strtotime('-5 day'));
-	$d_4 = date('D', strtotime('-4 day'));
-	$d_5 = date('D', strtotime('-3 day'));
-	$d_6 = date('D', strtotime('-2 day'));
-	$d_7 = date('D', strtotime('-1 day'));
-	
-  	$get_views_week = mysql_query("SELECT * FROM admin_logs WHERE type='live_viewers'ORDER BY id DESC LIMIT 2016") or die(mysql_error());
-	
-	$last_7_days = "today|".$d_7."|".$d_6."|".$d_5."|".$d_4."|".$d_3."|".$d_2."|".$d_1."|";
-		
-	echo '<img src="http://chart.apis.google.com/chart?cht=lc&amp;chtt=Past 7d Live Viewers&amp;chl='.$last_7_days.'&amp;chco=FF9900&amp;chs=950x290&amp;chd=t:';
-	
-	while($get_views_row_week = mysql_fetch_array($get_views_week)){
-		echo "".$get_views_row_week['amount'].",";
-	}
-	echo '0&amp;chf=bg,s, FF9900" alt="Live Viewers" class="frame img_nofade"></p>';
-	
-	
-	// past week live members
-	// we get 2016 stats a week
-
-  	$get_members_week = mysql_query("SELECT * FROM admin_logs WHERE type='total_members'ORDER BY id DESC LIMIT 2016") or die(mysql_error());
-			
-	echo '<img src="http://chart.apis.google.com/chart?cht=lc&amp;chtt=Past 7d Members Registrations&amp;chl='.$last_7_days.'&amp;chco=FF9900&amp;chs=950x290&amp;chd=t:';
-	
-	while($get_members_row_week = mysql_fetch_array($get_members_week)){
-		echo "".$get_members_row_week['amount'].",";
 	}
 	echo '0&amp;chf=bg,s, FF9900" alt="Live Viewers" class="frame img_nofade"></p>';
 	

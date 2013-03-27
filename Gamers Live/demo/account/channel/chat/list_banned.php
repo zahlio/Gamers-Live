@@ -1,6 +1,3 @@
-<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
-    <title>Bannned Chat User</title>
-
 <?php
 
 session_start();
@@ -58,3 +55,5 @@ echo 'Total users banned on this channel: ';
 echo $total_banned;
 
 ?>
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+<title>Bannned Chat User</title>
