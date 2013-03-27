@@ -190,7 +190,6 @@ include('slider.php');
                         <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
-                                
                                 <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
                                 <li><a href="<?=$conf_site_url?>/account/partner/"><span>Partner</span></a></li>
                             </ul>
