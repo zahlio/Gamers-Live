@@ -170,7 +170,7 @@ $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/log
                         <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
-                                <li><a href="<?=$conf_site_url?>/company/about/"><span>About</span></a></li>
+                                
                                 <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
                                 <li><a href="<?=$conf_site_url?>/account/partner/"><span>Partner</span></a></li>
                             </ul>
