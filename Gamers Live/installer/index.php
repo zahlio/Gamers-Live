@@ -4,7 +4,7 @@ $get_app = $_GET['app'];
 $app = "Gamers Live";
 session_unset();
 session_destroy();
-
+$version = "1.0.1";
 $error = $_GET['error'];
 ?>
 <!doctype html>
@@ -63,12 +63,19 @@ $error = $_GET['error'];
         <!-- page content -->
         <div id="page-content">
             <div class="grid_12">
-                <center><p><b><?=$error?></b></p></center>
+                <?php
+                if($error != null){
+                    echo '<div class="notification error"> <span class="strong">Error!</span>';
+                    echo $error;
+                    echo '</div>';
+                }
+                ?>
                 <p>Please enter your <?=$app?> serial key code below to start the activation and installation of <?=$app?>. <br>Should you need help finding your serial key code then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/" >here</a>.</p>
                 <h3>Serial Key</h3>
                 <form method="post" action="./step/check.php">
                     <p>
                         <input name="serial_key" id="serial_key" value="" type="text" style="width: 860px"/>
+                        <input name="version" type="hidden" id="version" value="<?=$version?>">
                     </p>
                     <button class="fr" type="submit" id="submit">Continue</button>
                 </form>

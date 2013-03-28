@@ -8,7 +8,7 @@ if($_SESSION['valid_key'] != true){
 }
 // set sessions
 $_SESSION['ads_video'] = $_POST['ads_video'];
-$_SESSION['ads_google'] = $_POST['ads_google'];
+$_SESSION['ads_google'] = str_replace("<", "&lt", $_POST['ads_google']);
 $_SESSION['ads_channel'] = $_POST['ads_channel'];
 
 $app = "Gamers Live";

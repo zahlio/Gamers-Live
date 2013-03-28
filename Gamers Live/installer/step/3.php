@@ -40,6 +40,11 @@ $app = "Gamers Live";
     <!-- CSS - Theme -->
     <link id="theme" href="http://gamers-live.net/css/themes/light.css" rel="stylesheet" type="text/css" />
     <link id="color" href="http://gamers-live.net/css/themes/blue.css" rel="stylesheet" type="text/css" />
+    <!-- Syntax -->
+    <link href="http://gamers-live.net/css/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://gamers-live.net/css/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script src="http://gamers-live.net/css/syntax/shCore.js"></script>
+    <script src="http://gamers-live.net/css/syntax/shBrushJScript.js"></script>
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
     <script src="http://gamers-live.net/js/modernizr-1.5.min.js"></script>
@@ -90,18 +95,20 @@ $app = "Gamers Live";
                         <i>Could be "ca-video-pub-2504383399867703" etc. (can be left blank)</i><br><br>
                         <b>Google Ads Code</b>
                         <textarea name="ads_google" id="ads_google" style="width: 860px; max-width: 860px; height: 200px"/><?=$_SESSION['ads_google']?></textarea>
-                        Should be your full Google Adsense code, an example would be: (can be left blank)
-<XMP><script type="text/javascript"><!--
+                        <i>Should be your full Google Adsense code, an example would be: (can be left blank)</i>
+                    <pre class="brush: js">
+&ltscript type="text/javascript"><!--
     google_ad_client = "ca-pub-2504383399867703";
     /* Gamers Live Ad 1 */
     google_ad_slot = "3595518254";
     google_ad_width = 728;
     google_ad_height = 90;
     //-->
-</script>
-<script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></XMP><br><br>
+&lt/script>
+&ltscript type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+&lt/script>
+                    </pre><br><br>
                         <b>Video Ads Channel</b>
                         <input name="ads_channel" id="ads_channel" value="<?=$_SESSION['ads_channel']?>" type="text" style="width: 860px;"/>
                         <i>Your google video adsense channel (can be left blank) example: "7640281454" etc.</i>
@@ -134,6 +141,8 @@ $app = "Gamers Live";
     <script src="http://gamers-live.net/js/dd_belatedpng.js"></script>
     <![endif]-->
 </div>
-
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
 </body>
 </html>

@@ -35,6 +35,11 @@ $app = "Gamers Live";
     <!-- CSS - Theme -->
     <link id="theme" href="http://gamers-live.net/css/themes/light.css" rel="stylesheet" type="text/css" />
     <link id="color" href="http://gamers-live.net/css/themes/blue.css" rel="stylesheet" type="text/css" />
+    <!-- Syntax -->
+    <link href="http://gamers-live.net/css/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://gamers-live.net/css/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script src="http://gamers-live.net/css/syntax/shCore.js"></script>
+    <script src="http://gamers-live.net/css/syntax/shBrushPhp.js"></script>
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
     <script src="http://gamers-live.net/js/modernizr-1.5.min.js"></script>
@@ -66,13 +71,12 @@ $app = "Gamers Live";
         <!-- page content -->
         <div id="page-content">
             <div class="grid_12">
-                <p>The following is your config.php file, this should be placed at the root directory of your htdocs folder. Should you need help wiht this procedure then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/">here</a>.</p>
+                <p>The following is your config.php file, this should be placed at the root directory of your htdocs folder. Should you need help with this procedure then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/">here</a>.</p>
 
                 <h3>Config.php</h3>
 
-                <p><XMP>
-<?php echo '<?php';?>
-
+                <p><pre class="brush: php">
+&lt;?php
 $conf_installed = "1";
 $conf_key = "<?=$_SESSION['serial_key']?>";
 
@@ -124,7 +128,7 @@ $conf_wowza = "<?=$_SESSION['wowza']?>";
 //*******************************************************************//
 
 // system
-$conf_version = "1.0a";
+$conf_version = "<?=$_SESSION['version']?>";
 
 // connect to database
 $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
@@ -133,22 +137,65 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 $select_db = mysql_select_db($database_name, $connect) or die(mysql_error());
 
 //*******************************************************************//
-<?php echo '?>';?>
-</XMP>
+?>
+</pre>
+                <button class="green small" ONCLICK="window.location.href='download.php'">Download Config.php</button>
                 </p>
                 <h3>Cron Jobs / Scheduled jobs</h3>
                 <p>You will also need to setup some Cron Jobs / Scheduled jobs to make the automatisation of Gamers Live works. Should you need help with this, then read more about it <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/">here</a>.</p>
-                <p><b>Administrator Stats</b><br>Should be executed once every day. (Creates the statistics for admins, should only be runned once everyday or it will break.)<br>
-                "<?=$_SESSION['site_url']?>/account/admin/log.php"</p>
-                <p><b>Chat Module</b><br>Should be executed at minimum once every day. (This script will clear the chat for each channel so there is only the 250 newest messages left, having this run often improves chat reliability and speed.)<br>
-                    "<?=$_SESSION['site_url']?>/functions/clear_chat.php"</p>
-                <p><b>User Updater</b><br>Should be executed at minimum every 5 minute (The more the better as this script updates when users are online, viewers etc.).<br>
-                <p><b>User Updater</b><br>Should be executed at minimum every 5 minute (The more the better as this script updates when users are online, viewers etc.).<br>
-                    "<?=$_SESSION['site_url']?>/functions/updater.php"</p>
-                <p><b>Payments</b><br>Should be executed the day before your do your partner payments (1'st of every month as this will update the payments and the amount you will need to pay to each partner.).<br>
-                    "<?=$_SESSION['site_url']?>/functions/payments.php"</p>
-                <button class="fr" type="submit" id="submit" ONCLICK="window.location.href='exit.php?<? SID;?>'">Exit</button>
+                <p>To setup a these tasks you will need to do varius things depending on your operation system.<br>
+                    On windows you should use the "Windows Task Scheduler" or "Task Scheduler".<br>
+                    On Linux you should use the the cron job feature: <pre class="brush: php">$ crontab -e</pre>
+                <br>You will need to add ALL the tasks to make Gamers Live work correctly!</p>
 
+                <h4>Administrator Stats</h4>
+                <p>Should be executed once every day. (Creates the statistics for admins, should only be runned once everyday or it will break.)<br></p>
+                <b>Windows:</b>
+                <pre class="brush: php">
+                    {YOUR PHP PATH}/php.exe -f "<?=$_SESSION['site_url']?>/account/admin/log.php"
+                </pre>
+                <b>Linux:</b>
+                <pre class="brush: php">
+                     0 * * * <?=$_SESSION['site_url']?>/account/admin/log.php
+                </pre>
+
+                <h4>Chat Module</h4>
+                    <p>Should be executed at minimum once every day. (This script will clear the chat for each channel so there is only the 250 newest messages left, having this run often improves chat reliability and speed.)<br></p>
+                <b>Windows:</b>
+                <pre class="brush: php">
+                    {YOUR PHP PATH}/php.exe -f "<?=$_SESSION['site_url']?>/functions/clear_chat.php"
+                </pre>
+                <b>Linux:</b>
+                <pre class="brush: php">
+                     0 * * * <?=$_SESSION['site_url']?>/functions/clear_chat.php
+                </pre>
+
+                <h4>User Updater</h4>
+                <p>Should be executed at minimum every 5 minute (The more the better as this script updates when users are online, viewers etc.).</p>
+                <b>Windows:</b>
+                <pre class="brush: php">
+                    {YOUR PHP PATH}/php.exe -f "<?=$_SESSION['site_url']?>/functions/updater.php"
+                </pre>
+                <b>Linux:</b>
+                <pre class="brush: php">
+                     0,5,10,15,20,25,30,35,40,45,50,55 * * * * <?=$_SESSION['site_url']?>/functions/updater.php
+                </pre>
+
+                <h4>Payments</h4>
+                <p>Should be executed the day before your do your partner payments (1'st of every month as this will update the payments and the amount you will need to pay to each partner.).<br></p>
+                <b>Windows:</b>
+                <pre class="brush: php">
+                    {YOUR PHP PATH}/php.exe -f "<?=$_SESSION['site_url']?>/functions/payments.php"
+                </pre>
+                <b>Linux:</b>
+                <pre class="brush: php">
+                     0 0 1 * * <?=$_SESSION['site_url']?>/functions/payments.php
+                </pre>
+
+                <h3>Google Analytics</h3>
+                <p>Gamers Live natively supports Google Analytics, and it is easy to implement.<br>
+                Just edit the <i>analyticstracking.php</i> and insert your Google Analytics script here.</p>
+                <button class="fr" type="submit" id="submit" ONCLICK="window.location.href='exit.php?<? SID;?>'">Exit</button>
             </div>
             <br>
         </div>
@@ -176,5 +223,8 @@ $select_db = mysql_select_db($database_name, $connect) or die(mysql_error());
     <![endif]-->
 </div>
 
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
 </body>
 </html>

@@ -41,6 +41,11 @@ $app = "Gamers Live";
     <!-- CSS - Theme -->
     <link id="theme" href="http://gamers-live.net/css/themes/light.css" rel="stylesheet" type="text/css" />
     <link id="color" href="http://gamers-live.net/css/themes/blue.css" rel="stylesheet" type="text/css" />
+    <!-- Syntax -->
+    <link href="http://gamers-live.net/css/syntax/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="http://gamers-live.net/css/syntax/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script src="http://gamers-live.net/css/syntax/shCore.js"></script>
+    <script src="http://gamers-live.net/css/syntax/shBrushJScript.js"></script>
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
     <script src="http://gamers-live.net/js/modernizr-1.5.min.js"></script>
@@ -99,7 +104,10 @@ $app = "Gamers Live";
 
                 <h4>Ads Information</h4>
                 <p><b>Bigsool Video Ads Id: </b><?=$_SESSION['ads_video']?></p>
-                <p><b>Google Ads Code: </b><br><textarea name="ads_google" id="ads_google" style="width: 860px; max-width: 860; height: 200px"/><?=$_SESSION['ads_google']?></textarea></p>
+                <p><b>Google Ads Code: </b></p>
+                <pre class="brush: javascript">
+<?=$_SESSION['ads_google']?>
+                </pre>
                 <p><b>Video Ads Channel: </b><?=$_SESSION['ads_channel']?></p>
 
                 <h4>Company Information</h4>
@@ -149,6 +157,8 @@ $app = "Gamers Live";
     <script src="http://gamers-live.net/js/dd_belatedpng.js"></script>
     <![endif]-->
 </div>
-
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
 </body>
 </html>

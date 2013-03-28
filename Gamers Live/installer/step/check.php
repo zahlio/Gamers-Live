@@ -40,7 +40,7 @@ $select_key_results = mysql_fetch_array($select_key);
 $select_key_count = mysql_num_rows($select_key);
 
 if($select_key_count < "1"){
-    header('Location: http://www.gamers-live.net/installer/?error=The entered serial key is not valid&app='.$app.'');
+    header('Location: http://www.gamers-live.net/installer/?error=The serial key is not valid&app='.$app.'');
     exit;
 }
 
@@ -57,6 +57,7 @@ if($select_product_count == "0"){
     exit;
 }else{
     $_SESSION['valid_key'] = true;
+    $_SESSION['version'] = $_POST['version'];
 }
 ?>
 <!doctype html>
@@ -115,6 +116,7 @@ if($select_product_count == "0"){
         <!-- page content -->
         <div id="page-content">
             <div class="grid_12">
+                <div class="notification success"> <span class="strong">Success!</span> The key: <?=$key?> is valid!</div>
                 <h3>Checklist</h3>
                 <p>Before we continue we need to make sure you have done the following steps that is required for Gamers Live to work:</p>
                 <ul class="bullet-list">
