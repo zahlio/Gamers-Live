@@ -1,3 +1,11 @@
+<?php
+error_reporting(0);
+$site = $_GET['site'];
+
+if($site == null){
+    $site = "your website";
+}
+?>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -17,15 +25,15 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- CSS - Setup -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/base.css" rel="stylesheet" type="text/css" />
-    <link href="css/grid.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../css/grid.css" rel="stylesheet" type="text/css" />
     <!-- CSS - Theme -->
-    <link id="theme" href="css/themes/light.css" rel="stylesheet" type="text/css" />
-    <link id="color" href="css/themes/blue.css" rel="stylesheet" type="text/css" />
+    <link id="theme" href="../css/themes/light.css" rel="stylesheet" type="text/css" />
+    <link id="color" href="../css/themes/blue.css" rel="stylesheet" type="text/css" />
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-    <script src="js/modernizr-1.5.min.js"></script>
+    <script src="../js/modernizr-1.5.min.js"></script>
 </head>
 
 <!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
@@ -40,43 +48,23 @@
     <!-- start header -->
     <header>
         <!-- logo -->
-        <h1 id="logo"><a href="index.html">Gamers Live</a></h1>
-        <!-- nav -->
-        <nav>
-            <ul id="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a>
-                <li><a href="order.html">Order</a>
-                    <ul>
-                        <li><a href="./demo/">Live Demo</a></li>
-                    </ul>
-                </li>
-                <li class="current"><a href="http://gamers-live.net/contact.php">Contact Us</a>
-                    <ul>
-                        <li><a href="http://gamers-live.net/store/">Forums</a></li>
-                        <li><a href="http://gamers-live.net/store/index.php?app=nexus&module=support&section=new">Support Tickets</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <button ONCLICK="window.location.href='http://gamers-live.net/store/index.php?app=core&module=global&section=login'" class="blue small">Client Login</button>
-                </li>
-            </ul>
-            <br class="cl" />
-        </nav>
+        <h1 id="logo"><a href="../index.html">Gamers Live</a></h1>
         <br class="cl" />
     </header>
     <!-- end header -->
     <!-- page container -->
     <div id="page">
         <!-- page title -->
-        <h2 class="ribbon full">Contact Us <span>Get in touch with us</span> </h2>
+        <h2 class="ribbon full">License Error <span>Yep.. There was an error</span> </h2>
         <div class="triangle-ribbon"></div>
         <br class="cl">
         <!-- page content -->
         <div id="page-content" class="two-col container_12">
-            <p>Should you ever need help with our services, or do you have a question before ordering then please submit a ticket and we will get back to you!</p>
-            <div id="message"></div>
-                <button class="fr" type="submit" id="submit" onclick="window.open('http://gamers-live.net/store/index.php?app=nexus&module=support&section=new')">Contact Us</button>
+            <h4>License Error</h4>
+        <p>There was an error with <?=$site?>.</p>
+        <p>One of the issues can be that you do not have a valid Gamers Live license. Should this be the case then please redo the installation <a href="http://www.gamers-live.net/installer/">here</a>, or purchase a valid license key <a href="http://www.gamers-live.net/order.html">here</a>.</p>
+        <h4>I am not the owner of the site</h4>
+            <p>If you are not the owner or webmaster of the site, then please contact the owner, administrator, webmaser or really any staff on the site with this error. The staff should then be able to fix it.</p>
         </div>
 
         <!-- page sidebar -->
@@ -92,9 +80,9 @@
             </p>
             <h3><cufon class="cufon cufon-canvas" alt="Socialise " style="width: 80px; height: 18px;"><canvas width="96" height="20" style="width: 96px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Socialise </cufontext></cufon><cufon class="cufon cufon-canvas" alt="With " style="width: 45px; height: 18px;"><canvas width="61" height="20" style="width: 61px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>With </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Us" style="width: 21px; height: 18px;"><canvas width="33" height="20" style="width: 33px; height: 20px; top: 0px; left: -1px;"></canvas><cufontext>Us</cufontext></cufon></h3>
             <ul class="social-list">
-                <li><a href="https://twitter.com/GamersLiveNet"><img class="tooltip" src="img/social/32/twitter.png" alt="twitter" original-title="Follow us on Twitter"></a></li>
-                <li><a href="https://www.facebook.com/pages/Gamers-Live/301016116668756"><img class="tooltip" src="img/social/32/facebook.png" alt="facebook" title="Our Facebook page"></a></li>
-                <li><a href="http://gamers-live.net/store/index.php?/rss/forums/1-gamers-live-news/"><img class="tooltip" src="img/social/32/rss.png" title="Grab our RSS feed" alt="rss"></a></li>
+                <li><a href="https://twitter.com/GamersLiveNet"><img class="tooltip" src="../img/social/32/twitter.png" alt="twitter" original-title="Follow us on Twitter"></a></li>
+                <li><a href="https://www.facebook.com/pages/Gamers-Live/301016116668756"><img class="tooltip" src="../img/social/32/facebook.png" alt="facebook" title="Our Facebook page"></a></li>
+                <li><a href="http://gamers-live.net/store/index.php?/rss/forums/1-gamers-live-news/"><img class="tooltip" src="../img/social/32/rss.png" title="Grab our RSS feed" alt="rss"></a></li>
             </ul>
         </aside>
         <br class="cl">
@@ -114,16 +102,16 @@
     <!-- footer end -->
 
     <!-- Javascript at the bottom for fast page loading -->
-    <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
-    <script src="js/jquery.tools.min.js" type="text/javascript"></script>
-    <script src="js/jquery.lightbox-0.5.min.js" type="text/javascript"></script>
-    <script src="js/jquery.form.js" type="text/javascript"></script>
-    <script src="js/cufon-yui.js" type="text/javascript"></script>
-    <script src="js/Aller.font.js" type="text/javascript"></script>
-    <script src="js/jquery.tipsy.js" type="text/javascript"></script>
-    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.tools.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.lightbox-0.5.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.form.js" type="text/javascript"></script>
+    <script src="../js/cufon-yui.js" type="text/javascript"></script>
+    <script src="../js/Aller.font.js" type="text/javascript"></script>
+    <script src="../js/jquery.tipsy.js" type="text/javascript"></script>
+    <script src="../js/functions.js" type="text/javascript"></script>
     <!--[if lt IE 7 ]>
-    <script src="js/dd_belatedpng.js"></script>
+    <script src="../js/dd_belatedpng.js"></script>
     <![endif]-->
 </div>
 <script type="text/javascript">
