@@ -1,8 +1,7 @@
 <?php
 
-include_once('demo.php');
-
 $conf_installed = "0";
+$conf_demo_mode = "1";
 
 // admin
 $conf_admin_name = "";
@@ -75,6 +74,10 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 
 // select the database we need
 $select_db = mysql_select_db($database_name, $connect) or die(mysql_error());
+
+if($conf_demo_mode == "1"){
+    include_once($conf_site_url.'/files/demo.php');
+}
 
 //******************************************************************************************************************//
 ?>

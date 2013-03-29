@@ -13,6 +13,7 @@ $content = '
 <?php
 $conf_installed = "1";
 $conf_key = "'.$_SESSION["serial_key"].'";
+$conf_demo_mode = "0";
 
 // Database info
 $database_url = "'.$_SESSION['db_host'].'";
