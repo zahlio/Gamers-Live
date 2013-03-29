@@ -12,6 +12,7 @@ $_SESSION['con_pw'] = $_POST['con_pw'];
 $_SESSION['con_url'] = $_POST['con_url'];
 $_SESSION['ht_docs'] = $_POST['ht_docs'];
 $_SESSION['wowza'] = $_POST['wowza'];
+$_SESSION['ht_docs_gl'] = $_POST['ht_docs_gl'];
 
 $app = "Gamers Live";
 ?>
@@ -127,6 +128,7 @@ $app = "Gamers Live";
                 <p><b>WOWZA Connectioncounts Password: </b><?=$_SESSION['con_pw']?></p>
                 <p><b>WOWZA Connectioncounts URL: </b><?=$_SESSION['con_url']?></p>
                 <p><b>Gamers Live Installation Path: </b><?=$_SESSION['ht_docs']?></p>
+                <p><b>Path to Gamers Live from root htdocs folder: </b><?=$_SESSION['ht_docs_gl']?></p>
                 <p><b>WOWZA Installation Path: </b><?=$_SESSION['wowza']?></p>
 
                 <button class="fr" type="submit" id="submit" ONCLICK="window.location.href='8.php'">Finish</button>

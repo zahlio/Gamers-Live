@@ -97,6 +97,9 @@ $app = "Gamers Live";
                         <b>Gamers Live Installation Path</b>
                         <input name="ht_docs" id="ht_docs" value="<?=$_SESSION['ht_docs']?>" type="text" style="width: 860px"/>
                         <i>Could be "c:/xampp/htdocs/demo" etc. (no ending backslash)</i><br><br>
+                        <b>Path to Gamers Live from root htdocs folder</b>
+                        <input name="ht_docs_gl" id="ht_docs_gl" value="<?=$_SESSION['ht_docs_gl']?>" type="text" style="width: 860px"/>
+                        <i>Could be "/demo" etc. (no ending backslash) (in this case: http://www.gamers-live.net/something/demo/ it would be "/something/demo")</i><br><br>
                         <b>WOWZA Installation Path</b>
                         <input name="wowza" id="wowza" value="<?=$_SESSION['wowza']?>" type="text" style="width: 860px"/>
                         <i>Could be "c:/live" etc. (no ending backslash)</i>

@@ -1,11 +1,14 @@
 <?php
+error_reporting(0);
+
+
 // in the first part we will update offline and online for all channels.
 // this script checks if a stream is online and updates the value in the database.
 
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 $dir_name = basename(__DIR__);
 

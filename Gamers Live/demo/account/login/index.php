@@ -1,11 +1,13 @@
 <?php
+error_reporting(0);
+
+
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
 include_once($inc_path);
-include_once("".$conf_site_url."/files/check.php");
-
-error_reporting(0);
+include_once("".$conf_ht_docs_gl."/files/check.php");
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 
 $link = $_GET['link'];
 $msg = $_GET["msg"];
@@ -118,7 +120,10 @@ $msg = "Never give your password or stream key to another person!";
                             <p><label>Password</label><br><input onkeydown="if (event.keyCode == 13) document.login.submit()" name="password" id="password" class="gamersTextbox" value="" size="20" tabindex="20" type="password" style="width: 250px; height: 30px"></p>
                             <input type="hidden" value="<?=$link?>" id="link" name="link">
                             
-                            <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p> <?php // make it remember us ?>
+                            <p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" tabindex="90"><label>Remember Me</label></p> <?php
+error_reporting(0);
+
+ // make it remember us ?>
 
                             <a href="#" onclick="document.login.submit()" id="login_but" class="button_link"><span>Login</span></a>    <a href="forgot.php">Forgot Password?</a>
 

@@ -1,10 +1,13 @@
 <?php
+error_reporting(0);
+
+
 
 session_start();
 
-error_reporting(0);
 
-include_once("".$conf_site_url."/analyticstracking.php");
+
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
@@ -21,7 +24,7 @@ $channel_id = $_POST['channel_id'];
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 $dir_name = basename(__DIR__);
 

@@ -1,10 +1,13 @@
 <?php
+error_reporting(0);
+
+
 // delete all msg for a channel so we only have the 250 latest ones
 // should be runned every hour
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 // first we need select all data from our channels db
 

@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
 
+
+
+
 ob_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";

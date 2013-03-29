@@ -3,6 +3,9 @@
 <?php
 error_reporting(0);
 
+
+
+
 session_start();
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
@@ -12,8 +15,8 @@ include_once($inc_path);
 if(!include_once($inc_path)){
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=http://gamers-live.net/installer/?app=gl">';
 }else{
-    include_once("".$conf_site_url."/files/check.php");
-    include_once("".$conf_site_url."/analyticstracking.php");
+    include_once("".$conf_ht_docs_gl."/files/check.php");;
+    include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 }
 
 
@@ -147,6 +150,9 @@ $(window).load(function () {
 <div class="body_wrap homepage">
 
 <?php
+error_reporting(0);
+
+
 include('slider.php');
 ?>
 
@@ -217,6 +223,9 @@ include('slider.php');
                     <?=$button?>
                     <br>
                     <?php
+error_reporting(0);
+
+
 
                     if($count > 1){
                         while($featured_row = mysql_fetch_array($featured_res)){

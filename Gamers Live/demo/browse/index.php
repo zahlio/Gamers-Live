@@ -1,11 +1,14 @@
 <?php
-    error_reporting(0);
+error_reporting(0);
+
+
+    
     session_start();
 
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
     $search = $_GET["s"];
 
@@ -23,7 +26,7 @@ if ($_SESSION['access'] != true) {
 }else{
 $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 }
-    include_once("".$conf_site_url."/analyticstracking.php");
+    include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 
     $per_page = 25;
 
@@ -203,6 +206,9 @@ $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/log
     <center><h1>Search results for string: <?=$search?> </h1>
     <h3>We found <?=$total_count?> results</h3></center>
                         <?php
+error_reporting(0);
+
+
 					echo $content;
 
 					while($row = mysql_fetch_array($result))

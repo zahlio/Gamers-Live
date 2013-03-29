@@ -1,9 +1,12 @@
 <?php
-session_start();
-
 error_reporting(0);
 
-include_once("".$conf_site_url."/analyticstracking.php");
+
+session_start();
+
+
+
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
@@ -18,7 +21,7 @@ $msg = $_GET['msg'];
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 $dir_name = basename(__DIR__);
 
@@ -162,6 +165,9 @@ if($mod_name == $channel_id){
                 <h3>Chat moderation for Channel: <?=$channel_id?></h3>
                     You are
                     <?php
+error_reporting(0);
+
+
 
                     if($is_mod == true && $is_admin != true){echo 'Moderator';}
                     if($is_admin == true){echo 'Administrator';}

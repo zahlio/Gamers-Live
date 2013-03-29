@@ -1,10 +1,13 @@
 			<?php
-			error_reporting(0);
+error_reporting(0);
+
+
+			
 			session_start();
 
                 $inc_path = $_SERVER['DOCUMENT_ROOT'];
                 $inc_path .= "/config.php";
-                include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+                include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
@@ -154,6 +157,9 @@ if ($_SESSION['access'] != true) {
     <div class="styled_table table_white"/>
     
                         <?php
+error_reporting(0);
+
+
 					echo "<table width='100%' cellpadding='0' cellspacing='0'>
 					<tbody>
 					<thead>

@@ -1,5 +1,12 @@
 <?php
+error_reporting(0);
 
+
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+include_once("".$conf_ht_docs_gl."/files/check.php");
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 // we will now reset the password for the email and send the new password to that email
 
 $email = $_POST['email'];
@@ -15,9 +22,7 @@ if($email == ""){
 if(strpos($email,'@') == false){
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please enter a valid email' );
 }
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+
 
 
 $new_pw = rand(10000000, 90000000);

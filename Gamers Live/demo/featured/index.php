@@ -3,6 +3,9 @@
 <?php
 error_reporting(0);
 
+
+
+
 session_start();
 
 if ($_SESSION['access'] != true) {
@@ -11,12 +14,12 @@ if ($_SESSION['access'] != true) {
     $login_box = '<div class="top_login_box"><a href="<?=$conf_site_url?>/account/logout/">Logout</a><a href="<?=$conf_site_url?>/account/settings/">Settings</a></div>';
 }
 
-include_once("".$conf_site_url."/analyticstracking.php");
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 // connect to databases
 
@@ -160,6 +163,9 @@ $result = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Onl
                     <h2>Featured Streamers</h2>
                     <p>Currently Online: <?=$total_count?></p>
                         <?php
+error_reporting(0);
+
+
                             while($row = mysql_fetch_array($result)){
                                 echo '
                                     <div class="author-box">

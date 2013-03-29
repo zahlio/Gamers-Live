@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+
 session_start();
 
 if ($_SESSION['access'] != true) {
@@ -17,7 +20,7 @@ $msg = header( 'Location: '.$conf_site_url.'/account/settings/?<? SID; ?>' );
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 			
 // connect to database
 

@@ -1,10 +1,13 @@
 <?php
+error_reporting(0);
+
+
 session_start();
 
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 if ($_SESSION['access'] != true) {
 	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
@@ -108,7 +111,10 @@ $admin = $_SESSION['admin'];
         <!-- account menu -->
     <center>
     <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
-        <?php if($admin == true){
+        <?php
+error_reporting(0);
+
+ if($admin == true){
             echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
         } ?>
         <br /></center><br />

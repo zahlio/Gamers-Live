@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+
 
 ob_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
@@ -6,7 +9,7 @@ $inc_path .= "/config.php";
 include_once($inc_path);
 ob_end_clean();
 
-error_reporting(0);
+
 session_start();
 $chat_logged_in = $_SESSION['access'];
 
@@ -54,7 +57,7 @@ $chat_channel = $_GET['channel'];
             document.getElementById('msgbox').style.width = window.innerWidth - 130;
             if(window.innerWidth <= 200){
                 can_chat = false;
-                document.getElementById('msgbox').value = "ERROR: The chat window must be more then 380px wide.";
+                document.getElementById('chatError').innerHTML = "ERROR: The chat window must be more then 200px wide";
             }else{
                 can_chat = true;
             }
@@ -72,29 +75,26 @@ $chat_channel = $_GET['channel'];
         }
 
         function chatmsg(){
-
             if(user_status == true){
                 document.getElementById('msgbox').value = "";
             }else{
-
                 parent.window.open("<?=$conf_site_url?>/account/login/?link=<?=$chat_channel?>", "_blank");
                 window.close();
             }
-
         }
 
         function send(){
+            document.getElementById('chatError').innerHTML = "";
             if(can_chat == true){
                 if(user_status == true){
                     msg = document.getElementById('msgbox').value;
                     if(msg == "Type to chat"){
-
+                        document.getElementById('chatError').innerHTML = "Please type a msg to chat";
                     }else{
                         if (window.XMLHttpRequest)
                         {// code for IE7+, Firefox, Chrome, Opera, Safari
                             xmlhttp=new XMLHttpRequest();
-                        }
-                        else
+                        }else
                         {// code for IE6, IE5
                             xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
                         }
@@ -105,23 +105,23 @@ $chat_channel = $_GET['channel'];
                                 error = xmlhttp.responseText;
 
                                 if(error == "TIME"){
-                                    document.getElementById('msgbox').value = "You need to wait 5 seconds between sending messages";
+                                    document.getElementById('chatError').innerHTML = "You need to wait 5 seconds between sending messages";
                                 }
                                 if(error == "BANNED"){
-                                    document.getElementById('msgbox').value = "You are banned from this chat";
+                                    document.getElementById('chatError').innerHTML = "You are banned from this chat";
                                 }
-
                                 if(error == "LOGIN"){
-                                    document.getElementById('msgbox').value = "You need to be logged in before you can chat";
+                                    document.getElementById('chatError').innerHTML = "You need to be logged in before you can chat";
                                 }
                                 if(error == "EMPTY"){
-                                    document.getElementById('msgbox').value = "The chat message can't be shorter then 3 characters";
+                                    document.getElementById('chatError').innerHTML = "The chat message can't be shorter then 3 characters";
                                 }
                                 if(error == "CHANNEL"){
-                                    document.getElementById('msgbox').value = "You need to chat form a channel page";
+                                    document.getElementById('chatError').innerHTML = "You need to chat form a channel page";
                                 }
                                 if(error == "SEND"){
                                     document.getElementById('msgbox').value = "";
+                                    document.getElementById('chatError').innerHTML = "";
                                 }
                             }
                         }
@@ -135,17 +135,14 @@ $chat_channel = $_GET['channel'];
                     window.close();
                 }
             }else{
-                parent.window.open("<?=$conf_site_url?>/account/login/?link=<?=$chat_channel?>", "_blank");
-                window.close();
+                // do nothing
             }
         }
         function menu(){
             show_menu = !show_menu;
             if(show_menu == true){
-                // we show our menu
                 document.getElementById('menu').style.display="block";
                 $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
-
             }else{
                 document.getElementById('menu').style.display="none";
             }
@@ -172,7 +169,6 @@ $chat_channel = $_GET['channel'];
             }
             xmlhttp_send.open("GET","<?=$conf_site_url?>/chat/php/get.php?channel=<?=$chat_channel?>", true);
             xmlhttp_send.send();
-
         }
 
 
@@ -195,6 +191,7 @@ $chat_channel = $_GET['channel'];
         </div>
         <input onclick="chatmsg()" onkeydown="if (event.keyCode == 13) document.getElementById('chatButton').click()" id="msgbox" class="gamersTextbox" value ="" style="height: 30px; margin-left: 5px" maxlength="200">
         <a title="Send your chat message" id="chatButton" class="button_link" onclick="send()"><span>Chat</span></a>
-        <img class="btn_menu" id='menuButton' onclick="menu()" title="Display or hide the chat menu" src="<?=$conf_site_url?>/images/chat/button_menu1.png" style="position:relative; bottom: -12px;"
+        <img class="btn_menu" id='menuButton' onclick="menu()" title="Display or hide the chat menu" src="<?=$conf_site_url?>/images/chat/button_menu1.png" style="position:relative; bottom: -12px;">
+        <div name="chatError" id="chatError" style="margin-left: 5px; color: red; font-weight: bold"></div>
     </div>
 </body>

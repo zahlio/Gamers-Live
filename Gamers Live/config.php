@@ -2,10 +2,6 @@
 
 $conf_installed = "0";
 $conf_demo_mode = "1";
-
-// admin
-$conf_admin_name = "";
-$conf_admin_pw = "";
 $conf_key = "HO2Z-3S3I-5WDQ-X4D6-WOR3";
 
 // Database info
@@ -60,6 +56,7 @@ $conf_connec_host = "gamers-live.net";
 // installation paths
 $conf_ht_docs = "c:/xampp/htdocs/demo";
 $conf_wowza = "c:/live";
+$conf_ht_docs_gl = "/demo";
 
 
 // DO NOT CHANGE BELOW HERE!!
@@ -76,7 +73,11 @@ $connect = mysql_connect($database_url, $database_user, $database_pw) or die(mys
 $select_db = mysql_select_db($database_name, $connect) or die(mysql_error());
 
 if($conf_demo_mode == "1"){
-    include_once($conf_site_url.'/files/demo.php');
+    echo '<center>
+This is a demo page, if you would like to purchase this item please click the link:
+    <a href="http://gamers-live.net/order.html" class="button_link btn_black"><span>Order Now!</span></a>
+
+</center>';
 }
 
 //******************************************************************************************************************//

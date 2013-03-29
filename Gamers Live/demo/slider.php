@@ -1,11 +1,15 @@
 <!-- slider -->
 
 <?php
+error_reporting(0);
+
+
 // last update was on 12/02/2013
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);
+include_once("".$conf_ht_docs_gl."/files/check.php");
 ?>
 <div class="header_slider">
     

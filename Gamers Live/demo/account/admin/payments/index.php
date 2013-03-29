@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+
 session_start();
 
 if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
@@ -14,7 +17,7 @@ $for_month = date("m/Y", strtotime("-1 month"));
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 // connect to database
 
@@ -132,6 +135,9 @@ include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
                     </thead>
                     <tbody>
 <?php
+error_reporting(0);
+
+
 // we first get all pending payments
 $pending_payment = mysql_query("SELECT * FROM partner_payments_to_do WHERE done='0' LIMIT 1") or die(mysql_error());
 

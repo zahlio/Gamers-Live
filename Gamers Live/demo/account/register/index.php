@@ -1,9 +1,12 @@
 <?php
 error_reporting(0);
+
+
+
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
 include_once($inc_path);
-include_once("".$conf_site_url."/files/check.php");
+include_once("".$conf_ht_docs_gl."/files/check.php");
 $msg = $_GET["msg"];
 if($msg == ""){
     $msg = "Never give your password or stream key to another person!";
@@ -14,7 +17,7 @@ $register_url = "signup.php"; // real signup is "signup.php"
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
 include_once($inc_path);
-include_once("".$conf_site_url."/files/check.php");
+include_once("".$conf_ht_docs_gl."/files/check.php");
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+
 session_start();
 
 if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
@@ -13,7 +16,7 @@ $channel_id = $client_to_edit;
 // get all user details from this account
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 			
 // connect to database
 
@@ -171,7 +174,10 @@ $total_tips = mysql_fetch_array($result_tips_total);
         <!-- account menu -->
     <center>
     <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
-	<?php if($admin == true){ 
+	<?php
+error_reporting(0);
+
+ if($admin == true){ 
 	echo "<a href='<?=$conf_site_url?>/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
 	} ?>
     </center>    
@@ -179,6 +185,9 @@ $total_tips = mysql_fetch_array($result_tips_total);
     <!--/ content --> 
     <h3>Viewing: <?=$client_to_edit?></h3>
     <?php
+error_reporting(0);
+
+
 	if($banned == 1){
 		// then user is banned and we can unban him
         echo '<a href="update.php?msg=ban&email='.$email.'&channel_id='.$channel_id.'&value=0" class="button_link btn_green"><span>UnBan Member</span></a>';
@@ -212,9 +221,15 @@ $total_tips = mysql_fetch_array($result_tips_total);
     <h3 class="toggle box">Partner Information<span class="ico"></span></h3>
                     <div class="toggle_content boxed" style="display: none;">
                          <strong>Advertisement</strong>
-                         <?php if($ads == "1"){echo "Currently enabled";}else{echo "Currently disabled";} ?> on your channel.<br />
+                         <?php
+error_reporting(0);
+
+ if($ads == "1"){echo "Currently enabled";}else{echo "Currently disabled";} ?> on your channel.<br />
                          <strong>Video Ads</strong>
-						 <?php 
+						 <?php
+error_reporting(0);
+
+ 
 						 	if($ad_level == "none"){echo "You are currently not displaying video ads.";}
 							if($ad_level == "low"){echo "You are currently displaying a preroll. Defaults to an overlay if no preroll is returned.";}
 							if($ad_level == "medium"){echo "You are currently displaying a preroll and an overlay at 10 seconds.";}
@@ -223,9 +238,15 @@ $total_tips = mysql_fetch_array($result_tips_total);
 						 
 						 ?><br />
                          <strong>Tips</strong>
-						 <?php if($donate == "1"){echo "Currently enabled";}else{echo "Currently disabled";} ?> on your channel.<br />
+						 <?php
+error_reporting(0);
+
+ if($donate == "1"){echo "Currently enabled";}else{echo "Currently disabled";} ?> on your channel.<br />
                          <strong>Frontpage Stream Featuring</strong>
-						 <?php if($featured == "1"){echo "You are currently featured on the frontpage.";}else{echo "You are currently NOT featured on the frontpage.";} ?><br />
+						 <?php
+error_reporting(0);
+
+ if($featured == "1"){echo "You are currently featured on the frontpage.";}else{echo "You are currently NOT featured on the frontpage.";} ?><br />
                          <strong>Payment Email</strong>
                          <?=$payment_email?><br />
                          <strong>Payment Gateway</strong>
@@ -289,6 +310,9 @@ $total_tips = mysql_fetch_array($result_tips_total);
                     <div class="toggle_content boxed" style="display: none;">
 							    <div class="styled_table table_white"/>
 									<?php
+error_reporting(0);
+
+
                                     echo "<table width='100%' cellpadding='0' cellspacing='0'>
                                     <tbody>
                                     <thead>

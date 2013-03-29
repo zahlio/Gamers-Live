@@ -57,6 +57,7 @@ $conf_connec_host = "'.$_SESSION['con_host'].'";
 // installation paths
 $conf_ht_docs = "'.$_SESSION['ht_docs'].'";
 $conf_wowza = "'.$_SESSION['wowza'].'";
+$conf_ht_docs_gl = "'.$_SESSION['ht_docs_gl'].'";
 
 // DO NOT CHANGE BELOW HERE!!
 

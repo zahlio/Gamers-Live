@@ -1,15 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
-
 error_reporting(0);
 
-include_once("".$conf_site_url."/analyticstracking.php");
+
+
+
+
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 
 // we first get data from our mysql database
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 $dir_name = basename(__DIR__);
 
@@ -188,6 +191,9 @@ if($chat == 'true' && $status == 'online'){
         </div>
         
     <?php
+error_reporting(0);
+
+
         // menu included if we should get future changes
         include '<?=$conf_site_url?>/user/inc/menu.php';
     ?>
@@ -210,7 +216,10 @@ if($chat == 'true' && $status == 'online'){
         <!-- content -->
         <div class="content">
             <br />
-            <h1><?=$title?><br /><?=$subscribe?><?=$donate_butten?><?php if($_SESSION['admin'] == true){
+            <h1><?=$title?><br /><?=$subscribe?><?=$donate_butten?><?php
+error_reporting(0);
+
+ if($_SESSION['admin'] == true){
             echo '<a href="<?=$conf_site_url?>/account/admin/user.php?channel='.$channel_id.'" class="button_link btn_red"><span>ADMIN EDIT</span></a>';
             }
             ?>
@@ -230,7 +239,13 @@ if($chat == 'true' && $status == 'online'){
                 <p align="right" id="chat_show_hide">
                     <b><?=$ban_msg?></b>
                     <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('<?=$conf_site_url?>/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
-                    <a href="?status=<?=$status?>&chat=<?php if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
+                    <a href="?status=<?=$status?>&chat=<?php
+error_reporting(0);
+
+ if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php
+error_reporting(0);
+
+ if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
                 </p>
             <script type="text/javascript">
                 flowplayer("stream", "<?=$conf_site_url?>/files/flowplayer.commercial-3.2.11.swf",

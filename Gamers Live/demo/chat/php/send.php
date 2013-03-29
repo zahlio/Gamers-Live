@@ -1,7 +1,10 @@
 <?php
+error_reporting(0);
+
+
 // this script send msg to database
 
-//error_reporting(0);
+//
 
 ob_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];

@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+
+
 session_start();
 
 header("Refresh: 120;");
@@ -13,7 +16,7 @@ $admin = $_SESSION['admin'];
 				
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_site_url."/files/check.php");
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 
 // connect to database
 
@@ -134,6 +137,9 @@ $total_members_count = mysql_num_rows($total_members);
     <center>
     <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_black"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_red"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_red"><span>Site Configurations</span></a>
     <?php
+error_reporting(0);
+
+
 	$now_time = date('l jS \of F Y H:i:s');
 	?>
     </center>    
@@ -148,6 +154,9 @@ $total_members_count = mysql_num_rows($total_members);
     <br /><br /><br />
     <h3>Graphs</h3>
     <?php
+error_reporting(0);
+
+
 	// past hour live viewers
 	// we get 12 stat indputs an hour
 	// we use a seperation of 5 mins
