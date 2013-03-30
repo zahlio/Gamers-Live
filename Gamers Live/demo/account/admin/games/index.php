@@ -1,7 +1,5 @@
 <?php
 error_reporting(0);
-
-
 session_start();
 
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
@@ -12,10 +10,8 @@ if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
-$email = $_SESSION['email'];
-$channel_id = $_SESSION['channel_id'];
-$admin = $_SESSION['admin'];
-$error = $_GET['error'];
+
+$msg = $_GET['msg'];
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -89,7 +85,7 @@ $error = $_GET['error'];
                     <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
-                            
+
                             <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
                             <li><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>"><span>Partner</span></a></li>
                         </ul>
@@ -118,38 +114,43 @@ $error = $_GET['error'];
             <div class="content"><br />
                 <!-- account menu -->
                 <center>
-                    <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_red"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_red"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_black"><span>Site Configurations</span></a><a href="<?=$conf_site_url?>/account/admin/games/?" class="button_link btn_red"><span>Games Management</span></a>
+                    <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_red"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_red"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_red"><span>Site Configurations</span></a><a href="<?=$conf_site_url?>/account/admin/games/?" class="button_link btn_black"><span>Games Management</span></a>
                 </center>
                 <!-- account menu end -->
+                <h3>Games Management</h3>
+                <p>On this page you can manage the games that your users can select from.</p>
+
                 <?php
-error_reporting(0);
+                $content = "<table width='100%' cellpadding='0' cellspacing='0'>
+					<tbody>
+					<thead>
+					<tr>
+						<th>Image</th>
+						<th>Game</th>
+						<th>Current Viewers</th>
+						<th>Delete</th>
+					</tr>
+					</thead>";
+                $content_end = "<tbody>
+						</table>";
+
+                echo $content;
+                // current games
+                $games = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error());
 
 
-                if($error != null){
-                    echo "<br>";
-                    echo "<center><h3>";
-                    echo $error;
-                    echo "</h3></center>";
-                    echo "<br>";
+                while($games_row = mysql_fetch_array($games))
+                {
+                    echo "<tr>";
+                    echo "<td><center><a href='".$games_row['img']."'/><img src='".$games_row['img']."' height='50' width='50'></center></a></td>";
+                    echo "<td>".$games_row['game']."</td>";
+                    echo "<td>".$games_row['viewers']."</td>";
+                    echo "<td><a href='delete.php?game=".$games_row['game']."'/><b>DELETE</b></a></td>";
+                    echo "</tr>";
                 }
+                echo $content_end;
                 ?>
-                <h1>Site Configurations</h1>
-                <br>
-                <p>
-                    <b>Site Name:</b> <?=$conf_site_name?><br>
-                    <b>Site URL:</b> <?=$conf_site_url?><br>
-                    <b>Site RTMP:</b> <?=$conf_site_rtmp?><br>
-                    <b>Paypal Email:</b> <?=$conf_store_paypal_email?><br>
-                    <i>If you would like to chance some of these values, please run the installation again <a href="http://www.gamers-live.net/installer/">here</a>.</i>
-                </p>
-                <h3>Make User Admin</h3>
-                <form name="createAdmin" action="createAdmin.php" method="post" id="loginform" class="loginform">
-
-                    <p><label>Username</label><br><input name="username" id="username" class="gamersTextbox" value="" size="20" tabindex="10" type="text" style="width: 250px; height: 30px">
-                    <a href="#" onclick="document.createAdmin.submit()" id="login_but" class="button_link"><span>Make Admin</span></a></p>
-
-                </form>
-                <i><a href="JavaScript:newPopup('list.php');">List admins / remove admins</a></i>
+                <a href="JavaScript:newPopup('add.php');" class="button_link btn_green"><span>Add Game</span></a>
             </div>
         </div>
         <!--/ middle -->

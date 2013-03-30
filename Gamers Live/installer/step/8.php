@@ -197,6 +197,12 @@ $select_db = mysql_select_db($database_name, $connect) or die(mysql_error());
                 <h3>Google Analytics</h3>
                 <p>Gamers Live natively supports Google Analytics, and it is easy to implement.<br>
                 Just edit the <i>analyticstracking.php</i> and insert your Google Analytics script here.</p>
+                <h3>Admin Account</h3>
+                <p>If you have installed Gamers Live correctly you should now be able to login. To login with your admin account please use the following information:<br><br><b>Email:</b> admin@admin.com<br><b>Password:</b> admin123</p>
+                <p>You should be able to login from this page: <a href="http://<?=$_SESSION['site_url']?>/account/login/"><?=$_SESSION['site_url']?>/account/login/</a></p>
+                <p><b>Also don't forget to change the password, username etc. for this admin account!</b></p>
+                <h3>Support</h3>
+                <p>Should you need further assistance or did you have issues you could not solve, please contact us <a href="http://gamers-live.net/store/index.php?app=nexus&module=support">here</a>.</p>
                 <button class="fr" type="submit" id="submit" ONCLICK="window.location.href='exit.php?<? SID;?>'">Exit</button>
             </div>
             <br>

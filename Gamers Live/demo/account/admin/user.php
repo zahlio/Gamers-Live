@@ -79,7 +79,10 @@ $total_ads = mysql_fetch_array($result_ads_total);
 
 $result_tips_total = mysql_query("SELECT SUM(tips_amount) FROM partner_payments WHERE partner_channel_id='$channel_id'") or die(mysql_error());
 $total_tips = mysql_fetch_array($result_tips_total);
-					
+
+// we now get the games we can select
+$games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error());
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -413,13 +416,11 @@ error_reporting(0);
                             <form action="update.php?msg=game&email=<?=$email?>&channel_id=<?=$channel_id?>" method="post">
                             <select name="value">
 							<option value="Other" id="value">Other</option>
-							<option value="League Of Legends" id="value">League Of Legends</option>
-                            <option value="Dota 2" id="value">Dota 2</option>
-                            <option value="Heroes Of Newerth" id="value">Heroes Of Newerth</option>
-                            <option value="Starcraft 2" id="value">Starcraft 2</option>
-                            <option value="World Of Warcraft" id="value">World Of Warcraft</option>
-                            <option value="Call Of Duty" id="value">Call Of Duty</option>
-                            <option value="Minecraft" id="value">Minecraft</option>
+                                <?php
+                                while($games_row = mysql_fetch_array($games_get)){
+                                    echo '<option value="'.$games_row['game'].'" id="value">'.$games_row['game'].'</option>';
+                                }
+                                ?>
 							</select>
                             <input type="submit" name="wp-submit" id="wp-submit" class="button_link" value="Update" tabindex="100">
                             </form>

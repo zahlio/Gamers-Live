@@ -42,6 +42,9 @@ $info2 = $row_channel['info2'];
 $info3 = $row_channel['info3'];
 $subscribers = $row_channel['subscribers'];
 $viewers = $row_channel['viewers'];
+
+// we now get the games we can select
+$games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error());
 					
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -199,14 +202,12 @@ error_reporting(0);
             <div class="box_content"> 
         <form name="game" action="update.php?msg=game" method="post">
             <select name="value" style="width: 310px">
-            <option value="Other" id="value">Other</option>
-            <option value="League Of Legends" id="value">League Of Legends</option>
-            <option value="Dota 2" id="value">Dota 2</option>
-            <option value="Heroes Of Newerth" id="value">Heroes Of Newerth</option>
-            <option value="Starcraft 2" id="value">Starcraft 2</option>
-            <option value="World Of Warcraft" id="value">World Of Warcraft</option>
-            <option value="Call Of Duty" id="value">Call Of Duty</option>
-            <option value="Minecraft" id="value">Minecraft</option>
+                <option value="Other" id="value">Other</option>
+            <?php
+            while($games_row = mysql_fetch_array($games_get)){
+                echo '<option value="'.$games_row['game'].'" id="value">'.$games_row['game'].'</option>';
+            }
+            ?>
             </select>
             <a href="#" onclick="document.game.submit()" class="button_link"><span>Update</span></a>
         </form>

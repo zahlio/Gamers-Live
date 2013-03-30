@@ -60,6 +60,9 @@
                 <li>
                     <button ONCLICK="window.location.href='http://gamers-live.net/store/index.php?app=core&module=global&section=login'" class="blue small">Client Login</button>
                 </li>
+                <li>
+                    <button ONCLICK="window.location.href='http://gamers-live.net/store/index.php?app=nexus&module=support'" class="green small">Support</button>
+                </li>
             </ul>
             <br class="cl" />
         </nav>

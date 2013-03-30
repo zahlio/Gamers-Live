@@ -66,18 +66,6 @@ if($count > 1){
 
 // viewers for featured games
 
-$viewers_get = mysql_query("SELECT * FROM frontpage WHERE id='1'") or die(mysql_error());
-$viewers_row = mysql_fetch_array($viewers_get);
-
-$lol_viewers = $viewers_row ['lol'];
-$dota2_viewers = $viewers_row ['dota2'];
-$hon_viewers = $viewers_row ['hon'];
-$sc2_viewers = $viewers_row ['sc2'];
-$wow_viewers = $viewers_row ['wow'];
-$cod_viewers = $viewers_row ['cod'];
-$minecraft_viewers = $viewers_row ['mine'];
-$other_viewers = $viewers_row ['other'];
-
 if($status == "offline"){
     // then our stream is offline
     $offline_url = ""; // stop redicting
@@ -276,82 +264,29 @@ error_reporting(0);
             </center>
         <br />
                 </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/lol/" /><h3><?=$lol_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/lol_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/dota2/" /><h3><?=$dota2_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/dota2_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-
-                    <a href="<?=$conf_site_url?>/browse/hon/" /><h3><?=$hon_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/hon_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <hr />
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/sc2/" /><h3><?=$sc2_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/sc2_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/wow/" /><h3><?=$wow_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/wow_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>    
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/callofduty/" /><h3><?=$cod_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/cod_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center> 
-                    <a href="<?=$conf_site_url?>/browse/minecraft/" /><h3><?=$minecraft_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/minecraft_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>
-                <div class="col col_1_3">
-                    <div class="inner">
-                    <center>
-                    <a href="<?=$conf_site_url?>/browse/other/" /><h3><?=$other_viewers?> viewers</h3>
-                    <img src="<?=$conf_site_url?>/images/frontpage/other_normal.png" class="tabs_framed"/>
-                    </a>
-                    </center>
-                    </div>
-                </div>        
-                <br />
-        </div>
+        <?php
+        $viewers_get = mysql_query("SELECT * FROM Games ORDER BY viewers DESC LIMIT 8") or die(mysql_error());
+        while($viewers_row = mysql_fetch_array($viewers_get)){
+            echo '<div class="col col_1_3">';
+            echo '<div class="inner">';
+            echo '<center>';
+            echo '<a href="'.$conf_site_url.'/browse/?s='.$viewers_row['game'].'" /><h3>'.$viewers_row['viewers'].' viewers</h3>';
+            echo '<img src="'.$viewers_row['img'].'" class="tabs_framed"/>';
+            echo '</a>';
+            echo '</center>';
+            echo '</div>';
+            echo '</div>';
+        }
+        echo '<div class="col col_1_3">';
+        echo '<div class="inner">';
+        echo '<center>';
+        echo '<a href="'.$conf_site_url.'/browse/other/" /><h3>Other Games</h3>';
+        echo '<img src="'.$conf_site_url.'/images/frontpage/other_normal.png" class="tabs_framed"/>';
+        echo '</a>';
+        echo '</center>';
+        echo '</div>';
+        echo '</div>';
+        ?>
         <div class="clear"></div>
     </div>
 </div>
