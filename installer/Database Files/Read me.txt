@@ -1,0 +1,2 @@
+Please create a SQL database, and then inport main.sql into this.
+After this is done import "INSERT AT THE END.sql".
