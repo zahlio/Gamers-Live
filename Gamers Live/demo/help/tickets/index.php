@@ -1,19 +1,23 @@
 <?php
 error_reporting(0);
-
-
+session_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
+
 include_once($inc_path);
 include_once("".$conf_ht_docs_gl."/files/check.php");
-include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 
-
-$msg = $_GET["msg"];
-if($msg == ""){
-    $msg = "Never give your password or stream key to another person!";
+if ($_SESSION['access'] != true) {
+    $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
+}else{
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 }
 
+if ($_SESSION['access'] != true) {
+    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
+    exit;
+}
+$channel_id = $_SESSION['channel_id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,7 +27,7 @@ if($msg == ""){
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
     <title><?=$conf_site_name?></title>
-<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+    <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
@@ -43,7 +47,6 @@ if($msg == ""){
     <link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
     <![endif]-->
 </head>
-
 <body>
 <div class="body_wrap thinpage">
 
@@ -52,7 +55,7 @@ if($msg == ""){
     <div class="header_menu">
         <div class="container">
             <div class="logo"><a href="<?=$conf_site_url?>/"><img src="<?=$conf_site_url?>/images/logo.png" alt="" /></a></div>
-            <div class="top_login_box"><a href="<?=$conf_site_url?>/account/login/">Sign in</a><a href="<?=$conf_site_url?>/account/register/">Register</a></div>
+            <?=$login_box?>
             <div class="top_search">
                 <form id="searchForm" action="<?=$conf_site_url?>/browse/" method="get">
                     <fieldset>
@@ -78,7 +81,7 @@ if($msg == ""){
                     <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
-                            
+
                             <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
                             <li><a href="<?=$conf_site_url?>/account/partner/"><span>Partner</span></a></li>
                         </ul>
@@ -93,29 +96,94 @@ if($msg == ""){
 
 
     <!-- middle -->
-    <div class="middle full_width">
+    <div class="middle">
         <div class="container_12">
 
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="<?=$conf_site_url?>/"><span>Home</span></a>
+                    <a href="index.html"><span>Home</span></a>
                 </div>
             </div>
 
+            <div class="divider_space_thin"></div>
+            <!-- account menu -->
+            <center>
+                <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
+                <?php
+                error_reporting(0);
 
+                if($admin == true){
+                    echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
+                } ?>
+            </center>
+            <!-- account menu end -->
             <!-- content -->
-            <div class="content">
-                <br /><br />
-                    <h3>Password Reset</h3>
-                    <form name="reset" action="pw_reset.php" method="post" id="loginform" class="loginform">
+            <div class="grid_8 content">
 
-                        <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" size="20" tabindex="10" type="text" style="width: 250px; height: 30px"></p>
+                <h1>Tickets</h1><br />
+                <div class="post-list">
+                    <?php
+                    // we will now get the tickets that are asosiated with this member
 
-                        <a href="#" onclick="document.reset.submit()" class="button_link"><span>Password Reset</span></a>
+                    $getTickets = mysql_query("SELECT * FROM tickets WHERE owner='$channel_id' AND isTicket='1' ORDER BY id DESC") or die(mysql_error());
 
-                    </form>
+                    // now we echo them
+                    while($getTicketsRow = mysql_fetch_array($getTickets)){
+
+                        // we now count the replies for this ticket
+                        $ticketId = $getTicketsRow['id'];
+                        $getReplies = mysql_query("SELECT * FROM tickets WHERE originTicketID='$ticketId'") or die(mysql_error());
+                        $replies = mysql_num_rows($getReplies);
+
+                        // we now echo it all
+                        echo '<div class="post-item post-white">';
+                        echo '<div class="meta-date">';
+                        echo $getTicketsRow['dateSend']; // date
+                        echo '</div>';
+                        echo '<div class="post-descr" style="width: 550px; height: 150px">';
+                        if($getTicketsRow['status'] == "closed"){
+                            echo '<h2>';
+                            echo 'CLOSED - '.$getTicketsRow['title'];
+                            echo '</h2>';
+                        }else{
+                            echo '<h2>';
+                            echo $getTicketsRow['title']; // title
+                            echo '</h2>';
+                        }
+
+                        echo '<p class="post-short">';
+                        echo $getTicketsRow['msg']; // msg (first 200 char)
+                        echo '</p>';
+                        echo '<div class="meta-bot"><a href="'.$conf_site_url.'/help/tickets/view/?id=';
+                        echo $getTicketsRow['id']; // link to view
+                        echo '" class="button_link"><span>View</span></a> &nbsp; <a class="link-comments">';
+                        echo ''.$replies.' Replies'; // number of replies
+                        echo '</a></div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+
+                    <div class="clear"></div>
+                </div>
             </div>
             <!--/ content -->
+
+            <!-- sidebar -->
+            <div class="grid_4 sidebar">
+
+                <div class="widget-container widget_text">
+                    <br><br><br><br>
+                    <a href="<?=$conf_site_url?>/help/tickets/new/" class="button_link"><span>Submit new ticket</span></a>
+                    <a href="<?=$conf_site_url?>/help/base/" class="button_link"><span>View Knowledge Base</span></a>
+                </div>
+
+                <div class="post-share">
+                    <a href="<?=$conf_site_url?>/twitter/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_twitter.png" width="79" height="25" alt="" /></a> <a href="<?=$conf_site_url?>/facebook/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_facebook.png" width="88" height="25" alt="" /></a>
+                </div>
+            </div>
+            <!--/ sidebar -->
+
 
 
             <div class="clear"></div>

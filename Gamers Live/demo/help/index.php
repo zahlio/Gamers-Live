@@ -2,19 +2,16 @@
 error_reporting(0);
 
 
+
+session_start();
 $inc_path = $_SERVER['DOCUMENT_ROOT'];
 $inc_path .= "/config.php";
-include_once($inc_path);
-include_once("".$conf_ht_docs_gl."/files/check.php");
-include_once("".$conf_ht_docs_gl."/analyticstracking.php");
-
-
-$msg = $_GET["msg"];
-if($msg == ""){
-    $msg = "Never give your password or stream key to another person!";
-}
-
-?>
+include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
+if ($_SESSION['access'] != true) {
+    $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
+}else{
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+}?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,7 +20,7 @@ if($msg == ""){
     <meta name="Description" content="A short description of your company" />
     <meta name="Keywords" content="Some keywords that best describe your business" />
     <title><?=$conf_site_name?></title>
-<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+    <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
     <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
@@ -43,7 +40,6 @@ if($msg == ""){
     <link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
     <![endif]-->
 </head>
-
 <body>
 <div class="body_wrap thinpage">
 
@@ -52,7 +48,7 @@ if($msg == ""){
     <div class="header_menu">
         <div class="container">
             <div class="logo"><a href="<?=$conf_site_url?>/"><img src="<?=$conf_site_url?>/images/logo.png" alt="" /></a></div>
-            <div class="top_login_box"><a href="<?=$conf_site_url?>/account/login/">Sign in</a><a href="<?=$conf_site_url?>/account/register/">Register</a></div>
+            <?=$login_box?>
             <div class="top_search">
                 <form id="searchForm" action="<?=$conf_site_url?>/browse/" method="get">
                     <fieldset>
@@ -78,7 +74,7 @@ if($msg == ""){
                     <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
-                            
+
                             <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
                             <li><a href="<?=$conf_site_url?>/account/partner/"><span>Partner</span></a></li>
                         </ul>
@@ -93,29 +89,52 @@ if($msg == ""){
 
 
     <!-- middle -->
-    <div class="middle full_width">
+    <div class="middle">
         <div class="container_12">
 
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="<?=$conf_site_url?>/"><span>Home</span></a>
+                    <a href="index.html"><span>Home</span></a>
                 </div>
             </div>
 
+            <div class="divider_space_thin"></div>
 
             <!-- content -->
-            <div class="content">
-                <br /><br />
-                    <h3>Password Reset</h3>
-                    <form name="reset" action="pw_reset.php" method="post" id="loginform" class="loginform">
+            <div class="grid_8 content">
 
-                        <p><label>Email</label><br><input name="email" id="email" class="gamersTextbox" size="20" tabindex="10" type="text" style="width: 250px; height: 30px"></p>
+                <h1>Support & Contact</h1><br />
+                <a href="<?=$conf_site_url?>/help/tickets/">
+                    <img src="<?=$conf_site_url?>/images/support.png" class="tabs_framed" />
+                </a>
+                <br />
+                <a href="<?=$conf_site_url?>/help/tickets/">
+                    <img src="<?=$conf_site_url?>/images/contact_us.png" class="tabs_framed" />
+                </a>
 
-                        <a href="#" onclick="document.reset.submit()" class="button_link"><span>Password Reset</span></a>
-
-                    </form>
             </div>
             <!--/ content -->
+
+            <!-- sidebar -->
+            <div class="grid_4 sidebar">
+
+                <div class="widget-container widget_text">
+                    <div class="textwidget">
+                        <span class="meta-date">Headquarters</span>
+                        <h5><?=$conf_site_name?></h5>
+                        <p><?=$conf_address?></p>
+                        <p><strong>Phone</strong>: <?=$conf_phone?><br />
+                            <strong>Email:</strong> <?=$conf_support_email?><br />
+
+                    </div>
+                </div>
+
+                <div class="post-share">
+                    <a href="<?=$conf_site_url?>/twitter/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_twitter.png" width="79" height="25" alt="" /></a> <a href="<?=$conf_site_url?>/facebook/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_facebook.png" width="88" height="25" alt="" /></a>
+                </div>
+            </div>
+            <!--/ sidebar -->
+
 
 
             <div class="clear"></div>

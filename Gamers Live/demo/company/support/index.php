@@ -103,13 +103,14 @@ include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
     <!-- content -->
     <div class="grid_8 content">
 
-		<h1>Support & Contact</h1><br />
-        <a href="<?=$conf_support?>">
-        <img src="<?=$conf_site_url?>/images/support.png" class="tabs_framed" />
+
+        <h1>Support & Contact</h1><br />
+        <a href="<?=$conf_site_url?>/help/tickets/">
+            <img src="<?=$conf_site_url?>/images/support.png" class="tabs_framed" />
         </a>
         <br />
-        <a href="<?=$conf_support?>">
-        <img src="<?=$conf_site_url?>/images/contact_us.png" class="tabs_framed" />
+        <a href="<?=$conf_site_url?>/help/tickets/">
+            <img src="<?=$conf_site_url?>/images/contact_us.png" class="tabs_framed" />
         </a>
 
     </div>
@@ -152,7 +153,7 @@ include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 		
         <div class="copyright">
 		<?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -
-		<a href="<?=$conf_site_url?>/company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a> - <a href="<?=$conf_site_url?>/company/about/">About Us</a></p>
+		<a href="<?=$conf_site_url?>/company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a></p>
 		</div>          
     </div>
     

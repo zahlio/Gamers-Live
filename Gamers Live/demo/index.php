@@ -301,7 +301,7 @@ error_reporting(0);
 		
         <div class="copyright">
             <?=$conf_site_copy?> <br /><a href="./company/legal/">Terms of Service</a> - <a href="./company/support/">Contact</a> -
-		<a href="./company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a> - <a href="<?=$conf_site_url?>/company/about/">About Us</a></p>
+		<a href="./company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a></p>
 		</div>          
     </div>
     
