@@ -124,23 +124,28 @@ $channel_id = $_SESSION['channel_id'];
                         $partner = $_GET['partner'];
                         $banned = $_GET['banned'];
                         $alL = $_GET['all'];
+                        $user = $_GET['user'];
 
-                        if($banned == null && $partner == null && $alL == null){
+                        if($banned == null && $partner == null && $alL == null && $user == null){
                             $all = "1";
                         }
 
-                        if($partner == "1"){
-                            $tickets = mysql_query("SELECT * FROM tickets WHERE status='open' AND isTicket = '1' AND partner='1'")or die(mysql_error());
+                        if($user != null){
+                            $tickets = mysql_query("SELECT * FROM tickets WHERE owner='$user' AND isTicket = '1'")or die(mysql_error());
                         }
 
-                        if($alL == "1"){
+                        if($partner != null){
+                            $tickets = mysql_query("SELECT * FROM tickets WHERE status='open' AND isTicket='1' AND partner='1'")or die(mysql_error());
+                        }
+
+                        if($alL != null){
                             $tickets = mysql_query("SELECT * FROM tickets WHERE isTicket = '1'")or die(mysql_error());
                         }
 
-                        if($banned == "1"){
+                        if($banned != null){
                             $tickets = mysql_query("SELECT * FROM tickets WHERE status='open' AND isTicket = '1' AND banned='1'")or die(mysql_error());
                         }
-                        if($all == "1"){
+                        if($all != null){
                             $tickets = mysql_query("SELECT * FROM tickets WHERE status='open' AND isTicket = '1'")or die(mysql_error());
                         }
                         while($ticketsRow = mysql_fetch_array($tickets)){
@@ -165,7 +170,9 @@ $channel_id = $_SESSION['channel_id'];
                     <a href="?all=1" class="button_link"><span>Show All Tickets (also closed)</span></a>
                     <a href="?partner=1" class="button_link"><span>Show Partner Tickets</span></a>
                     <a href="?banned=1" class="button_link"><span>Show Banned Tickets</span></a>
+                    <br><br>
                     <a href="<?=$conf_site_url?>/help/base/" class="button_link"><span>View Knowledge Base</span></a>
+                    <a href="kbase.php" class="button_link"><span>Create Knowledge Base Entry</span></a>
                 </div>
 
                 <div class="post-share">

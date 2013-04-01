@@ -13,7 +13,7 @@ if ($_SESSION['access'] != true) {
     $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 }
 
-if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
+if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
@@ -109,7 +109,13 @@ $id = $_GET['id'];
         <div class="divider_space_thin"></div>
         <!-- account menu -->
         <center>
-            <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/admin/?<?=SID; ?>" class="button_link btn_red"><span>Admin CP</span></a><a href="<?=$conf_site_url?>/account/admin/payments/?" class="button_link btn_red"><span>Partner Payments</span></a><a href="<?=$conf_site_url?>/account/admin/config/?" class="button_link btn_red"><span>Site Configurations</span></a><a href="<?=$conf_site_url?>/account/admin/games/?" class="button_link btn_red"><span>Games Management</span></a><a href="<?=$conf_site_url?>/account/admin/support/?" class="button_link btn_black"><span>Support</span></a>
+            <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
+            <?php
+            error_reporting(0);
+
+            if($admin == true){
+                echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
+            } ?>
         </center>
         <!-- account menu end -->
         <!-- content -->
@@ -117,13 +123,11 @@ $id = $_GET['id'];
             <?php
             // we will now get the tickets that are asosiated with this member
 
-            $getTickets = mysql_query("SELECT * FROM tickets WHERE owner='$channel_id' AND id='$id'") or die(mysql_error());
+            $getTickets = mysql_query("SELECT * FROM kbase WHERE id='$id'") or die(mysql_error());
             $getTicketsRow = mysql_fetch_array($getTickets);
 
-            $getReplies = mysql_query("SELECT * FROM tickets WHERE originTicketID='$id' AND isReply='1'") or die(mysql_error());
-
             // now we echo them
-            echo '<h3># '.$getTicketsRow['id'].' - '.$getTicketsRow['title'].'</h3>';
+            echo '<h3>'.$getTicketsRow['title'].'</h3>';
             echo '<li class="comment">';
             echo '<div class="comment-body">';
             echo '<div class="comment-text" style="width: 575px">';
@@ -132,50 +136,8 @@ $id = $_GET['id'];
             echo '</div>';
             echo '</li>';
             echo '<div class="clear"></div>';
-            echo '<br><br><h3>Replies (total: '.mysql_num_rows($getReplies).')</h3>';
 
-            while($getRepliesRow = mysql_fetch_array($getReplies)){
-
-                echo '#'.$getRepliesRow['id'];
-                echo '<li class="comment">';
-                echo '<div class="comment-body">';
-                echo '<div class="comment-avatar">';
-                echo '<div class="avatar"><img src="';
-                echo ''.$conf_site_url.'/user/'.$getRepliesRow['replySender'].'/avatar.png'; // img url
-                echo '" width="90" height="90" alt=""></div>';
-                echo '</div>';
-                echo '<div class="comment-text">';
-                echo '<div class="comment-author"> <span class="comment-date">';
-                echo $getRepliesRow['dateSend']; // date
-                echo '</span></div>';
-                if($getRepliesRow['isStaff'] == "1"){
-                    echo '<h5>Staff response ('.$getRepliesRow['replySender'].')</h5>';
-                }else{
-                    echo '<h5>User response ('.$getRepliesRow['replySender'].')</h5>';
-                }
-                echo '<div class="comment-entry">';
-                echo $getRepliesRow['msg']; // msg
-                echo '</div></div>';
-                echo '<div class="clear"></div>';
-                echo '</div>';
-                echo '</li>';
-                echo '<br>';
-            }
             ?>
-            <div class="box2 add-comment" id="addcomments">
-                <h3>Leave a Reply</h3>
-
-                <div class="box2_content comment-form">
-                    <form action="action.php?id=<?=$id?>&reply=1" method="post">
-                        <div class="row">
-                            <textarea cols="30" rows="10" name="msg" id="msg" class="textarea textarea_middle required"></textarea>
-                            <input type="hidden" id="owner" name="owner" value="<?=$getRepliesRow['owner']?>">
-                        </div>
-
-                        <input type="submit" value="Submit" class="btn-submit">
-                    </form>
-                </div>
-            </div>
         </div>
         <!--/ content -->
 
@@ -185,25 +147,25 @@ $id = $_GET['id'];
             <div class="widget-container widget_text">
                 <br>
                 <?php
-                echo '<b>Status: </b>'.$getTicketsRow['status'].'<br>';
                 echo '<b>Submitted on: </b>'.$getTicketsRow['dateSend'].'<br>';
-                echo '<b>Submitted by: </b>'.$getTicketsRow['owner'].'<br>';
-                echo '<b>Ip address: </b>'.$getTicketsRow['ip'].'<br>';
+                echo '<b>Submitted by: </b>'.$getTicketsRow['auther'].'<br>';
+                echo '<b>Category: </b>'.$getTicketsRow['cat'].'<br>';
 
                 ?>
                 <br><br>
                 <?php
-                if($getTicketsRow['status'] != "closed"){
-                    echo '<a href="action.php?id='.$id.'&close=1" class="button_link btn_red"><span>Close Ticket</span></a>';
+                if($getTicketsRow['status'] == "open"){
+                    echo '<a href="'.$conf_site_url.'/help/tickets/view/action.php?id='.$id.'&close=1" class="button_link btn_red"><span>Close Ticket</span></a>';
                 }
                 if($getTicketsRow['status'] == "closed"){
-                    echo '<a href="action.php?id='.$id.'&open=1" class="button_link btn_green"><span>Re-open Ticket</span></a>';
+                    echo '<a href="'.$conf_site_url.'/help/tickets/view/action.php?id='.$id.'&open=1" class="button_link btn_green"><span>Re-open Ticket</span></a>';
                 }
                 ?>
                 <a href="<?=$conf_site_url?>/help/base/" class="button_link"><span>View Knowledge Base</span></a>
-                <a href="<?=$conf_site_url?>/account/admin/support/" class="button_link"><span>View All Tickets</span></a><br>
-                <a href="<?=$conf_site_url?>/account/admin/support/?user=<?=$getTicketsRow['owner']?>" class="button_link"><span>View All Tickets By This User</span></a><br>
-                <a href="<?=$conf_site_url?>/account/admin/user.php?channel=<?=$getTicketsRow['owner']?>" class="button_link btn_black"><span>Edit User</span></a>
+                <a href="<?=$conf_site_url?>/help/tickets/" class="button_link"><span>View All Tickets / Submit new</span></a>
+                <?php
+                echo '<a href="'.$conf_site_url.'/account/admin/support/kbaseEdit.php?id='.$getTicketsRow['id'].'" class="button_link btn_red"><span>Edit Knowledge Base Entry</span></a>';
+                ?>
             </div>
 
             <div class="post-share">
