@@ -19,8 +19,8 @@ ob_end_clean();
         <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
-        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-        <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
+        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Other</span></a></li>
+        <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
         <li><a href="#"><span>More</span></a>
             <ul>
                 

@@ -12,12 +12,7 @@ if ($_SESSION['access'] != true) {
 }else{
     $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 }
-
-if ($_SESSION['access'] != true) {
-    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
-    exit;
-}
-$channel_id = $_SESSION['channel_id'];
+$id = $_GET['id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -98,7 +93,11 @@ $channel_id = $_SESSION['channel_id'];
     <!-- middle -->
     <div class="middle">
         <div class="container_12">
-
+            <?php
+            // we now echo that event wiht that id
+            $events = mysql_query("SELECT * FROM events WHERE id='$id'") or die(mysql_error());
+            $eventsRow = mysql_fetch_array($events);
+            ?>
             <div class="back_title">
                 <div class="back_inner">
                     <a href="index.html"><span>Home</span></a>
@@ -106,59 +105,67 @@ $channel_id = $_SESSION['channel_id'];
             </div>
 
             <div class="divider_space_thin"></div>
-            <!-- account menu -->
-            <center>
-                <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/events/manage/?<?=SID; ?>" class="button_link"><span>Events</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
-                <?php
-                error_reporting(0);
-
-                if($admin == true){
-                    echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
-                } ?>
-            </center>
-            <!-- account menu end -->
             <!-- content -->
+            <img src="<?=$eventsRow['img']?>" width="937" height="293" alt="" class="frame_center">
             <div class="grid_8 content">
 
-                <h1>Knowledge Base</h1><br />
-                <div class="post-list">
-                    <?php
-                    // we will now get the tickets that are asosiated with this member
+                <?php
+                $time = time();
+                $start = $eventsRow['startDate'];
+                $end = $eventsRow['endDate'];
+                $startTime = date('d/m-Y G:i', $eventsRow['startDate'])." GMT +1";
+                $endTime = date('d/m-Y G:i', $eventsRow['endDate'])." GMT +1";
+                $diff = $end-$start;
+                $duration = round($diff / (60*60))." hour(s)";
+                ?>
+                <h1><?=$eventsRow['title']?></h1>
+                <?=$eventsRow['msg']?>
 
-                    $getTickets = mysql_query("SELECT * FROM kbase ORDER BY title") or die(mysql_error());
+                <!-- comments -->
+                <h5>Comments</h5>
+                <?php
+                    // we get the comments
+                    $getReplies = mysql_query("SELECT * FROM event_comments WHERE event_id='$id' ORDER By id") or die(mysql_error());
+                    while($getRepliesRow = mysql_fetch_array($getReplies)){
 
-                    // now we echo them
-                    while($getTicketsRow = mysql_fetch_array($getTickets)){
-
-                        // we now count the replies for this ticket
-                        $ticketId = $getTicketsRow['id'];
-
-                        // we now echo it all
-                        echo '<div class="post-item post-white">';
-                        echo '<div class="post-descr" style="width: 550px; height: 150px">';
-                        if($getTicketsRow['status'] == "closed"){
-                            echo '<h2>';
-                            echo 'CLOSED - '.$getTicketsRow['title'];
-                            echo '</h2>';
-                        }else{
-                            echo '<h2>';
-                            echo $getTicketsRow['title']; // title
-                            echo '</h2>';
+                        echo '<li class="comment">';
+                        echo '<div class="comment-body">';
+                        echo '<div class="comment-avatar">';
+                        echo '<div class="avatar"><img src="';
+                        echo ''.$conf_site_url.'/user/'.$getRepliesRow['auther'].'/avatar.png'; // img url
+                        echo '" width="90" height="90" alt=""></div>';
+                        echo '<a href="'.$conf_site_url.'/user/'.$getRepliesRow['auther'].'" class="link-author">'.$getRepliesRow['auther'].'</a>';
+                        echo '</div>';
+                        echo '<div class="comment-text">';
+                        echo '<div class="comment-author"> <span class="comment-date">';
+                        echo $getRepliesRow['dateSend']; // date
+                        echo '</span></div>';
+                        if($getRepliesRow['auther'] == $eventsRow['auther']){
+                            echo '<h5>Event holder commented:</h5>';
                         }
-
-                        echo '<p class="post-short">';
-                        echo $getTicketsRow['msg']; // msg (first 200 char)
-                        echo '</p>';
-                        echo '<div class="meta-bot"><a href="'.$conf_site_url.'/help/base/view/?id=';
-                        echo $getTicketsRow['id']; // link to view
-                        echo '" class="button_link"><span>View</span></a></div>';
+                        echo '<div class="comment-entry">';
+                        echo $getRepliesRow['msg']; // msg
+                        echo '</div></div>';
+                        echo '<div class="clear"></div>';
                         echo '</div>';
-                        echo '</div>';
+                        echo '</li>';
+                        echo '<br>';
                     }
-                    ?>
+                ?>
+                <div class="box2 add-comment" id="addcomments">
+                    <h3>Leave a comment</h3>
 
-                    <div class="clear"></div>
+                    <div class="box2_content comment-form">
+                        <form action="comment.php?id=<?=$id?>" method="post">
+                            <div class="row">
+                                <textarea cols="30" rows="10" name="msg" id="msg" class="textarea textarea_middle required"></textarea>
+                            </div>
+
+                            <input type="submit" value="Submit" class="btn-submit">
+                        </form>
+                    </div>
                 </div>
+                <!--/ comments -->
             </div>
             <!--/ content -->
 
@@ -166,13 +173,47 @@ $channel_id = $_SESSION['channel_id'];
             <div class="grid_4 sidebar">
 
                 <div class="widget-container widget_text">
-                    <br><br><br><br>
-                    <a href="<?=$conf_site_url?>/help/tickets/new/" class="button_link"><span>Submit new ticket</span></a>
-                    <a href="<?=$conf_site_url?>/help/base/" class="button_link"><span>View Knowledge Base</span></a>
+                    <?php
+                    // echo we will here display how long to the event start or if it has started or ended
+                    if($start >= $time){
+                        // then it has not started so show countdown
+                        // calc how many hours to start
+                        $toStart = round(($start-$time) / (60*60));
+                        echo '<h2>Start in: '.$toStart.' hour(s)</h2>';
+                    }
+                    if($start <= $time && $time <= $end){
+                        // then we are in the event
+                        echo 'The event has started!<br>';
+                        echo '<a href="'.$conf_site_url.'/user/'.$eventsRow['channel'].'" class="button_link"><span>View Event!</span></a><br>';
+                    }
+                    if($time >= $end){
+                        // then it has ended
+                        echo 'The event has ended...';
+                    }
+
+                    ?>
+                </div>
+                    <div class="post-share">
+                        <h5>Event details</h5>
+                        <b>Game:</b> <?=$eventsRow['game']?><br>
+                        <b>Start time:</b> <?=$startTime?><br>
+                        <b>Duration:</b> <?=$duration?><br>
+                        <b>End time:</b> <?=$endTime?><br>
+                        <b>Event holder:</b> <?=$eventsRow['auther']?><br>
+                        <b>Channel:</b> <a href="<?=$conf_site_url?>/user/<?=$eventsRow['channel']?>"> <?=$eventsRow['channel']?></a>
+                    </div>
+                <div class="widget-container widget_text">
+                    <a href="<?=$conf_site_url?>/events/" class="button_link"><span>Back to events</span></a><br>
+                    <?php
+                    if($_SESSION['admin'] == true || $_SESSION['channel_id'] == $eventsRow['auther']){
+                        echo '<a href="'.$conf_site_url.'/events/manage/edit.php?id='.$id.'" class="button_link btn_black"><span>Edit this event</span></a><br>';
+                    }
+                    ?>
                 </div>
 
                 <div class="post-share">
-                    <a href="<?=$conf_site_url?>/twitter/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_twitter.png" width="79" height="25" alt="" /></a> <a href="<?=$conf_site_url?>/facebook/" class="btn-share"><img src="<?=$conf_site_url?>/images/share_facebook.png" width="88" height="25" alt="" /></a>
+                    <b>Share this event</b><br>
+                    <a href="http://twitter.com/share?text=<?=$eventsRow['title']?>&url=<?=$conf_site_url?>/events/view/?id=<?=$id?>" class="btn-share"><img src="<?=$conf_site_url?>/images/share_twitter.png" width="79" height="25" alt="" /></a> <a href="http://www.facebook.com/sharer.php?u=<?=$conf_site_url?>/events/view/?id=<?=$id?>&t=<?=$eventsRow['title']?>" class="btn-share"><img src="<?=$conf_site_url?>/images/share_facebook.png" width="88" height="25" alt="" /></a>
                 </div>
             </div>
             <!--/ sidebar -->

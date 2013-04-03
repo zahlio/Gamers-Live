@@ -47,11 +47,11 @@ if($donate == "1"){
 session_start();
 
 if ($_SESSION['access'] != true) {
-	$chat_msg = "You need to be logged in to chat.";
-	$login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/?link='.$channel_id.'">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
+    $chat_msg = "You need to be logged in to chat.";
+    $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/?link='.$channel_id.'">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-	$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
-	$name = $_SESSION['channel_id'];
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $name = $_SESSION['channel_id'];
 
     // we now check if the user is banned
     $check_if_chat_banned = mysql_query("SELECT * FROM chat_bans WHERE channel_id='$channel_id' AND user_id='$name' AND banned='1'") or die(mysql_error());
@@ -75,7 +75,7 @@ if ($_SESSION['access'] != true) {
 
     $avatar_url = "<?=$conf_site_url?>/user/".$name."/avatar.png";
     $profile_url = "'.$conf_site_url.'/account/channel/chat/ban.php?username=".$name."&channel=".$channel_id."";
-	$subscribe = '<a href="'.$conf_site_url.'/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
+    $subscribe = '<a href="'.$conf_site_url.'/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
 
 if($ads == "1"){
@@ -130,21 +130,21 @@ if($chat == 'true' && $status == 'online'){
 ?>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Description" content="<?=$title?>" />
-<title><?=$conf_site_name?> - <?=$channel_id?></title>
-<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Description" content="<?=$title?>" />
+    <title><?=$conf_site_name?> - <?=$channel_id?></title>
+    <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
-<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
+    <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
+    <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
 
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
+    <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
 
-<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
-<script type="text/javascript" src="<?=$conf_site_url?>/files/flowplayer-3.2.11.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
+    <script type="text/javascript" src="<?=$conf_site_url?>/files/flowplayer-3.2.11.min.js"></script>
 
     <script type="text/javascript">
         function getViewers(){
@@ -173,17 +173,17 @@ if($chat == 'true' && $status == 'online'){
 
 
     <link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
-<script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+    <script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
 
-<!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>/css/ie.css" />
-<![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>/css/ie.css" />
+    <![endif]-->
 </head>
 
 <script type="text/javascript">
     function popchat(url) {
         popupWindow = window.open(
-                url,'popUpWindow','height=700,width=400left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+            url,'popUpWindow','height=700,width=400left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
     }
 </script>
 
@@ -193,30 +193,30 @@ if($chat == 'true' && $status == 'online'){
 <div class="header_image" style="background-image:url(header.png)">&nbsp;</div>
 
 <div class="header_menu">
-	<div class="container">
-		<div class="logo"><a href="<?=$conf_site_url?>/"><img src="<?=$conf_site_url?>/images/logo.png" alt="" /></a></div>
+    <div class="container">
+        <div class="logo"><a href="<?=$conf_site_url?>/"><img src="<?=$conf_site_url?>/images/logo.png" alt="" /></a></div>
         <?=$login_box?>
         <div class="top_search">
-        	<form id="searchForm" action="<?=$conf_site_url?>/browse/" method="get">
+            <form id="searchForm" action="<?=$conf_site_url?>/browse/" method="get">
                 <fieldset>
-                	<input type="submit" id="searchSubmit" value="" />
+                    <input type="submit" id="searchSubmit" value="" />
                     <div class="input">
                         <input type="text" name="s" id="s" value="Type & press enter" />
-                    </div>                    
+                    </div>
                 </fieldset>
             </form>
         </div>
-        
-    <?php
-error_reporting(0);
+
+        <?php
+        error_reporting(0);
 
 
         // menu included if we should get future changes
         include ''.$conf_site_url.'/user/inc/menu.php';
-    ?>
+        ?>
 
     </div>
-</div>     	
+</div>
 <!--/ header -->
 
 <!-- middle -->
@@ -225,7 +225,7 @@ error_reporting(0);
 
         <div class="back_title">
             <div class="back_inner">
-            <a href="<?=$conf_site_url?>/"><span>Home</span></a>
+                <a href="<?=$conf_site_url?>/"><span>Home</span></a>
             </div>
         </div>
 
@@ -234,103 +234,104 @@ error_reporting(0);
         <div class="content">
             <br />
             <h1><?=$title?><br /><?=$subscribe?><?=$donate_butten?><?php
-error_reporting(0);
+                error_reporting(0);
 
- if($_SESSION['admin'] == true){
-            echo '<a href="'.$conf_site_url.'/account/admin/user.php?channel='.$channel_id.'" class="button_link btn_red"><span>ADMIN EDIT</span></a>';
-            }
-            ?>
+                if($_SESSION['admin'] == true){
+                    echo '<a href="'.$conf_site_url.'/account/admin/user.php?channel='.$channel_id.'" class="button_link btn_red"><span>ADMIN EDIT</span></a>';
+                }
+                ?>
             </h1>
             <div class="col col_2_3">
                 <a style="display:block;width:<?=$width?>px;height:<?=$height?>px;margin:10px auto" id="stream">
                 </a>
             </div>
             <div class="col col_1_3"></div>
-                <p id="chat_display" style="margin-left: 5px">
-                    <center>
-                    <?=$chat_display?>
-                    </center>
-                </p>
-            </div>
+            <p id="chat_display" style="margin-left: 5px">
+            <center>
+                <?=$chat_display?>
+            </center>
+            </p>
+        </div>
         <div class="clear"></div>
-                <p align="right" id="chat_show_hide">
-                    <b id="viewers2"></b><b> viewers</b>
-                    <b><?=$ban_msg?></b>
-                    <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('<?=$conf_site_url?>/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
-                    <a href="?status=<?=$status?>&chat=<?php
-error_reporting(0);
+        <p align="right" id="chat_show_hide">
+            <b id="viewers2"></b><b> viewers</b>
+            <b><?=$ban_msg?></b>
+            <a href="?status=<?=$status?>&chat=false" onclick="JavaScript:popchat('<?=$conf_site_url?>/chat/?channel=<?=$channel_id?>');"" class="button_link"><span>Windowed Chat</span></a>
+            <a href="?status=<?=$status?>&chat=<?php
+            error_reporting(0);
 
- if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php
-error_reporting(0);
+            if($chat == 'true'){ echo 'false';}else{ echo 'true';} ?>" class="button_link"><span><?php
+                    error_reporting(0);
 
- if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
-                </p>
-            <script type="text/javascript">
-                flowplayer("stream", "<?=$conf_site_url?>/files/flowplayer.commercial-3.2.11.swf",
-                    {
+                    if($chat == 'true' && $status == 'online'){echo 'Hide Chat';}else{ echo 'Show Chat';}?></span></a>
+        </p>
+        <script type="text/javascript">
+            flowplayer("stream", "<?=$conf_site_url?>/files/flowplayer.commercial-3.2.11.swf",
+                {
 
-                        clip: {
-                            url: '<?=$channel_id?>',
-                            live: true,
-                            provider: 'rtmp',
-                            ads: "<?=$videoad?>"
+                    clip: {
+                        url: '<?=$channel_id?>',
+                        live: true,
+                        provider: 'rtmp',
+                        ads: "<?=$videoad?>"
+                    },
+                    plugins: {
+
+                        controls: {
+                            autoHide: "never"
                         },
-                        plugins: {
 
-                            controls: {
-                                autoHide: "never"
-                            },
-
-                            rtmp: {
+                        rtmp: {
                             url: '<?=$conf_site_url?>/files/flowplayer.rtmp-3.2.11.swf',
                             netConnectionUrl: '<?=$server_rtmp?><?=$channel_id?>'
-                            },
-
-                            adsense: {
-                                url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
-                                publisherId: "<?=$conf_video_ads?>",
-                                channel: "<?=$conf_video_channel?>"
-                            }
                         },
-                        onError: function(err) {
-                            this.unload();
-                            $('#stream').html('<img src="offline_img.png" height="540" width="960" />').fadeIn('fast');
-                            <?=$offline_url?>
+
+                        adsense: {
+                            url: "<?=$conf_site_url?>/files/bigsool.adsense-2.0.swf",
+                            publisherId: "<?=$conf_video_ads?>",
+                            channel: "<?=$conf_video_channel?>"
                         }
+                    },
+                    onError: function(err) {
+                        this.unload();
+                        $('#stream').html('<img src="offline_img.png" height="540" width="960" />').fadeIn('fast');
+                        <?=$offline_url?>
                     }
-                );
-            </script>
-            <center><?=$ad1?></center>
-            <h3 class="toggle box">Stream Stats<span class="ico"></span></h3>
-                <div class="toggle_content boxed" style="display: block;">
-                    <div class="styled_table table_white">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th style="width:25%">Game</th>
-                                <th style="width:25%">Viewers</th>
-                                <th style="width:25%">Total Views</th>
-                                <th style="width:25%">Subscribers</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><?=$game?></td>
-                                <td id="viewers"></td>
-                                <td><?=$views?></td>
-                                <td><?=$subscribers?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            <br />
-            <div class="tabs_framed small_tabs">
+                }
+            );
+        </script>
+        <center><?=$ad1?></center>
+        <h3 class="toggle box">Stream Stats<span class="ico"></span></h3>
+        <div class="toggle_content boxed" style="display: block;">
+            <div class="styled_table table_white">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th style="width:25%">Game</th>
+                        <th style="width:25%">Viewers</th>
+                        <th style="width:25%">Total Views</th>
+                        <th style="width:25%">Subscribers</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><?=$game?></td>
+                        <td id="viewers"></td>
+                        <td><?=$views?></td>
+                        <td><?=$subscribers?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="tabs_framed small_tabs">
 
             <ul class="tabs">
                 <li class="current"><a href="#tabs_1_1">Stream Information</a></li>
                 <li class=""><a href="#tabs_1_2">Streamer Information</a></li>
                 <li class=""><a href="#tabs_1_3">Additional Information</a></li>
+                <li class=""><a href="#tabs_1_4">Events</a></li>
             </ul>
 
             <div id="tabs_1_1" class="tabcontent" style="display: none;">
@@ -343,6 +344,25 @@ error_reporting(0);
 
             <div id="tabs_1_3" class="tabcontent" style="display: block;">
                 <?=$info3?>
+            </div>
+            <div id="tabs_1_4" class="tabcontent" style="display: block;">
+                <?php
+                $time = time();
+                $events = mysql_query("SELECT * FROM events WHERE auther = '$channel_id' AND endDate >= '$time'") or die(mysql_error());
+                while($eventsRow = mysql_fetch_array($events)){
+                    echo '<div class="post-list">';
+                    echo '<div class="featured_list">';
+                    echo '<ul>';
+                    echo '<li><h3>'.$eventsRow['title'].'</h3>';
+                    echo '<div class="post-share">';
+                    echo substr($eventsRow['msg'], 0, 350).'... <a href="'.$conf_site_url.'/events/view/?id='.$eventsRow['id'].'"><b>Read more</b></a>';
+                    echo '</div>';
+                    echo '<div class="meta-date">Start in: '.round(($eventsRow['startDate']-$time) / (60*60)).' hour(s).<br>From '.date('d/m-Y G:i', $eventsRow['startDate'])." GMT +1".' to '.date('d/m-Y G:i', $eventsRow['endDate'])." GMT +1".', so about '.round(($eventsRow['endDate']-$eventsRow['startDate']) / (60*60)).' hour(s) in duration</div>';
+                    echo '</li></ul></div>';
+                    echo '</div>';
+                    echo '<div class="clear"></div>';
+                }
+                ?>
             </div>
         </div>
         <!--/ content -->
@@ -359,8 +379,8 @@ error_reporting(0);
                 <h3><?=$conf_site_name?></h3>
 
                 <div class="copyright">
-                <?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -
-                <a href="<?=$conf_site_url?>/company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a></p>
+                    <?=$conf_site_copy?> <br /><a href="<?=$conf_site_url?>/company/legal/">Terms of Service</a> - <a href="<?=$conf_site_url?>/company/support/">Contact</a> -
+                    <a href="<?=$conf_site_url?>/company/legal/">Privacy guidelines</a> - <a href="<?=$conf_site_url?>/company/support/">Advertise with Us</a></p>
                 </div>
             </div>
 

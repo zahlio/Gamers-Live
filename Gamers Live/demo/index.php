@@ -180,8 +180,8 @@ include('slider.php');
                         <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Others</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/blog/"><span>Blog</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Other</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
                                 <li><a href="<?=$conf_site_url?>/company/support/"><span>Contact</span></a></li>
@@ -270,7 +270,8 @@ error_reporting(0);
             echo '<div class="col col_1_3">';
             echo '<div class="inner">';
             echo '<center>';
-            echo '<a href="'.$conf_site_url.'/browse/?s='.$viewers_row['game'].'" /><h3>'.$viewers_row['viewers'].' viewers</h3>';
+            echo '<a href="'.$conf_site_url.'/browse/?s='.$viewers_row['game'].'" /><h3>'.$viewers_row['game'].'</h3><h5>'.$viewers_row['viewers'].' viewers</b></h5>';
+            echo '<div class="inner">';
             echo '<img src="'.$viewers_row['img'].'" class="tabs_framed"/>';
             echo '</a>';
             echo '</center>';

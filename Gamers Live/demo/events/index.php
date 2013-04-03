@@ -13,11 +13,6 @@ if ($_SESSION['access'] != true) {
     $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
 }
 
-if ($_SESSION['access'] != true) {
-    header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
-    exit;
-}
-$channel_id = $_SESSION['channel_id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -98,7 +93,11 @@ $channel_id = $_SESSION['channel_id'];
     <!-- middle -->
     <div class="middle">
         <div class="container_12">
-
+            <?php
+            // we first get all events that are featured
+            $date = time();
+            $events = mysql_query("SELECT * FROM events WHERE featured='1' AND endDate >= '$date'") or die(mysql_error());
+            ?>
             <div class="back_title">
                 <div class="back_inner">
                     <a href="index.html"><span>Home</span></a>
@@ -106,57 +105,29 @@ $channel_id = $_SESSION['channel_id'];
             </div>
 
             <div class="divider_space_thin"></div>
-            <!-- account menu -->
-            <center>
-                <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/events/manage/?<?=SID; ?>" class="button_link"><span>Events</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link btn_black"><span>Support</span></a>
-                <?php
-                error_reporting(0);
-
-                if($admin == true){
-                    echo "<a href='".$conf_site_url."/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
-                } ?>
-            </center>
-            <!-- account menu end -->
             <!-- content -->
             <div class="grid_8 content">
 
-                <h1>Knowledge Base</h1><br />
+                <h1>Featured Events</h1><br />
                 <div class="post-list">
+
                     <?php
-                    // we will now get the tickets that are asosiated with this member
-
-                    $getTickets = mysql_query("SELECT * FROM kbase ORDER BY title") or die(mysql_error());
-
-                    // now we echo them
-                    while($getTicketsRow = mysql_fetch_array($getTickets)){
-
-                        // we now count the replies for this ticket
-                        $ticketId = $getTicketsRow['id'];
-
-                        // we now echo it all
-                        echo '<div class="post-item post-white">';
-                        echo '<div class="post-descr" style="width: 550px; height: 150px">';
-                        if($getTicketsRow['status'] == "closed"){
-                            echo '<h2>';
-                            echo 'CLOSED - '.$getTicketsRow['title'];
-                            echo '</h2>';
-                        }else{
-                            echo '<h2>';
-                            echo $getTicketsRow['title']; // title
-                            echo '</h2>';
-                        }
-
-                        echo '<p class="post-short">';
-                        echo $getTicketsRow['msg']; // msg (first 200 char)
-                        echo '</p>';
-                        echo '<div class="meta-bot"><a href="'.$conf_site_url.'/help/base/view/?id=';
-                        echo $getTicketsRow['id']; // link to view
-                        echo '" class="button_link"><span>View</span></a></div>';
+                    $time = time();
+                    // we now echo them
+                    while($eventsRow = mysql_fetch_array($events)){
+                        echo '<div class="post-list">';
+                        echo '<div class="featured_list">';
+                        echo '<ul>';
+                        echo '<li><h3>'.$eventsRow['title'].'</h3>';
+                        echo '<div class="post-share">';
+                        echo substr($eventsRow['msg'], 0, 300).'... <a href="'.$conf_site_url.'/events/view/?id='.$eventsRow['id'].'"><b>Read more</b></a>';
                         echo '</div>';
+                        echo '<div class="meta-date">Start in: '.round(($eventsRow['startDate']-$time) / (60*60)).' hour(s).<br>From '.date('d/m-Y G:i', $eventsRow['startDate'])." GMT +1".' to '.date('d/m-Y G:i', $eventsRow['endDate'])." GMT +1".', so about '.round(($eventsRow['endDate']-$eventsRow['startDate']) / (60*60)).' hour(s) in duration</div>';
+                        echo '</li></ul></div>';
                         echo '</div>';
+                        echo '<div class="clear"></div>';
                     }
                     ?>
-
                     <div class="clear"></div>
                 </div>
             </div>
@@ -166,9 +137,9 @@ $channel_id = $_SESSION['channel_id'];
             <div class="grid_4 sidebar">
 
                 <div class="widget-container widget_text">
-                    <br><br><br><br>
-                    <a href="<?=$conf_site_url?>/help/tickets/new/" class="button_link"><span>Submit new ticket</span></a>
-                    <a href="<?=$conf_site_url?>/help/base/" class="button_link"><span>View Knowledge Base</span></a>
+                    <a href="./create/" class="button_link"><span>Submit event</span></a><br>
+                    <a href="./search/" class="button_link"><span>Search event(s)</span></a><br>
+                    <a href="./manage/" class="button_link btn_black"><span>Manage your events</span></a>
                 </div>
 
                 <div class="post-share">

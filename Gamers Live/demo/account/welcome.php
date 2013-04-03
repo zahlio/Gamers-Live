@@ -114,8 +114,8 @@ if($read == "true"){
                     <li><a href="<?=$conf_site_url?>/browse/wow/?<?=SID; ?>"><span>WoW</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
-                    <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Others</span></a></li>
-                    <li><a href="<?=$conf_blog?>"><span>Blog</span></a></li>
+                    <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Other</span></a></li>
+                    <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>
                             
@@ -146,16 +146,6 @@ if($read == "true"){
             <!-- content -->
             <div class="content"><br />
                 <!-- account menu -->
-                <center>
-                    <a href="<?=$conf_site_url?>/account/?<?=SID; ?>" class="button_link"><span>Account Overview</span></a><a href="<?=$conf_site_url?>/account/channel/?<?=SID; ?>" class="button_link"><span>Channel</span></a><a href="<?=$conf_site_url?>/account/settings/?<?=SID; ?>" class="button_link"><span>Settings</span></a><a href="<?=$conf_site_url?>/account/partner/?<?=SID; ?>" class="button_link"><span>Partner</span></a><a href="<?=$conf_site_url?>/account/help/?<?=SID; ?>" class="button_link"><span>Support</span></a>
-                    <?php
-error_reporting(0);
-
- if($admin == true){
-                    echo "<a href='<?=$conf_site_url?>/account/admin/?' class='button_link btn_red'><span>Admin CP</span></a>";
-                    echo "<a href='<?=$conf_site_url?>/account/admin/payments/?' class='button_link btn_red'><span>Partner Payments</span></a>";
-                } ?>
-                </center>
                 <br>
                     <br>
                 <h1>Welcome to <?=$conf_site_name?>!</h1>
@@ -191,7 +181,7 @@ error_reporting(0);
                     You could start streaming now, but how awesome wouldn’t it be to customize your channel?<br>
                     Like creating a custom title, information and images! This is all done easy by using our online interface.<br>
                     If you wish to change your information click <a href="<?=$conf_site_url?>/account/settings/?" target="_blank">here</a>, if you wish to edit your channel click <a href="<?=$conf_site_url?>/account/channel/?" target="_blank">here</a>.<br><br>
-                    Should you need more information regarding this, we have a full length help article <a href="<?=$conf_support?>" target="_blank">right here</a> for you!<br>
+                    Should you need more information regarding this, we have a full length help article <a href="<?=$conf_site_url?>/help/base/" target="_blank">right here</a> for you!<br>
 
                 </p>
                 <br><br>
@@ -204,7 +194,7 @@ error_reporting(0);
                     Once you started streaming and you gain a viewer base, trolls and fan boys will start coming into your chat. Some can be fun and interesting to talk to, while others should be removed from the chat. Of cause <?=$conf_site_name?> has a system for this which we call: “Manage Your Chat (system-ish)” clever right?<br><br>
                     So should you ever feel the need to ban a member from the chat, just click on the name in the chat window and you will be prompted to ban this user, should you have the authority to do so. You can also access this tool at your <a href="<?=$conf_site_url?>/account/channel/?" target="_blank">channel page</a>.<br>
                     Additionally you can add other moderators which can moderate your chat and ban users.<br><br>
-                    Should you need more information, <a href="<?=$conf_support?>" target="_blank">then get over here.</a><br>
+                    Should you need more information, <a href="<?=$conf_site_url?>/help/base/" target="_blank">then get over here.</a><br>
                 </p>
                 <br><br>
                 <center>
@@ -212,11 +202,10 @@ error_reporting(0);
                 </center>
                 <br>
 
-                <p><img src="<?=$conf_site_url?>/images/welcome/help.png" alt="" width="300" height="200" class="frame_right">
                 <p>
                 <h2 align="left">Tip #4: PLZ READ HELP ARTICLES</h2>
                     Help articles is where you will find everything you need, and should these articles not be enough then our support team is more than happy to assist you!<br><br>
-                    You can find our help articles <a href="<?=$conf_support?>" target="_blank">here</a> and should you need to submit a ticket, then it can be done <a href="<?=$conf_support?>" target="_blank">here</a>.<br>
+                    You can find our help articles <a href="<?=$conf_site_url?>/help/base/" target="_blank">here</a> and should you need to submit a ticket, then it can be done <a href="<?=$conf_site_url?>/help/tickets/new/" target="_blank">here</a>.<br>
                 </p>
                 <br><br>
                 <center>
