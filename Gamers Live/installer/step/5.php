@@ -85,12 +85,6 @@ $app = "Gamers Live";
                 <h3>Links & Social Information</h3>
                 <form method="post" action="6.php">
                     <p>
-                        <b>Blog URL</b>
-                        <input name="blog" id="blog" value="<?=$_SESSION['blog']?>" type="text" style="width: 860px"/>
-                        <i>Could be "http://www.gamers-live.net/demo/blog/" etc.</i><br><br>
-                        <b>Support URL</b>
-                        <input name="support" id="support" value="<?=$_SESSION['support']?>" type="text" style="width: 860px"/>
-                        <i>Could be "http://www.support.gamers-live.net/" etc.</i><br><br>
                         <b>Facebook URL</b>
                         <input name="facebook" id="facebook" value="<?=$_SESSION['facebook']?>" type="text" style="width: 860px"/>
                         <i>Could be "http://www.facebook.com/pages/Gamers-Live/301016116668756" etc.</i><br><br>

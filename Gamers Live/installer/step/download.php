@@ -41,10 +41,6 @@ $conf_address = "'.$_SESSION['address'].'";
 $conf_phone = "'.$_SESSION['phone'].'";
 $conf_support_email = "'.$_SESSION['email'].'";
 
-// blog & support links
-$conf_blog = "'.$_SESSION['blog'].'";
-$conf_support = "'.$_SESSION['support'].'";
-
 // social media
 $conf_facebook = "'.$_SESSION['facebook'].'";
 $conf_twitter = "'.$_SESSION['twitter'].'";

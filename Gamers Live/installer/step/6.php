@@ -7,8 +7,6 @@ if($_SESSION['valid_key'] != true){
     exit;
 }
 // set sessions
-$_SESSION['blog'] = $_POST['blog'];
-$_SESSION['support'] = $_POST['support'];
 $_SESSION['facebook'] = $_POST['facebook'];
 $_SESSION['twitter'] = $_POST['twitter'];
 

@@ -118,8 +118,6 @@ $app = "Gamers Live";
                 <p><b>Company Email: </b><?=$_SESSION['email']?></p>
 
                 <h4>Links & Social Information</h4>
-                <p><b>Blog URL: </b><?=$_SESSION['blog']?></p>
-                <p><b>Support URL: </b><?=$_SESSION['support']?></p>
                 <p><b>Facebook URL: </b><?=$_SESSION['facebook']?></p>
                 <p><b>Twitter URL: </b><?=$_SESSION['twitter']?></p>
 
