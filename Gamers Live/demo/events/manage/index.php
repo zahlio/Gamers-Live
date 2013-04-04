@@ -10,13 +10,14 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
 $channel_id = $_SESSION['channel_id'];
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -102,7 +103,7 @@ $channel_id = $_SESSION['channel_id'];
             ?>
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="index.html"><span>Home</span></a>
+                    <a href="<?=$conf_site_url?>"><span>Home</span></a>
                 </div>
             </div>
             <center>

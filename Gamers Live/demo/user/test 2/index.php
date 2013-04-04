@@ -50,7 +50,7 @@ if ($_SESSION['access'] != true) {
     $chat_msg = "You need to be logged in to chat.";
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/?link='.$channel_id.'">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
     $name = $_SESSION['channel_id'];
 
     // we now check if the user is banned

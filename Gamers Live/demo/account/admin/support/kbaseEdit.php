@@ -10,7 +10,7 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 
 if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
@@ -103,7 +103,7 @@ $id = $_GET['id'];
 
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="index.html"><span>Home</span></a>
+                    <a href="<?=$conf_site_url?>"><span>Home</span></a>
                 </div>
             </div>
 

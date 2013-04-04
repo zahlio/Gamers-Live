@@ -10,7 +10,7 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 
 ?>
@@ -100,7 +100,7 @@ if ($_SESSION['access'] != true) {
             ?>
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="index.html"><span>Home</span></a>
+                    <a href="<?=$conf_site_url?>"><span>Home</span></a>
                 </div>
             </div>
 
@@ -139,7 +139,13 @@ if ($_SESSION['access'] != true) {
                 <div class="widget-container widget_text">
                     <a href="./create/" class="button_link"><span>Submit event</span></a><br>
                     <a href="./search/" class="button_link"><span>Search event(s)</span></a><br>
-                    <a href="./manage/" class="button_link btn_black"><span>Manage your events</span></a>
+                    <a href="./search/show.php?done=1" class="button_link"><span>View upcoming events</span></a><br>
+                    <a href="./search/show.php" class="button_link"><span>View all events</span></a><br>
+                    <?php
+                    if($_SESSION['access'] == true){
+                        echo '<a href="./manage/" class="button_link btn_black"><span>Manage your events</span></a><br>';
+                    }
+                    ?>
                 </div>
 
                 <div class="post-share">

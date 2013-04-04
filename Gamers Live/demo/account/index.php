@@ -141,7 +141,42 @@ error_reporting(0);
         <i><a href="<?=$conf_site_url?>/user/<?=$channel_id?>/"><?=$conf_site_url?>/user/<?=$channel_id?>/</a></i>
     </center>    
     <!-- account menu end -->
-       <h2>Your subscriptions</h2>
+
+        <h2>Upcomming subscribed events</h2>
+        <?php
+        // we will now check if there is any upcomming events that we have subscribed for
+        $time = time();
+        $time4 = time() + 14400;
+        $eventsGet = mysql_query("SELECT * FROM event_wanna WHERE viewer='$channel_id' AND startDate >= '$time' ORDER BY startDate")or die(mysql_error());
+        $count = mysql_num_rows($eventsGet);
+        if($count >= 1){
+            while($eventsGetRow = mysql_fetch_array($eventsGet)){
+                // we now echo them
+                $id = $eventsGetRow['event_id'];
+                $events = mysql_query("SELECT * FROM events WHERE id = '$id'") or die(mysql_error());
+                while($eventsRow = mysql_fetch_array($events)){
+                    echo '<div class="post-list">';
+                    echo '<div class="featured_list">';
+                    echo '<ul>';
+                    echo '<li>';
+                    if($eventsRow['startDate'] <= $time4){
+                        echo "<h3>This event is starting in: ".round(($eventsRow['startDate']-$time)/60)." minute(s)</h3>";
+                    }
+                    echo '<h3>'.$eventsRow['title'].'</h3>';
+                    echo '<div class="post-share">';
+                    echo substr($eventsRow['msg'], 0, 350).'... <a href="'.$conf_site_url.'/events/view/?id='.$eventsRow['id'].'"><b>Read more</b></a>';
+                    echo '</div>';
+                    echo '<div class="meta-date">Start in: '.round(($eventsRow['startDate']-$time) / (60*60)).' hour(s).<br>From '.date('d/m-Y G:i', $eventsRow['startDate'])." GMT +1".' to '.date('d/m-Y G:i', $eventsRow['endDate'])." GMT +1".', so about '.round(($eventsRow['endDate']-$eventsRow['startDate']) / (60*60)).' hour(s) in duration</div>';
+                    echo '</li></ul></div>';
+                    echo '</div>';
+                    echo '<div class="clear"></div>';
+                }
+            }
+        }else{
+            echo '<center><h3>There are no subscribed upcomming events!</h3></center>';
+        }
+        ?>
+       <h2>Your channel subscriptions</h2>
     <div class="styled_table table_white"/>
     
                         <?php

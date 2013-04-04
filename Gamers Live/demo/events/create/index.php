@@ -10,7 +10,7 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 
 if ($_SESSION['access'] != true) {
@@ -102,7 +102,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
     <div class="container_12">
         <div class="back_title">
             <div class="back_inner">
-                <a href="index.html"><span>Home</span></a>
+                <a href="<?=$conf_site_url?>"><span>Home</span></a>
             </div>
         </div>
         <center>
@@ -130,7 +130,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
 
                 <textarea cols="30" rows="10" name="msg" id="msg" class="textarea textarea_middle required" style="width: 625px; height: 500px"><?=$eventsRow['msg']?></textarea>
 
-                (HTML will not work! Line breaks will automatically be created whn there is an enter!)
+                (HTML will not work! Line breaks will automatically be created when there is an enter!)
 
         </div>
         <!--/ content -->

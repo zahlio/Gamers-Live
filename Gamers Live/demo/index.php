@@ -24,7 +24,7 @@ if ($_SESSION['access'] != true) {
  $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'./account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
     $not_logged_in = '<a href="'.$conf_site_url.'/account/register/"><img src="'.$conf_site_url.'/images/frontpage/register-now-img.png" class="tabs_framed"></a><br>';
 }else{
-$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+$login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
     $not_logged_in = "";
 }
 

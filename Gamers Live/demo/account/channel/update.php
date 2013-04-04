@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
 if ($_SESSION['access'] != true) {
@@ -10,7 +8,7 @@ if ($_SESSION['access'] != true) {
 $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
 
-$value = strip_tags($_POST['value']);
+$value = $title = mysql_real_escape_string(nl2br(strip_tags($_POST['value'])));
 
 $msg = $_GET["msg"];
 if($msg == ""){

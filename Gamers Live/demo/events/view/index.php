@@ -10,9 +10,21 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 $id = $_GET['id'];
+$channel_id = $_SESSION['channel_id'];
+if($_SESSION['access'] == true){
+
+    // we check if the user is subscribed to this even
+    $check = mysql_query("SELECT * FROM event_wanna WHERE event_id='$id' AND viewer='$channel_id'") or die(mysql_error());
+
+    if(mysql_num_rows($check) >= 1){
+        $subscribed = true;
+    }else{
+        $subscribed = false;
+    }
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -100,7 +112,7 @@ $id = $_GET['id'];
             ?>
             <div class="back_title">
                 <div class="back_inner">
-                    <a href="index.html"><span>Home</span></a>
+                    <a href="<?=$conf_site_url?>"><span>Home</span></a>
                 </div>
             </div>
 
@@ -204,6 +216,15 @@ $id = $_GET['id'];
                     </div>
                 <div class="widget-container widget_text">
                     <a href="<?=$conf_site_url?>/events/" class="button_link"><span>Back to events</span></a><br>
+                    <?php
+                    if($_SESSION['access'] == true){
+                        if($subscribed == true){
+                            echo 'You will be noticed when this event goes live!';
+                        }else{
+                            echo '<a href="'.$conf_site_url.'/events/wanna/?id='.$id.'&sub=1&time='.$start.'" class="button_link"><span>Subscribe to this event</span></a><br>';
+                        }
+                    }
+                    ?>
                     <?php
                     if($_SESSION['admin'] == true || $_SESSION['channel_id'] == $eventsRow['auther']){
                         echo '<a href="'.$conf_site_url.'/events/manage/edit.php?id='.$id.'" class="button_link btn_black"><span>Edit this event</span></a><br>';

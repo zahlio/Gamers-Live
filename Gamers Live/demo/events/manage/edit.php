@@ -10,13 +10,14 @@ include_once("".$conf_ht_docs_gl."/files/check.php");
 if ($_SESSION['access'] != true) {
     $login_box = ' <div class="top_login_box"><a href="'.$conf_site_url.'/account/login/">Sign in</a><a href="'.$conf_site_url.'/account/register/">Register</a></div>';
 }else{
-    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/settings/">Settings</a></div>';
+    $login_box = '<div class="top_login_box"><a href="'.$conf_site_url.'/account/logout/">Logout</a><a href="'.$conf_site_url.'/account/">Account</a></div>';
 }
 if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
 $id = $_GET['id'];
+
 // we now echo that event wiht that id
 $events = mysql_query("SELECT * FROM events WHERE id='$id'") or die(mysql_error());
 $eventsRow = mysql_fetch_array($events);
@@ -27,6 +28,10 @@ if($_SESSION['admin'] != true){
         exit;
     }
 }
+// get subs
+
+$getSubs = mysql_query("SELECT * FROM event_wanna WHERE event_id='$id'") or die(mysql_error());
+$subs = mysql_num_rows($getSubs);
 
 // we now get the games we can select
 $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error());
@@ -112,7 +117,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
     <div class="container_12">
         <div class="back_title">
             <div class="back_inner">
-                <a href="index.html"><span>Home</span></a>
+                <a href="<?=$conf_site_url?>"><span>Home</span></a>
             </div>
         </div>
         <center>
@@ -141,7 +146,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
 
                 <textarea cols="30" rows="10" name="msg" id="msg" class="textarea textarea_middle required" style="width: 625px; height: 500px"><?=$eventsRow['msg']?></textarea>
 
-                <a href="#" onclick="document.login.submit()" id="login_but" class="button_link"><span>Save</span></a> (HTML will not work! Line breaks will automatically be created whn there is an enter!)
+                <a href="#" onclick="document.login.submit()" id="login_but" class="button_link"><span>Save</span></a> (HTML will not work! Line breaks will automatically be created when there is an enter!)
 
             </form>
 
@@ -207,10 +212,37 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
             </div>
             <div class="post-share">
                 <h5>Event details</h5>
+                <b>Subscribers:</b> <?=$subs?><br>
                 <b>Start time:</b> <?=$startTime?><br>
                 <b>Duration:</b> <?=$duration?><br>
                 <b>End time:</b> <?=$endTime?><br>
                 <b>Event holder:</b> <?=$eventsRow['auther']?><br>
+
+                <?php
+
+                $StartTime = getdate($start);
+                $endTime = getdate($end);
+                $frontTime = getdate($eventsRow['featuredShow']);
+
+                $Startday = "$StartTime[mday]";
+                $Startmonth = "$StartTime[mon]";
+                $Startyear = "$StartTime[year]";
+                $Starthour = "$StartTime[hours]";
+                $Startmin = "$StartTime[minutes]";
+
+                $endday = "$endTime[mday]";
+                $endmonth = "$endTime[mon]";
+                $endyear = "$endTime[year]";
+                $endhour = "$endTime[hours]";
+                $endmin = "$endTime[minutes]";
+
+                $frontday = "$frontTime[mday]";
+                $frontmonth = "$frontTime[mon]";
+                $frontyear = "$frontTime[year]";
+                $fronthour = "$frontTime[hours]";
+                $frontmin = "$frontTime[minutes]";
+
+                ?>
 
                 <form name="login2" action="action.php?change=2&id=<?=$id?>" method="post" id="loginform" class="loginform">
 
@@ -224,6 +256,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         <p><b>Start Time:<br></b>
                         Date: <select name="Startday" id="Startday" style="width: 50px">
+                            <option value="<?=$Startday?>" id="Startday"><?=$Startday?></option>
                             <option value="1" id="Startday">1</option>
                             <option value="2" id="Startday">2</option>
                             <option value="3" id="Startday">3</option>
@@ -258,6 +291,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         /
                         <select name="Startmonth" id="Startmonth" style="width: 50px">
+                            <option value="<?=$Startmonth?>" id="Startmonth"><?=$Startmonth?></option>
                             <option value="1" id="Startmonth">1</option>
                             <option value="2" id="Startmonth">2</option>
                             <option value="3" id="Startmonth">3</option>
@@ -274,6 +308,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         -
                         <select name="Startyear" id="Startyear" style="width: 60px">
+                            <option value="<?=$Startyear?>" id="Startyear"><?=$Startyear?></option>
                             <option value="2013" id="Startyear">2013</option>
                             <option value="2014" id="Startyear">2014</option>
                             <option value="2015" id="Startyear">2015</option>
@@ -281,6 +316,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         <br>
                         Time:
                         <select name="Starthour" id="Starthour" style="width: 50px">
+                            <option value="<?=$Starthour?>" id="Starthour"><?=$Starthour?></option>
                             <option value="0" id="Starthour">0</option>
                             <option value="1" id="Starthour">1</option>
                             <option value="2" id="Starthour">2</option>
@@ -308,6 +344,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         :
                         <select name="Startmin" id="Startmin" style="width: 50px">
+                            <option value="<?=$Startmin?>" id="Startmin"><?=$Startmin?></option>
                             <option value="00" id="Startmin">00</option>
                             <option value="10" id="Startmin">10</option>
                             <option value="20" id="Startmin">20</option>
@@ -318,6 +355,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
 
                     <p><b>End Time:<br></b>
                         Date: <select name="endday" id="endday" style="width: 50px">
+                            <option value="<?=$endday?>" id="endday"><?=$endday?></option>
                             <option value="1" id="endday">1</option>
                             <option value="2" id="endday">2</option>
                             <option value="3" id="endday">3</option>
@@ -353,6 +391,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         /
                         <select name="endmonth" id="endmonth" style="width: 50px">
+                            <option value="<?=$endmonth?>" id="endmonth"><?=$endmonth?></option>
                             <option value="1" id="endmonth">1</option>
                             <option value="2" id="endmonth">2</option>
                             <option value="3" id="endmonth">3</option>
@@ -369,6 +408,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         -
                         <select name="endyear" id="endyear" style="width: 60px">
+                            <option value="<?=$endyear?>" id="endyear"><?=$endyear?></option>
                             <option value="2013" id="endyear">2013</option>
                             <option value="2014" id="endyear">2014</option>
                             <option value="2015" id="endyear">2015</option>
@@ -376,6 +416,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         <br>
                         Time:
                         <select name="endhour" id="endhour" style="width: 50px">
+                            <option value="<?=$endhour?>" id="endhour"><?=$endhour?></option>
                             <option value="0" id="endhour">0</option>
                             <option value="1" id="endhour">1</option>
                             <option value="2" id="endhour">2</option>
@@ -403,6 +444,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         :
                         <select name="endmin" id="endmin" style="width: 50px">
+                            <option value="<?=$endmin?>" id="endmin"><?=$endmin?></option>
                             <option value="00" id="endmin">00</option>
                             <option value="10" id="endmin">10</option>
                             <option value="20" id="endmin">20</option>
@@ -420,6 +462,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         <input type="checkbox" name="featured" id="frontpage" value="1"> Featured<br>
                         <input type="checkbox" name="featured" id="frontpage" value="0"> NOT Featured<br>
                         Date: <select name="frontday" id="frontday" style="width: 50px">
+                            <option value="'.$frontday.'" id="frontday">'.$frontday.'</option>
                             <option value="1" id="frontday">1</option>
                             <option value="2" id="frontday">2</option>
                             <option value="3" id="frontday">3</option>
@@ -455,6 +498,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         /
                         <select name="frontmonth" id="frontmonth" style="width: 50px">
+                        <option value="'.$frontmonth.'" id="frontmonth">'.$frontmonth.'</option>
                             <option value="1" id="frontmonth">1</option>
                             <option value="2" id="frontmonth">2</option>
                             <option value="3" id="frontmonth">3</option>
@@ -471,6 +515,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         -
                         <select name="frontyear" id="frontyear" style="width: 60px">
+                        <option value="'.$frontyear.'" id="frontyear">'.$frontyear.'</option>
                             <option value="2013" id="frontyear">2013</option>
                             <option value="2014" id="frontyear">2014</option>
                             <option value="2015" id="frontyear">2015</option>
@@ -478,6 +523,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         <br>
                         Time:
                         <select name="fronthour" id="fronthour" style="width: 50px">
+                        <option value="'.$fronthour.'" id="fronthour">'.$fronthour.'</option>
                             <option value="0" id="fronthour">0</option>
                             <option value="1" id="fronthour">1</option>
                             <option value="2" id="fronthour">2</option>
@@ -505,6 +551,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                         </select>
                         :
                         <select name="frontmin" id="frontmin" style="width: 50px">
+                        <option value="'.$frontmin.'" id="frontmin">'.$frontmin.'</option>
                             <option value="00" id="frontmin">00</option>
                             <option value="10" id="frontmin">10</option>
                             <option value="20" id="frontmin">20</option>

@@ -323,7 +323,7 @@ error_reporting(0);
                     <div class="box_title">Partner Support</div>
                         <div class="box_content">
 							<p>Should you need support or any settings changed, then please contact support by creating a ticket in "Partner Support" with the subject of: <br /><center><h2><?=$partner_id?>: [YOUR SUBJECT]</h2></center></p><p><i>Delete the []'s. An example would be: "1-zahlio: I wish to change my payment email"</i></p>
-                            Link to support: <a href="<?=$conf_support?>">Click here to create a ticket</a>
+                            Link to support: <a href="<?=$conf_site_url?>/help/tickets/new/">Click here to create a ticket</a>
                         <div class="clear"></div>
                     </div>
                 </div>
