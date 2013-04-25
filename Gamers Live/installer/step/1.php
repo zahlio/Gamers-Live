@@ -6,7 +6,7 @@ if($_SESSION['valid_key'] != true){
     header('Location: http://www.gamers-live.net/installer/?error=Please try the installation again&app='.$app.'');
     exit;
 }
-
+$app = "Gamers Live";
 ?>
 <!doctype html>
 <html lang="en" class="no-js">

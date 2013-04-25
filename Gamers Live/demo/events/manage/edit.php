@@ -457,11 +457,13 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                     <p><b>Image URL (1920x600): </b><input name="img" id="img" class="gamersTextbox" value="<?=$eventsRow['img']?>" type="text" style="width: 275px; height: 30px"></p>
                     <?php
                     if($_SESSION['admin'] == true){
-                        echo '
-                        <p><b>Front page start:<br></b>
-                        <input type="checkbox" name="featured" id="frontpage" value="1"> Featured<br>
-                        <input type="checkbox" name="featured" id="frontpage" value="0"> NOT Featured<br>
-                        Date: <select name="frontday" id="frontday" style="width: 50px">
+                        echo '<p><b>Front page featuring:<br></b>';
+                        if($eventsRow['featured']== "1"){
+                            echo '<input type="checkbox" name="featured" id="frontpage" value="1" checked> Featured<br>';
+                        }else{
+                            echo '<input type="checkbox" name="featured" id="frontpage" value="1"> Featured<br>';
+                        }
+                        echo 'Date: <select name="frontday" id="frontday" style="width: 50px">
                             <option value="'.$frontday.'" id="frontday">'.$frontday.'</option>
                             <option value="1" id="frontday">1</option>
                             <option value="2" id="frontday">2</option>
@@ -471,7 +473,7 @@ $games_get = mysql_query("SELECT * FROM Games ORDER BY game") or die(mysql_error
                             <option value="6" id="frontday">6</option>
                             <option value="7" id="frontday">7</option>
                             <option value="8" id="frontday">8</option>
-                            <option value="9" id="frontday">9</option>
+                            <option value="9" id="fronstday">9</option>
                             <option value="10" id="frontday">10</option>
                             <option value="11" id="frontday">11</option>
                             <option value="12" id="frontday">12</option>

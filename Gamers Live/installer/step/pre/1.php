@@ -2,11 +2,63 @@
 error_reporting(0);
 session_start();
 
-if($_SESSION['valid_key'] != true){
-    header('Location: http://www.gamers-live.net/installer/?error=Please try the installation again&app='.$app.'');
+if($_POST['serial_key'] == ""){
+
+}else{
+    $_SESSION['serial_key'] = $_POST['serial_key'];
+}
+
+$key = $_SESSION['serial_key'];
+
+$app = "Gamers Live";
+
+if($key == ""){
+    header('Location: http://www.gamers-live.net/installer/?error=Please enter a valid serial key&app='.$app.'');
+    exit;
+}
+
+if($key == null){
+    header('Location: http://www.gamers-live.net/installer/?error=Please enter a valid serial key&app='.$app.'');
+    exit;
+}
+
+// Database info
+$database_url = "127.0.0.1";
+$database_user = "root";
+$database_pw = "";
+
+// connect to database
+$connect = mysql_connect($database_url, $database_user, $database_pw) or die(mysql_error());
+
+// select the database we need
+$select_db = mysql_select_db("store", $connect) or die(mysql_error());
+
+// first we check if there is a key wihh that string
+
+$select_key = mysql_query("SELECT * FROM store_nexus_licensekeys WHERE lkey_key = '$key' AND lkey_active = '1'") or die(mysql_error());
+$select_key_results = mysql_fetch_array($select_key);
+$select_key_count = mysql_num_rows($select_key);
+
+if($select_key_count < "1"){
+    header('Location: http://www.gamers-live.net/installer/?error=The serial key is not valid&app='.$app.'');
     exit;
 }
 $app = "Gamers Live";
+// setting variable
+$ps_member = $select_key_results['lkey_member'];
+
+// new we need to check if the key is expired
+
+$select_product = mysql_query("SELECT * from store_nexus_purchases WHERE ps_member = '$ps_member' AND ps_active = '1'") or die(mysql_error());
+$select_product_count = mysql_num_rows($select_product);
+
+if($select_product_count == "0"){
+    header('Location: http://www.gamers-live.net/installer/?error=The entered serial key is has expired&app='.$app.'');
+    exit;
+}else{
+    $_SESSION['valid_key'] = true;
+    $_SESSION['version'] = $_POST['version'];
+}
 ?>
 <!doctype html>
 <html lang="en" class="no-js">
@@ -50,7 +102,7 @@ $app = "Gamers Live";
     <!-- start header -->
     <header>
         <!-- logo -->
-        <h1 id="logo"><a href="./">Gamers Live</a></h1>
+        <h1 id="logo"><a href="../">Gamers Live</a></h1>
         <!-- nav -->
         <br class="cl" />
     </header>
@@ -64,18 +116,16 @@ $app = "Gamers Live";
         <!-- page content -->
         <div id="page-content">
             <div class="grid_12">
-                <h3>Checklist</h3>
-                <p>Before we continue we need to make sure you have done the following steps that is required for Gamers Live to work:</p>
-                <ul class="bullet-list">
-                    <li>Installed WOWZA?</li>
-                    <li>Setup connectioncounts in WOWZA?</li>
-                    <li>Imported the WOWZA files that was included with the Gamers Live installation directory, into your WOWZA installation directory?</li>
-                    <li>Imported the SQL Database file that was included in the Gamers Live installation directory, into your mySQL database for Gamers Live?</li>
-                    <li>Made the following directories CHMOD 777: "/account/register/", "/account/settings/", "/account/admin/" and "/user/"?</li>
-                </ul>
-                <p>Should you not have done one or more if these essential actions then please visit <a href="http://gamers-live.net/store/index.php/topic/3-gamers-live-installation-guide/"/>our installation guide</a> for more information regarding this procedure. As this installation do <b>NOT</b> take care of this, and Gamers Live with <b>NOT</b> work if these actions are left undone.</p>
-                <form method="post" action="1.php">
-                    <button class="fr" type="submit" id="submit">Yep it's done</button>
+                <div class="notification success"> <span class="strong">Success!</span> The key: <?=$key?> is valid!</div>
+                <h3>WOWZA installation</h3>
+                <p>Before we can start to install Gamers Live, we need to make sure you have installed and configured WOWZA Media Server correctly to work with Gamers Live</p>
+                <p><b>Have you installed and configured WOWZA media server 3.5 or above to work with Gamers Live?</b></p>
+
+                <form method="post" action="2.php">
+                    <button class="fr blue" type="submit" id="submit">No - Help me install WOWZA</button>
+                </form>                
+                <form method="post" action="../check.php">
+                    <button class="fr" type="submit" id="submit">Yes</button>
                 </form>
             </div>
         </div>

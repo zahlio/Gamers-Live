@@ -166,3 +166,5 @@ pip-log.txt
 .idea
 .name
 .xml
+/nbproject/private/
+/Gamers Live/nbproject/private/

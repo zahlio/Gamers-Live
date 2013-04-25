@@ -72,13 +72,14 @@ $error = $_GET['error'];
                 ?>
                 <p>Please enter your <?=$app?> serial key code below to start the activation and installation of <?=$app?>. <br>Should you need help finding your serial key code then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/" >here</a>.</p>
                 <h3>Serial Key</h3>
-                <form method="post" action="./step/check.php">
+                <form method="post" action="./step/pre/1.php">
                     <p>
                         <input name="serial_key" id="serial_key" value="" type="text" style="width: 860px"/>
                         <input name="version" type="hidden" id="version" value="<?=$version?>">
                     </p>
                     <button class="fr" type="submit" id="submit">Continue</button>
                 </form>
+                <i>View your license <a href="http://gamers-live.net/store/index.php?app=nexus&module=clients&section=purchases">keys</a>.</i>
             </div>
             <br>
         </div>
