@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 session_start();
 
@@ -17,16 +18,6 @@ $msg = $_GET["msg"];
 if($msg == ""){
 $msg = header( 'Location: '.$conf_site_url.'/account/admin?<? SID; ?>' );
 }
-
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-			
-// connect to database
-
-			
-// select thje database we need
-
 
 // update data with msg
 

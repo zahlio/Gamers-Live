@@ -1,16 +1,12 @@
 <?php
 error_reporting(0);
 
-
 // in the first part we will update offline and online for all channels.
 // this script checks if a stream is online and updates the value in the database.
 
 // we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-$dir_name = basename(__DIR__);
+include_once("../config.php");
+include_once("../analyticstracking.php");
 
 // we then select the streams (that are offline) we want to update to online first
 
@@ -31,7 +27,7 @@ while($streams_row = mysql_fetch_array($streams))
     $dom = new DOMDocument();
     @$dom->loadXML($xml);
     $xpath = new DOMXPath($dom);
-    $items = $xpath->query('/WowzaMediaServer/VHost/Application[Name="' . $channel_id . '"]/ApplicationInstance/Stream[Name="' . $channel_id . '"]');
+    $items = $xpath->query('/WowzaMediaServer/VHost/Application[Name="'.$channel_id.'"]/ApplicationInstance/Stream[Name="'.$channel_id .'"]');
     for ($i = 0; $i < $items->length; $i++)
     {
         $temp = $xpath->query('SessionsFlash', $items->item($i));
@@ -78,4 +74,5 @@ while($games_row = mysql_fetch_array($games_get)){
 }
 
 exit;
+
 ?>

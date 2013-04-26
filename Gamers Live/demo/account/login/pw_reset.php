@@ -1,12 +1,8 @@
 <?php
 error_reporting(0);
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
-
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-include_once("".$conf_ht_docs_gl."/files/check.php");
-include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 // we will now reset the password for the email and send the new password to that email
 
 $email = $_POST['email'];
@@ -22,7 +18,6 @@ if($email == ""){
 if(strpos($email,'@') == false){
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please enter a valid email' );
 }
-
 
 
 $new_pw = rand(10000000, 90000000);
@@ -46,13 +41,15 @@ Your new password for this account is: ".$new_pw."<br>
 Should you not have performed this action please contact support and we can disable this feature for your account.<br>
 <br>
 Best Regards,<br>
-".$conf_site_name."";
+".$conf_site_name."
+";
 
 $header  = "MIME-Version: 1.0" . "\r\n";
 $header .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-$header .= "from:".$conf_email.";
+$header .= "from:".$conf_email."";
 
 mail($email, $emne, $besked, $header); //Send!!
 
-header( 'Location: '.$conf_site_url.'/account/login/?msg=Your password was successfully reset, and we have emailed the new one to '.$email.'' );
+header('Location: '.$conf_site_url.'/account/login/?msg=Your password was successfully reset and we have emailed the new one to: '.$email.'');
+exit;
 ?>

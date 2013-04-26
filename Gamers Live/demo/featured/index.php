@@ -1,10 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
 <?php
 error_reporting(0);
-
-
-
+include_once("../config.php");
+include_once("../analyticstracking.php");
 
 session_start();
 
@@ -13,19 +11,6 @@ if ($_SESSION['access'] != true) {
 }else{
     $login_box = '<div class="top_login_box"><a href="<?=$conf_site_url?>/account/logout/">Logout</a><a href="<?=$conf_site_url?>/account/settings/">Settings</a></div>';
 }
-
-include_once("".$conf_ht_docs_gl."/analyticstracking.php");
-
-// we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-// connect to databases
-
-
-// select the database we need
-
 
 $per_page = 5;
 
@@ -136,7 +121,7 @@ $result = mysql_query("SELECT * FROM channels WHERE featured='1' AND online='Onl
                     <li><a href="<?=$conf_site_url?>/browse/wow/?"><span>WoW</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/callofduty/?"><span>Call Of Duty</span></a></li>
                     <li><a href="<?=$conf_site_url?>/browse/minecraft/?"><span>Minecraft</span></a></li>
-                    <li><a href="<?=$conf_site_url?>/browse/other/?"><span>Other</span></a></li>
+                    <li><a href="<?=$conf_site_url?>/browse/"><span>Other</span></a></li>
                     <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                     <li><a href="#"><span>More</span></a>
                         <ul>

@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
-
+ob_start();
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
+ob_end_clean();
 
 // this script returns the number of viewers for any chat
 // also remember that the viewers tab are only updated every 1 min
@@ -9,10 +12,7 @@ $channel = $_GET['channel'];
 
 // get all user details from this account
 ob_start();
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-include_once("".$conf_ht_docs_gl."/files/check.php");
+
 ob_end_clean();
 
 // connect to database

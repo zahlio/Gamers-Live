@@ -1,5 +1,7 @@
 <?php
 session_start();
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 if ($_SESSION['access'] != true) {
 	header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;	
@@ -14,16 +16,6 @@ $msg = $_GET["msg"];
 if($msg == ""){
 $msg = header( 'Location: '.$conf_site_url.'/account/channel/?<? SID; ?>' );
 }
-
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-			
-// connect to database
-
-			
-// select thje database we need
-
 
 // update data with msg
 

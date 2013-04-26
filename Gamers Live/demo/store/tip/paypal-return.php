@@ -1,14 +1,12 @@
 <?php
-
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 
 // source: https://www.x.com/developers/PayPal/documentation-tools/code-sample/216623
 
 // STEP 1: Read POST data
 // we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
 // reading posted data from directly from $_POST causes serialization 
 // issues with array data in POST
 // reading raw POST data from input stream instead. 

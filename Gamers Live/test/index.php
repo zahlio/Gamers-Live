@@ -2,10 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 error_reporting(0);
-include_once("../../config.php");
-include_once("../../analyticstracking.php");
 
-$dir_name = basename(__DIR__);
+
+$inc_path = $_SERVER['DOCUMENT_ROOT'];
+$inc_path .= "/config.php";
+include_once($inc_path);
+include_once("".$conf_ht_docs_gl."/files/check.php");
+
+
+include_once("".$conf_ht_docs_gl."/analyticstracking.php");
+$dir_name = "zahlio";
+
+
 
 $result = mysql_query("SELECT * FROM channels WHERE channel_id='$dir_name'");
 $row = mysql_fetch_array($result);
@@ -65,7 +73,7 @@ if ($_SESSION['access'] != true) {
         $ads = "0";
     }
 
-    $avatar_url = "<?=$conf_site_url?>/user/".$name."/avatar.png";
+    $avatar_url = "'.$conf_site_url.'/user/".$name."/avatar.png";
     $profile_url = "'.$conf_site_url.'/account/channel/chat/ban.php?username=".$name."&channel=".$channel_id."";
     $subscribe = '<a href="'.$conf_site_url.'/account/sub/?channel='.$channel_id.'" class="button_link"><span>Subscribe</span></a>';
 }
@@ -265,7 +273,7 @@ if($chat == 'true' && $status == 'online'){
                         url: '<?=$channel_id?>',
                         live: true,
                         provider: 'rtmp',
-                        ads: "<?=$videoad?>"
+                        ads: "none"
                     },
                     plugins: {
 
@@ -275,7 +283,7 @@ if($chat == 'true' && $status == 'online'){
 
                         rtmp: {
                             url: '<?=$conf_site_url?>/files/flowplayer.rtmp-3.2.11.swf',
-                            netConnectionUrl: '<?=$server_rtmp?><?=$channel_id?>'
+                            netConnectionUrl: '<?=$server_rtmp?>live'
                         },
 
                         adsense: {
@@ -286,7 +294,7 @@ if($chat == 'true' && $status == 'online'){
                     },
                     onError: function(err) {
                         this.unload();
-                        $('#stream').html('<img src="offline_img.png" height="540" width="960" />').fadeIn('fast');
+                        $('#stream').html('<img src="<?=$conf_site_url?>/user/<?=$channel_id?>/offline_img.png" height="540" width="960" />').fadeIn('fast');
                         <?=$offline_url?>
                     }
                 }

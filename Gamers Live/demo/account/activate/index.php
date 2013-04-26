@@ -1,12 +1,9 @@
-
-			<?php
+<?php
 error_reporting(0);
 
 
-            $inc_path = $_SERVER['DOCUMENT_ROOT'];
-            $inc_path .= "/config.php";
-            include_once($inc_path);
-            include_once("".$conf_ht_docs_gl."/files/check.php");
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 session_start();
 
@@ -20,34 +17,34 @@ if ($_SESSION['access'] != true) {
 }
 
 ?>
-            <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-            <html xmlns="http://www.w3.org/1999/xhtml">
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="author" content="ThemeFuse" />
-                <meta name="Description" content="A short description of your company" />
-                <meta name="Keywords" content="Some keywords that best describe your business" />
-                <title><?=$conf_site_name?></title>
-                <link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
-                <link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ThemeFuse" />
+<meta name="Description" content="A short description of your company" />
+<meta name="Keywords" content="Some keywords that best describe your business" />
+<title><?=$conf_site_name?></title>
+<link rel="shortcut icon" href="<?=$conf_site_url?>/favicon.ico" />
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
 
-                <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
-                <script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
-                <script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/preloadCssImages.js"></script>
+<script type="text/javascript" src="<?=$conf_site_url?>/js/jquery.color.js"></script>
 
-                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
-                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
-                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/general.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.tools.min.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/jquery.easing.1.3.js"></script>
 
-                <script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
+<script type="text/javascript" language="JavaScript" src="<?=$conf_site_url?>/js/slides.jquery.js"></script>
 
-                <link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
-                <script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?=$conf_site_url?>/css/prettyPhoto.css" type="text/css" media="screen" />
+<script src="<?=$conf_site_url?>/js/jquery.prettyPhoto.js" type="text/javascript"></script>
 
-                <!--[if IE 7]>
-                <link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
-                <![endif]-->
-            </head>
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="<?=$conf_site_url?>css/ie.css" />
+<![endif]-->
+</head>
 <body>
 <div class="body_wrap thinpage">
 
@@ -71,14 +68,14 @@ if ($_SESSION['access'] != true) {
           <!-- topmenu -->
         <div class="topmenu">
                     <ul class="dropdown">
-                        <li><a href="<?=$conf_site_url?>/browse/lol/"><span>LoL</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/dota2/"><span>Dota 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/hon/"><span>HoN</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/sc2/"><span>SC 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Other</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=league+of+legends"><span>LoL</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=dota+2"><span>Dota 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Heroes+of+Newerth"><span>HoN</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Star+Craft+2"><span>SC 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=World+Of+Warcraft"><span>WoW</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Call+Of+Duty"><span>Call Of Duty</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Minecraft"><span>Minecraft</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/"><span>Other</span></a></li>
                         <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>

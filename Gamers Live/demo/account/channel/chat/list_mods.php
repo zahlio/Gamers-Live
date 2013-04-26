@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-
+include_once("../../../config.php");
+include_once("../../../analyticstracking.php");
 
 
 session_start();
@@ -14,17 +15,7 @@ if ($_SESSION['access'] != true) {
 }
 
 $channel_id = $_GET['channel'];
-
-// we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-// connect to database
-
-
 // select the database we need
-
 
 // first we check if user is already banned
 $accounts = mysql_query("SELECT * FROM chat_mods WHERE channel_id='$channel_id' AND moderator='1'") or die(mysql_error());

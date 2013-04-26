@@ -1,14 +1,10 @@
-
 <?php
 error_reporting(0);
-
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 
 session_start();
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-include_once("".$conf_ht_docs_gl."/files/check.php");
 
 $donater_name = $_SESSION['channel_id'];
 $user_email = $_SESSION['email'];
@@ -52,7 +48,7 @@ $tip_per = $row['tip_perc'];
 $comment1 = chunk_split(strip_tags($row['info2']), 40, '<br>');
 
 // generate the number for this purchase
-$r_nr = rand(999, 9999);
+$r_nr = rand(1000, 9999);
 $item_nr = "".time()."".$r_nr."-".$channel_id."";
 // add purchase to the db
 
@@ -99,25 +95,22 @@ if($gateway == "paypal" && $paypal == true){
             return false
         }
     }
+    
     // calculation of the amount the steamer will get
     function calc_paypal(){
-            x=document.paymentpaypal
-            number=x.amount.value
-            document.getElementById('current').innerHTML = number;
-            if(number >= 1.00){
-                streamer_cut = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>)
-                document.getElementById('streamers_cut').innerHTML = streamer_cut.toFixed(2);
-            }else{
-                document.getElementById('streamers_cut').innerHTML = '0.00';
-            }
+        x=document.paymentpaypal
+        number=x.amount.value
+        document.getElementById('current').innerHTML = number;
+        streamer_cut_amount = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>);
+        document.getElementById('streamers_cut').innerHTML = streamer_cut_amount.toFixed(2);
     }
-
+    
     function start_calc_paypal(){
         x=document.paymentpaypal
         number=x.amount.value
-            document.getElementById('current').innerHTML = number;
-            streamer_cut = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>)
-            document.getElementById('streamers_cut').innerHTML = streamer_cut.toFixed(2);
+        document.getElementById('current').innerHTML = number;
+        streamer_cut_amount = (number - (number * 0.034) - 0.5) * (0.<?=$tip_per?>);
+        document.getElementById('streamers_cut').innerHTML = streamer_cut_amount.toFixed(2);
     }
 </script>
 <body onload="start_calc_paypal()">
@@ -144,14 +137,14 @@ if($gateway == "paypal" && $paypal == true){
           <!-- topmenu -->
         <div class="topmenu">
                     <ul class="dropdown">
-                        <li><a href="<?=$conf_site_url?>/browse/lol/"><span>LoL</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/dota2/"><span>Dota 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/hon/"><span>HoN</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/sc2/"><span>SC 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Other</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=league+of+legends"><span>LoL</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=dota+2"><span>Dota 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Heroes+of+Newerth"><span>HoN</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Star+Craft+2"><span>SC 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=World+Of+Warcraft"><span>WoW</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Call+Of+Duty"><span>Call Of Duty</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Minecraft"><span>Minecraft</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/"><span>Other</span></a></li>
                         <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>

@@ -1,16 +1,11 @@
 <?php
 error_reporting(0);
-
-
-// this script send msg to database
-
-//
-
 ob_start();
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 ob_end_clean();
+
+
 session_start();
 $username = $_SESSION['channel_id'];
 $channel_id = $_GET['channel'];

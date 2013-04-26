@@ -2,18 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 error_reporting(0);
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
-
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-include_once("".$conf_ht_docs_gl."/files/check.php");
-
-
-include_once("".$conf_ht_docs_gl."/analyticstracking.php");
 $dir_name = basename(__DIR__);
-
-
 
 $result = mysql_query("SELECT * FROM channels WHERE channel_id='$dir_name'");
 $row = mysql_fetch_array($result);

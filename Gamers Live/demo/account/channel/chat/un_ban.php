@@ -1,8 +1,7 @@
-<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
-<title>Bannned Chat User</title>
 <?php
 error_reporting(0);
-
+include_once("../../../config.php");
+include_once("../../../analyticstracking.php");
 
 
 session_start();
@@ -14,19 +13,6 @@ if ($_SESSION['access'] != true) {
     header( 'Location: '.$conf_site_url.'/account/login/?msg=Please login to view this page' ) ;
     exit;
 }
-
-// we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-$dir_name = basename(__DIR__);
-
-// connect to database
-
-
-// select the database we need
-
 
 $mod_name = $_SESSION['channel_id'];
 
@@ -61,4 +47,6 @@ if($can_ban == true){
     $msg = 'You have unbanned '.$username.'';
 }
 ?>
+<link href="<?=$conf_site_url?>/style.css" media="screen" rel="stylesheet" type="text/css" />
+<title>Bannned Chat User</title>
 <center><h3><?=$msg?></h3></center>

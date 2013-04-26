@@ -1,3 +1,8 @@
+<?php
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
+?>
+
 <html>
 <body background="<?=$conf_site_url?>/error/images/bg.png">
     <center>

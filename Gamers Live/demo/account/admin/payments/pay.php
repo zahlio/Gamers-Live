@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-
+include_once("../../../config.php");
+include_once("../../../analyticstracking.php");
 
 session_start();
 
@@ -16,16 +17,6 @@ $email = $_POST['email'];
 $tran_id = $_POST['tran_id'];
 $month = $_POST['month'];
 $send_date = date("j/n/Y");
-
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-// connect to database
-
-
-// select the database we need
-
 
 // we first make the new payment
 $insert_payment = mysql_query("INSERT INTO partner_payments (partner_channel_id, ads_amount, tips_amount, for_month, skrill_trans_id, to_email, send_date) VALUES ('$partner_id', '$ads', '$tips', '$month', '$tran_id', '$email', '$send_date')") or die(mysql_error());

@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 // first get email we need to send to
 
@@ -9,18 +10,6 @@ $email = $_GET['email'];
 // then we update the data base with a key that the user needs to confirm
 
 $email_key = time();
-
-// we now update the database for this email
-
-// we first get data from our mysql database
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
-
-// connect to database
-
-			
-// select thje database we need
 
 
 $update = mysql_query("UPDATE users SET activate_id='$email_key' WHERE email='$email' AND active='0'");

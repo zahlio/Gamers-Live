@@ -2,17 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
 error_reporting(0);
-
-
-
+include_once("config.php");
+include_once("analyticstracking.php");
 
 session_start();
 
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);
-
-if(!include_once($inc_path)){
+if(!include_once("config.php")){
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=http://gamers-live.net/installer/?app=gl">';
 }else{
     include_once("".$conf_ht_docs_gl."/files/check.php");;
@@ -173,14 +168,14 @@ include('slider.php');
         <!-- topmenu -->
         <div class="topmenu">
                     <ul class="dropdown">
-                        <li><a href="<?=$conf_site_url?>/browse/lol/"><span>LoL</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/dota2/"><span>Dota 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/hon/"><span>HoN</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/sc2/"><span>SC 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/wow/"><span>WoW</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=league+of+legends"><span>LoL</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=dota+2"><span>Dota 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Heroes+of+Newerth"><span>HoN</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Star+Craft+2"><span>SC 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=World+Of+Warcraft"><span>WoW</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/callofduty/"><span>Call Of Duty</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/minecraft/"><span>Minecraft</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/other/"><span>Other</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Minecraft"><span>Minecraft</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/"><span>Other</span></a></li>
                         <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>
@@ -205,17 +200,13 @@ include('slider.php');
         <a href="<?=$conf_site_url?>/user/<?=$channel_id?>"><h2><?=$title?> </h2></a>
                     <center>
 
-         			<a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
-                    </a>
+                        <a style="display:block;width:960px;height:540px;margin:10px auto" id="stream">
+                        </a>
                     </center>
                     <?=$button?>
                     <br>
                     <?php
-error_reporting(0);
-
-
-
-                    if($count > 1){
+                    if($count >= 1){
                         while($featured_row = mysql_fetch_array($featured_res)){
                             echo '<a href="?id='.$featured_row['channel_id'].'"><img src="'.$featured_row['feature_img'].'" class="tabs_framed" height="108" width="184" alt="Watch '.$featured_row['channel_id'].'"></a>';
                         }
@@ -250,15 +241,15 @@ error_reporting(0);
                                     }
                                 },
 
-							    onError: function(err) {
-								   	this.unload();
-									var element = document.getElementById('stream');
-									element.parentNode.removeChild(element);
-									<?=$offline_url?>
-								}
-							}
-						);
-					</script>
+                                onError: function(err) {
+                                            this.unload();
+                                            var element = document.getElementById('stream');
+                                            element.parentNode.removeChild(element);
+                                            <?=$offline_url?>
+                                }
+                            }
+                        );
+                    </script>
             <center>
                 <?=$featured_bar?>
             </center>
@@ -281,7 +272,7 @@ error_reporting(0);
         echo '<div class="col col_1_3">';
         echo '<div class="inner">';
         echo '<center>';
-        echo '<a href="'.$conf_site_url.'/browse/other/" /><h3>Other Games</h3>';
+        echo '<a href="'.$conf_site_url.'/browse/" /><h3>Other Games</h3>';
         echo '<img src="'.$conf_site_url.'/images/frontpage/other_normal.png" class="tabs_framed"/>';
         echo '</a>';
         echo '</center>';

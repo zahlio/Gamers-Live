@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
-
+include_once("../../config.php");
+include_once("../../analyticstracking.php");
 
 session_start();
 
@@ -13,10 +14,7 @@ if ($_SESSION['access'] != true && $_SESSION['admin'] != true) {
 $email = $_SESSION['email'];
 $channel_id = $_SESSION['channel_id'];
 $admin = $_SESSION['admin'];
-				
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
+
 
 // connect to database
 
@@ -95,14 +93,14 @@ $total_members_count = mysql_num_rows($total_members);
           <!-- topmenu -->
         <div class="topmenu">
                     <ul class="dropdown">
-                        <li><a href="<?=$conf_site_url?>/browse/lol/?<?=SID; ?>"><span>LoL</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/dota2/?<?=SID; ?>"><span>Dota 2</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/hon/?<?=SID; ?>"><span>HoN</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/sc2/?<?=SID; ?>"><span>SC 2</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=league+of+legends"><span>LoL</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=dota+2"><span>Dota 2</span></a></li></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Heroes+of+Newerth"><span>HoN</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Star+Craft+2"><span>SC 2</span></a></li>
                         <li><a href="<?=$conf_site_url?>/browse/wow/?<?=SID; ?>"><span>WoW</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/callofduty/?<?=SID; ?>"><span>Call Of Duty</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/minecraft/?<?=SID; ?>"><span>Minecraft</span></a></li>
-                        <li><a href="<?=$conf_site_url?>/browse/other/?<?=SID; ?>"><span>Other</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Call+Of+Duty"><span>Call Of Duty</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/?s=Minecraft"><span>Minecraft</span></a></li>
+                        <li><a href="<?=$conf_site_url?>/browse/"><span>Other</span></a></li>
                         <li><a href="<?=$conf_site_url?>/events/"><span>Events</span></a></li>
                         <li><a href="#"><span>More</span></a>                        
                         	<ul>

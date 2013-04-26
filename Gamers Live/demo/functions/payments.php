@@ -5,9 +5,8 @@ error_reporting(0);
 
 // should run every month on the 16th
 
-$inc_path = $_SERVER['DOCUMENT_ROOT'];
-$inc_path .= "/config.php";
-include_once($inc_path);include_once("".$conf_ht_docs_gl."/files/check.php");
+include_once("../config.php");
+include_once("../analyticstracking.php");
 
 $p_day = date("j");
 $p_month = date("m");
