@@ -71,7 +71,7 @@ $app = "Gamers Live";
         <!-- page content -->
         <div id="page-content">
             <div class="grid_12">
-                <p>The following is your config.php file, this should be placed at the root directory of your htdocs folder. Should you need help with this procedure then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/">here</a>.</p>
+                <p>The following is your <i>config.php</i> file, this should be placed at the root directory of your Gamers Live installation (in this case: <?=$_SESSION['ht_docs_gl']?>) folder. Should you need help with this procedure then see more information <a href="http://gamers-live.net/store/index.php?/topic/3-gamers-live-installation-guide/">here</a>.</p>
 
                 <h3>Config.php</h3>
 
@@ -102,7 +102,7 @@ $conf_video_channel = "<?=$_SESSION['ads_channel']?>";
 // store
 $conf_store_paypal_email = "<?=$_SESSION['paypal_email']?>";
 
-// company information<
+// company information
 $conf_address = "<?=$_SESSION['address']?>";
 $conf_phone = "<?=$_SESSION['phone']?>";
 $conf_support_email = "<?=$_SESSION['email']?>";
